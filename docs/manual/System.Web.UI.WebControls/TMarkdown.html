@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TMarkdown</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TMarkdown</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TMarkdown class</p>
+<p class="description"><p>TMarkdown is a control that produces HTML from code with markdown syntax.</p><p>Markdown is a text-to-HTML conversion tool for web writers. Markdown allows  you to write using an easy-to-read, easy-to-write plain text format, then  convert it to structurally valid XHTML (or HTML).  Further documentation regarding Markdown can be found at  http://daringfireball.net/projects/markdown/</p><p>To use TMarkdown, simply enclose the content to be rendered within  the body of TMarkdown in a template.</p><p>See http://www.pradosoft.com/demos/quickstart/?page=Markdown for  details on the Markdown syntax usage.</p><p>TMarkdown also performs syntax highlighting for code blocks whose language  is recognized by <a href="../System.Web.UI.WebControls/TTextHighlighter.html">TTextHighlighter</a>.  The language of a code block must be specified in the first line of the block  and enclosed within a pair of square brackets (e.g. [php]).</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0.1</li>
+				<li><span class="field">version:</span> $Id: TMarkdown.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_WebControls_TMarkdown_php.html">/Web/UI/WebControls/TMarkdown.php</a> (line <span class="field">46</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System.Web.UI/TControl.html">TControl</a>
+         |
+         --<a href="../System.Web.UI.WebControls/TWebControl.html">TWebControl</a>
+            |
+            --<a href="../System.Web.UI/TTextProcessor.html">TTextProcessor</a>
+               |
+               --<a href="../System.Web.UI.WebControls/TTextHighlighter.html">TTextHighlighter</a>
+                  |
+                  --TMarkdown</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#highlightCode" title="details" class="method-name">highlightCode</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$matches</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#processText" title="details" class="method-name">processText</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$text</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodhighlightCode" id="highlightCode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">highlightCode</span> (line <span class="line-number">68</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Highlights source code using TTextHighlighter</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> highlighted code.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			highlightCode
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$matches</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$matches</span><span class="var-description">: matches of code blocks</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodprocessText" id="processText"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">processText</span> (line <span class="line-number">54</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Processes a text string.</p>
+<p class="description"><p>This method is required by the parent class.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the processed text result</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			processText
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$text</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$text</span><span class="var-description">: text string to be processed</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodprocessText">TTextHighlighter::processText()</a></dt>
+						<dd>Processes a text string.</dd>
+					</dl>
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.WebControls/TTextHighlighter.html">TTextHighlighter</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodgetEnableCopyCode">TTextHighlighter::getEnableCopyCode()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodgetHeaderTemplate">TTextHighlighter::getHeaderTemplate()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodgetLanguage">TTextHighlighter::getLanguage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodgetLineNumberStyle">TTextHighlighter::getLineNumberStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodgetShowLineNumbers">TTextHighlighter::getShowLineNumbers()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodgetTabSize">TTextHighlighter::getTabSize()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodgetTagName">TTextHighlighter::getTagName()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodonPreRender">TTextHighlighter::onPreRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodprocessText">TTextHighlighter::processText()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodregisterStyleSheet">TTextHighlighter::registerStyleSheet()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodsetEnableCopyCode">TTextHighlighter::setEnableCopyCode()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodsetLanguage">TTextHighlighter::setLanguage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodsetLineNumberStyle">TTextHighlighter::setLineNumberStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodsetShowLineNumbers">TTextHighlighter::setShowLineNumbers()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextHighlighter.html#methodsetTabSize">TTextHighlighter::setTabSize()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI/TTextProcessor.html">TTextProcessor</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI/TTextProcessor.html#methodaddParsedObject">TTextProcessor::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TTextProcessor.html#methodgetText">TTextProcessor::getText()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TTextProcessor.html#methodprocessText">TTextProcessor::processText()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TTextProcessor.html#methodrenderContents">TTextProcessor::renderContents()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TTextProcessor.html#methodsetText">TTextProcessor::setText()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.WebControls/TWebControl.html">TWebControl</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodaddAttributesToRender">TWebControl::addAttributesToRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodclearStyle">TWebControl::clearStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodcopyBaseAttributes">TWebControl::copyBaseAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodcreateStyle">TWebControl::createStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetAccessKey">TWebControl::getAccessKey()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBackColor">TWebControl::getBackColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderColor">TWebControl::getBorderColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderStyle">TWebControl::getBorderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderWidth">TWebControl::getBorderWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetCssClass">TWebControl::getCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetDisplay">TWebControl::getDisplay()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetFont">TWebControl::getFont()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetForeColor">TWebControl::getForeColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetHasStyle">TWebControl::getHasStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetHeight">TWebControl::getHeight()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetStyle">TWebControl::getStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetTabIndex">TWebControl::getTabIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetTagName">TWebControl::getTagName()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetToolTip">TWebControl::getToolTip()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetWidth">TWebControl::getWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrender">TWebControl::render()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderBeginTag">TWebControl::renderBeginTag()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderContents">TWebControl::renderContents()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderEndTag">TWebControl::renderEndTag()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetAccessKey">TWebControl::setAccessKey()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBackColor">TWebControl::setBackColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderColor">TWebControl::setBorderColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderStyle">TWebControl::setBorderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderWidth">TWebControl::setBorderWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetCssClass">TWebControl::setCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetDisplay">TWebControl::setDisplay()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetForeColor">TWebControl::setForeColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetHeight">TWebControl::setHeight()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetStyle">TWebControl::setStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetTabIndex">TWebControl::setTabIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetToolTip">TWebControl::setToolTip()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetWidth">TWebControl::setWidth()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI/TControl.html">TControl</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#method__construct">TControl::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddedControl">TControl::addedControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddParsedObject">TControl::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddToPostDataLoader">TControl::addToPostDataLoader()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodapplyStyleSheetSkin">TControl::applyStyleSheetSkin()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodautoBindProperty">TControl::autoBindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodautoDataBindProperties">TControl::autoDataBindProperties()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbindProperty">TControl::bindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbroadcastEvent">TControl::broadcastEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbubbleEvent">TControl::bubbleEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearChildState">TControl::clearChildState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearControlState">TControl::clearControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearNamingContainer">TControl::clearNamingContainer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearViewState">TControl::clearViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodconvertUniqueIdToClientId">TControl::convertUniqueIdToClientId()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodcreateChildControls">TControl::createChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodcreateControlCollection">TControl::createControlCollection()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBind">TControl::dataBind()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBindChildren">TControl::dataBindChildren()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBindProperties">TControl::dataBindProperties()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodensureChildControls">TControl::ensureChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControl">TControl::findControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControlsByID">TControl::findControlsByID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControlsByType">TControl::findControlsByType()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfocus">TControl::focus()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAdapter">TControl::getAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAllowChildControls">TControl::getAllowChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAttribute">TControl::getAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAttributes">TControl::getAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetChildControlsCreated">TControl::getChildControlsCreated()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetClientID">TControl::getClientID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControls">TControl::getControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControlStage">TControl::getControlStage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControlState">TControl::getControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetCustomData">TControl::getCustomData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnabled">TControl::getEnabled()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnableTheming">TControl::getEnableTheming()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnableViewState">TControl::getEnableViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasAdapter">TControl::getHasAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasAttributes">TControl::getHasAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasChildInitialized">TControl::getHasChildInitialized()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasControls">TControl::getHasControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasInitialized">TControl::getHasInitialized()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasLoaded">TControl::getHasLoaded()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasLoadedPostData">TControl::getHasLoadedPostData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasPreRendered">TControl::getHasPreRendered()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetID">TControl::getID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetNamingContainer">TControl::getNamingContainer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetPage">TControl::getPage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetParent">TControl::getParent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetRegisteredObject">TControl::getRegisteredObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetSkinID">TControl::getSkinID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetSourceTemplateControl">TControl::getSourceTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetTemplateControl">TControl::getTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetUniqueID">TControl::getUniqueID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetViewState">TControl::getViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetVisible">TControl::getVisible()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodhasAttribute">TControl::hasAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodinitRecursive">TControl::initRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodisDescendentOf">TControl::isDescendentOf()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodisObjectRegistered">TControl::isObjectRegistered()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadRecursive">TControl::loadRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadState">TControl::loadState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadStateRecursive">TControl::loadStateRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonDataBinding">TControl::onDataBinding()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonInit">TControl::onInit()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonLoad">TControl::onLoad()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonPreRender">TControl::onPreRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonUnload">TControl::onUnload()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodpreRenderRecursive">TControl::preRenderRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodraiseBubbleEvent">TControl::raiseBubbleEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodregisterObject">TControl::registerObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodremoveAttribute">TControl::removeAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodremovedControl">TControl::removedControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrender">TControl::render()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrenderChildren">TControl::renderChildren()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrenderControl">TControl::renderControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsaveState">TControl::saveState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsaveStateRecursive">TControl::saveStateRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetAdapter">TControl::setAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetAttribute">TControl::setAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetChildControlsCreated">TControl::setChildControlsCreated()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetControlStage">TControl::setControlStage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetControlState">TControl::setControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetCustomData">TControl::setCustomData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnabled">TControl::setEnabled()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnableTheming">TControl::setEnableTheming()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnableViewState">TControl::setEnableViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetID">TControl::setID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetPage">TControl::setPage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetSkinID">TControl::setSkinID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetTemplateControl">TControl::setTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetViewState">TControl::setViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetVisible">TControl::setVisible()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodtrackViewState">TControl::trackViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodtraverseChildControls">TControl::traverseChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunbindProperty">TControl::unbindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunloadRecursive">TControl::unloadRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunregisterObject">TControl::unregisterObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#method__get">TControl::__get()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../System.Web.UI/TControl.html">TControl</a></span></p>
+					<blockquote>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constAUTOMATIC_ID_PREFIX">TControl::AUTOMATIC_ID_PREFIX</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCLIENT_ID_SEPARATOR">TControl::CLIENT_ID_SEPARATOR</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_CHILD_INITIALIZED">TControl::CS_CHILD_INITIALIZED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_CONSTRUCTED">TControl::CS_CONSTRUCTED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_INITIALIZED">TControl::CS_INITIALIZED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_LOADED">TControl::CS_LOADED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_PRERENDERED">TControl::CS_PRERENDERED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_STATE_LOADED">TControl::CS_STATE_LOADED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constID_FORMAT">TControl::ID_FORMAT</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constID_SEPARATOR">TControl::ID_SEPARATOR</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_CHILD_CREATED">TControl::IS_CHILD_CREATED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_CREATING_CHILD">TControl::IS_CREATING_CHILD</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_DISABLE_THEMING">TControl::IS_DISABLE_THEMING</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_DISABLE_VIEWSTATE">TControl::IS_DISABLE_VIEWSTATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_ID_SET">TControl::IS_ID_SET</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_SKIN_APPLIED">TControl::IS_SKIN_APPLIED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_STYLESHEET_APPLIED">TControl::IS_STYLESHEET_APPLIED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_ADAPTER">TControl::RF_ADAPTER</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_AUTO_BINDINGS">TControl::RF_AUTO_BINDINGS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CHILD_STATE">TControl::RF_CHILD_STATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CONTROLS">TControl::RF_CONTROLS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CONTROLSTATE">TControl::RF_CONTROLSTATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_DATA_BINDINGS">TControl::RF_DATA_BINDINGS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_EVENTS">TControl::RF_EVENTS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_CONTROLS">TControl::RF_NAMED_CONTROLS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_CONTROLS_ID">TControl::RF_NAMED_CONTROLS_ID</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_OBJECTS">TControl::RF_NAMED_OBJECTS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_SKIN_ID">TControl::RF_SKIN_ID</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:15:12 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

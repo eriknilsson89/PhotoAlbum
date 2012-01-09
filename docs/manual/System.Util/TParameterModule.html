@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TParameterModule</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TParameterModule</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TParameterModule class</p>
+<p class="description"><p>TParameterModule enables loading application parameters from external  storage other than the application configuration.  To load parameters from an XML file, configure the module by setting  its <a href="../System.Util/TParameterModule.html#methodsetParameterFile">ParameterFile</a> property.  Note, the property only accepts a file path in namespace format with  file extension being '.xml'. The file format is as follows,  which is  similar to the parameter portion in an application configuration,  <pre><ol><code><pre><li> &lt;<span class="src-id">parameters</span>&gt;</li>
+<li>   &lt;<span class="src-id">parameter id</span>=<span class="src-str">&quot;param1&quot; </span><span class="src-id">value</span>=<span class="src-str">&quot;paramValue1&quot; </span>/&gt;</li>
+<li>   &lt;<span class="src-id">parameter id</span>=<span class="src-str">&quot;param2&quot; </span><span class="src-id">Property1</span>=<span class="src-str">&quot;Value1&quot; </span><span class="src-id">Property2</span>=<span class="src-str">&quot;Value2&quot; </span>... /&gt;</li>
+<li> &lt;/<span class="src-id">parameters</span>&gt;</li>
+</pre></code></ol></pre></p><p>In addition, any content enclosed within the module tag is also treated  as parameters, e.g.,  <pre><ol><code><pre><li> &lt;<span class="src-id">module </span><span class="src-key">class</span>=<span class="src-str">&quot;System.Util.TParameterModule&quot;</span>&gt;</li>
+<li>   &lt;<span class="src-id">parameter id</span>=<span class="src-str">&quot;param1&quot; </span><span class="src-id">value</span>=<span class="src-str">&quot;paramValue1&quot; </span>/&gt;</li>
+<li>   &lt;<span class="src-id">parameter id</span>=<span class="src-str">&quot;param2&quot; </span><span class="src-id">Property1</span>=<span class="src-str">&quot;Value1&quot; </span><span class="src-id">Property2</span>=<span class="src-str">&quot;Value2&quot; </span>... /&gt;</li>
+<li> &lt;/<span class="src-id">module</span>&gt;</li>
+</pre></code></ol></pre></p><p>If a parameter is defined both in the external file and within the module  tag, the former takes precedence.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TParameterModule.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Util_TParameterModule_php.html">/Util/TParameterModule.php</a> (line <span class="field">47</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --TParameterModule</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#PARAM_FILE_EXT" title="details" class="const-name">PARAM_FILE_EXT</a> = 					<span class="var-type">'.xml'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getParameterFile" title="details" class="method-name">getParameterFile</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadParameters" title="details" class="method-name">loadParameters</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$xmlNode</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setParameterFile" title="details" class="method-name">setParameterFile</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetParameterFile" id="getParameterFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getParameterFile</span> (line <span class="line-number">124</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the parameter file path</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getParameterFile
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">57</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the module by loading parameters.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: content enclosed within the module tag</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TModule.html#methodinit">TModule::init()</a></dt>
+						<dd>Initializes the module.</dd>
+					</dl>
+		
+	</div>
+<a name="methodloadParameters" id="loadParameters"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadParameters</span> (line <span class="line-number">87</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads parameters into application.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">throws:</span> TConfigurationException if the parameter file format is invalid</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadParameters
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$xmlNode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$xmlNode</span><span class="var-description">: XML representation of the parameters</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetParameterFile" id="setParameterFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setParameterFile</span> (line <span class="line-number">135</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the module is initialized</li>
+				<li><span class="field">throws:</span> TConfigurationException if the file is invalid</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setParameterFile
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the parameter file path. It must be in namespace format  and the file extension is '.xml'.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constPARAM_FILE_EXT" id="PARAM_FILE_EXT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">PARAM_FILE_EXT</span>
+			 = <span class="const-default">'.xml'</span>
+			(line <span class="line-number">49</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:15:36 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TDbDataReader</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TDbDataReader</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TDbDataReader class.</p>
+<p class="description"><p>TDbDataReader represents a forward-only stream of rows from a query result set.</p><p>To read the current row of data, call <a href="../System.Data/TDbDataReader.html#methodread">read</a>. The method <a href="../System.Data/TDbDataReader.html#methodreadAll">readAll</a>  returns all the rows in a single array.</p><p>One can also retrieve the rows of data in TDbDataReader by using foreach:  <pre><ol><code><pre><li> <span class="src-key">foreach</span><span class="src-sym">(</span><span class="src-var">$reader </span><span class="src-key">as </span><span class="src-var">$row</span><span class="src-sym">)</span></li>
+<li>     <span class="src-comm">// $row represents a row of data</span></li>
+</pre></code></ol></pre>  Since TDbDataReader is a forward-only stream, you can only traverse it once.</p><p>It is possible to use a specific mode of data fetching by setting  <a href="../System.Data/TDbDataReader.html#methodsetFetchMode">FetchMode</a>. See <a href="http://www.php.net/manual/en/function.PDOStatement-setFetchMode.php">http://www.php.net/manual/en/function.PDOStatement-setFetchMode.php</a>  for more details.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TDbDataReader.php 2920 2011-05-21 19:29:39Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_TDbDataReader_php.html">/Data/TDbDataReader.php</a> (line <span class="field">37</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TDbDataReader</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TDbDataReader</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">TDbCommand</span>&nbsp;<span class="var-name">$command</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#bindColumn" title="details" class="method-name">bindColumn</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">&$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$dataType</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#close" title="details" class="method-name">close</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#current" title="details" class="method-name">current</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getColumnCount" title="details" class="method-name">getColumnCount</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsClosed" title="details" class="method-name">getIsClosed</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getRowCount" title="details" class="method-name">getRowCount</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#key" title="details" class="method-name">key</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#next" title="details" class="method-name">next</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#nextResult" title="details" class="method-name">nextResult</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array|false</span>
+										<a href="#read" title="details" class="method-name">read</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#readAll" title="details" class="method-name">readAll</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed|false</span>
+										<a href="#readColumn" title="details" class="method-name">readColumn</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$columnIndex</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed|false</span>
+										<a href="#readObject" title="details" class="method-name">readObject</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$className</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#rewind" title="details" class="method-name">rewind</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setFetchMode" title="details" class="method-name">setFetchMode</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$mode</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#valid" title="details" class="method-name">valid</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">48</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TDbDataReader</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">TDbCommand</span>&nbsp;<span class="var-name">$command</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+				<span class="var-name">$command</span><span class="var-description">: the command generating the query result</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodbindColumn" id="bindColumn"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">bindColumn</span> (line <span class="line-number">65</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Binds a column to a PHP variable.</p>
+<p class="description"><p>When rows of data are being fetched, the corresponding column value  will be set in the variable. Note, the fetch mode must include PDO::FETCH_BOUND.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="http://www.php.net/manual/en/function.PDOStatement-bindColumn.php">http://www.php.net/manual/en/function.PDOStatement-bindColumn.php</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			bindColumn
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">&$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$dataType</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$column</span><span class="var-description">: Number of the column (1-indexed) or name of the column  in the result set. If using the column name, be aware that the name  should match the case of the column, as returned by the driver.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">&$value</span><span class="var-description">: Name of the PHP variable to which the column will be bound.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$dataType</span><span class="var-description">: Data type of the parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodclose" id="close"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">close</span> (line <span class="line-number">136</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Closes the reader.</p>
+<p class="description"><p>Any further data reading will result in an exception.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			close
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcurrent" id="current"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">current</span> (line <span class="line-number">200</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the current row.</p>
+<p class="description"><p>This method is required by the interface Iterator.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the current row.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			current
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetColumnCount" id="getColumnCount"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getColumnCount</span> (line <span class="line-number">164</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the number of columns in the result set.  Note, even there's no row in the reader, this still gives correct column number.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getColumnCount
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsClosed" id="getIsClosed"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsClosed</span> (line <span class="line-number">145</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the reader is closed or not.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsClosed
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRowCount" id="getRowCount"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRowCount</span> (line <span class="line-number">155</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> number of rows contained in the result.  Note, most DBMS may not give a meaningful count.  In this case, use &quot;SELECT COUNT(*) FROM tableName&quot; to obtain the number of rows.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getRowCount
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodkey" id="key"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">key</span> (line <span class="line-number">190</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the index of the current row.</p>
+<p class="description"><p>This method is required by the interface Iterator.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the index of the current row.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			key
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodnext" id="next"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">next</span> (line <span class="line-number">209</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Moves the internal pointer to the next row.</p>
+<p class="description"><p>This method is required by the interface Iterator.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			next
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodnextResult" id="nextResult"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">nextResult</span> (line <span class="line-number">127</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Advances the reader to the next result when reading the results of a batch of statements.</p>
+<p class="description"><p>This method is only useful when there are multiple result sets  returned by the query. Not all DBMS support this feature.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			nextResult
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodread" id="read"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">read</span> (line <span class="line-number">86</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Advances the reader to the next row in a result set.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the current row, false if no more row available</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array|false</span>
+		<span class="method-name">
+			read
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodreadAll" id="readAll"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">readAll</span> (line <span class="line-number">117</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reads the whole result set into an array.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the result set (each array element represents a row of data).  An empty array will be returned if the result contains no row.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			readAll
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodreadColumn" id="readColumn"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">readColumn</span> (line <span class="line-number">96</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a single column from the next row of a result set.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the column of the current row, false if no more row available</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed|false</span>
+		<span class="method-name">
+			readColumn
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$columnIndex</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$columnIndex</span><span class="var-description">: zero-based column index</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodreadObject" id="readObject"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">readObject</span> (line <span class="line-number">107</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a single column from the next row of a result set.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the populated object, false if no more row of data available</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed|false</span>
+		<span class="method-name">
+			readObject
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$className</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$className</span><span class="var-description">: class name of the object to be created and populated</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$fields</span><span class="var-description">: list of column names whose values are to be passed as parameters in the constructor of the class being created</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrewind" id="rewind"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">rewind</span> (line <span class="line-number">174</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Resets the iterator to the initial state.</p>
+<p class="description"><p>This method is required by the interface Iterator.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TDbException if this method is invoked twice</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			rewind
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetFetchMode" id="setFetchMode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFetchMode</span> (line <span class="line-number">76</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="http://www.php.net/manual/en/function.PDOStatement-setFetchMode.php">http://www.php.net/manual/en/function.PDOStatement-setFetchMode.php</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setFetchMode
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$mode</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodvalid" id="valid"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">valid</span> (line <span class="line-number">220</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns whether there is a row of data at current position.</p>
+<p class="description"><p>This method is required by the interface Iterator.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether there is a row of data at current position.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			valid
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:14:01 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

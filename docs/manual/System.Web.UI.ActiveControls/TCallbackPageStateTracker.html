@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TCallbackPageStateTracker</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TCallbackPageStateTracker</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TCallbackPageStateTracker class.</p>
+<p class="description"><p>Tracking changes to the page state during callback.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TActiveControlAdapter.php 2773 2010-02-17 13:55:18Z Christophe.Boulain $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_ActiveControls_TActiveControlAdapter_php.html">/Web/UI/ActiveControls/TActiveControlAdapter.php</a> (line <span class="field">191</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TCallbackPageStateTracker</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$control</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addStatesToTrack" title="details" class="method-name">addStatesToTrack</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.ActiveControls/TCallbackClientScript.html">TCallbackClientScript</a></span>
+										<a href="#client" title="details" class="method-name">client</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getChanges" title="details" class="method-name">getChanges</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+										<a href="#getStatesToTrack" title="details" class="method-name">getStatesToTrack</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#respondToChanges" title="details" class="method-name">respondToChanges</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#trackChanges" title="details" class="method-name">trackChanges</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateAccessKey" title="details" class="method-name">updateAccessKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateAttributes" title="details" class="method-name">updateAttributes</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$attributes</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateEnabled" title="details" class="method-name">updateEnabled</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$enable</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateStyle" title="details" class="method-name">updateStyle</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$style</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateTabIndex" title="details" class="method-name">updateTabIndex</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateToolTip" title="details" class="method-name">updateToolTip</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateVisible" title="details" class="method-name">updateVisible</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$visible</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">214</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor. Add a set of default states to track.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TCallbackPageStateTracker</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$control</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>
+				<span class="var-name">$control</span><span class="var-description">: control to track.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodaddStatesToTrack" id="addStatesToTrack"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addStatesToTrack</span> (line <span class="line-number">231</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add a list of view states to track. Each state is added  to the StatesToTrack property with the view state name as key.</p>
+<p class="description"><p>The value should be an array with two enteries. The first entery  is the name of the class that will calculate the state differences.  The second entry is a php function/method callback that handles  the changes in the viewstate.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addStatesToTrack
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodclient" id="client"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">client</span> (line <span class="line-number">296</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> callback client scripting</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.ActiveControls/TCallbackClientScript.html">TCallbackClientScript</a></span>
+		<span class="method-name">
+			client
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetChanges" id="getChanges"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getChanges</span> (line <span class="line-number">267</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of viewstate and the changed data.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getChanges
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStatesToTrack" id="getStatesToTrack"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStatesToTrack</span> (line <span class="line-number">246</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of viewstates to track.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+		<span class="method-name">
+			getStatesToTrack
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodrespondToChanges" id="respondToChanges"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">respondToChanges</span> (line <span class="line-number">287</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">For each of the changes call the corresponding change handlers.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			respondToChanges
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodtrackChanges" id="trackChanges"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">trackChanges</span> (line <span class="line-number">255</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Start tracking view state changes. The clone function on objects are called  for those viewstate having an object as value.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			trackChanges
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodupdateAccessKey" id="updateAccessKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateAccessKey</span> (line <span class="line-number">323</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the modifier access key</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateAccessKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: access key</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodupdateAttributes" id="updateAttributes"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateAttributes</span> (line <span class="line-number">366</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates/adds a list of attributes on the control.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateAttributes
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$attributes</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$attributes</span><span class="var-description">: list of attribute name-value pairs.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodupdateEnabled" id="updateEnabled"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateEnabled</span> (line <span class="line-number">345</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Enables or Disables the control on the client-side.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateEnabled
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$enable</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$enable</span><span class="var-description">: true to enable the control, false to disable.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodupdateStyle" id="updateStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateStyle</span> (line <span class="line-number">354</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the CSS style on the control on the client-side.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateStyle
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$style</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$style</span><span class="var-description">: list of new CSS style declarations.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodupdateTabIndex" id="updateTabIndex"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateTabIndex</span> (line <span class="line-number">314</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the tab index.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateTabIndex
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: tab index</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodupdateToolTip" id="updateToolTip"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateToolTip</span> (line <span class="line-number">305</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the tooltip.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateToolTip
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: new tooltip</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodupdateVisible" id="updateVisible"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateVisible</span> (line <span class="line-number">333</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Hides or shows the control on the client-side. The control must be  already rendered on the client-side.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateVisible
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$visible</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$visible</span><span class="var-description">: true to show the control, false to hide.</span>			</li>
+				</ul>
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:11:31 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,2543 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TDatePicker</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TDatePicker</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TDatePicker class.</p>
+<p class="description"><p>TDatePicker displays a text box for date input purpose.  When the text box receives focus, a calendar will pop up and users can  pick up from it a date that will be automatically entered into the text box.  The format of the date string displayed in the text box is determined by  the <strong>DateFormat</strong> property. Valid formats are the combination of the  following tokens,</p><p><pre><ol><code><pre><li>  <span class="src-id">Character Format Pattern </span><span class="src-sym">(</span><span class="src-id">en</span>-<span class="src-id">US</span><span class="src-sym">)</span></li>
+<li>  -----------------------------------------</li>
+<li>  <span class="src-id">d          day digit</span></li>
+<li>  <span class="src-id">dd         padded day digit e</span>.<span class="src-id">g</span>. <span class="src-num">01</span><span class="src-sym">, </span><span class="src-num">02</span></li>
+<li>  <span class="src-id">M          month digit</span></li>
+<li>  <span class="src-id">MM         padded month digit</span></li>
+<li>  <span class="src-id">MMMM       localized month name</span><span class="src-sym">, </span><span class="src-id">e</span>.<span class="src-id">g</span>. <span class="src-id">March</span><span class="src-sym">, </span><span class="src-id">April</span></li>
+<li>  <span class="src-id">yy         </span><span class="src-num">2 </span><span class="src-id">digit year</span></li>
+<li>  <span class="src-id">yyyy       </span><span class="src-num">4 </span><span class="src-id">digit year</span></li>
+<li>  -----------------------------------------</li>
+</pre></code></ol></pre></p><p>TDatePicker has three <strong>Mode</strong> to show the date picker popup.</p><p><ul><li><strong>Basic</strong> -- Only shows a text input, focusing on the input shows the
+                    date picker.</li><li><strong>Button</strong> -- Shows a button next to the text input, clicking on the
+                     button shows the date, button text can be by the
+                     <strong>ButtonText</strong> property</li><li><strong>ImageButton</strong> -- Shows an image next to the text input, clicking on
+                          the image shows the date picker, image source can be
+                          change through the <strong>ButtonImageUrl</strong> property.</li></ul>  The <strong>CssClass</strong> property can be used to override the css class name  for the date picker panel. <strong>CalendarStyle</strong> property sets the packages  styles available. E.g. <strong>default</strong>.</p><p>The <strong>InputMode</strong> property can be set to &quot;TextBox&quot; or &quot;DropDownList&quot; with  default as &quot;TextBox&quot;.  In <strong>DropDownList</strong> mode, in addition to the popup date picker, three  drop down list (day, month and year) are presented to select the date .</p><p>The <strong>PositionMode</strong> property can be set to &quot;Top&quot; or &quot;Bottom&quot; with default  as &quot;Bottom&quot;. It specifies the position of the calendar popup, relative to the  input field.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TDatePicker.php 2942 2011-06-01 19:49:56Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+				<li><span class="field">author:</span> Carl G. Mathisen &lt;<a href="mailto:carlgmathisen@gmail.com">carlgmathisen@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_WebControls_TDatePicker_php.html">/Web/UI/WebControls/TDatePicker.php</a> (line <span class="field">72</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System.Web.UI/TControl.html">TControl</a>
+         |
+         --<a href="../System.Web.UI.WebControls/TWebControl.html">TWebControl</a>
+            |
+            --<a href="../System.Web.UI.WebControls/TTextBox.html">TTextBox</a>
+               |
+               --TDatePicker</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.ActiveControls/TActiveDatePicker.html">TActiveDatePicker</a></td>
+					<td>
+											TActiveDatePicker class
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#SCRIPT_PATH" title="details" class="const-name">SCRIPT_PATH</a> = 					<span class="var-type"> 'prado/datepicker'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addAttributesToRender" title="details" class="method-name">addAttributesToRender</a>
+											(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDatePickerClientScript.html">TDatePickerClientScript</a></span>
+										<a href="#createClientScript" title="details" class="method-name">createClientScript</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAssetUrl" title="details" class="method-name">getAssetUrl</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span> = <span class="var-default">''</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getButtonImageUrl" title="details" class="method-name">getButtonImageUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getButtonText" title="details" class="method-name">getButtonText</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCalendarStyle" title="details" class="method-name">getCalendarStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDatePickerClientScript.html">TDatePickerClientScript</a></span>
+										<a href="#getClientSide" title="details" class="method-name">getClientSide</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getCulturalOptions" title="details" class="method-name">getCulturalOptions</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCulture" title="details" class="method-name">getCulture</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCurrentCulture" title="details" class="method-name">getCurrentCulture</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getData" title="details" class="method-name">getData</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDate" title="details" class="method-name">getDate</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDateFormat" title="details" class="method-name">getDateFormat</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getDateFromPostData" title="details" class="method-name">getDateFromPostData</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDatePickerButtonID" title="details" class="method-name">getDatePickerButtonID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getDatePickerOptions" title="details" class="method-name">getDatePickerOptions</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getDropDownDayOptions" title="details" class="method-name">getDropDownDayOptions</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getFirstDayOfWeek" title="details" class="method-name">getFirstDayOfWeek</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getFromYear" title="details" class="method-name">getFromYear</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDatePickerInputMode.html">TDatePickerInputMode</a></span>
+										<a href="#getInputMode" title="details" class="method-name">getInputMode</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">DateTimeFormatInfo</span>
+										<a href="#getLocalizedCalendarInfo" title="details" class="method-name">getLocalizedCalendarInfo</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getLocalizedMonthNames" title="details" class="method-name">getLocalizedMonthNames</a>
+											(<span class="var-type">DateTimeFormatInfo</span>&nbsp;<span class="var-name">$info</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDatePickerMode.html">TDatePickerMode</a></span>
+										<a href="#getMode" title="details" class="method-name">getMode</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDatePickerPositionMode.html">TDatePickerPositionMode</a></span>
+										<a href="#getPositionMode" title="details" class="method-name">getPositionMode</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getShowCalendar" title="details" class="method-name">getShowCalendar</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getTimeStamp" title="details" class="method-name">getTimeStamp</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getTimeStampFromText" title="details" class="method-name">getTimeStampFromText</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getUpToYear" title="details" class="method-name">getUpToYear</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getValidationPropertyValue" title="details" class="method-name">getValidationPropertyValue</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#hasDayPattern" title="details" class="method-name">hasDayPattern</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#loadPostData" title="details" class="method-name">loadPostData</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onPreRender" title="details" class="method-name">onPreRender</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#publishCalendarStyle" title="details" class="method-name">publishCalendarStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#registerCalendarClientScript" title="details" class="method-name">registerCalendarClientScript</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#render" title="details" class="method-name">render</a>
+											(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+										<a href="#renderButtonDatePicker" title="details" class="method-name">renderButtonDatePicker</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#renderCalendarDayOptions" title="details" class="method-name">renderCalendarDayOptions</a>
+											(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$selected</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#renderCalendarMonthOptions" title="details" class="method-name">renderCalendarMonthOptions</a>
+											(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$selected</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#renderCalendarSelections" title="details" class="method-name">renderCalendarSelections</a>
+											(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$date</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#renderCalendarYearOptions" title="details" class="method-name">renderCalendarYearOptions</a>
+											(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$selected</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#renderDatePickerButtons" title="details" class="method-name">renderDatePickerButtons</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#renderDropDownListCalendar" title="details" class="method-name">renderDropDownListCalendar</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+										<a href="#renderImageButtonDatePicker" title="details" class="method-name">renderImageButtonDatePicker</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAutoPostBack" title="details" class="method-name">setAutoPostBack</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setButtonImageUrl" title="details" class="method-name">setButtonImageUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setButtonText" title="details" class="method-name">setButtonText</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCalendarStyle" title="details" class="method-name">setCalendarStyle</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCulture" title="details" class="method-name">setCulture</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setData" title="details" class="method-name">setData</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDate" title="details" class="method-name">setDate</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDateFormat" title="details" class="method-name">setDateFormat</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setFirstDayOfWeek" title="details" class="method-name">setFirstDayOfWeek</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setFromYear" title="details" class="method-name">setFromYear</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setInputMode" title="details" class="method-name">setInputMode</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDatePickerInputMode.html">TDatePickerInputMode</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setMode" title="details" class="method-name">setMode</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDatePickerMode.html">TDatePickerMode</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPositionMode" title="details" class="method-name">setPositionMode</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDatePickerPositionMode.html">TDatePickerPositionMode</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setShowCalendar" title="details" class="method-name">setShowCalendar</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setTimeStamp" title="details" class="method-name">setTimeStamp</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUpToYear" title="details" class="method-name">setUpToYear</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodaddAttributesToRender" id="addAttributesToRender"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addAttributesToRender</span> (line <span class="line-number">839</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add the client id to the input textbox, and register the client scripts.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addAttributesToRender
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+				<span class="var-name">$writer</span><span class="var-description">: writer</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TTextBox.html#methodaddAttributesToRender">TTextBox::addAttributesToRender()</a></dt>
+						<dd>Adds attribute name-value pairs to renderer.</dd>
+					</dl>
+		
+	</div>
+<a name="methodcreateClientScript" id="createClientScript"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createClientScript</span> (line <span class="line-number">377</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript validator event options.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDatePickerClientScript.html">TDatePickerClientScript</a></span>
+		<span class="method-name">
+			createClientScript
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAssetUrl" id="getAssetUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAssetUrl</span> (line <span class="line-number">816</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> date picker asset url.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAssetUrl
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$file</span><span class="var-description">: date picker asset file in the self::SCRIPT_PATH directory.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetButtonImageUrl" id="getButtonImageUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getButtonImageUrl</span> (line <span class="line-number">186</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the image url for &quot;Image&quot; UI mode.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getButtonImageUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetButtonText" id="getButtonText"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getButtonText</span> (line <span class="line-number">227</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> text for the date picker button. Default is &quot;...&quot;.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getButtonText
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCalendarStyle" id="getCalendarStyle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCalendarStyle</span> (line <span class="line-number">202</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> current calendar style</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCalendarStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetClientSide" id="getClientSide"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClientSide</span> (line <span class="line-number">367</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the TDatePickerClientScript to set the TDatePicker event handlers.</p>
+<p class="description"><p>The date picker on the client-side supports the following events. <ul><li>&lt;tt&gt;OnDateChanged&lt;/tt&gt; -- raised when the date is changed.</li></ul>  You can attach custom javascript code to each of these events</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript validator event options.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDatePickerClientScript.html">TDatePickerClientScript</a></span>
+		<span class="method-name">
+			getClientSide
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCulturalOptions" id="getCulturalOptions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCulturalOptions</span> (line <span class="line-number">542</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get javascript localization options, e.g. month and weekday names.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> localization options.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getCulturalOptions
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCulture" id="getCulture"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCulture</span> (line <span class="line-number">130</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the current culture.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> current culture, e.g. en_AU.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCulture
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCurrentCulture" id="getCurrentCulture"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCurrentCulture</span> (line <span class="line-number">558</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the current culture, falls back to application if culture is not set.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCurrentCulture
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetData" id="getData"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getData</span> (line <span class="line-number">323</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the timestamp selected by the user.</p>
+<p class="description"><p>This method is required by <a href="../System/IDataRenderer.html">IDataRenderer</a>.  It is the same as <a href="../System.Web.UI.WebControls/TDatePicker.html#methodgetTimeStamp">getTimeStamp()</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the timestamp of the TDatePicker control.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+				<li><span class="field">see:</span> <a href="../System.Web.UI.WebControls/TDatePicker.html#methodgetTimeStamp">TDatePicker::getTimeStamp()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getData
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetData">TTextBox::getData()</a></dt>
+						<dd>Returns the text content of the TTextBox control.</dd>
+					</dl>
+		
+	</div>
+<a name="methodgetDate" id="getDate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDate</span> (line <span class="line-number">344</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the date string.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDate
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDateFormat" id="getDateFormat"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDateFormat</span> (line <span class="line-number">95</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the format of the date string</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDateFormat
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDateFromPostData" id="getDateFromPostData"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDateFromPostData</span> (line <span class="line-number">483</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads date from drop down list data.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the date selected</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getDateFromPostData
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: the key that can be used to retrieve data from the input data collection</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: the input data collection</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetDatePickerButtonID" id="getDatePickerButtonID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDatePickerButtonID</span> (line <span class="line-number">771</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the ID for the date picker trigger button.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> unique button ID</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDatePickerButtonID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDatePickerOptions" id="getDatePickerOptions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDatePickerOptions</span> (line <span class="line-number">516</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get javascript date picker options.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> date picker client-side options</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getDatePickerOptions
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web.UI.ActiveControls/TActiveDatePicker.html#methodgetDatePickerOptions">TActiveDatePicker::getDatePickerOptions()</a>
+								: Get javascript date picker options.
+							</li>
+				</ul>
+	</div>
+<a name="methodgetDropDownDayOptions" id="getDropDownDayOptions"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDropDownDayOptions</span> (line <span class="line-number">689</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of day options for a drop down list.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getDropDownDayOptions
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetFirstDayOfWeek" id="getFirstDayOfWeek"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFirstDayOfWeek</span> (line <span class="line-number">219</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> first day of the week</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getFirstDayOfWeek
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetFromYear" id="getFromYear"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFromYear</span> (line <span class="line-number">251</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> date picker starting year, default is -5 years</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getFromYear
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetInputMode" id="getInputMode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getInputMode</span> (line <span class="line-number">155</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> input method of date values. Defaults to TDatePickerInputMode::TextBox.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDatePickerInputMode.html">TDatePickerInputMode</a></span>
+		<span class="method-name">
+			getInputMode
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetLocalizedCalendarInfo" id="getLocalizedCalendarInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLocalizedCalendarInfo</span> (line <span class="line-number">568</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> date time format information for the current culture.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">DateTimeFormatInfo</span>
+		<span class="method-name">
+			getLocalizedCalendarInfo
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetLocalizedMonthNames" id="getLocalizedMonthNames"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLocalizedMonthNames</span> (line <span class="line-number">728</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the localized month names that depends on the month format pattern.</p>
+<p class="description"><p>&quot;MMMM&quot; will return the month names, &quot;MM&quot; or &quot;MMM&quot; return abbr. month names  and &quot;M&quot; return month digits.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> localized month names.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getLocalizedMonthNames
+		</span>
+					(<span class="var-type">DateTimeFormatInfo</span>&nbsp;<span class="var-name">$info</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">DateTimeFormatInfo</span>
+				<span class="var-name">$info</span><span class="var-description">: localized date format information.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetMode" id="getMode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMode</span> (line <span class="line-number">171</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> current calendar UI mode.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDatePickerMode.html">TDatePickerMode</a></span>
+		<span class="method-name">
+			getMode
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPositionMode" id="getPositionMode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPositionMode</span> (line <span class="line-number">283</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> current calendar UI position.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDatePickerPositionMode.html">TDatePickerPositionMode</a></span>
+		<span class="method-name">
+			getPositionMode
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetShowCalendar" id="getShowCalendar"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getShowCalendar</span> (line <span class="line-number">112</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the calendar window should pop up when the control receives focus</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getShowCalendar
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTimeStamp" id="getTimeStamp"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTimeStamp</span> (line <span class="line-number">291</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> current selected date from the date picker as timestamp, NULL if timestamp is not set previously.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getTimeStamp
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTimeStampFromText" id="getTimeStampFromText"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTimeStampFromText</span> (line <span class="line-number">641</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the date from the text input using TSimpleDateFormatter</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> current selected date timestamp</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getTimeStampFromText
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUpToYear" id="getUpToYear"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUpToYear</span> (line <span class="line-number">267</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> date picker ending year, default +10 years</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getUpToYear
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetValidationPropertyValue" id="getValidationPropertyValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getValidationPropertyValue</span> (line <span class="line-number">387</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the value to be validated.</p>
+<p class="description"><p>This methid is required by IValidatable interface.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the interger timestamp if valid, otherwise the original text.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getValidationPropertyValue
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetValidationPropertyValue">TTextBox::getValidationPropertyValue()</a></dt>
+						<dd>Returns the value to be validated.</dd>
+					</dl>
+		
+	</div>
+<a name="methodhasDayPattern" id="hasDayPattern"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasDayPattern</span> (line <span class="line-number">609</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			hasDayPattern
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodloadPostData" id="loadPostData"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadPostData</span> (line <span class="line-number">463</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads user input data. Override parent implementation, when InputMode  is DropDownList call getDateFromPostData to get date data.</p>
+<p class="description"><p>This method is primarly used by framework developers.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the data of the component has been changed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			loadPostData
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: the key that can be used to retrieve data from the input data collection</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: the input data collection</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TTextBox.html#methodloadPostData">TTextBox::loadPostData()</a></dt>
+						<dd>Loads user input data.</dd>
+					</dl>
+		
+	</div>
+<a name="methodonPreRender" id="onPreRender"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onPreRender</span> (line <span class="line-number">398</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Publish the date picker Css asset files.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onPreRender
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TControl.html#methodonPreRender">TControl::onPreRender()</a></dt>
+						<dd>This method is invoked when the control enters 'OnPreRender' stage.</dd>
+					</dl>
+		
+	</div>
+<a name="methodpublishCalendarStyle" id="publishCalendarStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">publishCalendarStyle</span> (line <span class="line-number">826</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Publish the calendar style Css asset file.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Css file url.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			publishCalendarStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodregisterCalendarClientScript" id="registerCalendarClientScript"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">registerCalendarClientScript</span> (line <span class="line-number">850</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Registers the javascript code to initialize the date picker.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			registerCalendarClientScript
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web.UI.ActiveControls/TActiveDatePicker.html#methodregisterCalendarClientScript">TActiveDatePicker::registerCalendarClientScript()</a>
+								: Registers the javascript code to initialize the date picker.
+							</li>
+				</ul>
+	</div>
+<a name="methodrender" id="render"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">render</span> (line <span class="line-number">418</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders body content.</p>
+<p class="description"><p>This method overrides parent implementation by adding  additional date picker button if Mode is Button or ImageButton.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			render
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+				<span class="var-name">$writer</span><span class="var-description">: writer</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TWebControl.html#methodrender">TWebControl::render()</a></dt>
+						<dd>Renders the control.</dd>
+					</dl>
+		
+	</div>
+<a name="methodrenderButtonDatePicker" id="renderButtonDatePicker"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">renderButtonDatePicker</span> (line <span class="line-number">780</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds an additional button such that when clicked it shows the date picker.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> writer</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+		<span class="method-name">
+			renderButtonDatePicker
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodrenderCalendarDayOptions" id="renderCalendarDayOptions"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">renderCalendarDayOptions</span> (line <span class="line-number">673</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the day drop down list options.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			renderCalendarDayOptions
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$selected</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+				<span class="var-name">$writer</span><span class="var-description">: the writer used for the rendering purpose</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$selected</span><span class="var-description">: selected day.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrenderCalendarMonthOptions" id="renderCalendarMonthOptions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">renderCalendarMonthOptions</span> (line <span class="line-number">707</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the month drop down list options.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			renderCalendarMonthOptions
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$selected</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+				<span class="var-name">$writer</span><span class="var-description">: the writer used for the rendering purpose</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$selected</span><span class="var-description">: selected month.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrenderCalendarSelections" id="renderCalendarSelections"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">renderCalendarSelections</span> (line <span class="line-number">621</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the calendar drop down list depending on the DateFormat pattern.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			renderCalendarSelections
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$date</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+				<span class="var-name">$writer</span><span class="var-description">: the Html writer to render the drop down lists.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$date</span><span class="var-description">: the current selected date</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrenderCalendarYearOptions" id="renderCalendarYearOptions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">renderCalendarYearOptions</span> (line <span class="line-number">752</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the year drop down list options.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			renderCalendarYearOptions
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$selected</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+				<span class="var-name">$writer</span><span class="var-description">: the writer used for the rendering purpose</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$selected</span><span class="var-description">: selected year.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrenderDatePickerButtons" id="renderDatePickerButtons"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">renderDatePickerButtons</span> (line <span class="line-number">439</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the date picker popup buttons.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			renderDatePickerButtons
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodrenderDropDownListCalendar" id="renderDropDownListCalendar"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">renderDropDownListCalendar</span> (line <span class="line-number">580</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the drop down list date picker.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			renderDropDownListCalendar
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodrenderImageButtonDatePicker" id="renderImageButtonDatePicker"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">renderImageButtonDatePicker</span> (line <span class="line-number">796</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds an additional image button such that when clicked it shows the date picker.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> writer</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+		<span class="method-name">
+			renderImageButtonDatePicker
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetAutoPostBack" id="setAutoPostBack"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAutoPostBack</span> (line <span class="line-number">86</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">AutoPostBack is not supported.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAutoPostBack
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetAutoPostBack">TTextBox::setAutoPostBack()</a></dt>
+						<dd>Sets the value indicating if postback automatically.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetButtonImageUrl" id="setButtonImageUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setButtonImageUrl</span> (line <span class="line-number">178</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setButtonImageUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the image url for &quot;Image&quot; UI mode.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetButtonText" id="setButtonText"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setButtonText</span> (line <span class="line-number">235</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setButtonText
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: text for the date picker button</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCalendarStyle" id="setCalendarStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCalendarStyle</span> (line <span class="line-number">194</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCalendarStyle
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: set the calendar style</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCulture" id="setCulture"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCulture</span> (line <span class="line-number">139</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the culture/language for the date picker.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCulture
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: a culture string, e.g. en_AU.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetData" id="setData"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setData</span> (line <span class="line-number">336</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the timestamp represented by this control.</p>
+<p class="description"><p>This method is required by <a href="../System/IDataRenderer.html">IDataRenderer</a>.  It is the same as <a href="../System.Web.UI.WebControls/TDatePicker.html#methodsetTimeStamp">setTimeStamp()</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+				<li><span class="field">see:</span> <a href="../System.Web.UI.WebControls/TDatePicker.html#methodsetTimeStamp">TDatePicker::setTimeStamp()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setData
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: the timestamp of the TDatePicker control.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetData">TTextBox::setData()</a></dt>
+						<dd>Sets the text content of the TTextBox control.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetDate" id="setDate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDate</span> (line <span class="line-number">352</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDate
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: date string</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetDateFormat" id="setDateFormat"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDateFormat</span> (line <span class="line-number">104</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the format of the date string.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDateFormat
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the format of the date string</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetFirstDayOfWeek" id="setFirstDayOfWeek"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFirstDayOfWeek</span> (line <span class="line-number">211</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the first day of week, with 0 as Sunday, 1 as Monday, etc.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setFirstDayOfWeek
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: 0 for Sunday, 1 for Monday, 2 for Tuesday, etc.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetFromYear" id="setFromYear"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFromYear</span> (line <span class="line-number">243</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setFromYear
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: date picker starting year, default is 2000.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetInputMode" id="setInputMode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setInputMode</span> (line <span class="line-number">147</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setInputMode
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDatePickerInputMode.html">TDatePickerInputMode</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDatePickerInputMode.html">TDatePickerInputMode</a></span>
+				<span class="var-name">$value</span><span class="var-description">: input method of date values</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetMode" id="setMode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setMode</span> (line <span class="line-number">163</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setMode
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDatePickerMode.html">TDatePickerMode</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDatePickerMode.html">TDatePickerMode</a></span>
+				<span class="var-name">$value</span><span class="var-description">: calendar UI mode</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetPositionMode" id="setPositionMode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPositionMode</span> (line <span class="line-number">275</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPositionMode
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDatePickerPositionMode.html">TDatePickerPositionMode</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDatePickerPositionMode.html">TDatePickerPositionMode</a></span>
+				<span class="var-name">$value</span><span class="var-description">: calendar UI position</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetShowCalendar" id="setShowCalendar"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setShowCalendar</span> (line <span class="line-number">121</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets whether to pop up the calendar window when the control receives focus</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setShowCalendar
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether to show the calendar window</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetTimeStamp" id="setTimeStamp"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTimeStamp</span> (line <span class="line-number">303</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the date for the date picker using timestamp.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTimeStamp
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$value</span><span class="var-description">: time stamp for the date picker</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUpToYear" id="setUpToYear"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUpToYear</span> (line <span class="line-number">259</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUpToYear
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: date picker ending year, default +10 years</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.WebControls/TTextBox.html">TTextBox</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodaddAttributesToRender">TTextBox::addAttributesToRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetAutoCompleteType">TTextBox::getAutoCompleteType()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetAutoPostBack">TTextBox::getAutoPostBack()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetAutoTrim">TTextBox::getAutoTrim()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetCausesValidation">TTextBox::getCausesValidation()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetClientClassName">TTextBox::getClientClassName()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetColumns">TTextBox::getColumns()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetData">TTextBox::getData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetDataChanged">TTextBox::getDataChanged()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetEnableClientScript">TTextBox::getEnableClientScript()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetIsValid">TTextBox::getIsValid()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetMaxLength">TTextBox::getMaxLength()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetPersistPassword">TTextBox::getPersistPassword()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetPostBackOptions">TTextBox::getPostBackOptions()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetReadOnly">TTextBox::getReadOnly()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetRows">TTextBox::getRows()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetSafeText">TTextBox::getSafeText()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetSafeTextParser">TTextBox::getSafeTextParser()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetTagName">TTextBox::getTagName()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetText">TTextBox::getText()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetTextMode">TTextBox::getTextMode()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetValidationGroup">TTextBox::getValidationGroup()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetValidationPropertyValue">TTextBox::getValidationPropertyValue()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodgetWrap">TTextBox::getWrap()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodloadPostData">TTextBox::loadPostData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodonTextChanged">TTextBox::onTextChanged()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodraisePostDataChangedEvent">TTextBox::raisePostDataChangedEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodrenderBeginTag">TTextBox::renderBeginTag()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodrenderClientControlScript">TTextBox::renderClientControlScript()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodrenderContents">TTextBox::renderContents()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetAutoCompleteType">TTextBox::setAutoCompleteType()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetAutoPostBack">TTextBox::setAutoPostBack()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetAutoTrim">TTextBox::setAutoTrim()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetCausesValidation">TTextBox::setCausesValidation()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetColumns">TTextBox::setColumns()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetData">TTextBox::setData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetEnableClientScript">TTextBox::setEnableClientScript()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetIsValid">TTextBox::setIsValid()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetMaxLength">TTextBox::setMaxLength()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetPersistPassword">TTextBox::setPersistPassword()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetReadOnly">TTextBox::setReadOnly()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetRows">TTextBox::setRows()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetText">TTextBox::setText()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetTextMode">TTextBox::setTextMode()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetValidationGroup">TTextBox::setValidationGroup()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TTextBox.html#methodsetWrap">TTextBox::setWrap()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.WebControls/TWebControl.html">TWebControl</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodaddAttributesToRender">TWebControl::addAttributesToRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodclearStyle">TWebControl::clearStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodcopyBaseAttributes">TWebControl::copyBaseAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodcreateStyle">TWebControl::createStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetAccessKey">TWebControl::getAccessKey()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBackColor">TWebControl::getBackColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderColor">TWebControl::getBorderColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderStyle">TWebControl::getBorderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderWidth">TWebControl::getBorderWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetCssClass">TWebControl::getCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetDisplay">TWebControl::getDisplay()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetFont">TWebControl::getFont()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetForeColor">TWebControl::getForeColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetHasStyle">TWebControl::getHasStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetHeight">TWebControl::getHeight()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetStyle">TWebControl::getStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetTabIndex">TWebControl::getTabIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetTagName">TWebControl::getTagName()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetToolTip">TWebControl::getToolTip()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetWidth">TWebControl::getWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrender">TWebControl::render()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderBeginTag">TWebControl::renderBeginTag()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderContents">TWebControl::renderContents()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderEndTag">TWebControl::renderEndTag()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetAccessKey">TWebControl::setAccessKey()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBackColor">TWebControl::setBackColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderColor">TWebControl::setBorderColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderStyle">TWebControl::setBorderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderWidth">TWebControl::setBorderWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetCssClass">TWebControl::setCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetDisplay">TWebControl::setDisplay()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetForeColor">TWebControl::setForeColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetHeight">TWebControl::setHeight()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetStyle">TWebControl::setStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetTabIndex">TWebControl::setTabIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetToolTip">TWebControl::setToolTip()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetWidth">TWebControl::setWidth()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI/TControl.html">TControl</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#method__construct">TControl::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddedControl">TControl::addedControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddParsedObject">TControl::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddToPostDataLoader">TControl::addToPostDataLoader()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodapplyStyleSheetSkin">TControl::applyStyleSheetSkin()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodautoBindProperty">TControl::autoBindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodautoDataBindProperties">TControl::autoDataBindProperties()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbindProperty">TControl::bindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbroadcastEvent">TControl::broadcastEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbubbleEvent">TControl::bubbleEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearChildState">TControl::clearChildState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearControlState">TControl::clearControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearNamingContainer">TControl::clearNamingContainer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearViewState">TControl::clearViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodconvertUniqueIdToClientId">TControl::convertUniqueIdToClientId()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodcreateChildControls">TControl::createChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodcreateControlCollection">TControl::createControlCollection()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBind">TControl::dataBind()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBindChildren">TControl::dataBindChildren()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBindProperties">TControl::dataBindProperties()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodensureChildControls">TControl::ensureChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControl">TControl::findControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControlsByID">TControl::findControlsByID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControlsByType">TControl::findControlsByType()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfocus">TControl::focus()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAdapter">TControl::getAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAllowChildControls">TControl::getAllowChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAttribute">TControl::getAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAttributes">TControl::getAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetChildControlsCreated">TControl::getChildControlsCreated()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetClientID">TControl::getClientID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControls">TControl::getControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControlStage">TControl::getControlStage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControlState">TControl::getControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetCustomData">TControl::getCustomData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnabled">TControl::getEnabled()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnableTheming">TControl::getEnableTheming()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnableViewState">TControl::getEnableViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasAdapter">TControl::getHasAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasAttributes">TControl::getHasAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasChildInitialized">TControl::getHasChildInitialized()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasControls">TControl::getHasControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasInitialized">TControl::getHasInitialized()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasLoaded">TControl::getHasLoaded()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasLoadedPostData">TControl::getHasLoadedPostData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasPreRendered">TControl::getHasPreRendered()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetID">TControl::getID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetNamingContainer">TControl::getNamingContainer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetPage">TControl::getPage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetParent">TControl::getParent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetRegisteredObject">TControl::getRegisteredObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetSkinID">TControl::getSkinID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetSourceTemplateControl">TControl::getSourceTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetTemplateControl">TControl::getTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetUniqueID">TControl::getUniqueID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetViewState">TControl::getViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetVisible">TControl::getVisible()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodhasAttribute">TControl::hasAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodinitRecursive">TControl::initRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodisDescendentOf">TControl::isDescendentOf()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodisObjectRegistered">TControl::isObjectRegistered()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadRecursive">TControl::loadRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadState">TControl::loadState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadStateRecursive">TControl::loadStateRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonDataBinding">TControl::onDataBinding()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonInit">TControl::onInit()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonLoad">TControl::onLoad()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonPreRender">TControl::onPreRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonUnload">TControl::onUnload()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodpreRenderRecursive">TControl::preRenderRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodraiseBubbleEvent">TControl::raiseBubbleEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodregisterObject">TControl::registerObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodremoveAttribute">TControl::removeAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodremovedControl">TControl::removedControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrender">TControl::render()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrenderChildren">TControl::renderChildren()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrenderControl">TControl::renderControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsaveState">TControl::saveState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsaveStateRecursive">TControl::saveStateRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetAdapter">TControl::setAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetAttribute">TControl::setAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetChildControlsCreated">TControl::setChildControlsCreated()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetControlStage">TControl::setControlStage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetControlState">TControl::setControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetCustomData">TControl::setCustomData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnabled">TControl::setEnabled()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnableTheming">TControl::setEnableTheming()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnableViewState">TControl::setEnableViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetID">TControl::setID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetPage">TControl::setPage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetSkinID">TControl::setSkinID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetTemplateControl">TControl::setTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetViewState">TControl::setViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetVisible">TControl::setVisible()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodtrackViewState">TControl::trackViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodtraverseChildControls">TControl::traverseChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunbindProperty">TControl::unbindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunloadRecursive">TControl::unloadRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunregisterObject">TControl::unregisterObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#method__get">TControl::__get()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constSCRIPT_PATH" id="SCRIPT_PATH"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">SCRIPT_PATH</span>
+			 = <span class="const-default"> 'prado/datepicker'</span>
+			(line <span class="line-number">77</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Script path relative to the TClientScriptManager::SCRIPT_PATH</p>
+	
+	
+</div>
+							<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../System.Web.UI.WebControls/TTextBox.html">TTextBox</a></span></p>
+					<blockquote>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI.WebControls/TTextBox.html#constDEFAULT_COLUMNS">TTextBox::DEFAULT_COLUMNS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI.WebControls/TTextBox.html#constDEFAULT_ROWS">TTextBox::DEFAULT_ROWS</a></span><br>
+							</span>
+											</blockquote> 
+									<p>Inherited from <span class="classname"><a href="../System.Web.UI/TControl.html">TControl</a></span></p>
+					<blockquote>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constAUTOMATIC_ID_PREFIX">TControl::AUTOMATIC_ID_PREFIX</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCLIENT_ID_SEPARATOR">TControl::CLIENT_ID_SEPARATOR</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_CHILD_INITIALIZED">TControl::CS_CHILD_INITIALIZED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_CONSTRUCTED">TControl::CS_CONSTRUCTED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_INITIALIZED">TControl::CS_INITIALIZED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_LOADED">TControl::CS_LOADED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_PRERENDERED">TControl::CS_PRERENDERED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_STATE_LOADED">TControl::CS_STATE_LOADED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constID_FORMAT">TControl::ID_FORMAT</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constID_SEPARATOR">TControl::ID_SEPARATOR</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_CHILD_CREATED">TControl::IS_CHILD_CREATED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_CREATING_CHILD">TControl::IS_CREATING_CHILD</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_DISABLE_THEMING">TControl::IS_DISABLE_THEMING</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_DISABLE_VIEWSTATE">TControl::IS_DISABLE_VIEWSTATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_ID_SET">TControl::IS_ID_SET</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_SKIN_APPLIED">TControl::IS_SKIN_APPLIED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_STYLESHEET_APPLIED">TControl::IS_STYLESHEET_APPLIED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_ADAPTER">TControl::RF_ADAPTER</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_AUTO_BINDINGS">TControl::RF_AUTO_BINDINGS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CHILD_STATE">TControl::RF_CHILD_STATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CONTROLS">TControl::RF_CONTROLS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CONTROLSTATE">TControl::RF_CONTROLSTATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_DATA_BINDINGS">TControl::RF_DATA_BINDINGS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_EVENTS">TControl::RF_EVENTS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_CONTROLS">TControl::RF_NAMED_CONTROLS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_CONTROLS_ID">TControl::RF_NAMED_CONTROLS_ID</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_OBJECTS">TControl::RF_NAMED_OBJECTS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_SKIN_ID">TControl::RF_SKIN_ID</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:13:53 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

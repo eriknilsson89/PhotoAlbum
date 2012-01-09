@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TCallbackClientSide</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TCallbackClientSide</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TCallbackClientSide class.</p>
+<p class="description"><p>The following client side events are executing in order if the callback  request and response are send and received successfuly.</p><p><ul><li><strong>onPreDispatch</strong> executed before a request is dispatched.</li><li><strong>onUninitialized</strong> executed when callback request is uninitialized.</li><li><strong>onLoading</strong>* executed when callback request is initiated</li><li><strong>onLoaded</strong>* executed when callback request begins.</li><li><strong>onInteractive</strong> executed when callback request is in progress.</li><li><strong>onComplete</strong>executed when callback response returns.</li><li><strong>onSuccess</strong> executed when callback request returns and is successful.</li><li><strong>onFailure</strong> executed when callback request returns and fails.</li><li><strong>onException</strong> raised when callback request fails due to request/response errors.</li></ul>  * Note that theses 2 events are not fired correctly by Opera. To make    them work in this browser, Prado will fire them just after onPreDispatch.</p><p>In a general way, onUninitialized, onLoading, onLoaded and onInteractive events  are not implemented consistently in all browsers.When cross browser compatibility is  needed, it is best to avoid use them</p><p>The OnSuccess and OnFailure events are raised when the  response is returned. A successful request/response will raise  OnSuccess event otherwise OnFailure will be raised.</p><p><ul><li><strong>PostState</strong> true to collect the form inputs and post them during callback, default is true.</li><li><strong>RequestTimeOut</strong> The request timeout in milliseconds.</li><li><strong>HasPriority</strong> true to ensure that the callback request will be sent
+   immediately and will abort existing prioritized requests. It does not affect
+   callbacks that are not prioritized.</li><li><strong>EnablePageStateUpdate</strong> enable the callback response to enable the
+   viewstate update. This will automatically set HasPriority to true when enabled.</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TCallbackClientSide.php 2958 2011-06-02 16:03:13Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gamil[dot]com">weizhuo[at]gamil[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_ActiveControls_TCallbackClientSide_php.html">/Web/UI/ActiveControls/TCallbackClientSide.php</a> (line <span class="field">53</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System.Web.UI/TClientSideOptions.html">TClientSideOptions</a>
+      |
+      --TCallbackClientSide</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.ActiveControls/TActiveCustomValidatorClientSide.html">TActiveCustomValidatorClientSide</a></td>
+					<td>
+											Custom Validator callback client side options class.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#ensureFunction" title="details" class="method-name">ensureFunction</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getEnablePageStateUpdate" title="details" class="method-name">getEnablePageStateUpdate</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getHasPriority" title="details" class="method-name">getHasPriority</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getOnComplete" title="details" class="method-name">getOnComplete</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getOnException" title="details" class="method-name">getOnException</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getOnFailure" title="details" class="method-name">getOnFailure</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getOnInteractive" title="details" class="method-name">getOnInteractive</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getOnLoaded" title="details" class="method-name">getOnLoaded</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getOnLoading" title="details" class="method-name">getOnLoading</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getOnPreDispatch" title="details" class="method-name">getOnPreDispatch</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getOnSuccess" title="details" class="method-name">getOnSuccess</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getOnUninitialized" title="details" class="method-name">getOnUninitialized</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPostBackParameter" title="details" class="method-name">getPostBackParameter</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPostBackTarget" title="details" class="method-name">getPostBackTarget</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getPostState" title="details" class="method-name">getPostState</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getRequestTimeOut" title="details" class="method-name">getRequestTimeOut</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setEnablePageStateUpdate" title="details" class="method-name">setEnablePageStateUpdate</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setHasPriority" title="details" class="method-name">setHasPriority</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOnComplete" title="details" class="method-name">setOnComplete</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOnException" title="details" class="method-name">setOnException</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOnFailure" title="details" class="method-name">setOnFailure</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOnInteractive" title="details" class="method-name">setOnInteractive</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOnLoaded" title="details" class="method-name">setOnLoaded</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOnLoading" title="details" class="method-name">setOnLoading</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOnPreDispatch" title="details" class="method-name">setOnPreDispatch</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOnSuccess" title="details" class="method-name">setOnSuccess</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOnUninitialized" title="details" class="method-name">setOnUninitialized</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPostBackParameter" title="details" class="method-name">setPostBackParameter</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPostBackTarget" title="details" class="method-name">setPostBackTarget</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPostState" title="details" class="method-name">setPostState</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setRequestTimeOut" title="details" class="method-name">setRequestTimeOut</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodensureFunction" id="ensureFunction"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ensureFunction</span> (line <span class="line-number">61</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns javascript statement enclosed within a javascript function.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript statement wrapped in a javascript function</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			ensureFunction
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$javascript</span><span class="var-description">: javascript statement, if string begins within  &quot;javascript:&quot; the whole string is assumed to be a function.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TClientSideOptions.html#methodensureFunction">TClientSideOptions::ensureFunction()</a></dt>
+						<dd>Ensure that the javascript statements are wrapped in a javascript  function block as <pre><ol><code><pre><li><span class="src-key">function</span><span class="src-sym">(</span><span class="src-id">sender</span><span class="src-sym">, </span><span class="src-id">parameter</span><span class="src-sym">)</span><span class="src-sym">{ </span><span class="src-comm">//code }</span></li>
+</pre></code></ol></pre>.</dd>
+					</dl>
+		
+	</div>
+<a name="methodgetEnablePageStateUpdate" id="getEnablePageStateUpdate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEnablePageStateUpdate</span> (line <span class="line-number">283</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> client-side viewstate will be updated on callback  response if true. Default is true.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getEnablePageStateUpdate
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHasPriority" id="getHasPriority"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHasPriority</span> (line <span class="line-number">246</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the callback request has priority and will abort  existing prioritized request in order to send immediately. It does not  affect callbacks that are not prioritized. Default is true.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getHasPriority
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOnComplete" id="getOnComplete"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOnComplete</span> (line <span class="line-number">147</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript code for client-side onComplete event</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getOnComplete
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOnException" id="getOnException"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOnException</span> (line <span class="line-number">194</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript code for client-side onException event</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getOnException
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOnFailure" id="getOnFailure"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOnFailure</span> (line <span class="line-number">178</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript code for client-side onFailure event</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getOnFailure
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOnInteractive" id="getOnInteractive"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOnInteractive</span> (line <span class="line-number">132</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript code for client-side onInteractive event</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getOnInteractive
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOnLoaded" id="getOnLoaded"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOnLoaded</span> (line <span class="line-number">117</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript code for client-side onLoaded event</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getOnLoaded
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOnLoading" id="getOnLoading"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOnLoading</span> (line <span class="line-number">101</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript code for client-side onLoading event</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getOnLoading
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOnPreDispatch" id="getOnPreDispatch"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOnPreDispatch</span> (line <span class="line-number">77</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript code to be executed before a request is dispatched.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getOnPreDispatch
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOnSuccess" id="getOnSuccess"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOnSuccess</span> (line <span class="line-number">162</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript code for client-side onSuccess event</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getOnSuccess
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOnUninitialized" id="getOnUninitialized"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOnUninitialized</span> (line <span class="line-number">85</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript code for client-side onUninitialized event</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getOnUninitialized
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPostBackParameter" id="getPostBackParameter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPostBackParameter</span> (line <span class="line-number">310</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> post back event parameter.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPostBackParameter
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPostBackTarget" id="getPostBackTarget"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPostBackTarget</span> (line <span class="line-number">292</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> post back target ID</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPostBackTarget
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPostState" id="getPostState"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPostState</span> (line <span class="line-number">211</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true to post the inputs of the form on callback, default  is post the inputs on callback.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getPostState
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRequestTimeOut" id="getRequestTimeOut"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRequestTimeOut</span> (line <span class="line-number">228</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> callback request timeout.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getRequestTimeOut
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetEnablePageStateUpdate" id="setEnablePageStateUpdate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setEnablePageStateUpdate</span> (line <span class="line-number">271</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set to true to enable the callback response to enable the viewstate  update. This will automatically set HasPrority to true.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEnablePageStateUpdate
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: true enables the callback response to update the  viewstate.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetHasPriority" id="setHasPriority"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setHasPriority</span> (line <span class="line-number">257</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setHasPriority
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: true to ensure that the callback request will be sent  immediately and will abort existing prioritized requests. It does not  affect callbacks that are not prioritized.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOnComplete" id="setOnComplete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOnComplete</span> (line <span class="line-number">155</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOnComplete
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$javascript</span><span class="var-description">: javascript code for client-side onComplete event.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOnException" id="setOnException"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOnException</span> (line <span class="line-number">202</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOnException
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$javascript</span><span class="var-description">: javascript code for client-side onException event.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOnFailure" id="setOnFailure"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOnFailure</span> (line <span class="line-number">186</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOnFailure
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$javascript</span><span class="var-description">: javascript code for client-side onFailure event.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOnInteractive" id="setOnInteractive"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOnInteractive</span> (line <span class="line-number">140</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOnInteractive
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$javascript</span><span class="var-description">: javascript code for client-side onInteractive event.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOnLoaded" id="setOnLoaded"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOnLoaded</span> (line <span class="line-number">125</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOnLoaded
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$javascript</span><span class="var-description">: javascript code for client-side onLoaded event.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOnLoading" id="setOnLoading"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOnLoading</span> (line <span class="line-number">109</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOnLoading
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$javascript</span><span class="var-description">: javascript code for client-side onLoading event.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOnPreDispatch" id="setOnPreDispatch"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOnPreDispatch</span> (line <span class="line-number">69</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOnPreDispatch
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$javascript</span><span class="var-description">: javascript code to be executed before a request is dispatched.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOnSuccess" id="setOnSuccess"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOnSuccess</span> (line <span class="line-number">170</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOnSuccess
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$javascript</span><span class="var-description">: javascript code for client-side onSuccess event.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOnUninitialized" id="setOnUninitialized"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOnUninitialized</span> (line <span class="line-number">93</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOnUninitialized
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$javascript</span><span class="var-description">: javascript code for client-side onUninitialized event.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetPostBackParameter" id="setPostBackParameter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPostBackParameter</span> (line <span class="line-number">318</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPostBackParameter
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: post back event parameter.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetPostBackTarget" id="setPostBackTarget"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPostBackTarget</span> (line <span class="line-number">300</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPostBackTarget
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: post back target ID</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetPostState" id="setPostState"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPostState</span> (line <span class="line-number">220</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPostState
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: true to post the inputs of the form with callback  requests. Default is to post the inputs.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetRequestTimeOut" id="setRequestTimeOut"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setRequestTimeOut</span> (line <span class="line-number">236</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setRequestTimeOut
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: callback request timeout</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI/TClientSideOptions.html">TClientSideOptions</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI/TClientSideOptions.html#method__construct">TClientSideOptions::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TClientSideOptions.html#methodensureFunction">TClientSideOptions::ensureFunction()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TClientSideOptions.html#methodgetOption">TClientSideOptions::getOption()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TClientSideOptions.html#methodgetOptions">TClientSideOptions::getOptions()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TClientSideOptions.html#methodsetFunction">TClientSideOptions::setFunction()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TClientSideOptions.html#methodsetOption">TClientSideOptions::setOption()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:51 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

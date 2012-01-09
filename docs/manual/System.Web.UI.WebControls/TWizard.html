@@ -1,0 +1,3401 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TWizard</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TWizard</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../System.Web.UI/INamingContainer.html">INamingContainer</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Class TWizard.</p>
+<p class="description"><p>TWizard splits a large form and presents the user with a series of smaller  forms to complete. TWizard is analogous to the installation wizard commonly  used to install software in Windows.</p><p>The smaller forms are called wizard steps (<a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a>, which can be accessed via  <a href="../System.Web.UI.WebControls/TWizard.html#methodgetWizardSteps">WizardSteps</a>. In template, wizard steps can be added  into a wizard using the following syntax,  <pre><ol><code><pre><li>   &lt;<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.WebControls/TWizard.html">TWizard</a></span>&gt;</li>
+<li>      &lt;<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a> Title</span>=<span class="src-str">&quot;step 1&quot;</span>&gt;</li>
+<li>          <span class="src-id">content in step </span><span class="src-num">1</span><span class="src-sym">, </span><span class="src-id">may contain other controls</span></li>
+<li>      &lt;/<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>&gt;</li>
+<li>      &lt;<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a> Title</span>=<span class="src-str">&quot;step 2&quot;</span>&gt;</li>
+<li>          <span class="src-id">content in step </span><span class="src-num">2</span><span class="src-sym">, </span><span class="src-id">may contain other controls</span></li>
+<li>      &lt;/<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>&gt;</li>
+<li>   &lt;/<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.WebControls/TWizard.html">TWizard</a></span>&gt;</li>
+</pre></code></ol></pre></p><p>Each wizard step can be one of the following types: <ul><li>Start : the first step in the wizard.</li><li>Step : the internal steps in the wizard.</li><li>Finish : the last step that allows user interaction.</li><li>Complete : the step that shows a summary to user (no interaction is allowed).</li><li>Auto : the step type is determined by wizard automatically.</li></ul> At any time, only one step is visible to end-users, which can be obtained  by <a href="../System.Web.UI.WebControls/TWizard.html#methodgetActiveStep">ActiveStep</a>. Its index in the step collection is given by  <a href="../System.Web.UI.WebControls/TWizard.html#methodgetActiveStepIndex">ActiveStepIndex</a>.</p><p>Wizard content can be customized in many ways.</p><p>The layout of a wizard consists of four parts: header, step content, navigation  and side bar. Their content are affected by the following properties, respectively, <ul><li>header: <a href="../System.Web.UI.WebControls/TWizard.html#methodsetHeaderText">HeaderText</a> and <a href="../System.Web.UI.WebControls/TWizard.html#methodsetHeaderTemplate">HeaderTemplate</a>.
+   If both are present, the latter takes precedence.</li><li>step: <a href="../System.Web.UI.WebControls/TWizard.html#methodgetWizardSteps">WizardSteps</a>.</li><li>navigation: <a href="../System.Web.UI.WebControls/TWizard.html#methodsetStartNavigationTemplate">StartNavigationTemplate</a>,
+   <a href="../System.Web.UI.WebControls/TWizard.html#methodsetStepNavigationTemplate">StepNavigationTemplate</a>,
+   <a href="../System.Web.UI.WebControls/TWizard.html#methodsetFinishNavigationTemplate">FinishNavigationTemplate</a>.
+   Default templates will be used if above templates are not set.</li><li>side bar: <a href="../System.Web.UI.WebControls/TWizard.html#methodsetSideBarTemplate">SideBarTemplate</a>.
+   A default template will be used if this template is not set.
+   Its visibility is toggled by <a href="../System.Web.UI.WebControls/TWizard.html#methodsetShowSideBar">ShowSideBar</a>.</li></ul>  The style of these wizard layout components can be customized via the following style properties, <ul><li>header: <a href="../System.Web.UI.WebControls/TWizard.html#methodgetHeaderStyle">HeaderStyle</a>.</li><li>step: <a href="../System.Web.UI.WebControls/TWizard.html#methodgetStepStyle">StepStyle</a>.</li><li>navigation: <a href="../System.Web.UI.WebControls/TWizard.html#methodgetNavigationStyle">NavigationStyle</a>,
+   <a href="../System.Web.UI.WebControls/TWizard.html#methodgetStartNextButtonStyle">StartNextButtonStyle</a>,
+   <a href="../System.Web.UI.WebControls/TWizard.html#methodgetStepNextButtonStyle">StepNextButtonStyle</a>,
+   <a href="../System.Web.UI.WebControls/TWizard.html#methodgetStepPreviousButtonStyle">StepPreviousButtonStyle</a>,
+   <a href="../System.Web.UI.WebControls/TWizard.html#methodgetFinishPreviousButtonStyle">FinishPreviousButtonStyle</a>,
+   <a href="../System.Web.UI.WebControls/TWizard.html#methodgetFinishCompleteButtonStyle">FinishCompleteButtonStyle</a>,
+   <a href="../System.Web.UI.WebControls/TWizard.html#methodgetCancelButtonStyle">CancelButtonStyle</a>.</li><li>side bar: <a href="../System.Web.UI.WebControls/TWizard.html#methodgetSideBarStyle">SideBarStyle</a> and <a href="../System.Web.UI.WebControls/TWizard.html#methodgetSideBarButtonStyle">SideBarButtonStyle</a>.</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TWizard.php 2919 2011-05-21 18:14:36Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_WebControls_TWizard_php.html">/Web/UI/WebControls/TWizard.php</a> (line <span class="field">84</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System.Web.UI/TControl.html">TControl</a>
+         |
+         --<a href="../System.Web.UI.WebControls/TWebControl.html">TWebControl</a>
+            |
+            --TWizard</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_CANCEL" title="details" class="const-name">CMD_CANCEL</a> = 					<span class="var-type">'Cancel'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_COMPLETE" title="details" class="const-name">CMD_COMPLETE</a> = 					<span class="var-type">'Complete'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_MOVETO" title="details" class="const-name">CMD_MOVETO</a> = 					<span class="var-type">'MoveTo'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_NEXT" title="details" class="const-name">CMD_NEXT</a> = 					<span class="var-type">'NextStep'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_PREVIOUS" title="details" class="const-name">CMD_PREVIOUS</a> = 					<span class="var-type">'PreviousStep'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#ID_SIDEBAR_BUTTON" title="details" class="const-name">ID_SIDEBAR_BUTTON</a> = 					<span class="var-type">'SideBarButton'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#ID_SIDEBAR_LIST" title="details" class="const-name">ID_SIDEBAR_LIST</a> = 					<span class="var-type">'SideBarList'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#ST_AUTO" title="details" class="const-name">ST_AUTO</a> = 					<span class="var-type">'Auto'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#ST_COMPLETE" title="details" class="const-name">ST_COMPLETE</a> = 					<span class="var-type">'Complete'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#ST_FINISH" title="details" class="const-name">ST_FINISH</a> = 					<span class="var-type">'Finish'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#ST_START" title="details" class="const-name">ST_START</a> = 					<span class="var-type">'Start'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#ST_STEP" title="details" class="const-name">ST_STEP</a> = 					<span class="var-type">'Step'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addedWizardStep" title="details" class="method-name">addedWizardStep</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>&nbsp;<span class="var-name">$step</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addParsedObject" title="details" class="method-name">addParsedObject</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$object</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#allowNavigationToPreviousStep" title="details" class="method-name">allowNavigationToPreviousStep</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#allowNavigationToStep" title="details" class="method-name">allowNavigationToStep</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$index</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applyControlProperties" title="details" class="method-name">applyControlProperties</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applyHeaderProperties" title="details" class="method-name">applyHeaderProperties</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applyNavigationProperties" title="details" class="method-name">applyNavigationProperties</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applySideBarProperties" title="details" class="method-name">applySideBarProperties</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applyStepContentProperties" title="details" class="method-name">applyStepContentProperties</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#bubbleEvent" title="details" class="method-name">bubbleEvent</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createChildControls" title="details" class="method-name">createChildControls</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createFinishNavigation" title="details" class="method-name">createFinishNavigation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createHeader" title="details" class="method-name">createHeader</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createNavigation" title="details" class="method-name">createNavigation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createSideBar" title="details" class="method-name">createSideBar</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createStartNavigation" title="details" class="method-name">createStartNavigation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createStepContent" title="details" class="method-name">createStepContent</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createStepNavigation" title="details" class="method-name">createStepNavigation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#dataListItemCommand" title="details" class="method-name">dataListItemCommand</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System.Web.UI.WebControls/TDataListCommandEventParameter.html">TDataListCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#dataListItemDataBound" title="details" class="method-name">dataListItemDataBound</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System.Web.UI.WebControls/TDataListItemEventParameter.html">TDataListItemEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>
+										<a href="#getActiveStep" title="details" class="method-name">getActiveStep</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getActiveStepIndex" title="details" class="method-name">getActiveStepIndex</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+										<a href="#getCancelButtonStyle" title="details" class="method-name">getCancelButtonStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCancelDestinationUrl" title="details" class="method-name">getCancelDestinationUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+										<a href="#getFinishCompleteButtonStyle" title="details" class="method-name">getFinishCompleteButtonStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFinishDestinationUrl" title="details" class="method-name">getFinishDestinationUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationContainer.html">TWizardNavigationContainer</a></span>
+										<a href="#getFinishNavigation" title="details" class="method-name">getFinishNavigation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+										<a href="#getFinishNavigationTemplate" title="details" class="method-name">getFinishNavigationTemplate</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+										<a href="#getFinishPreviousButtonStyle" title="details" class="method-name">getFinishPreviousButtonStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TPanel.html">TPanel</a></span>
+										<a href="#getHeader" title="details" class="method-name">getHeader</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TPanelStyle.html">TPanelStyle</a></span>
+										<a href="#getHeaderStyle" title="details" class="method-name">getHeaderStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+										<a href="#getHeaderTemplate" title="details" class="method-name">getHeaderTemplate</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getHeaderText" title="details" class="method-name">getHeaderText</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TStack.html">TStack</a></span>
+										<a href="#getHistory" title="details" class="method-name">getHistory</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TMultiView.html">TMultiView</a></span>
+										<a href="#getMultiView" title="details" class="method-name">getMultiView</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+										<a href="#getNavigationButtonStyle" title="details" class="method-name">getNavigationButtonStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TPanelStyle.html">TPanelStyle</a></span>
+										<a href="#getNavigationStyle" title="details" class="method-name">getNavigationStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getPreviousStepIndex" title="details" class="method-name">getPreviousStepIndex</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$popStack</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getShowCancelButton" title="details" class="method-name">getShowCancelButton</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getShowSideBar" title="details" class="method-name">getShowSideBar</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TPanel.html">TPanel</a></span>
+										<a href="#getSideBar" title="details" class="method-name">getSideBar</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+										<a href="#getSideBarButtonStyle" title="details" class="method-name">getSideBarButtonStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TPanelStyle.html">TPanelStyle</a></span>
+										<a href="#getSideBarStyle" title="details" class="method-name">getSideBarStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+										<a href="#getSideBarTemplate" title="details" class="method-name">getSideBarTemplate</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationContainer.html">TWizardNavigationContainer</a></span>
+										<a href="#getStartNavigation" title="details" class="method-name">getStartNavigation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+										<a href="#getStartNavigationTemplate" title="details" class="method-name">getStartNavigationTemplate</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+										<a href="#getStartNextButtonStyle" title="details" class="method-name">getStartNextButtonStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TPanel.html">TPanel</a></span>
+										<a href="#getStepContent" title="details" class="method-name">getStepContent</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationContainer.html">TWizardNavigationContainer</a></span>
+										<a href="#getStepNavigation" title="details" class="method-name">getStepNavigation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+										<a href="#getStepNavigationTemplate" title="details" class="method-name">getStepNavigationTemplate</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+										<a href="#getStepNextButtonStyle" title="details" class="method-name">getStepNextButtonStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+										<a href="#getStepPreviousButtonStyle" title="details" class="method-name">getStepPreviousButtonStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TPanelStyle.html">TPanelStyle</a></span>
+										<a href="#getStepStyle" title="details" class="method-name">getStepStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardStepType.html">TWizardStepType</a></span>
+										<a href="#getStepType" title="details" class="method-name">getStepType</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>&nbsp;<span class="var-name">$wizardStep</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTagName" title="details" class="method-name">getTagName</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getUseDefaultLayout" title="details" class="method-name">getUseDefaultLayout</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardStepCollection.html">TWizardStepCollection</a></span>
+										<a href="#getWizardSteps" title="details" class="method-name">getWizardSteps</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onActiveStepChanged" title="details" class="method-name">onActiveStepChanged</a>
+											(<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onCancelButtonClick" title="details" class="method-name">onCancelButtonClick</a>
+											(<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onCompleteButtonClick" title="details" class="method-name">onCompleteButtonClick</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onInit" title="details" class="method-name">onInit</a>
+											(<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onNextButtonClick" title="details" class="method-name">onNextButtonClick</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onPreviousButtonClick" title="details" class="method-name">onPreviousButtonClick</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onSideBarButtonClick" title="details" class="method-name">onSideBarButtonClick</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#removedWizardStep" title="details" class="method-name">removedWizardStep</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>&nbsp;<span class="var-name">$step</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#render" title="details" class="method-name">render</a>
+											(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#requiresControlsRecreation" title="details" class="method-name">requiresControlsRecreation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#reset" title="details" class="method-name">reset</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#saveState" title="details" class="method-name">saveState</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setActiveStep" title="details" class="method-name">setActiveStep</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>&nbsp;<span class="var-name">$step</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setActiveStepIndex" title="details" class="method-name">setActiveStepIndex</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCancelDestinationUrl" title="details" class="method-name">setCancelDestinationUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setFinishDestinationUrl" title="details" class="method-name">setFinishDestinationUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setFinishNavigationTemplate" title="details" class="method-name">setFinishNavigationTemplate</a>
+											(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setHeaderTemplate" title="details" class="method-name">setHeaderTemplate</a>
+											(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setHeaderText" title="details" class="method-name">setHeaderText</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setShowCancelButton" title="details" class="method-name">setShowCancelButton</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setShowSideBar" title="details" class="method-name">setShowSideBar</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setSideBarTemplate" title="details" class="method-name">setSideBarTemplate</a>
+											(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setStartNavigationTemplate" title="details" class="method-name">setStartNavigationTemplate</a>
+											(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setStepNavigationTemplate" title="details" class="method-name">setStepNavigationTemplate</a>
+											(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUseDefaultLayout" title="details" class="method-name">setUseDefaultLayout</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#wizardStepsChanged" title="details" class="method-name">wizardStepsChanged</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodaddedWizardStep" id="addedWizardStep"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addedWizardStep</span> (line <span class="line-number">746</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a wizard step to the multiview.</p>
+<p class="description"><p>This method should only be used by control developers.  It is invoked when a step is added into the step collection of the wizard.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addedWizardStep
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>&nbsp;<span class="var-name">$step</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>
+				<span class="var-name">$step</span><span class="var-description">: wizard step to be added into multiview.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodaddParsedObject" id="addParsedObject"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addParsedObject</span> (line <span class="line-number">195</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds <a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a> objects into step collection.</p>
+<p class="description"><p>This method overrides the parent implementation and is  invoked when template is being instantiated.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addParsedObject
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$object</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$object</span><span class="var-description">: object instantiated in template</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TControl.html#methodaddParsedObject">TControl::addParsedObject()</a></dt>
+						<dd>Adds the object instantiated on a template to the child control collection.</dd>
+					</dl>
+		
+	</div>
+<a name="methodallowNavigationToPreviousStep" id="allowNavigationToPreviousStep"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">allowNavigationToPreviousStep</span> (line <span class="line-number">1320</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether navigation to the previous step is allowed</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			allowNavigationToPreviousStep
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodallowNavigationToStep" id="allowNavigationToStep"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">allowNavigationToStep</span> (line <span class="line-number">1332</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether navigation to the specified step is allowed</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			allowNavigationToStep
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$index</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$index</span><span class="var-description">: index of the step</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodapplyControlProperties" id="applyControlProperties"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyControlProperties</span> (line <span class="line-number">838</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Applies various properties to the components of wizard</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applyControlProperties
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodapplyHeaderProperties" id="applyHeaderProperties"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyHeaderProperties</span> (line <span class="line-number">849</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Applies properties to the wizard header</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applyHeaderProperties
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodapplyNavigationProperties" id="applyNavigationProperties"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyNavigationProperties</span> (line <span class="line-number">896</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Apply properties to various navigation panels.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applyNavigationProperties
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodapplySideBarProperties" id="applySideBarProperties"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">applySideBarProperties</span> (line <span class="line-number">863</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Applies properties to the wizard sidebar</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applySideBarProperties
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodapplyStepContentProperties" id="applyStepContentProperties"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyStepContentProperties</span> (line <span class="line-number">887</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Applies properties to the wizard step content</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applyStepContentProperties
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodbubbleEvent" id="bubbleEvent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">bubbleEvent</span> (line <span class="line-number">1348</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Handles bubbled events.</p>
+<p class="description"><p>This method mainly translate certain command events into  wizard-specific events.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if a navigation command is associated with an invalid parameter</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			bubbleEvent
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$sender</span><span class="var-description">: sender of the original command event</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TControl.html#methodbubbleEvent">TControl::bubbleEvent()</a></dt>
+						<dd>This method responds to a bubbled event.</dd>
+					</dl>
+		
+	</div>
+<a name="methodcreateChildControls" id="createChildControls"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createChildControls</span> (line <span class="line-number">1073</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates child controls within the wizard</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createChildControls
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TControl.html#methodcreateChildControls">TControl::createChildControls()</a></dt>
+						<dd>Creates child controls.</dd>
+					</dl>
+		
+	</div>
+<a name="methodcreateFinishNavigation" id="createFinishNavigation"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createFinishNavigation</span> (line <span class="line-number">1260</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates finish navigation panel.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createFinishNavigation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateHeader" id="createHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createHeader</span> (line <span class="line-number">1086</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates the wizard header.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createHeader
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateNavigation" id="createNavigation"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createNavigation</span> (line <span class="line-number">1211</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates navigation panel.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createNavigation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateSideBar" id="createSideBar"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createSideBar</span> (line <span class="line-number">1099</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates the wizard side bar</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createSideBar
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateStartNavigation" id="createStartNavigation"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createStartNavigation</span> (line <span class="line-number">1236</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates start navigation panel.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createStartNavigation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateStepContent" id="createStepContent"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createStepContent</span> (line <span class="line-number">1193</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates wizard step content.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createStepContent
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateStepNavigation" id="createStepNavigation"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createStepNavigation</span> (line <span class="line-number">1248</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates step navigation panel.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createStepNavigation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methoddataListItemCommand" id="dataListItemCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">dataListItemCommand</span> (line <span class="line-number">1132</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Event handler for sidebar datalist's OnItemCommand event.</p>
+<p class="description"><p>This method is used internally by wizard. It mainly  sets the active step index according to the button clicked in the sidebar.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			dataListItemCommand
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System.Web.UI.WebControls/TDataListCommandEventParameter.html">TDataListCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$sender</span><span class="var-description">: sender of the event</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataListCommandEventParameter.html">TDataListCommandEventParameter</a></span>
+				<span class="var-name">$param</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methoddataListItemDataBound" id="dataListItemDataBound"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">dataListItemDataBound</span> (line <span class="line-number">1168</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Event handler for sidebar datalist's OnItemDataBound event.</p>
+<p class="description"><p>This method is used internally by wizard. It mainly configures  the buttons in the sidebar datalist.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			dataListItemDataBound
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System.Web.UI.WebControls/TDataListItemEventParameter.html">TDataListItemEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$sender</span><span class="var-description">: sender of the event</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataListItemEventParameter.html">TDataListItemEventParameter</a></span>
+				<span class="var-name">$param</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetActiveStep" id="getActiveStep"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getActiveStep</span> (line <span class="line-number">204</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the currently active wizard step</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>
+		<span class="method-name">
+			getActiveStep
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetActiveStepIndex" id="getActiveStepIndex"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getActiveStepIndex</span> (line <span class="line-number">223</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the zero-based index of the active wizard step</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getActiveStepIndex
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCancelButtonStyle" id="getCancelButtonStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCancelButtonStyle</span> (line <span class="line-number">525</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for the cancel button</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+		<span class="method-name">
+			getCancelButtonStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCancelDestinationUrl" id="getCancelDestinationUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCancelDestinationUrl</span> (line <span class="line-number">395</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the URL that the browser will be redirected to if the cancel button in the  wizard is clicked. Defaults to ''.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCancelDestinationUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetFinishCompleteButtonStyle" id="getFinishCompleteButtonStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFinishCompleteButtonStyle</span> (line <span class="line-number">497</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for the complete button in the finish wizard step.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+		<span class="method-name">
+			getFinishCompleteButtonStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetFinishDestinationUrl" id="getFinishDestinationUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFinishDestinationUrl</span> (line <span class="line-number">413</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the URL that the browser will be redirected to if the wizard finishes.  Defaults to ''.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFinishDestinationUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetFinishNavigation" id="getFinishNavigation"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFinishNavigation</span> (line <span class="line-number">649</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> container of the finish navigation</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationContainer.html">TWizardNavigationContainer</a></span>
+		<span class="method-name">
+			getFinishNavigation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetFinishNavigationTemplate" id="getFinishNavigationTemplate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFinishNavigationTemplate</span> (line <span class="line-number">327</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> navigation template for the finish step. Defaults to null.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+		<span class="method-name">
+			getFinishNavigationTemplate
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetFinishPreviousButtonStyle" id="getFinishPreviousButtonStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFinishPreviousButtonStyle</span> (line <span class="line-number">511</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for the previous button in the start wizard step.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+		<span class="method-name">
+			getFinishPreviousButtonStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHeader" id="getHeader"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHeader</span> (line <span class="line-number">609</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> container of the wizard header</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TPanel.html">TPanel</a></span>
+		<span class="method-name">
+			getHeader
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHeaderStyle" id="getHeaderStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHeaderStyle</span> (line <span class="line-number">552</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for the header.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TPanelStyle.html">TPanelStyle</a></span>
+		<span class="method-name">
+			getHeaderStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHeaderTemplate" id="getHeaderTemplate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHeaderTemplate</span> (line <span class="line-number">344</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> template for wizard header. Defaults to null.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+		<span class="method-name">
+			getHeaderTemplate
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHeaderText" id="getHeaderText"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHeaderText</span> (line <span class="line-number">378</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> header text. Defaults to ''.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getHeaderText
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHistory" id="getHistory"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHistory</span> (line <span class="line-number">1015</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> history containing step indexes that were navigated before</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TStack.html">TStack</a></span>
+		<span class="method-name">
+			getHistory
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetMultiView" id="getMultiView"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMultiView</span> (line <span class="line-number">728</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the multiview that holds the wizard steps.</p>
+<p class="description"><p>This method should only be used by control developers.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the multiview holding wizard steps</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TMultiView.html">TMultiView</a></span>
+		<span class="method-name">
+			getMultiView
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetNavigationButtonStyle" id="getNavigationButtonStyle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNavigationButtonStyle</span> (line <span class="line-number">442</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style common for all navigation buttons.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+		<span class="method-name">
+			getNavigationButtonStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetNavigationStyle" id="getNavigationStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNavigationStyle</span> (line <span class="line-number">578</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for the navigation panel.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TPanelStyle.html">TPanelStyle</a></span>
+		<span class="method-name">
+			getNavigationStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPreviousStepIndex" id="getPreviousStepIndex"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPreviousStepIndex</span> (line <span class="line-number">1288</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines the index of the previous step based on history.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getPreviousStepIndex
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$popStack</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$popStack</span><span class="var-description">: whether the first item in the history stack should be popped  up after calling this method.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetShowCancelButton" id="getShowCancelButton"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getShowCancelButton</span> (line <span class="line-number">260</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether to display a cancel button in each wizard step. Defaults to false.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getShowCancelButton
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetShowSideBar" id="getShowSideBar"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getShowSideBar</span> (line <span class="line-number">276</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether to display a side bar that contains links to wizard steps. Defaults to true.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getShowSideBar
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSideBar" id="getSideBar"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSideBar</span> (line <span class="line-number">625</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> container of the wizard side bar</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TPanel.html">TPanel</a></span>
+		<span class="method-name">
+			getSideBar
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSideBarButtonStyle" id="getSideBarButtonStyle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSideBarButtonStyle</span> (line <span class="line-number">429</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for the buttons displayed in the side bar.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+		<span class="method-name">
+			getSideBarButtonStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSideBarStyle" id="getSideBarStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSideBarStyle</span> (line <span class="line-number">539</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for the side bar.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TPanelStyle.html">TPanelStyle</a></span>
+		<span class="method-name">
+			getSideBarStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSideBarTemplate" id="getSideBarTemplate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSideBarTemplate</span> (line <span class="line-number">361</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> template for the side bar. Defaults to null.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+		<span class="method-name">
+			getSideBarTemplate
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStartNavigation" id="getStartNavigation"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStartNavigation</span> (line <span class="line-number">633</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> container of the start navigation</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationContainer.html">TWizardNavigationContainer</a></span>
+		<span class="method-name">
+			getStartNavigation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStartNavigationTemplate" id="getStartNavigationTemplate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStartNavigationTemplate</span> (line <span class="line-number">293</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> navigation template for the start step. Defaults to null.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+		<span class="method-name">
+			getStartNavigationTemplate
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStartNextButtonStyle" id="getStartNextButtonStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStartNextButtonStyle</span> (line <span class="line-number">455</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for the next button in the start wizard step.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+		<span class="method-name">
+			getStartNextButtonStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStepContent" id="getStepContent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStepContent</span> (line <span class="line-number">617</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> container of the wizard step content</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TPanel.html">TPanel</a></span>
+		<span class="method-name">
+			getStepContent
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStepNavigation" id="getStepNavigation"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStepNavigation</span> (line <span class="line-number">641</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> container of the step navigation</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationContainer.html">TWizardNavigationContainer</a></span>
+		<span class="method-name">
+			getStepNavigation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStepNavigationTemplate" id="getStepNavigationTemplate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStepNavigationTemplate</span> (line <span class="line-number">310</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> navigation template for internal steps. Defaults to null.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+		<span class="method-name">
+			getStepNavigationTemplate
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStepNextButtonStyle" id="getStepNextButtonStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStepNextButtonStyle</span> (line <span class="line-number">469</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for the next button in each internal wizard step.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+		<span class="method-name">
+			getStepNextButtonStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStepPreviousButtonStyle" id="getStepPreviousButtonStyle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStepPreviousButtonStyle</span> (line <span class="line-number">483</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for the previous button in the start wizard step.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html">TWizardNavigationButtonStyle</a></span>
+		<span class="method-name">
+			getStepPreviousButtonStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStepStyle" id="getStepStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStepStyle</span> (line <span class="line-number">565</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for each internal wizard step.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TPanelStyle.html">TPanelStyle</a></span>
+		<span class="method-name">
+			getStepStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStepType" id="getStepType"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStepType</span> (line <span class="line-number">1030</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines the type of the specified wizard step.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> type of the step</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardStepType.html">TWizardStepType</a></span>
+		<span class="method-name">
+			getStepType
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>&nbsp;<span class="var-name">$wizardStep</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>
+				<span class="var-name">$wizardStep</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetTagName" id="getTagName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTagName</span> (line <span class="line-number">184</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> tag name for the wizard</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTagName
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetTagName">TWebControl::getTagName()</a></dt>
+						<dd>Returns the tag name used for this control.</dd>
+					</dl>
+		
+	</div>
+<a name="methodgetUseDefaultLayout" id="getUseDefaultLayout"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUseDefaultLayout</span> (line <span class="line-number">591</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether to use default layout to arrange side bar and the rest wizard components. Defaults to true.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getUseDefaultLayout
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetWizardSteps" id="getWizardSteps"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getWizardSteps</span> (line <span class="line-number">250</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> collection of wizard steps</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardStepCollection.html">TWizardStepCollection</a></span>
+		<span class="method-name">
+			getWizardSteps
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonActiveStepChanged" id="onActiveStepChanged"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onActiveStepChanged</span> (line <span class="line-number">660</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnActiveStepChanged</strong> event.</p>
+<p class="description"><p>This event is raised when the current visible step is changed in the  wizard.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onActiveStepChanged
+		</span>
+					(<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonCancelButtonClick" id="onCancelButtonClick"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onCancelButtonClick</span> (line <span class="line-number">671</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnCancelButtonClick</strong> event.</p>
+<p class="description"><p>This event is raised when a cancel navigation button is clicked in the  current active step.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onCancelButtonClick
+		</span>
+					(<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonCompleteButtonClick" id="onCompleteButtonClick"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onCompleteButtonClick</span> (line <span class="line-number">684</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnCompleteButtonClick</strong> event.</p>
+<p class="description"><p>This event is raised when a finish navigation button is clicked in the  current active step.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onCompleteButtonClick
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonInit" id="onInit"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onInit</span> (line <span class="line-number">771</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates the child controls of the wizard.</p>
+<p class="description"><p>This method overrides the parent implementation.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onInit
+		</span>
+					(<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TControl.html#methodonInit">TControl::onInit()</a></dt>
+						<dd>This method is invoked when the control enters 'OnInit' stage.</dd>
+					</dl>
+		
+	</div>
+<a name="methodonNextButtonClick" id="onNextButtonClick"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onNextButtonClick</span> (line <span class="line-number">697</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnNextButtonClick</strong> event.</p>
+<p class="description"><p>This event is raised when a next navigation button is clicked in the  current active step.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onNextButtonClick
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonPreviousButtonClick" id="onPreviousButtonClick"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onPreviousButtonClick</span> (line <span class="line-number">708</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnPreviousButtonClick</strong> event.</p>
+<p class="description"><p>This event is raised when a previous navigation button is clicked in the  current active step.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onPreviousButtonClick
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonSideBarButtonClick" id="onSideBarButtonClick"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onSideBarButtonClick</span> (line <span class="line-number">718</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnSideBarButtonClick</strong> event.</p>
+<p class="description"><p>This event is raised when a link button in the side bar is clicked.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onSideBarButtonClick
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationEventParameter.html">TWizardNavigationEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodremovedWizardStep" id="removedWizardStep"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">removedWizardStep</span> (line <span class="line-number">760</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Removes a wizard step from the multiview.</p>
+<p class="description"><p>This method should only be used by control developers.  It is invoked when a step is removed from the step collection of the wizard.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			removedWizardStep
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>&nbsp;<span class="var-name">$step</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>
+				<span class="var-name">$step</span><span class="var-description">: wizard step to be removed from multiview.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrender" id="render"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">render</span> (line <span class="line-number">804</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the wizard.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			render
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+				<span class="var-name">$writer</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TWebControl.html#methodrender">TWebControl::render()</a></dt>
+						<dd>Renders the control.</dd>
+					</dl>
+		
+	</div>
+<a name="methodrequiresControlsRecreation" id="requiresControlsRecreation"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">requiresControlsRecreation</span> (line <span class="line-number">794</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Indicates the wizard needs to recreate all child controls.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			requiresControlsRecreation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodreset" id="reset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">reset</span> (line <span class="line-number">1057</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clears up everything within the wizard.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			reset
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsaveState" id="saveState"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">saveState</span> (line <span class="line-number">783</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Saves the current active step index into history.</p>
+<p class="description"><p>This method is invoked by the framework when the control state is being saved.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			saveState
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TControl.html#methodsaveState">TControl::saveState()</a></dt>
+						<dd>This method is invoked when control state is to be saved.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetActiveStep" id="setActiveStep"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setActiveStep</span> (line <span class="line-number">213</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the step is not in the wizard step collection</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setActiveStep
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>&nbsp;<span class="var-name">$step</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a></span>
+				<span class="var-name">$step</span><span class="var-description">: step to be activated</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetActiveStepIndex" id="setActiveStepIndex"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setActiveStepIndex</span> (line <span class="line-number">231</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setActiveStepIndex
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: the zero-based index of the wizard step to be activated</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCancelDestinationUrl" id="setCancelDestinationUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCancelDestinationUrl</span> (line <span class="line-number">404</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCancelDestinationUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the URL that the browser will be redirected to if the cancel button in the  wizard is clicked.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetFinishDestinationUrl" id="setFinishDestinationUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFinishDestinationUrl</span> (line <span class="line-number">421</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setFinishDestinationUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the URL that the browser will be redirected to if the wizard finishes.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetFinishNavigationTemplate" id="setFinishNavigationTemplate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFinishNavigationTemplate</span> (line <span class="line-number">335</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setFinishNavigationTemplate
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+				<span class="var-name">$value</span><span class="var-description">: navigation template for the finish step.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetHeaderTemplate" id="setHeaderTemplate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setHeaderTemplate</span> (line <span class="line-number">352</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setHeaderTemplate
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+				<span class="var-name">$value</span><span class="var-description">: template for wizard header.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetHeaderText" id="setHeaderText"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setHeaderText</span> (line <span class="line-number">386</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setHeaderText
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: header text.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetShowCancelButton" id="setShowCancelButton"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setShowCancelButton</span> (line <span class="line-number">268</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setShowCancelButton
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether to display a cancel button in each wizard step.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetShowSideBar" id="setShowSideBar"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setShowSideBar</span> (line <span class="line-number">284</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setShowSideBar
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether to display a side bar that contains links to wizard steps.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetSideBarTemplate" id="setSideBarTemplate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSideBarTemplate</span> (line <span class="line-number">369</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSideBarTemplate
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+				<span class="var-name">$value</span><span class="var-description">: template for the side bar.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetStartNavigationTemplate" id="setStartNavigationTemplate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setStartNavigationTemplate</span> (line <span class="line-number">301</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setStartNavigationTemplate
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+				<span class="var-name">$value</span><span class="var-description">: navigation template for the start step.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetStepNavigationTemplate" id="setStepNavigationTemplate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setStepNavigationTemplate</span> (line <span class="line-number">318</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setStepNavigationTemplate
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+				<span class="var-name">$value</span><span class="var-description">: navigation template for internal steps.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUseDefaultLayout" id="setUseDefaultLayout"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUseDefaultLayout</span> (line <span class="line-number">601</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUseDefaultLayout
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether to use default layout to arrange side bar and the rest wizard components.  If true, an HTML table will be used which places the side bar in the left cell  while the rest components in the right cell.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodwizardStepsChanged" id="wizardStepsChanged"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">wizardStepsChanged</span> (line <span class="line-number">1273</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the sidebar datalist if any.</p>
+<p class="description"><p>This method is invoked when any wizard step is changed.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			wizardStepsChanged
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.WebControls/TWebControl.html">TWebControl</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodaddAttributesToRender">TWebControl::addAttributesToRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodclearStyle">TWebControl::clearStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodcopyBaseAttributes">TWebControl::copyBaseAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodcreateStyle">TWebControl::createStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetAccessKey">TWebControl::getAccessKey()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBackColor">TWebControl::getBackColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderColor">TWebControl::getBorderColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderStyle">TWebControl::getBorderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderWidth">TWebControl::getBorderWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetCssClass">TWebControl::getCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetDisplay">TWebControl::getDisplay()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetFont">TWebControl::getFont()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetForeColor">TWebControl::getForeColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetHasStyle">TWebControl::getHasStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetHeight">TWebControl::getHeight()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetStyle">TWebControl::getStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetTabIndex">TWebControl::getTabIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetTagName">TWebControl::getTagName()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetToolTip">TWebControl::getToolTip()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetWidth">TWebControl::getWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrender">TWebControl::render()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderBeginTag">TWebControl::renderBeginTag()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderContents">TWebControl::renderContents()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderEndTag">TWebControl::renderEndTag()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetAccessKey">TWebControl::setAccessKey()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBackColor">TWebControl::setBackColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderColor">TWebControl::setBorderColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderStyle">TWebControl::setBorderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderWidth">TWebControl::setBorderWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetCssClass">TWebControl::setCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetDisplay">TWebControl::setDisplay()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetForeColor">TWebControl::setForeColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetHeight">TWebControl::setHeight()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetStyle">TWebControl::setStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetTabIndex">TWebControl::setTabIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetToolTip">TWebControl::setToolTip()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetWidth">TWebControl::setWidth()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI/TControl.html">TControl</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#method__construct">TControl::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddedControl">TControl::addedControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddParsedObject">TControl::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddToPostDataLoader">TControl::addToPostDataLoader()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodapplyStyleSheetSkin">TControl::applyStyleSheetSkin()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodautoBindProperty">TControl::autoBindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodautoDataBindProperties">TControl::autoDataBindProperties()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbindProperty">TControl::bindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbroadcastEvent">TControl::broadcastEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbubbleEvent">TControl::bubbleEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearChildState">TControl::clearChildState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearControlState">TControl::clearControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearNamingContainer">TControl::clearNamingContainer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearViewState">TControl::clearViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodconvertUniqueIdToClientId">TControl::convertUniqueIdToClientId()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodcreateChildControls">TControl::createChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodcreateControlCollection">TControl::createControlCollection()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBind">TControl::dataBind()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBindChildren">TControl::dataBindChildren()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBindProperties">TControl::dataBindProperties()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodensureChildControls">TControl::ensureChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControl">TControl::findControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControlsByID">TControl::findControlsByID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControlsByType">TControl::findControlsByType()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfocus">TControl::focus()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAdapter">TControl::getAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAllowChildControls">TControl::getAllowChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAttribute">TControl::getAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAttributes">TControl::getAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetChildControlsCreated">TControl::getChildControlsCreated()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetClientID">TControl::getClientID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControls">TControl::getControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControlStage">TControl::getControlStage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControlState">TControl::getControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetCustomData">TControl::getCustomData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnabled">TControl::getEnabled()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnableTheming">TControl::getEnableTheming()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnableViewState">TControl::getEnableViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasAdapter">TControl::getHasAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasAttributes">TControl::getHasAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasChildInitialized">TControl::getHasChildInitialized()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasControls">TControl::getHasControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasInitialized">TControl::getHasInitialized()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasLoaded">TControl::getHasLoaded()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasLoadedPostData">TControl::getHasLoadedPostData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasPreRendered">TControl::getHasPreRendered()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetID">TControl::getID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetNamingContainer">TControl::getNamingContainer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetPage">TControl::getPage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetParent">TControl::getParent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetRegisteredObject">TControl::getRegisteredObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetSkinID">TControl::getSkinID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetSourceTemplateControl">TControl::getSourceTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetTemplateControl">TControl::getTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetUniqueID">TControl::getUniqueID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetViewState">TControl::getViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetVisible">TControl::getVisible()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodhasAttribute">TControl::hasAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodinitRecursive">TControl::initRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodisDescendentOf">TControl::isDescendentOf()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodisObjectRegistered">TControl::isObjectRegistered()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadRecursive">TControl::loadRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadState">TControl::loadState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadStateRecursive">TControl::loadStateRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonDataBinding">TControl::onDataBinding()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonInit">TControl::onInit()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonLoad">TControl::onLoad()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonPreRender">TControl::onPreRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonUnload">TControl::onUnload()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodpreRenderRecursive">TControl::preRenderRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodraiseBubbleEvent">TControl::raiseBubbleEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodregisterObject">TControl::registerObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodremoveAttribute">TControl::removeAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodremovedControl">TControl::removedControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrender">TControl::render()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrenderChildren">TControl::renderChildren()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrenderControl">TControl::renderControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsaveState">TControl::saveState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsaveStateRecursive">TControl::saveStateRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetAdapter">TControl::setAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetAttribute">TControl::setAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetChildControlsCreated">TControl::setChildControlsCreated()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetControlStage">TControl::setControlStage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetControlState">TControl::setControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetCustomData">TControl::setCustomData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnabled">TControl::setEnabled()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnableTheming">TControl::setEnableTheming()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnableViewState">TControl::setEnableViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetID">TControl::setID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetPage">TControl::setPage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetSkinID">TControl::setSkinID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetTemplateControl">TControl::setTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetViewState">TControl::setViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetVisible">TControl::setVisible()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodtrackViewState">TControl::trackViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodtraverseChildControls">TControl::traverseChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunbindProperty">TControl::unbindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunloadRecursive">TControl::unloadRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunregisterObject">TControl::unregisterObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#method__get">TControl::__get()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constCMD_CANCEL" id="CMD_CANCEL"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_CANCEL</span>
+			 = <span class="const-default">'Cancel'</span>
+			(line <span class="line-number">100</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_COMPLETE" id="CMD_COMPLETE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_COMPLETE</span>
+			 = <span class="const-default">'Complete'</span>
+			(line <span class="line-number">101</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_MOVETO" id="CMD_MOVETO"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_MOVETO</span>
+			 = <span class="const-default">'MoveTo'</span>
+			(line <span class="line-number">102</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_NEXT" id="CMD_NEXT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_NEXT</span>
+			 = <span class="const-default">'NextStep'</span>
+			(line <span class="line-number">99</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_PREVIOUS" id="CMD_PREVIOUS"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_PREVIOUS</span>
+			 = <span class="const-default">'PreviousStep'</span>
+			(line <span class="line-number">98</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Navigation commands.</p>
+	
+	
+</div>
+<a name="constID_SIDEBAR_BUTTON" id="ID_SIDEBAR_BUTTON"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ID_SIDEBAR_BUTTON</span>
+			 = <span class="const-default">'SideBarButton'</span>
+			(line <span class="line-number">106</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Side bar button ID</p>
+	
+	
+</div>
+<a name="constID_SIDEBAR_LIST" id="ID_SIDEBAR_LIST"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ID_SIDEBAR_LIST</span>
+			 = <span class="const-default">'SideBarList'</span>
+			(line <span class="line-number">110</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Side bar data list</p>
+	
+	
+</div>
+<a name="constST_AUTO" id="ST_AUTO"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ST_AUTO</span>
+			 = <span class="const-default">'Auto'</span>
+			(line <span class="line-number">90</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Wizard step types.</p>
+	<ul class="tags">
+				<li><span class="field">deprecated:</span> deprecated since version 3.0.4 (use TWizardStepType constants instead)</li>
+			</ul>
+	
+	
+</div>
+<a name="constST_COMPLETE" id="ST_COMPLETE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ST_COMPLETE</span>
+			 = <span class="const-default">'Complete'</span>
+			(line <span class="line-number">94</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constST_FINISH" id="ST_FINISH"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ST_FINISH</span>
+			 = <span class="const-default">'Finish'</span>
+			(line <span class="line-number">93</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constST_START" id="ST_START"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ST_START</span>
+			 = <span class="const-default">'Start'</span>
+			(line <span class="line-number">91</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constST_STEP" id="ST_STEP"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ST_STEP</span>
+			 = <span class="const-default">'Step'</span>
+			(line <span class="line-number">92</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+							<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../System.Web.UI/TControl.html">TControl</a></span></p>
+					<blockquote>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constAUTOMATIC_ID_PREFIX">TControl::AUTOMATIC_ID_PREFIX</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCLIENT_ID_SEPARATOR">TControl::CLIENT_ID_SEPARATOR</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_CHILD_INITIALIZED">TControl::CS_CHILD_INITIALIZED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_CONSTRUCTED">TControl::CS_CONSTRUCTED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_INITIALIZED">TControl::CS_INITIALIZED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_LOADED">TControl::CS_LOADED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_PRERENDERED">TControl::CS_PRERENDERED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_STATE_LOADED">TControl::CS_STATE_LOADED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constID_FORMAT">TControl::ID_FORMAT</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constID_SEPARATOR">TControl::ID_SEPARATOR</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_CHILD_CREATED">TControl::IS_CHILD_CREATED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_CREATING_CHILD">TControl::IS_CREATING_CHILD</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_DISABLE_THEMING">TControl::IS_DISABLE_THEMING</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_DISABLE_VIEWSTATE">TControl::IS_DISABLE_VIEWSTATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_ID_SET">TControl::IS_ID_SET</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_SKIN_APPLIED">TControl::IS_SKIN_APPLIED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_STYLESHEET_APPLIED">TControl::IS_STYLESHEET_APPLIED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_ADAPTER">TControl::RF_ADAPTER</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_AUTO_BINDINGS">TControl::RF_AUTO_BINDINGS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CHILD_STATE">TControl::RF_CHILD_STATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CONTROLS">TControl::RF_CONTROLS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CONTROLSTATE">TControl::RF_CONTROLSTATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_DATA_BINDINGS">TControl::RF_DATA_BINDINGS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_EVENTS">TControl::RF_EVENTS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_CONTROLS">TControl::RF_NAMED_CONTROLS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_CONTROLS_ID">TControl::RF_NAMED_CONTROLS_ID</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_OBJECTS">TControl::RF_NAMED_OBJECTS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_SKIN_ID">TControl::RF_SKIN_ID</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:17:01 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

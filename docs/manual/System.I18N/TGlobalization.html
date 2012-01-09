@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TGlobalization</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TGlobalization</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TGlobalization contains settings for Culture, Charset  and TranslationConfiguration.</p>
+<p class="description"><p>TGlobalization can be subclassed to change how the Culture, Charset  are determined. See TGlobalizationAutoDetect for example of  setting the Culture based on browser settings.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Revision: 1.66 $  $Date: ${DATE} ${TIME} $</li>
+				<li><span class="field">author:</span> Wei Zhuo&lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_I18N_TGlobalization_php.html">/I18N/TGlobalization.php</a> (line <span class="field">27</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --TGlobalization</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.I18N/TGlobalizationAutoDetect.html">TGlobalizationAutoDetect</a></td>
+					<td>
+											TGlobalizationAutoDetect class will automatically try to resolve the default  culture using the user browser language settings.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCharset" title="details" class="method-name">getCharset</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCulture" title="details" class="method-name">getCulture</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getCultureVariants" title="details" class="method-name">getCultureVariants</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$culture</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDefaultCharset" title="details" class="method-name">getDefaultCharset</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDefaultCulture" title="details" class="method-name">getDefaultCulture</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getLocalizedResource" title="details" class="method-name">getLocalizedResource</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$culture</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTranslateDefaultCulture" title="details" class="method-name">getTranslateDefaultCulture</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTranslationCatalogue" title="details" class="method-name">getTranslationCatalogue</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+										<a href="#getTranslationConfiguration" title="details" class="method-name">getTranslationConfiguration</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$xml</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCharset" title="details" class="method-name">setCharset</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$charset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCulture" title="details" class="method-name">setCulture</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$culture</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDefaultCharset" title="details" class="method-name">setDefaultCharset</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$charset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDefaultCulture" title="details" class="method-name">setDefaultCulture</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$culture</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setTranslateDefaultCulture" title="details" class="method-name">setTranslateDefaultCulture</a>
+											(<span class="var-type">bool</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setTranslationCatalogue" title="details" class="method-name">setTranslationCatalogue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setTranslationConfiguration" title="details" class="method-name">setTranslationConfiguration</a>
+											(<span class="var-type">TMap</span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetCharset" id="getCharset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCharset</span> (line <span class="line-number">154</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> localization charset</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCharset
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCulture" id="getCulture"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCulture</span> (line <span class="line-number">138</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> current application culture</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCulture
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCultureVariants" id="getCultureVariants"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCultureVariants</span> (line <span class="line-number">248</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets all the variants of a specific culture. If the parameter  $culture is null, the current culture is used.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> variants of the culture.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getCultureVariants
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$culture</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$culture</span><span class="var-description">: the Culture string</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetDefaultCharset" id="getDefaultCharset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDefaultCharset</span> (line <span class="line-number">122</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> default charset set</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDefaultCharset
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDefaultCulture" id="getDefaultCulture"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDefaultCulture</span> (line <span class="line-number">106</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> default culture</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDefaultCulture
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetLocalizedResource" id="getLocalizedResource"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLocalizedResource</span> (line <span class="line-number">277</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a list of possible localized files. Example</p>
+<p class="description"><p><pre><ol><code><pre><li> <span class="src-var">$files </span>= <span class="src-var">$app</span><span class="src-sym">-&gt;</span><a href="../System.I18N/TGlobalization.html#methodgetLocalizedResource">getLocalizedResource</a><span class="src-sym">(</span><span class="src-str">&quot;path/to/Home.page&quot;</span><span class="src-sym">,</span><span class="src-str">&quot;en_US&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  will return  <pre> array
+   0 => 'path/to/en_US/Home.page'
+   1 => 'path/to/en/Home.page'
+   2 => 'path/to/Home.en_US.page'
+   3 => 'path/to/Home.en.page'
+   4 => 'path/to/Home.page'</pre>  Note that you still need to verify the existance of these files.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of possible localized resource files.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getLocalizedResource
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$culture</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$file</span><span class="var-description">: filename</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$culture</span><span class="var-description">: culture string, null to use current culture</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetTranslateDefaultCulture" id="getTranslateDefaultCulture"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTranslateDefaultCulture</span> (line <span class="line-number">90</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> default culture</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTranslateDefaultCulture
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTranslationCatalogue" id="getTranslationCatalogue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTranslationCatalogue</span> (line <span class="line-number">229</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> current translation catalogue.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTranslationCatalogue
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTranslationConfiguration" id="getTranslationConfiguration"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTranslationConfiguration</span> (line <span class="line-number">170</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> translation source configuration.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+		<span class="method-name">
+			getTranslationConfiguration
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">71</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initialize the Culture and Charset for this application.</p>
+<p class="description"><p>You should override this method if you want a different way of  setting the Culture and/or Charset for your application.  If you override this method, call parent::init($xml) first.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$xml</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$xml</span><span class="var-description">: application configuration</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TModule.html#methodinit">TModule::init()</a></dt>
+						<dd>Initializes the module.</dd>
+					</dl>
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.I18N/TGlobalizationAutoDetect.html#methodinit">TGlobalizationAutoDetect::init()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodsetCharset" id="setCharset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCharset</span> (line <span class="line-number">162</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCharset
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$charset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$charset</span><span class="var-description">: localization charset, e.g. &lt;tt&gt;UTF-8&lt;/tt&gt;</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCulture" id="setCulture"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCulture</span> (line <span class="line-number">146</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCulture
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$culture</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$culture</span><span class="var-description">: culture, e.g. &lt;tt&gt;en_US&lt;/tt&gt; for American English</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetDefaultCharset" id="setDefaultCharset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDefaultCharset</span> (line <span class="line-number">130</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDefaultCharset
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$charset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$charset</span><span class="var-description">: default localization charset, e.g. &lt;tt&gt;UTF-8&lt;/tt&gt;</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetDefaultCulture" id="setDefaultCulture"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDefaultCulture</span> (line <span class="line-number">114</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDefaultCulture
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$culture</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$culture</span><span class="var-description">: default culture, e.g. &lt;tt&gt;en_US&lt;/tt&gt; for American English</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetTranslateDefaultCulture" id="setTranslateDefaultCulture"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTranslateDefaultCulture</span> (line <span class="line-number">98</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTranslateDefaultCulture
+		</span>
+					(<span class="var-type">bool</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$value</span><span class="var-description">: default culture, e.g. &lt;tt&gt;en_US&lt;/tt&gt; for American English</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetTranslationCatalogue" id="setTranslationCatalogue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTranslationCatalogue</span> (line <span class="line-number">237</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTranslationCatalogue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: update the translation catalogue.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetTranslationConfiguration" id="setTranslationConfiguration"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTranslationConfiguration</span> (line <span class="line-number">192</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the translation configuration. Example configuration:</p>
+<p class="description"><p><pre><ol><code><pre><li> <span class="src-var">$config</span><span class="src-sym">[</span><span class="src-str">'type'</span><span class="src-sym">] </span>= <span class="src-str">'XLIFF'</span><span class="src-sym">; </span><span class="src-comm">//XLIFF, gettext, Database or MySQL (deprecated)</span></li>
+<li>  <span class="src-var">$config</span><span class="src-sym">[</span><span class="src-str">'source'</span><span class="src-sym">] </span>= <span class="src-str">'Path.to.directory'</span><span class="src-sym">; </span><span class="src-comm">// for types XLIFF and gettext</span></li>
+<li>  <span class="src-var">$config</span><span class="src-sym">[</span><span class="src-str">'source'</span><span class="src-sym">] </span>= <span class="src-str">'connectionId'</span><span class="src-sym">; </span><span class="src-comm">// for type Database</span></li>
+<li>  <span class="src-var">$config</span><span class="src-sym">[</span><span class="src-str">'source'</span><span class="src-sym">] </span>= <span class="src-str">'mysql://user:pw@host/db'</span><span class="src-sym">; </span><span class="src-comm">// for type MySQL (deprecated)</span></li>
+<li>  <span class="src-var">$config</span><span class="src-sym">[</span><span class="src-str">'catalogue'</span><span class="src-sym">] </span>= <span class="src-str">'messages'</span><span class="src-sym">; </span><span class="src-comm">//default catalog</span></li>
+<li>  <span class="src-var">$config</span><span class="src-sym">[</span><span class="src-str">'autosave'</span><span class="src-sym">] </span>= <span class="src-str">'true'</span><span class="src-sym">; </span><span class="src-comm">//save untranslated message</span></li>
+<li>  <span class="src-var">$config</span><span class="src-sym">[</span><span class="src-str">'cache'</span><span class="src-sym">] </span>= <span class="src-str">'true'</span><span class="src-sym">; </span><span class="src-comm">//cache translated message</span></li>
+<li>  <span class="src-var">$config</span><span class="src-sym">[</span><span class="src-str">'marker'</span><span class="src-sym">] </span>= <span class="src-str">'@@'</span><span class="src-sym">; </span><span class="src-comm">// surround untranslated text with '@@'</span></li>
+</pre></code></ol></pre>  Throws exception is source is not found.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTranslationConfiguration
+		</span>
+					(<span class="var-type">TMap</span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Collections/TMap.html">TMap</a></span>
+				<span class="var-name">$config</span><span class="var-description">: configuration options</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:14:21 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

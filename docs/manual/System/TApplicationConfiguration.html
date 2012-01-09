@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TApplicationConfiguration</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TApplicationConfiguration</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TApplicationConfiguration class.</p>
+<p class="description"><p>This class is used internally by TApplication to parse and represent application configuration.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TApplication.php 2704 2009-09-15 08:23:47Z Christophe.Boulain $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_TApplication_php.html">/TApplication.php</a> (line <span class="field">1178</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TApplicationConfiguration</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getAliases" title="details" class="method-name">getAliases</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getExternalConfigurations" title="details" class="method-name">getExternalConfigurations</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsEmpty" title="details" class="method-name">getIsEmpty</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getModules" title="details" class="method-name">getModules</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getParameters" title="details" class="method-name">getParameters</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getProperties" title="details" class="method-name">getProperties</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getServices" title="details" class="method-name">getServices</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getUsings" title="details" class="method-name">getUsings</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadExternalXml" title="details" class="method-name">loadExternalXml</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$includeNode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadFromFile" title="details" class="method-name">loadFromFile</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$fname</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadFromXml" title="details" class="method-name">loadFromXml</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$dom</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadModulesXml" title="details" class="method-name">loadModulesXml</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$modulesNode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadParametersXml" title="details" class="method-name">loadParametersXml</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$parametersNode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadPathsXml" title="details" class="method-name">loadPathsXml</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$pathsNode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadServicesXml" title="details" class="method-name">loadServicesXml</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$servicesNode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetAliases" id="getAliases"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAliases</span> (line <span class="line-number">1438</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns list of path alias definitions.</p>
+<p class="description"><p>The definitions are aggregated (top-down) from configuration files along the path  to the specified page. Each array element represents a single alias definition,  with the key being the alias name and the value the absolute path.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of path alias definitions</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getAliases
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetExternalConfigurations" id="getExternalConfigurations"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getExternalConfigurations</span> (line <span class="line-number">1502</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of external configuration files. Each element is like $filePath=&gt;$condition</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getExternalConfigurations
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsEmpty" id="getIsEmpty"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsEmpty</span> (line <span class="line-number">1228</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether this configuration contains actual stuff</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsEmpty
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetModules" id="getModules"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getModules</span> (line <span class="line-number">1469</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns list of module configurations.</p>
+<p class="description"><p>The module configurations are aggregated (top-down) from configuration files  along the path to the specified page. Each array element represents  a single module configuration, with the key being the module ID and  the value the module configuration. Each module configuration is  stored in terms of an array with the following content  ([0]=&gt;module type, [1]=&gt;module properties, [2]=&gt;complete module configuration)  The module properties are an array of property values indexed by property names.  The complete module configuration is a TXmlElement object representing  the raw module configuration which may contain contents enclosed within  module tags.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of module configurations to be used</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getModules
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetParameters" id="getParameters"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getParameters</span> (line <span class="line-number">1494</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns list of parameter definitions.</p>
+<p class="description"><p>The parameter definitions are aggregated (top-down) from configuration files  along the path to the specified page. Each array element represents  a single parameter definition, with the key being the parameter ID and  the value the parameter definition. A parameter definition can be either  a string representing a string-typed parameter, or an array.  The latter defines a component-typed parameter whose format is as follows,  ([0]=&gt;component type, [1]=&gt;component properties)  The component properties are an array of property values indexed by property names.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of parameter definitions to be used</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getParameters
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetProperties" id="getProperties"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProperties</span> (line <span class="line-number">1426</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns list of page initial property values.</p>
+<p class="description"><p>Each array element represents a single property with the key  being the property name and the value the initial property value.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of page initial property values</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getProperties
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetServices" id="getServices"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServices</span> (line <span class="line-number">1477</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of service configurations</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getServices
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUsings" id="getUsings"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUsings</span> (line <span class="line-number">1450</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns list of namespaces to be used.</p>
+<p class="description"><p>The namespaces are aggregated (top-down) from configuration files along the path  to the specified page. Each array element represents a single namespace usage,  with the value being the namespace to be used.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of namespaces to be used</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getUsings
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodloadExternalXml" id="loadExternalXml"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadExternalXml</span> (line <span class="line-number">1407</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads the external XML configurations.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadExternalXml
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$includeNode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$includeNode</span><span class="var-description">: the application DOM element</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$configPath</span><span class="var-description">: the context path (for specifying relative paths)</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadFromFile" id="loadFromFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadFromFile</span> (line <span class="line-number">1218</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parses the application configuration file.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException if there is any parsing error</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadFromFile
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$fname</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$fname</span><span class="var-description">: configuration file name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadFromXml" id="loadFromXml"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadFromXml</span> (line <span class="line-number">1238</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parses the application configuration given in terms of a TXmlElement.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadFromXml
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$dom</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$dom</span><span class="var-description">: the XML element</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$configPath</span><span class="var-description">: the context path (for specifying relative paths)</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadModulesXml" id="loadModulesXml"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadModulesXml</span> (line <span class="line-number">1324</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads the modules XML node.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadModulesXml
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$modulesNode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$modulesNode</span><span class="var-description">: the modules XML node</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$configPath</span><span class="var-description">: the context path (for specifying relative paths)</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadParametersXml" id="loadParametersXml"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadParametersXml</span> (line <span class="line-number">1377</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads the parameters XML node.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadParametersXml
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$parametersNode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$parametersNode</span><span class="var-description">: the parameters XML node</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$configPath</span><span class="var-description">: the context path (for specifying relative paths)</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadPathsXml" id="loadPathsXml"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadPathsXml</span> (line <span class="line-number">1278</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads the paths XML node.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadPathsXml
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$pathsNode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$pathsNode</span><span class="var-description">: the paths XML node</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$configPath</span><span class="var-description">: the context path (for specifying relative paths)</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadServicesXml" id="loadServicesXml"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadServicesXml</span> (line <span class="line-number">1352</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads the services XML node.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadServicesXml
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$servicesNode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$configPath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$servicesNode</span><span class="var-description">: the services XML node</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$configPath</span><span class="var-description">: the context path (for specifying relative paths)</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:26 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

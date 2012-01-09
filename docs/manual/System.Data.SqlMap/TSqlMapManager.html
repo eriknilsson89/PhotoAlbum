@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TSqlMapManager</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TSqlMapManager</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TSqlMapManager class holds the sqlmap configuation result maps, statements  parameter maps and a type handler factory.</p>
+<p class="description"><p>Use SqlMapGateway property to obtain the gateway  instance used for querying statements defined in the SqlMap configuration files.</p><p><pre><ol><code><pre><li> <span class="src-var">$conn </span>= <span class="src-key">new </span><span class="src-id"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span><span class="src-sym">(</span><span class="src-var">$dsn</span><span class="src-sym">,</span><span class="src-var">$dbuser</span><span class="src-sym">,</span><span class="src-var">$dbpass</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$manager </span>= <span class="src-key">new </span><span class="src-id"><a href="../System.Data.SqlMap/TSqlMapManager.html">TSqlMapManager</a></span><span class="src-sym">(</span><span class="src-var">$conn</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$manager</span><span class="src-sym">-&gt;</span><a href="../System.Data.SqlMap/TSqlMapManager.html#methodconfigureXml">configureXml</a><span class="src-sym">(</span><span class="src-str">'mydb-sqlmap.xml'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$sqlmap </span>= <span class="src-var">$manager</span><span class="src-sym">-&gt;</span><span class="src-id">getSqlMapGateway</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$result </span>= <span class="src-var">$sqlmap</span><span class="src-sym">-&gt;</span><span class="src-id">queryForObject</span><span class="src-sym">(</span><span class="src-str">'Products'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TSqlMapManager.php 2920 2011-05-21 19:29:39Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_SqlMap_TSqlMapManager_php.html">/Data/SqlMap/TSqlMapManager.php</a> (line <span class="field">44</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TSqlMapManager</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TSqlMapManager</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span> = <span class="var-default">null</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">1</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addCacheModel" title="details" class="method-name">addCacheModel</a>
+											(<span class="var-type">TSqlMapCacheModel</span>&nbsp;<span class="var-name">$cacheModel</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addMappedStatement" title="details" class="method-name">addMappedStatement</a>
+											(<span class="var-type">IMappedStatement</span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type"><a href="../System.Data.SqlMap.Statements/IMappedStatement.html">IMappedStatement</a></span>&nbsp;<span class="var-name">1</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addParameterMap" title="details" class="method-name">addParameterMap</a>
+											(<span class="var-type">TParameterMap</span>&nbsp;<span class="var-name">$parameter</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addResultMap" title="details" class="method-name">addResultMap</a>
+											(<span class="var-type">TResultMap</span>&nbsp;<span class="var-name">$result</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#configureXml" title="details" class="method-name">configureXml</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap/TSqlMapGateway.html">TSqlMapGateway</a></span>
+										<a href="#createSqlMapGateway" title="details" class="method-name">createSqlMapGateway</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#flushCacheModels" title="details" class="method-name">flushCacheModels</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Caching/TChainedCacheDependency.html">TChainedCacheDependency</a></span>
+										<a href="#getCacheDependencies" title="details" class="method-name">getCacheDependencies</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TSqlMapCacheModel.html">TSqlMapCacheModel</a></span>
+										<a href="#getCacheModel" title="details" class="method-name">getCacheModel</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+										<a href="#getDbConnection" title="details" class="method-name">getDbConnection</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap.Statements/IMappedStatement.html">IMappedStatement</a></span>
+										<a href="#getMappedStatement" title="details" class="method-name">getMappedStatement</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+										<a href="#getMappedStatements" title="details" class="method-name">getMappedStatements</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TParameterMap.html">TParameterMap</a></span>
+										<a href="#getParameterMap" title="details" class="method-name">getParameterMap</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+										<a href="#getParameterMaps" title="details" class="method-name">getParameterMaps</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+										<a href="#getResultMap" title="details" class="method-name">getResultMap</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+										<a href="#getResultMaps" title="details" class="method-name">getResultMaps</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap/TSqlMapGateway.html">TSqlMapGateway</a></span>
+										<a href="#getSqlmapGateway" title="details" class="method-name">getSqlmapGateway</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">TTypeHandlerFactory</span>
+										<a href="#getTypeHandlers" title="details" class="method-name">getTypeHandlers</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDbConnection" title="details" class="method-name">setDbConnection</a>
+											(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$conn</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">61</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor, create a new SqlMap manager.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TSqlMapManager</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span> = <span class="var-default">null</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">1</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">1</span><span class="var-description">: configuration file.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodaddCacheModel" id="addCacheModel"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addCacheModel</span> (line <span class="line-number">244</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a named cache.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TSqlMapConfigurationException</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addCacheModel
+		</span>
+					(<span class="var-type">TSqlMapCacheModel</span>&nbsp;<span class="var-name">$cacheModel</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapCacheModel.html">TSqlMapCacheModel</a></span>
+				<span class="var-name">$cacheModel</span><span class="var-description">: the cache to add.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodaddMappedStatement" id="addMappedStatement"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addMappedStatement</span> (line <span class="line-number">166</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a (named) MappedStatement.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TSqlMapDuplicateException</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addMappedStatement
+		</span>
+					(<span class="var-type">IMappedStatement</span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type"><a href="../System.Data.SqlMap.Statements/IMappedStatement.html">IMappedStatement</a></span>&nbsp;<span class="var-name">1</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Statements/IMappedStatement.html">IMappedStatement</a></span>
+				<span class="var-name">1</span><span class="var-description">: The statement to add</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$statement</span><span class="var-description">: The key name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodaddParameterMap" id="addParameterMap"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addParameterMap</span> (line <span class="line-number">231</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TSqlMapDuplicateException</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addParameterMap
+		</span>
+					(<span class="var-type">TParameterMap</span>&nbsp;<span class="var-name">$parameter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterMap.html">TParameterMap</a></span>
+				<span class="var-name">$parameter</span><span class="var-description">: add a new parameter map to this SQLMap.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodaddResultMap" id="addResultMap"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addResultMap</span> (line <span class="line-number">199</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TSqlMapDuplicateException</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addResultMap
+		</span>
+					(<span class="var-type">TResultMap</span>&nbsp;<span class="var-name">$result</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+				<span class="var-name">$result</span><span class="var-description">: add a new result map to this SQLMap</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodconfigureXml" id="configureXml"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">configureXml</span> (line <span class="line-number">111</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads and parses the SqlMap configuration file.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			configureXml
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$file</span><span class="var-description">: xml configuration file.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateSqlMapGateway" id="createSqlMapGateway"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createSqlMapGateway</span> (line <span class="line-number">134</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Configures the current TSqlMapManager using the given xml configuration file  defined in ConfigFile.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> create and configure a new TSqlMapGateway.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap/TSqlMapGateway.html">TSqlMapGateway</a></span>
+		<span class="method-name">
+			createSqlMapGateway
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodflushCacheModels" id="flushCacheModels"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">flushCacheModels</span> (line <span class="line-number">268</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flushes all cached objects that belong to this SqlMap</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			flushCacheModels
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCacheDependencies" id="getCacheDependencies"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCacheDependencies</span> (line <span class="line-number">121</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.5</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Caching/TChainedCacheDependency.html">TChainedCacheDependency</a></span>
+		<span class="method-name">
+			getCacheDependencies
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCacheModel" id="getCacheModel"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCacheModel</span> (line <span class="line-number">258</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a cache by name</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the cache object.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TSqlMapConfigurationException</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TSqlMapCacheModel.html">TSqlMapCacheModel</a></span>
+		<span class="method-name">
+			getCacheModel
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the name of the cache to get.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetDbConnection" id="getDbConnection"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDbConnection</span> (line <span class="line-number">82</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> default database connection</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+		<span class="method-name">
+			getDbConnection
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetMappedStatement" id="getMappedStatement"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMappedStatement</span> (line <span class="line-number">153</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a MappedStatement by name.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The MappedStatement</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TSqlMapUndefinedException</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap.Statements/IMappedStatement.html">IMappedStatement</a></span>
+		<span class="method-name">
+			getMappedStatement
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The name of the statement.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetMappedStatements" id="getMappedStatements"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMappedStatements</span> (line <span class="line-number">142</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> mapped statements collection.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+		<span class="method-name">
+			getMappedStatements
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetParameterMap" id="getParameterMap"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getParameterMap</span> (line <span class="line-number">220</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the parameter with given ID.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TSqlMapUndefinedException</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TParameterMap.html">TParameterMap</a></span>
+		<span class="method-name">
+			getParameterMap
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: parameter map ID name.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetParameterMaps" id="getParameterMaps"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getParameterMaps</span> (line <span class="line-number">210</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> parameter maps collection.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+		<span class="method-name">
+			getParameterMaps
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetResultMap" id="getResultMap"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getResultMap</span> (line <span class="line-number">188</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a named result map</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the result map.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TSqlMapUndefinedException</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+		<span class="method-name">
+			getResultMap
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: result name.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetResultMaps" id="getResultMaps"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getResultMaps</span> (line <span class="line-number">177</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> result maps collection.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+		<span class="method-name">
+			getResultMaps
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSqlmapGateway" id="getSqlmapGateway"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSqlmapGateway</span> (line <span class="line-number">100</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> SqlMap gateway.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap/TSqlMapGateway.html">TSqlMapGateway</a></span>
+		<span class="method-name">
+			getSqlmapGateway
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTypeHandlers" id="getTypeHandlers"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTypeHandlers</span> (line <span class="line-number">90</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> The TypeHandlerFactory</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TTypeHandlerFactory</span>
+		<span class="method-name">
+			getTypeHandlers
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetDbConnection" id="setDbConnection"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDbConnection</span> (line <span class="line-number">74</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDbConnection
+		</span>
+					(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$conn</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$conn</span><span class="var-description">: default database connection</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:16 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

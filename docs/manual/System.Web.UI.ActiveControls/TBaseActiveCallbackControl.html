@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TBaseActiveCallbackControl</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TBaseActiveCallbackControl</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TBaseActiveCallbackControl is a common set of options and functionality for  active controls that can perform callback requests.</p>
+<p class="description"><p>The properties of TBaseActiveCallbackControl can be accessed and changed from  each individual active controls' getActiveControl  property.</p><p>The following example to set the validation group property of a TCallback component.  <pre><ol><code><pre><li>     &lt;<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.ActiveControls/TCallback.html">TCallback</a> ActiveControl</span>.<span class="src-id">ValidationGroup</span>=<span class="src-str">&quot;group1&quot; </span>... /&gt;</li>
+</pre></code></ol></pre></p><p>Additional client-side options and events can be set using the  <a href="../System.Web.UI.ActiveControls/TBaseActiveCallbackControl.html#methodgetClientSide">ClientSide</a> property. The following example to show  an alert box when a TCallback component response returns successfully.  <pre><ol><code><pre><li>     &lt;<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.ActiveControls/TCallback.html">TCallback</a> Active</span>.<span class="src-id">Control</span>.<span class="src-id">ClientSide</span>.<span class="src-id">OnSuccess</span>=<span class="src-str">&quot;alert('ok!')&quot; </span>... /&gt;</li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TBaseActiveControl.php 2773 2010-02-17 13:55:18Z Christophe.Boulain $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_ActiveControls_TBaseActiveControl_php.html">/Web/UI/ActiveControls/TBaseActiveControl.php</a> (line <span class="field">161</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html">TBaseActiveControl</a>
+      |
+      --TBaseActiveCallbackControl</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#canCauseValidation" title="details" class="method-name">canCauseValidation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.ActiveControls/TCallbackClientSide.html">TCallbackClientSide</a></span>
+										<a href="#createClientSide" title="details" class="method-name">createClientSide</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCallbackOptions" title="details" class="method-name">getCallbackOptions</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getCallbackParameter" title="details" class="method-name">getCallbackParameter</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getCausesValidation" title="details" class="method-name">getCausesValidation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.ActiveControls/TCallbackClientSide.html">TCallbackClientSide</a></span>
+										<a href="#getClientSide" title="details" class="method-name">getClientSide</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getClientSideOptions" title="details" class="method-name">getClientSideOptions</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getDefaultClientSideOptions" title="details" class="method-name">getDefaultClientSideOptions</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getJavascript" title="details" class="method-name">getJavascript</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getJsCallbackOptions" title="details" class="method-name">getJsCallbackOptions</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">0</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getValidationGroup" title="details" class="method-name">getValidationGroup</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#registerCallbackClientScript" title="details" class="method-name">registerCallbackClientScript</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$class</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCallbackOptions" title="details" class="method-name">setCallbackOptions</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCallbackParameter" title="details" class="method-name">setCallbackParameter</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCausesValidation" title="details" class="method-name">setCausesValidation</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setClientSide" title="details" class="method-name">setClientSide</a>
+											(<span class="var-type"><a href="../System.Web.UI.ActiveControls/TCallbackClientSide.html">TCallbackClientSide</a></span>&nbsp;<span class="var-name">$client</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setValidationGroup" title="details" class="method-name">setValidationGroup</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodcanCauseValidation" id="canCauseValidation"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">canCauseValidation</span> (line <span class="line-number">293</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether to perform validation if the callback is  requested.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			canCauseValidation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateClientSide" id="createClientSide"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createClientSide</span> (line <span class="line-number">195</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> callback client-side options.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.ActiveControls/TCallbackClientSide.html">TCallbackClientSide</a></span>
+		<span class="method-name">
+			createClientSide
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCallbackOptions" id="getCallbackOptions"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCallbackOptions</span> (line <span class="line-number">217</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> ID of a TCallbackOptions control from which ClientSide  options are duplicated.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCallbackOptions
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCallbackParameter" id="getCallbackParameter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCallbackParameter</span> (line <span class="line-number">315</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> callback parameter value.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getCallbackParameter
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCausesValidation" id="getCausesValidation"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCausesValidation</span> (line <span class="line-number">257</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether callback event trigger by this button will cause  input validation, default is true</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getCausesValidation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetClientSide" id="getClientSide"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClientSide</span> (line <span class="line-number">169</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Callback client-side options can be set by setting the properties of  the ClientSide property. E.g. &lt;com:TCallback ActiveControl.ClientSide.OnSuccess=&quot;...&quot; /&gt;  See <a href="../System.Web.UI.ActiveControls/TCallbackClientSide.html">TCallbackClientSide</a> for details on the properties of ClientSide.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> client-side callback options.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.ActiveControls/TCallbackClientSide.html">TCallbackClientSide</a></span>
+		<span class="method-name">
+			getClientSide
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetClientSideOptions" id="getClientSideOptions"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClientSideOptions</span> (line <span class="line-number">324</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of callback javascript options.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getClientSideOptions
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDefaultClientSideOptions" id="getDefaultClientSideOptions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDefaultClientSideOptions</span> (line <span class="line-number">228</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array of default callback client-side options. The default options  are obtained from the client-side options of a TCallbackOptions control with  ID specified by setCallbackOptionsID.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of default callback client-side options.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getDefaultClientSideOptions
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetJavascript" id="getJavascript"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getJavascript</span> (line <span class="line-number">377</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the javascript callback request instance. To invoke a callback</p>
+<p class="description"><p>request for this control call the &lt;tt&gt;dispatch()&lt;/tt&gt; method on the  request instance. Example code in javascript  <pre><ol><code><pre><li>   <span class="src-key">var </span><span class="src-id">request </span>= &lt;%= <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">mycallback</span><span class="src-sym">-&gt;</span><span class="src-id">ActiveControl</span><span class="src-sym">-&gt;</span><span class="src-id">Javascript </span>%&gt;<span class="src-sym">;</span></li>
+<li>   <span class="src-id">request</span>.<span class="src-id">setParameter</span><span class="src-sym">(</span><span class="src-str">'hello'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>   <span class="src-id">request</span>.<span class="src-id">dispatch</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//make the callback request.</span></li>
+</pre></code></ol></pre></p><p>Alternatively,  <pre><ol><code><pre><li> <span class="src-comm">//dispatches immediately</span></li>
+<li>  <span class="src-id"><a href="../System/Prado.html">Prado</a></span>.<span class="src-id">Callback</span><span class="src-sym">(</span><span class="src-str">&quot;</span>&lt;%= <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">mycallback</span>-&gt;UniqueID %&gt;<span class="src-str">&quot;</span><span class="src-sym">,</span></li>
+<li>    <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">mycallback</span><span class="src-sym">-&gt;</span><span class="src-id">ActiveControl</span><span class="src-sym">-&gt;</span><span class="src-id">JsCallbackOptions</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> javascript client-side callback request object (javascript  code)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getJavascript
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetJsCallbackOptions" id="getJsCallbackOptions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getJsCallbackOptions</span> (line <span class="line-number">386</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getJsCallbackOptions
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">0</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">0</span><span class="var-description">: callback requestion options as javascript code.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetValidationGroup" id="getValidationGroup"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getValidationGroup</span> (line <span class="line-number">275</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the group of validators which the button causes validation  upon callback</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getValidationGroup
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodregisterCallbackClientScript" id="registerCallbackClientScript"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">registerCallbackClientScript</span> (line <span class="line-number">344</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Registers the callback control javascript code. Client-side options are</p>
+<p class="description"><p>merged and passed to the javascript code. This method should be called by  Active component developers wanting to register the javascript to initialize  the active component with additional options offered by the  <a href="../System.Web.UI.ActiveControls/TBaseActiveCallbackControl.html#methodgetClientSide">ClientSide</a> property.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			registerCallbackClientScript
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$class</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$class</span><span class="var-description">: client side javascript class name.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: additional callback options.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCallbackOptions" id="setCallbackOptions"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCallbackOptions</span> (line <span class="line-number">208</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets default callback options. Takes the ID of a TCallbackOptions  component to duplicate the client-side  options for this control. The getClientSide  subproperties has precendent over the CallbackOptions property.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCallbackOptions
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: ID of a TCallbackOptions control from which ClientSide  options are cloned.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCallbackParameter" id="setCallbackParameter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCallbackParameter</span> (line <span class="line-number">307</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCallbackParameter
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: callback parameter value.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCausesValidation" id="setCausesValidation"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCausesValidation</span> (line <span class="line-number">266</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCausesValidation
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether callback event trigger by this button will cause  input validation</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetClientSide" id="setClientSide"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setClientSide</span> (line <span class="line-number">183</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the client side options. Can only be set when client side is null.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setClientSide
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.ActiveControls/TCallbackClientSide.html">TCallbackClientSide</a></span>&nbsp;<span class="var-name">$client</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.ActiveControls/TCallbackClientSide.html">TCallbackClientSide</a></span>
+				<span class="var-name">$client</span><span class="var-description">: client side options.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetValidationGroup" id="setValidationGroup"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setValidationGroup</span> (line <span class="line-number">284</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setValidationGroup
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the group of validators which the button causes validation  upon callback</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html">TBaseActiveControl</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html#method__construct">TBaseActiveControl::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html#methodcanUpdateClientSide">TBaseActiveControl::canUpdateClientSide()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html#methodgetControl">TBaseActiveControl::getControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html#methodgetEnableUpdate">TBaseActiveControl::getEnableUpdate()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html#methodgetOption">TBaseActiveControl::getOption()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html#methodgetOptions">TBaseActiveControl::getOptions()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html#methodgetPage">TBaseActiveControl::getPage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html#methodsetEnableUpdate">TBaseActiveControl::setEnableUpdate()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html#methodsetOption">TBaseActiveControl::setOption()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:33 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TAuthManager</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TAuthManager</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TAuthManager class</p>
+<p class="description"><p>TAuthManager performs user authentication and authorization for a Prado application.  TAuthManager works together with a <a href="../System.Security/IUserManager.html">IUserManager</a> module that can be  specified via the <a href="../System.Security/TAuthManager.html#methodsetUserManager">UserManager</a> property.  If an authorization fails, TAuthManager will try to redirect the client  browser to a login page that is specified via the <a href="../System.Security/TAuthManager.html#methodsetLoginPage">LoginPage</a>.  To login or logout a user, call <a href="../System.Security/TAuthManager.html#methodlogin">login</a> or <a href="../System.Security/TAuthManager.html#methodlogout">logout</a>, respectively.</p><p>The <a href="../System.Security/TAuthManager.html#methodsetAuthExpire">AuthExpire</a> property can be used to define the time  in seconds after which the authentication should expire.  <a href="../System.Security/TAuthManager.html#methodsetAllowAutoLogin">AllowAutoLogin</a> specifies if the login information  should be stored in a cookie to perform automatic login. Enabling this  feature will cause that <a href="../System.Security/TAuthManager.html#methodsetAuthExpire">AuthExpire</a> has no effect  since the user will be logged in again on authentication expiration.</p><p>To load TAuthManager, configure it in application configuration as follows,  &lt;module id=&quot;auth&quot; class=&quot;System.Security.TAuthManager&quot; UserManager=&quot;users&quot; LoginPage=&quot;login&quot; /&gt;  &lt;module id=&quot;users&quot; class=&quot;System.Security.TUserManager&quot; /&gt;</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TAuthManager.php 2526 2008-10-15 11:03:36Z mikl $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Security_TAuthManager_php.html">/Security/TAuthManager.php</a> (line <span class="field">44</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --TAuthManager</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#RETURN_URL_VAR" title="details" class="const-name">RETURN_URL_VAR</a> = 					<span class="var-type">'ReturnUrl'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#doAuthentication" title="details" class="method-name">doAuthentication</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#doAuthorization" title="details" class="method-name">doAuthorization</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateUserKey" title="details" class="method-name">generateUserKey</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getAllowAutoLogin" title="details" class="method-name">getAllowAutoLogin</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getAuthExpire" title="details" class="method-name">getAuthExpire</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getLoginPage" title="details" class="method-name">getLoginPage</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getReturnUrl" title="details" class="method-name">getReturnUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getReturnUrlVarName" title="details" class="method-name">getReturnUrlVarName</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUserKey" title="details" class="method-name">getUserKey</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Security/IUserManager.html">IUserManager</a></span>
+										<a href="#getUserManager" title="details" class="method-name">getUserManager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#leave" title="details" class="method-name">leave</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#login" title="details" class="method-name">login</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$expire</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#logout" title="details" class="method-name">logout</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onAuthenticate" title="details" class="method-name">onAuthenticate</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onAuthExpire" title="details" class="method-name">onAuthExpire</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onAuthorize" title="details" class="method-name">onAuthorize</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAllowAutoLogin" title="details" class="method-name">setAllowAutoLogin</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAuthExpire" title="details" class="method-name">setAuthExpire</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setLoginPage" title="details" class="method-name">setLoginPage</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$pagePath</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setReturnUrl" title="details" class="method-name">setReturnUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setReturnUrlVarName" title="details" class="method-name">setReturnUrlVarName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUserManager" title="details" class="method-name">setUserManager</a>
+											(<span class="var-type">string|<a href="../System.Security/IUserManager.html">IUserManager</a></span>&nbsp;<span class="var-name">$provider</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#switchUser" title="details" class="method-name">switchUser</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateSessionUser" title="details" class="method-name">updateSessionUser</a>
+											(<span class="var-type"><a href="../System/IUser.html">IUser</a></span>&nbsp;<span class="var-name">$user</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methoddoAuthentication" id="doAuthentication"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">doAuthentication</span> (line <span class="line-number">157</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs authentication.</p>
+<p class="description"><p>This is the event handler attached to application's Authentication event.  Do not call this method directly.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			doAuthentication
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$sender</span><span class="var-description">: sender of the Authentication event</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methoddoAuthorization" id="doAuthorization"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">doAuthorization</span> (line <span class="line-number">173</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs authorization.</p>
+<p class="description"><p>This is the event handler attached to application's Authorization event.  Do not call this method directly.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			doAuthorization
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$sender</span><span class="var-description">: sender of the Authorization event</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgenerateUserKey" id="generateUserKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateUserKey</span> (line <span class="line-number">371</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> a key used to store user information in session</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateUserKey
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAllowAutoLogin" id="getAllowAutoLogin"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAllowAutoLogin</span> (line <span class="line-number">241</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether to allow remembering login so that the user logs on automatically next time. Defaults to false.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getAllowAutoLogin
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAuthExpire" id="getAuthExpire"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAuthExpire</span> (line <span class="line-number">259</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> authentication expiration time in seconds. Defaults to zero (no expiration).</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.3</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getAuthExpire
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetLoginPage" id="getLoginPage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLoginPage</span> (line <span class="line-number">134</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> path of login page should login is required</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getLoginPage
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetReturnUrl" id="getReturnUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getReturnUrl</span> (line <span class="line-number">223</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> URL that the browser should be redirected to when login succeeds.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getReturnUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetReturnUrlVarName" id="getReturnUrlVarName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getReturnUrlVarName</span> (line <span class="line-number">207</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the name of the session variable storing return URL. It defaults to 'AppID:ReturnUrl'</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getReturnUrlVarName
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUserKey" id="getUserKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUserKey</span> (line <span class="line-number">360</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> a unique variable name for storing user session/cookie data</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUserKey
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUserManager" id="getUserManager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUserManager</span> (line <span class="line-number">113</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> user manager instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Security/IUserManager.html">IUserManager</a></span>
+		<span class="method-name">
+			getUserManager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">89</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes this module.</p>
+<p class="description"><p>This method is required by the IModule interface.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException if user manager does not exist or is not IUserManager</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: configuration for this module, can be null</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TModule.html#methodinit">TModule::init()</a></dt>
+						<dd>Initializes the module.</dd>
+					</dl>
+		
+	</div>
+<a name="methodleave" id="leave"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">leave</span> (line <span class="line-number">188</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs login redirect if authorization fails.</p>
+<p class="description"><p>This is the event handler attached to application's EndRequest event.  Do not call this method directly.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			leave
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$sender</span><span class="var-description">: sender of the event</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodlogin" id="login"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">login</span> (line <span class="line-number">416</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Logs in a user with username and password.</p>
+<p class="description"><p>The username and password will be used to validate if login is successful.  If yes, a user object will be created for the application.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> if login is successful</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			login
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$expire</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$username</span><span class="var-description">: username</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$password</span><span class="var-description">: password</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$expire</span><span class="var-description">: number of seconds that automatic login will remain effective. If 0, it means user logs out when session ends. This parameter is added since 3.1.1.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodlogout" id="logout"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">logout</span> (line <span class="line-number">443</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Logs out a user.</p>
+<p class="description"><p>User session will be destroyed after this method is called.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException if session module is not loaded.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			logout
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonAuthenticate" id="onAuthenticate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onAuthenticate</span> (line <span class="line-number">281</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs the real authentication work.</p>
+<p class="description"><p>An OnAuthenticate event will be raised if there is any handler attached to it.  If the application already has a non-null user, it will return without further authentication.  Otherwise, user information will be restored from session data.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException if session module does not exist.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onAuthenticate
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$param</span><span class="var-description">: parameter to be passed to OnAuthenticate event</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonAuthExpire" id="onAuthExpire"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onAuthExpire</span> (line <span class="line-number">330</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs user logout on authentication expiration.</p>
+<p class="description"><p>An 'OnAuthExpire' event will be raised if there is any handler attached to it.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onAuthExpire
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$param</span><span class="var-description">: parameter to be passed to OnAuthExpire event.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonAuthorize" id="onAuthorize"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onAuthorize</span> (line <span class="line-number">344</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs the real authorization work.</p>
+<p class="description"><p>Authorization rules obtained from the application will be used to check  if a user is allowed. If authorization fails, the response status code  will be set as 401 and the application terminates.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onAuthorize
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$param</span><span class="var-description">: parameter to be passed to OnAuthorize event</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetAllowAutoLogin" id="setAllowAutoLogin"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAllowAutoLogin</span> (line <span class="line-number">250</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAllowAutoLogin
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether to allow remembering login so that the user logs on automatically next time. Users have to enable cookie to make use of this feature.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetAuthExpire" id="setAuthExpire"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAuthExpire</span> (line <span class="line-number">268</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.3</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAuthExpire
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: authentication expiration time in seconds. Defaults to zero (no expiration).</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetLoginPage" id="setLoginPage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setLoginPage</span> (line <span class="line-number">145</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the login page that the client browser will be redirected to if login is needed.</p>
+<p class="description"><p>Login page should be specified in the format of page path.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Web.Services/TPageService.html">TPageService</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setLoginPage
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$pagePath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$pagePath</span><span class="var-description">: path of login page should login is required</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetReturnUrl" id="setReturnUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setReturnUrl</span> (line <span class="line-number">232</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the URL that the browser should be redirected to when login succeeds.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setReturnUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the URL to be redirected to.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetReturnUrlVarName" id="setReturnUrlVarName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setReturnUrlVarName</span> (line <span class="line-number">215</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setReturnUrlVarName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the name of the session variable storing return URL.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUserManager" id="setUserManager"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUserManager</span> (line <span class="line-number">122</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the module has been initialized or the user manager object is not IUserManager</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUserManager
+		</span>
+					(<span class="var-type">string|<a href="../System.Security/IUserManager.html">IUserManager</a></span>&nbsp;<span class="var-name">$provider</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Security/IUserManager.html">IUserManager</a></span>
+				<span class="var-name">$provider</span><span class="var-description">: the user manager module ID or the user manager object</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodswitchUser" id="switchUser"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">switchUser</span> (line <span class="line-number">398</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Switches to a new user.</p>
+<p class="description"><p>This method will logout the current user first and login with a new one (without password.)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> if the switch is successful</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			switchUser
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$username</span><span class="var-description">: the new username</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodupdateSessionUser" id="updateSessionUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateSessionUser</span> (line <span class="line-number">381</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the user data stored in session.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> new TConfigurationException if session module is not loaded.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateSessionUser
+		</span>
+					(<span class="var-type"><a href="../System/IUser.html">IUser</a></span>&nbsp;<span class="var-name">$user</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/IUser.html">IUser</a></span>
+				<span class="var-name">$user</span><span class="var-description">: user object</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constRETURN_URL_VAR" id="RETURN_URL_VAR"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">RETURN_URL_VAR</span>
+			 = <span class="const-default">'ReturnUrl'</span>
+			(line <span class="line-number">49</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">GET variable name for return url</p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:29 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

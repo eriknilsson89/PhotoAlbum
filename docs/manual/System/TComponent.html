@@ -1,0 +1,1300 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TComponent</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TComponent</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TComponent class</p>
+<p class="description"><p>TComponent is the base class for all PRADO components.  TComponent implements the protocol of defining, using properties and events.</p><p>A property is defined by a getter method, and/or a setter method.  Properties can be accessed in the way like accessing normal object members.  Reading or writing a property will cause the invocation of the corresponding  getter or setter method, e.g.,  <pre><ol><code><pre><li> <span class="src-var">$a</span>=<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">Text</span><span class="src-sym">;     </span><span class="src-comm">// equivalent to $a=$this-&gt;getText();</span></li>
+<li>  <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">Text</span>=<span class="src-str">'abc'</span><span class="src-sym">;  </span><span class="src-comm">// equivalent to $this-&gt;setText('abc');</span></li>
+</pre></code></ol></pre>  The signatures of getter and setter methods are as follows,  <pre><ol><code><pre><li> <span class="src-comm">// getter, defines a readable property 'Text'</span></li>
+<li>  <span class="src-key">function </span><span class="src-id">getText</span><span class="src-sym">(</span><span class="src-sym">) </span><span class="src-sym">{ </span>... <span class="src-sym">}</span></li>
+<li> <span class="src-comm">// setter, defines a writable property 'Text', with $value being the value to be set to the property</span></li>
+<li>  <span class="src-key">function </span><span class="src-id">setText</span><span class="src-sym">(</span><span class="src-var">$value</span><span class="src-sym">) </span><span class="src-sym">{ </span>... <span class="src-sym">}</span></li>
+</pre></code></ol></pre>  Property names are case-insensitive. It is recommended that they are written  in the format of concatenated words, with the first letter of each word  capitalized (e.g. DisplayMode, ItemStyle).</p><p>An event is defined by the presence of a method whose name starts with 'on'.  The event name is the method name and is thus case-insensitive.  An event can be attached with one or several methods (called event handlers).  An event can be raised by calling <a href="../System/TComponent.html#methodraiseEvent">raiseEvent</a> method, upon which  the attached event handlers will be invoked automatically in the order they  are attached to the event. Event handlers must have the following signature,  <pre><ol><code><pre><li> <span class="src-key">function </span><span class="src-id">eventHandlerFuncName</span><span class="src-sym">(</span><span class="src-var">$sender</span><span class="src-sym">,</span><span class="src-var">$param</span><span class="src-sym">) </span><span class="src-sym">{ </span>... <span class="src-sym">}</span></li>
+</pre></code></ol></pre>  where $sender refers to the object who is responsible for the raising of the event,  and $param refers to a structure that may contain event-specific information.  To raise an event (assuming named as 'Click') of a component, use  <pre><ol><code><pre><li> <span class="src-var">$component</span><span class="src-sym">-&gt;</span><a href="../System/TComponent.html#methodraiseEvent">raiseEvent</a><span class="src-sym">(</span><span class="src-str">'OnClick'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  To attach an event handler to an event, use one of the following ways,  <pre><ol><code><pre><li> <span class="src-var">$component</span><span class="src-sym">-&gt;</span><span class="src-id">OnClick</span>=<span class="src-var">$callback</span><span class="src-sym">;  </span><span class="src-comm">// or $component-&gt;OnClick-&gt;add($callback);</span></li>
+<li>  $<span class="src-var">$component</span><span class="src-sym">-&gt;</span><a href="../System/TComponent.html#methodattachEventHandler">attachEventHandler</a><span class="src-sym">(</span><span class="src-str">'OnClick'</span><span class="src-sym">,</span><span class="src-var">$callback</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  The first two ways make use of the fact that $component-&gt;OnClick refers to  the event handler list <a href="../System.Collections/TList.html">TList</a> for the 'OnClick' event.  The variable $callback contains the definition of the event handler that can  be either a string referring to a global function name, or an array whose  first element refers to an object and second element a method name/path that  is reachable by the object, e.g. <ul><li>'buttonClicked' : buttonClicked($sender,$param);</li><li>array($object,'buttonClicked') : $object-&gt;buttonClicked($sender,$param);</li><li>array($object,'MainContent.SubmitButton.buttonClicked') :
+   $object-&gt;MainContent-&gt;SubmitButton-&gt;buttonClicked($sender,$param);</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TComponent.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_TComponent_php.html">/TComponent.php</a> (line <span class="field">74</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.IO/TTextWriter.html">TTextWriter</a></td>
+					<td>
+											TTextWriter class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/TClientSideOptions.html">TClientSideOptions</a></td>
+					<td>
+											TClientSideOptions abstract class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.ActiveControls/TBaseActiveControl.html">TBaseActiveControl</a></td>
+					<td>
+											TBaseActiveControl class provided additional basic property for every  active control. An instance of TBaseActiveControl or its decendent  TBaseActiveCallbackControl is created by <a href="../System.Web.UI.ActiveControls/TActiveControlAdapter.html#methodgetBaseActiveControl">TActiveControlAdapter::getBaseActiveControl()</a>  method.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.ActiveControls/TAutoCompleteTemplate.html">TAutoCompleteTemplate</a></td>
+					<td>
+											TAutoCompleteTemplate class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></td>
+					<td>
+											TStyle class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TFont.html">TFont</a></td>
+					<td>
+											TFont class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/THotSpot.html">THotSpot</a></td>
+					<td>
+											THotSpot class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TListItem.html">TListItem</a></td>
+					<td>
+											TListItem class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TDataSourceSelectParameters.html">TDataSourceSelectParameters</a></td>
+					<td>
+											TDataSourceSelectParameters class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TDataSourceView.html">TDataSourceView</a></td>
+					<td>
+											TDataSourceView class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TRepeatInfo.html">TRepeatInfo</a></td>
+					<td>
+											TRepeatInfo class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TMetaTag.html">TMetaTag</a></td>
+					<td>
+											TMetaTag class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TWizardSideBarTemplate.html">TWizardSideBarTemplate</a></td>
+					<td>
+											TWizardSideBarTemplate class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TWizardSideBarListItemTemplate.html">TWizardSideBarListItemTemplate</a></td>
+					<td>
+											TWizardSideBarListItemTemplate class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TWizardNavigationTemplate.html">TWizardNavigationTemplate</a></td>
+					<td>
+											TWizardNavigationTemplate class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/TCachePageStatePersister.html">TCachePageStatePersister</a></td>
+					<td>
+											TCachePageStatePersister class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/TSessionPageStatePersister.html">TSessionPageStatePersister</a></td>
+					<td>
+											TSessionPageStatePersister class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/TPageStatePersister.html">TPageStatePersister</a></td>
+					<td>
+											TPageStatePersister class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/TCompositeLiteral.html">TCompositeLiteral</a></td>
+					<td>
+											TCompositeLiteral class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web/TUrlMappingPattern.html">TUrlMappingPattern</a></td>
+					<td>
+											TUrlMappingPattern class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.Services/TPageConfiguration.html">TPageConfiguration</a></td>
+					<td>
+											TPageConfiguration class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web/THttpCookie.html">THttpCookie</a></td>
+					<td>
+											THttpCookie class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web/TUri.html">TUri</a></td>
+					<td>
+											TUri class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></td>
+					<td>
+											TXmlElement class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common/TOracleTableInfo.html">TOracleTableInfo</a></td>
+					<td>
+											TDbTableInfo class describes the meta data of a database table.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common/TDbTableColumn.html">TDbTableColumn</a></td>
+					<td>
+											TDbTableColumn class describes the column meta data of the schema for a database table.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common/TDbMetaData.html">TDbMetaData</a></td>
+					<td>
+											TDbMetaData is the base class for retrieving metadata information, such as  table and columns information, from a database connection.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common/TDbCommandBuilder.html">TDbCommandBuilder</a></td>
+					<td>
+											TDbCommandBuilder provides basic methods to create query commands for tables  giving by setTableInfo the property.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></td>
+					<td>
+											TDbTableInfo class describes the meta data of a database table.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.ActiveRecord/TActiveRecordGateway.html">TActiveRecordGateway</a></td>
+					<td>
+											TActiveRecordGateway excutes the SQL command queries and returns the data  record as arrays (for most finder methods).
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></td>
+					<td>
+											Base class for active records.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.ActiveRecord/TActiveRecordManager.html">TActiveRecordManager</a></td>
+					<td>
+											TActiveRecordManager provides the default DB connection,  default active record gateway, and table meta data inspector.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.DataGateway/TTableGateway.html">TTableGateway</a></td>
+					<td>
+											TTableGateway class provides several find methods to get data from the database  and update, insert, and delete methods.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.DataGateway/TDataGatewayCommand.html">TDataGatewayCommand</a></td>
+					<td>
+											TDataGatewayCommand is command builder and executor class for  TTableGateway and TActiveRecordGateway.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></td>
+					<td>
+											Search criteria for TDbDataGateway.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap/TSqlMapTypeHandler.html">TSqlMapTypeHandler</a></td>
+					<td>
+											A simple interface for implementing custom type handlers.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap/TSqlMapGateway.html">TSqlMapGateway</a></td>
+					<td>
+											DataMapper client, a fascade to provide access the rest of the DataMapper  framework. It provides three core functions:
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap/TSqlMapManager.html">TSqlMapManager</a></td>
+					<td>
+											TSqlMapManager class holds the sqlmap configuation result maps, statements  parameter maps and a type handler factory.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Statements/TPreparedStatement.html">TPreparedStatement</a></td>
+					<td>
+											TpreparedStatement class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Statements/TCachingStatement.html">TCachingStatement</a></td>
+					<td>
+											TCacheingStatement class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Statements/TMappedStatement.html">TMappedStatement</a></td>
+					<td>
+											TMappedStatement class executes SQL mapped statements. Mapped Statements can  hold any SQL statement and use Parameter Maps and Result Maps for input and output.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Statements/TResultSetListItemParameter.html">TResultSetListItemParameter</a></td>
+					<td>
+											TResultSetListItemParameter class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Statements/TResultSetMapItemParameter.html">TResultSetMapItemParameter</a></td>
+					<td>
+											TResultSetMapItemParameter class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Statements/TStaticSql.html">TStaticSql</a></td>
+					<td>
+											TStaticSql class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Configuration/TParameterMap.html">TParameterMap</a></td>
+					<td>
+											TParameterMap corresponds to the &lt;parameterMap&gt; element.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></td>
+					<td>
+											TResultMap corresponds to &lt;resultMap&gt; mapping tag.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></td>
+					<td>
+											TSqlMapStatement class corresponds to &lt;statement&gt; element.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Configuration/TDiscriminator.html">TDiscriminator</a></td>
+					<td>
+											The TDiscriminator corresponds to the &lt;discriminator&gt; tag within a &lt;resultMap&gt;.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Configuration/TSubMap.html">TSubMap</a></td>
+					<td>
+											TSubMap class defines a submapping value and the corresponding &lt;resultMap&gt;
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Configuration/TResultProperty.html">TResultProperty</a></td>
+					<td>
+											TResultProperty corresponds a &lt;property&gt; tags inside a &lt;resultMap&gt; tag.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Configuration/TSqlMapCacheModel.html">TSqlMapCacheModel</a></td>
+					<td>
+											TSqlMapCacheModel corresponds to the &lt;cacheModel&gt; sql mapping configuration tag.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></td>
+					<td>
+											TParameterProperty corresponds to the &lt;property&gt; tag and defines  one object property for the &lt;parameterMap&gt;
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data/TDbDataReader.html">TDbDataReader</a></td>
+					<td>
+											TDbDataReader class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data/TDbConnection.html">TDbConnection</a></td>
+					<td>
+											TDbConnection class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data/TDbCommand.html">TDbCommand</a></td>
+					<td>
+											TDbCommand class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data/TDbTransaction.html">TDbTransaction</a></td>
+					<td>
+											TDbTransaction class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.I18N/Translation.html">Translation</a></td>
+					<td>
+											Translation class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Util/TLogger.html">TLogger</a></td>
+					<td>
+											TLogger class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System/TEventParameter.html">TEventParameter</a></td>
+					<td>
+											TEventParameter class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System/TComponentReflection.html">TComponentReflection</a></td>
+					<td>
+											TComponentReflection class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Collections/TPagedDataSource.html">TPagedDataSource</a></td>
+					<td>
+											TPagedDataSource class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Collections/TMap.html">TMap</a></td>
+					<td>
+											TMap class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Collections/TDummyDataSource.html">TDummyDataSource</a></td>
+					<td>
+											TDummyDataSource class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Collections/TStack.html">TStack</a></td>
+					<td>
+											TStack class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Collections/TQueue.html">TQueue</a></td>
+					<td>
+											TQueue class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Collections/TList.html">TList</a></td>
+					<td>
+											TList class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Caching/TCacheDependency.html">TCacheDependency</a></td>
+					<td>
+											TCacheDependency class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Security/TAuthorizationRule.html">TAuthorizationRule</a></td>
+					<td>
+											TAuthorizationRule class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Security/TUser.html">TUser</a></td>
+					<td>
+											TUser class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System/TApplication.html">TApplication</a></td>
+					<td>
+											TApplication class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System/TApplicationConfiguration.html">TApplicationConfiguration</a></td>
+					<td>
+											TApplicationConfiguration class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></td>
+					<td>
+											TApplicationComponent class
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addParsedObject" title="details" class="method-name">addParsedObject</a>
+											(<span class="var-type">string|<a href="../System/TComponent.html">TComponent</a></span>&nbsp;<span class="var-name">$object</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#attachEventHandler" title="details" class="method-name">attachEventHandler</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">callback</span>&nbsp;<span class="var-name">$handler</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#canGetProperty" title="details" class="method-name">canGetProperty</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#canSetProperty" title="details" class="method-name">canSetProperty</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createdOnTemplate" title="details" class="method-name">createdOnTemplate</a>
+											(<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>&nbsp;<span class="var-name">$parent</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#detachEventHandler" title="details" class="method-name">detachEventHandler</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">callback</span>&nbsp;<span class="var-name">$handler</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#evaluateExpression" title="details" class="method-name">evaluateExpression</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$expression</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#evaluateStatements" title="details" class="method-name">evaluateStatements</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$statements</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TList.html">TList</a></span>
+										<a href="#getEventHandlers" title="details" class="method-name">getEventHandlers</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getSubProperty" title="details" class="method-name">getSubProperty</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#hasEvent" title="details" class="method-name">hasEvent</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#hasEventHandler" title="details" class="method-name">hasEventHandler</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#hasProperty" title="details" class="method-name">hasProperty</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#raiseEvent" title="details" class="method-name">raiseEvent</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setSubProperty" title="details" class="method-name">setSubProperty</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__get" title="details" class="method-name">__get</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__set" title="details" class="method-name">__set</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodaddParsedObject" id="addParsedObject"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addParsedObject</span> (line <span class="line-number">451</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Processes an object that is created during parsing template.</p>
+<p class="description"><p>The object can be either a component or a static text string.  This method can be overridden to customize the handling of newly created objects in template.  Only framework developers and control developers should use this method.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addParsedObject
+		</span>
+					(<span class="var-type">string|<a href="../System/TComponent.html">TComponent</a></span>&nbsp;<span class="var-name">$object</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System/TComponent.html">TComponent</a></span>
+				<span class="var-name">$object</span><span class="var-description">: text string or component parsed and instantiated in template</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web.UI.WebControls/TDropDownListColumn.html#methodaddParsedObject">TDropDownListColumn::addParsedObject()</a>
+								: Adds object parsed from template to the control.
+							</li>
+					<li>
+				<a href="../System.Web.UI/TControl.html#methodaddParsedObject">TControl::addParsedObject()</a>
+								: Adds the object instantiated on a template to the child control collection.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TTableRow.html#methodaddParsedObject">TTableRow::addParsedObject()</a>
+								: Adds object parsed from template to the control.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TListControl.html#methodaddParsedObject">TListControl::addParsedObject()</a>
+								: Adds object parsed from template to the control.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TDataGrid.html#methodaddParsedObject">TDataGrid::addParsedObject()</a>
+								: Adds objects parsed in template to datagrid.
+							</li>
+					<li>
+				<a href="../System.Web.UI/TTextProcessor.html#methodaddParsedObject">TTextProcessor::addParsedObject()</a>
+								: HTML-decodes static text.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TImageMap.html#methodaddParsedObject">TImageMap::addParsedObject()</a>
+								: Processes an object that is created during parsing template.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TTabPanel.html#methodaddParsedObject">TTabPanel::addParsedObject()</a>
+								: Adds object parsed from template to the control.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TWizard.html#methodaddParsedObject">TWizard::addParsedObject()</a>
+								: Adds <a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a> objects into step collection.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TTable.html#methodaddParsedObject">TTable::addParsedObject()</a>
+								: Adds object parsed from template to the control.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TConditional.html#methodaddParsedObject">TConditional::addParsedObject()</a>
+								: Processes an object that is created during parsing template.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TMultiView.html#methodaddParsedObject">TMultiView::addParsedObject()</a>
+								: Processes an object that is created during parsing template.
+							</li>
+					<li>
+				<a href="../System.Web.UI/THead.html#methodaddParsedObject">THead::addParsedObject()</a>
+								: Processes an object that is created during parsing template.
+							</li>
+				</ul>
+	</div>
+<a name="methodattachEventHandler" id="attachEventHandler"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">attachEventHandler</span> (line <span class="line-number">301</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Attaches an event handler to an event.</p>
+<p class="description"><p>The handler must be a valid PHP callback, i.e., a string referring to  a global function name, or an array containing two elements with  the first element being an object and the second element a method name  of the object. In Prado, you can also use method path to refer to  an event handler. For example, array($object,'Parent.buttonClicked')  uses a method path that refers to the method $object-&gt;Parent-&gt;buttonClicked(...).</p><p>The event handler must be of the following signature,  <pre><ol><code><pre><li> <span class="src-key">function </span><span class="src-id">handlerName</span><span class="src-sym">(</span><span class="src-var">$sender</span><span class="src-sym">,</span><span class="src-var">$param</span><span class="src-sym">) </span><span class="src-sym">{</span><span class="src-sym">}</span></li>
+</pre></code></ol></pre>  where $sender represents the object that raises the event,  and $param is the event parameter.</p><p>This is a convenient method to add an event handler.  It is equivalent to <a href="../System/TComponent.html#methodgetEventHandlers">getEventHandlers</a>($name)-&gt;add($handler).  For complete management of event handlers, use <a href="../System/TComponent.html#methodgetEventHandlers">getEventHandlers</a>  to get the event handler list first, and then do various  <a href="../System.Collections/TList.html">TList</a> operations to append, insert or remove  event handlers. You may also do these operations like  getting and setting properties, e.g.,  <pre><ol><code><pre><li> <span class="src-var">$component</span><span class="src-sym">-&gt;</span><span class="src-id">OnClick</span><span class="src-sym">[</span><span class="src-sym">]</span>=<span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$object</span><span class="src-sym">,</span><span class="src-str">'buttonClicked'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$component</span><span class="src-sym">-&gt;</span><span class="src-id">OnClick</span><span class="src-sym">-&gt;</span><span class="src-id">insertAt</span><span class="src-sym">(</span><span class="src-num">0</span><span class="src-sym">,</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$object</span><span class="src-sym">,</span><span class="src-str">'buttonClicked'</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  which are equivalent to the following  <pre><ol><code><pre><li> <span class="src-var">$component</span><span class="src-sym">-&gt;</span><a href="../System/TComponent.html#methodgetEventHandlers">getEventHandlers</a><span class="src-sym">(</span><span class="src-str">'OnClick'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">add</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$object</span><span class="src-sym">,</span><span class="src-str">'buttonClicked'</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$component</span><span class="src-sym">-&gt;</span><a href="../System/TComponent.html#methodgetEventHandlers">getEventHandlers</a><span class="src-sym">(</span><span class="src-str">'OnClick'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">insertAt</span><span class="src-sym">(</span><span class="src-num">0</span><span class="src-sym">,</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$object</span><span class="src-sym">,</span><span class="src-str">'buttonClicked'</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the event does not exist</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			attachEventHandler
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">callback</span>&nbsp;<span class="var-name">$handler</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the event name</span>			</li>
+					<li>
+				<span class="var-type">callback</span>
+				<span class="var-name">$handler</span><span class="var-description">: the event handler</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcanGetProperty" id="canGetProperty"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">canGetProperty</span> (line <span class="line-number">170</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether a property can be read.</p>
+<p class="description"><p>A property can be read if the class has a getter method  for the property name. Note, property name is case-insensitive.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the property can be read</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			canGetProperty
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the property name</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Collections/TAttributeCollection.html#methodcanGetProperty">TAttributeCollection::canGetProperty()</a>
+								: Determines whether a property can be read.
+							</li>
+				</ul>
+	</div>
+<a name="methodcanSetProperty" id="canSetProperty"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">canSetProperty</span> (line <span class="line-number">182</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether a property can be set.</p>
+<p class="description"><p>A property can be written if the class has a setter method  for the property name. Note, property name is case-insensitive.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the property can be written</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			canSetProperty
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the property name</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Collections/TAttributeCollection.html#methodcanSetProperty">TAttributeCollection::canSetProperty()</a>
+								: Determines whether a property can be set.
+							</li>
+				</ul>
+	</div>
+<a name="methodcreatedOnTemplate" id="createdOnTemplate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createdOnTemplate</span> (line <span class="line-number">438</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method is invoked after the component is instantiated by a template.</p>
+<p class="description"><p>When this method is invoked, the component's properties have been initialized.  The default implementation of this method will invoke  the potential parent component's <a href="../System/TComponent.html#methodaddParsedObject">addParsedObject</a>.  This method can be overridden.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createdOnTemplate
+		</span>
+					(<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>&nbsp;<span class="var-name">$parent</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>
+				<span class="var-name">$parent</span><span class="var-description">: potential parent of this control</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web.UI.WebControls/TContent.html#methodcreatedOnTemplate">TContent::createdOnTemplate()</a>
+								: This method is invoked after the control is instantiated on a template.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TContentPlaceHolder.html#methodcreatedOnTemplate">TContentPlaceHolder::createdOnTemplate()</a>
+								: This method is invoked after the control is instantiated on a template.
+							</li>
+				</ul>
+	</div>
+<a name="methoddetachEventHandler" id="detachEventHandler"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">detachEventHandler</span> (line <span class="line-number">313</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Detaches an existing event handler.</p>
+<p class="description"><p>This method is the opposite of <a href="../System/TComponent.html#methodattachEventHandler">attachEventHandler</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> if the removal is successful</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			detachEventHandler
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">callback</span>&nbsp;<span class="var-name">$handler</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: event name</span>			</li>
+					<li>
+				<span class="var-type">callback</span>
+				<span class="var-name">$handler</span><span class="var-description">: the event handler to be removed</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodevaluateExpression" id="evaluateExpression"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">evaluateExpression</span> (line <span class="line-number">392</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Evaluates a PHP expression in the context of this control.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the expression result</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the expression is invalid</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			evaluateExpression
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$expression</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodevaluateStatements" id="evaluateStatements"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">evaluateStatements</span> (line <span class="line-number">412</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Evaluates a list of PHP statements.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> content echoed or printed by the PHP statements</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the statements are invalid</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			evaluateStatements
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$statements</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$statements</span><span class="var-description">: PHP statements</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetEventHandlers" id="getEventHandlers"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEventHandlers</span> (line <span class="line-number">250</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the list of attached event handlers for an event.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of attached event handlers for an event</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the event is not defined</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TList.html">TList</a></span>
+		<span class="method-name">
+			getEventHandlers
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSubProperty" id="getSubProperty"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSubProperty</span> (line <span class="line-number">195</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Evaluates a property path.</p>
+<p class="description"><p>A property path is a sequence of property names concatenated by '.' character.  For example, 'Parent.Page' refers to the 'Page' property of the component's  'Parent' property value (which should be a component also).</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the property path value</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getSubProperty
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: property path</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodhasEvent" id="hasEvent"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasEvent</span> (line <span class="line-number">231</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether an event is defined.</p>
+<p class="description"><p>An event is defined if the class has a method whose name is the event name prefixed with 'on'.  Note, event name is case-insensitive.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			hasEvent
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the event name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodhasEventHandler" id="hasEventHandler"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasEventHandler</span> (line <span class="line-number">239</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether an event has been attached one or several handlers</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			hasEventHandler
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodhasProperty" id="hasProperty"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasProperty</span> (line <span class="line-number">158</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether a property is defined.</p>
+<p class="description"><p>A property is defined if there is a getter or setter method  defined in the class. Note, property names are case-insensitive.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the property is defined</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			hasProperty
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the property name</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Collections/TAttributeCollection.html#methodhasProperty">TAttributeCollection::hasProperty()</a>
+								: Determines whether a property is defined.
+							</li>
+				</ul>
+	</div>
+<a name="methodraiseEvent" id="raiseEvent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">raiseEvent</span> (line <span class="line-number">339</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises an event.</p>
+<p class="description"><p>This method represents the happening of an event and will  invoke all attached event handlers for the event.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the event is undefined</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException If an event handler is invalid</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			raiseEvent
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the event name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$sender</span><span class="var-description">: the event sender object</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: the event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetSubProperty" id="setSubProperty"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSubProperty</span> (line <span class="line-number">211</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a value to a property path.</p>
+<p class="description"><p>A property path is a sequence of property names concatenated by '.' character.  For example, 'Parent.Page' refers to the 'Page' property of the component's  'Parent' property value (which should be a component also).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSubProperty
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: property path</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the property path value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method__get" id="__get"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__get</span> (line <span class="line-number">96</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a property value or an event handler list by property or event name.</p>
+<p class="description"><p>Do not call this method. This is a PHP magic method that we override  to allow using the following syntax to read a property:  <pre><ol><code><pre><li> <span class="src-var">$value</span>=<span class="src-var">$component</span><span class="src-sym">-&gt;</span><span class="src-id">PropertyName</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  and to obtain the event handler list for an event,  <pre><ol><code><pre><li> <span class="src-var">$eventHandlerList</span>=<span class="src-var">$component</span><span class="src-sym">-&gt;</span><span class="src-id">EventName</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the property value or the event handler list</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the property/event is not defined.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__get
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the property name or the event name</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.ActiveRecord/TActiveRecord.html#method__get">TActiveRecord::__get()</a>
+								: Magic method for reading properties.
+							</li>
+					<li>
+				<a href="../System.Collections/TAttributeCollection.html#method__get">TAttributeCollection::__get()</a>
+								: Returns a property value or an event handler list by property or event name.
+							</li>
+					<li>
+				<a href="../System.Web.UI/TControl.html#method__get">TControl::__get()</a>
+								: Returns a property value by name or a control by ID.
+							</li>
+				</ul>
+	</div>
+<a name="method__set" id="__set"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__set</span> (line <span class="line-number">130</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets value of a component property.</p>
+<p class="description"><p>Do not call this method. This is a PHP magic method that we override  to allow using the following syntax to set a property or attach an event handler.  <pre><ol><code><pre><li> <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">PropertyName</span>=<span class="src-var">$value</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">EventName</span>=<span class="src-var">$handler</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException If the property is not defined or read-only.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__set
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the property name or event name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the property value or event handler</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.ActiveRecord/TActiveRecord.html#method__set">TActiveRecord::__set()</a>
+								: Magic method for writing properties.
+							</li>
+					<li>
+				<a href="../System.Collections/TAttributeCollection.html#method__set">TAttributeCollection::__set()</a>
+								: Sets value of a component property.
+							</li>
+				</ul>
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:13:11 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

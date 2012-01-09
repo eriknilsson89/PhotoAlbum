@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TDbMetaData</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TDbMetaData</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TDbMetaData is the base class for retrieving metadata information, such as  table and columns information, from a database connection.</p>
+<p class="description"><p>Use the <a href="../System.Data.Common/TDbMetaData.html#methodgetTableInfo">getTableInfo</a> method to retrieve a table information.</p></p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TDbMetaData.php 2920 2011-05-21 19:29:39Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_Common_TDbMetaData_php.html">/Data/Common/TDbMetaData.php</a> (line <span class="field">24</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TDbMetaData</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common.Mssql/TMssqlMetaData.html">TMssqlMetaData</a></td>
+					<td>
+											TMssqlMetaData loads MSSQL database table and column information.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Commom.Sqlite/TMysqlMetaData.html">TMysqlMetaData</a></td>
+					<td>
+											TMysqlMetaData loads Mysql version 4.1.x and 5.x database table and column information.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common.Pgsql/TPgsqlMetaData.html">TPgsqlMetaData</a></td>
+					<td>
+											TPgsqlMetaData loads PostgreSQL database table and column information.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common.Oracle/TOracleMetaData.html">TOracleMetaData</a></td>
+					<td>
+											TOracleMetaData loads Oracle database table and column information.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Commom.Sqlite/TSqliteMetaData.html">TSqliteMetaData</a></td>
+					<td>
+											TSqliteMetaData loads SQLite database table and column information.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TDbMetaData</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$conn</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.Common/TDbCommandBuilder.html">TDbCommandBuilder</a></span>
+										<a href="#createCommandBuilder" title="details" class="method-name">createCommandBuilder</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$tableName</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+										<a href="#createTableInfo" title="details" class="method-name">createTableInfo</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$tableName</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+										<a href="#getDbConnection" title="details" class="method-name">getDbConnection</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.Common/TDbMetaData.html">TDbMetaData</a></span>
+										<a href="#getInstance" title="details" class="method-name">getInstance</a>
+											(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$conn</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+										<a href="#getTableInfo" title="details" class="method-name">getTableInfo</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$tableName</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTableInfoClass" title="details" class="method-name">getTableInfoClass</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">32</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TDbMetaData</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$conn</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$conn</span><span class="var-description">: database connection.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateCommandBuilder" id="createCommandBuilder"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createCommandBuilder</span> (line <span class="line-number">104</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a command builder for a given table name.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> command builder instance for the given table.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.Common/TDbCommandBuilder.html">TDbCommandBuilder</a></span>
+		<span class="method-name">
+			createCommandBuilder
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$tableName</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tableName</span><span class="var-description">: table name.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateTableInfo" id="createTableInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createTableInfo</span> (line <span class="line-number">113</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method should be implemented by decendent classes.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> driver dependent create builder.</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">abstract:</span> </li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+		<span class="method-name">
+			createTableInfo
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$tableName</span>)
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.Common.Mssql/TMssqlMetaData.html#methodcreateTableInfo">TMssqlMetaData::createTableInfo()</a>
+								: Get the column definitions for given table.
+							</li>
+					<li>
+				<a href="../System.Data.Commom.Sqlite/TMysqlMetaData.html#methodcreateTableInfo">TMysqlMetaData::createTableInfo()</a>
+								: Get the column definitions for given table.
+							</li>
+					<li>
+				<a href="../System.Data.Common.Pgsql/TPgsqlMetaData.html#methodcreateTableInfo">TPgsqlMetaData::createTableInfo()</a>
+								: Get the column definitions for given table.
+							</li>
+					<li>
+				<a href="../System.Data.Common.Oracle/TOracleMetaData.html#methodcreateTableInfo">TOracleMetaData::createTableInfo()</a>
+								: Get the column definitions for given table.
+							</li>
+					<li>
+				<a href="../System.Data.Commom.Sqlite/TSqliteMetaData.html#methodcreateTableInfo">TSqliteMetaData::createTableInfo()</a>
+								: Get the column definitions for given table.
+							</li>
+				</ul>
+	</div>
+<a name="methodgetDbConnection" id="getDbConnection"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDbConnection</span> (line <span class="line-number">40</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> database connection.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+		<span class="method-name">
+			getDbConnection
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getInstance</span> (line <span class="line-number">50</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Obtain database specific TDbMetaData class using the driver name of the database connection.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> database specific TDbMetaData.</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.Common/TDbMetaData.html">TDbMetaData</a></span>
+		<span class="method-name">
+			getInstance
+		</span>
+					(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$conn</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$conn</span><span class="var-description">: database connection.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetTableInfo" id="getTableInfo"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTableInfo</span> (line <span class="line-number">87</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Obtains table meta data information for the current connection and given table name.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> table information.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+		<span class="method-name">
+			getTableInfo
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$tableName</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tableName</span><span class="var-description">: table or view name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetTableInfoClass" id="getTableInfoClass"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTableInfoClass</span> (line <span class="line-number">118</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> TDbTableInfo class name.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTableInfoClass
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.Common.Mssql/TMssqlMetaData.html#methodgetTableInfoClass">TMssqlMetaData::getTableInfoClass()</a>
+							</li>
+					<li>
+				<a href="../System.Data.Commom.Sqlite/TMysqlMetaData.html#methodgetTableInfoClass">TMysqlMetaData::getTableInfoClass()</a>
+							</li>
+					<li>
+				<a href="../System.Data.Common.Pgsql/TPgsqlMetaData.html#methodgetTableInfoClass">TPgsqlMetaData::getTableInfoClass()</a>
+							</li>
+					<li>
+				<a href="../System.Data.Common.Oracle/TOracleMetaData.html#methodgetTableInfoClass">TOracleMetaData::getTableInfoClass()</a>
+							</li>
+					<li>
+				<a href="../System.Data.Commom.Sqlite/TSqliteMetaData.html#methodgetTableInfoClass">TSqliteMetaData::getTableInfoClass()</a>
+							</li>
+				</ul>
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:14:01 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

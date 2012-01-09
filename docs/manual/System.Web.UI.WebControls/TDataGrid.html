@@ -1,0 +1,3310 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TDataGrid</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TDataGrid</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../System.Web.UI/INamingContainer.html">INamingContainer</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TDataGrid class</p>
+<p class="description"><p>TDataGrid represents a data bound and updatable grid control.</p><p>To populate data into the datagrid, sets its <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetDataSource">DataSource</a>  to a tabular data source and call <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methoddataBind">dataBind()</a>.  Each row of data will be represented by an item in the <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetItems">Items</a>  collection of the datagrid.</p><p>An item can be at one of three states: browsing, selected and edit.  The state determines how the item will be displayed. For example, if an item  is in edit state, it may be displayed as a table row with input text boxes  if the columns are of type <a href="../System.Web.UI.WebControls/TBoundColumn.html">TBoundColumn</a>; and if in browsing state,  they are displayed as static text.</p><p>To change the state of an item, set <a href="../System.Web.UI.WebControls/TDataGrid.html#methodsetEditItemIndex">EditItemIndex</a>  or <a href="../System.Web.UI.WebControls/TDataGrid.html#methodsetSelectedItemIndex">SelectedItemIndex</a> property.</p><p>Each datagrid item has a TDataGridItem::getItemType  which tells the position and state of the item in the datalist. An item in the header  of the repeater is of type Header. A body item may be of either  Item, AlternatingItem, SelectedItem or EditItem, depending whether the item  index is odd or even, whether it is being selected or edited.</p><p>A datagrid is specified with a list of columns. Each column specifies how the corresponding  table column will be displayed. For example, the header/footer text of that column,  the cells in that column, and so on. The following column types are currently  provided by the framework, <ul><li><a href="../System.Web.UI.WebControls/TBoundColumn.html">TBoundColumn</a>, associated with a specific field in datasource and displays the corresponding data.</li><li><a href="../System.Web.UI.WebControls/TEditCommandColumn.html">TEditCommandColumn</a>, displaying edit/update/cancel command buttons</li><li><a href="../System.Web.UI.WebControls/TButtonColumn.html">TButtonColumn</a>, displaying generic command buttons that may be bound to specific field in datasource.</li><li><a href="../System.Web.UI.WebControls/TDropDownListColumn.html">TDropDownListColumn</a>, displaying a dropdown list when the item is in edit state</li><li><a href="../System.Web.UI.WebControls/THyperLinkColumn.html">THyperLinkColumn</a>, displaying a hyperlink that may be bound to specific field in datasource.</li><li><a href="../System.Web.UI.WebControls/TCheckBoxColumn.html">TCheckBoxColumn</a>, displaying a checkbox that may be bound to specific field in datasource.</li><li><a href="../System.Web.UI.WebControls/TTemplateColumn.html">TTemplateColumn</a>, displaying content based on templates.</li></ul>  There are three ways to specify columns for a datagrid.  <ul><li>Automatically generated based on data source.
+  By setting <a href="../System.Web.UI.WebControls/TDataGrid.html#methodsetAutoGenerateColumns">AutoGenerateColumns</a> to true,
+  a list of columns will be automatically generated based on the schema of the data source.
+  Each column corresponds to a column of the data.</li><li>Specified in template. For example,
+    <pre><ol><code><pre><li>     &lt;<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.WebControls/TDataGrid.html">TDataGrid</a> </span>...&gt;</li>
+<li>        &lt;<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.WebControls/TBoundColumn.html">TBoundColumn</a> </span>.../&gt;</li>
+<li>        &lt;<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.WebControls/TEditCommandColumn.html">TEditCommandColumn</a> </span>.../&gt;</li>
+<li>     &lt;/<span class="src-id">com</span>:<span class="src-id"><a href="../System.Web.UI.WebControls/TDataGrid.html">TDataGrid</a></span>&gt;</li>
+</pre></code></ol></pre></li><li>Manually created in code. Columns can be manipulated via
+  the setColumns property of the datagrid. For example,
+  <pre><ol><code><pre><li>    <span class="src-var">$column</span>=<span class="src-key">new </span><span class="src-id"><a href="../System.Web.UI.WebControls/TBoundColumn.html">TBoundColumn</a></span><span class="src-sym">;</span></li>
+<li>    <span class="src-var">$datagrid</span><span class="src-sym">-&gt;</span><span class="src-id">Columns</span><span class="src-sym">[</span><span class="src-sym">]</span>=<span class="src-var">$column</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></li></ul>  Note, automatically generated columns cannot be accessed via  the <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetColumns">Columns</a> property.</p><p>TDataGrid supports sorting. If the <a href="../System.Web.UI.WebControls/TDataGrid.html#methodsetAllowSorting">AllowSorting</a>  is set to true, a column with nonempty setSortExpression  will have its header text displayed as a clickable link button.  Clicking on the link button will raise <a href="../System.Web.UI.WebControls/TDataGrid.html#methodonSortCommand">OnSortCommand</a>  event. You can respond to this event, sort the data source according  to the event parameter, and then invoke databind() on the datagrid  to show to end users the sorted data.</p><p>TDataGrid supports paging. If the <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetAllowPaging">AllowPaging</a>  is set to true, a pager will be displayed on top and/or bottom of the table.  How the pager will be displayed is determined by the <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetPagerStyle">PagerStyle</a>  property. Clicking on a pager button will raise an <a href="../System.Web.UI.WebControls/TDataGrid.html#methodonPageIndexChanged">OnPageIndexChanged</a>  event. You can respond to this event, specify the page to be displayed by  setting <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetCurrentPageIndex">CurrentPageIndex</a>&lt;/b&gt; property,  and then invoke databind() on the datagrid to show to end users  a new page of data.</p><p>TDataGrid supports two kinds of paging. The first one is based on the number of data items in  datasource. The number of pages <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetPageCount">PageCount</a> is calculated based  the item number and the <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetPageSize">PageSize</a> property.  The datagrid will manage which section of the data source to be displayed  based on the <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetCurrentPageIndex">CurrentPageIndex</a> property.  The second approach calculates the page number based on the  <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetVirtualItemCount">VirtualItemCount</a> property and  the <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetPageSize">PageSize</a> property. The datagrid will always  display from the beginning of the datasource up to the number of  <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetPageSize">PageSize</a> data items. This approach is especially  useful when the datasource may contain too many data items to be managed by  the datagrid efficiently.</p><p>When the datagrid contains a button control that raises an onCommand  event, the event will be bubbled up to the datagrid control.  If the event's command name is recognizable by the datagrid control,  a corresponding item event will be raised. The following item events will be  raised upon a specific command: <ul><li>OnEditCommand, if CommandName=edit</li><li>OnCancelCommand, if CommandName=cancel</li><li>OnSelectCommand, if CommandName=select</li><li>OnDeleteCommand, if CommandName=delete</li><li>OnUpdateCommand, if CommandName=update</li><li>onPageIndexChanged, if CommandName=page</li><li>OnSortCommand, if CommandName=sort</li></ul> Note, an <a href="../System.Web.UI.WebControls/TDataGrid.html#methodonItemCommand">OnItemCommand</a> event is raised in addition to  the above specific command events.</p><p>TDataGrid also raises an <a href="../System.Web.UI.WebControls/TDataGrid.html#methodonItemCreated">OnItemCreated</a> event for  every newly created datagrid item. You can respond to this event to customize  the content or style of the newly created item.</p><p>Note, the data bound to the datagrid are reset to null after databinding.  There are several ways to access the data associated with a datagrid row: <ul><li>Access the data in <a href="../System.Web.UI.WebControls/TDataGrid.html#methodonItemDataBound">OnItemDataBound</a> event</li><li>Use <a href="../System.Web.UI.WebControls/TBaseDataList.html#methodgetDataKeys">DataKeys</a> to obtain the data key associated with</li></ul> the specified datagrid row and use the key to fetch the corresponding data  from some persistent storage such as DB. <ul><li>Save the data in viewstate and get it back during postbacks.</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TDataGrid.php 2981 2011-06-16 11:43:44Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_WebControls_TDataGrid_php.html">/Web/UI/WebControls/TDataGrid.php</a> (line <span class="field">152</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System.Web.UI/TControl.html">TControl</a>
+         |
+         --<a href="../System.Web.UI.WebControls/TWebControl.html">TWebControl</a>
+            |
+            --<a href="../System.Web.UI.WebControls/TDataBoundControl.html">TDataBoundControl</a>
+               |
+               --<a href="../System.Web.UI.WebControls/TBaseDataList.html">TBaseDataList</a>
+                  |
+                  --TDataGrid</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.ActiveControls/TActiveDataGrid.html">TActiveDataGrid</a></td>
+					<td>
+											TActiveDataGrid class
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_CANCEL" title="details" class="const-name">CMD_CANCEL</a> = 					<span class="var-type">'Cancel'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_DELETE" title="details" class="const-name">CMD_DELETE</a> = 					<span class="var-type">'Delete'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_EDIT" title="details" class="const-name">CMD_EDIT</a> = 					<span class="var-type">'Edit'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_PAGE" title="details" class="const-name">CMD_PAGE</a> = 					<span class="var-type">'Page'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_PAGE_FIRST" title="details" class="const-name">CMD_PAGE_FIRST</a> = 					<span class="var-type">'First'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_PAGE_LAST" title="details" class="const-name">CMD_PAGE_LAST</a> = 					<span class="var-type">'Last'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_PAGE_NEXT" title="details" class="const-name">CMD_PAGE_NEXT</a> = 					<span class="var-type">'Next'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_PAGE_PREV" title="details" class="const-name">CMD_PAGE_PREV</a> = 					<span class="var-type">'Previous'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_SELECT" title="details" class="const-name">CMD_SELECT</a> = 					<span class="var-type">'Select'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_SORT" title="details" class="const-name">CMD_SORT</a> = 					<span class="var-type">'Sort'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CMD_UPDATE" title="details" class="const-name">CMD_UPDATE</a> = 					<span class="var-type">'Update'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#IT_ALTERNATINGITEM" title="details" class="const-name">IT_ALTERNATINGITEM</a> = 					<span class="var-type">'AlternatingItem'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#IT_EDITITEM" title="details" class="const-name">IT_EDITITEM</a> = 					<span class="var-type">'EditItem'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#IT_FOOTER" title="details" class="const-name">IT_FOOTER</a> = 					<span class="var-type">'Footer'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#IT_HEADER" title="details" class="const-name">IT_HEADER</a> = 					<span class="var-type">'Header'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#IT_ITEM" title="details" class="const-name">IT_ITEM</a> = 					<span class="var-type">'Item'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#IT_PAGER" title="details" class="const-name">IT_PAGER</a> = 					<span class="var-type">'Pager'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#IT_SELECTEDITEM" title="details" class="const-name">IT_SELECTEDITEM</a> = 					<span class="var-type">'SelectedItem'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#IT_SEPARATOR" title="details" class="const-name">IT_SEPARATOR</a> = 					<span class="var-type">'Separator'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addParsedObject" title="details" class="method-name">addParsedObject</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$object</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applyItemStyles" title="details" class="method-name">applyItemStyles</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#bubbleEvent" title="details" class="method-name">bubbleEvent</a>
+											(<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#buildNextPrevPager" title="details" class="method-name">buildNextPrevPager</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>&nbsp;<span class="var-name">$pager</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#buildNumericPager" title="details" class="method-name">buildNumericPager</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>&nbsp;<span class="var-name">$pager</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#buildPager" title="details" class="method-name">buildPager</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>&nbsp;<span class="var-name">$pager</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridColumnCollection.html">TDataGridColumnCollection</a></span>
+										<a href="#createAutoColumns" title="details" class="method-name">createAutoColumns</a>
+											(<span class="var-type">Traversable</span>&nbsp;<span class="var-name">$dataSource</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a></span>
+										<a href="#createItem" title="details" class="method-name">createItem</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$itemIndex</span>, <span class="var-type"><a href="../System.Web.UI.WebControls/TListItemType.html">TListItemType</a></span>&nbsp;<span class="var-name">$dataSourceIndex</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$itemType</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#createPagerButton" title="details" class="method-name">createPagerButton</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$buttonType</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$enabled</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$text</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$commandName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$commandParameter</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TTableStyle.html">TTableStyle</a></span>
+										<a href="#createStyle" title="details" class="method-name">createStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getAllowSorting" title="details" class="method-name">getAllowSorting</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+										<a href="#getAlternatingItemStyle" title="details" class="method-name">getAlternatingItemStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridColumnCollection.html">TDataGridColumnCollection</a></span>
+										<a href="#getAutoColumns" title="details" class="method-name">getAutoColumns</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getAutoGenerateColumns" title="details" class="method-name">getAutoGenerateColumns</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBackImageUrl" title="details" class="method-name">getBackImageUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>
+										<a href="#getBottomPager" title="details" class="method-name">getBottomPager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCaption" title="details" class="method-name">getCaption</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TTableCaptionAlign.html">TTableCaptionAlign</a></span>
+										<a href="#getCaptionAlign" title="details" class="method-name">getCaptionAlign</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridColumnCollection.html">TDataGridColumnCollection</a></span>
+										<a href="#getColumns" title="details" class="method-name">getColumns</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a></span>
+										<a href="#getEditItem" title="details" class="method-name">getEditItem</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getEditItemIndex" title="details" class="method-name">getEditItemIndex</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+										<a href="#getEditItemStyle" title="details" class="method-name">getEditItemStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+										<a href="#getEmptyTemplate" title="details" class="method-name">getEmptyTemplate</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a></span>
+										<a href="#getFooter" title="details" class="method-name">getFooter</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+										<a href="#getFooterStyle" title="details" class="method-name">getFooterStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a></span>
+										<a href="#getHeader" title="details" class="method-name">getHeader</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+										<a href="#getHeaderStyle" title="details" class="method-name">getHeaderStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getItemCount" title="details" class="method-name">getItemCount</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItemCollection.html">TDataGridItemCollection</a></span>
+										<a href="#getItems" title="details" class="method-name">getItems</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+										<a href="#getItemStyle" title="details" class="method-name">getItemStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridPagerStyle.html">TDataGridPagerStyle</a></span>
+										<a href="#getPagerStyle" title="details" class="method-name">getPagerStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a></span>
+										<a href="#getSelectedItem" title="details" class="method-name">getSelectedItem</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getSelectedItemIndex" title="details" class="method-name">getSelectedItemIndex</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+										<a href="#getSelectedItemStyle" title="details" class="method-name">getSelectedItemStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getShowFooter" title="details" class="method-name">getShowFooter</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getShowHeader" title="details" class="method-name">getShowHeader</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+										<a href="#getTableBodyStyle" title="details" class="method-name">getTableBodyStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+										<a href="#getTableFootStyle" title="details" class="method-name">getTableFootStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+										<a href="#getTableHeadStyle" title="details" class="method-name">getTableHeadStyle</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTagName" title="details" class="method-name">getTagName</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>
+										<a href="#getTopPager" title="details" class="method-name">getTopPager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#initializeItem" title="details" class="method-name">initializeItem</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGrid.html">TDataGrid</a></span>&nbsp;<span class="var-name">$item</span>, <span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridColumnCollection.html">TDataGridColumnCollection</a></span>&nbsp;<span class="var-name">$columns</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadState" title="details" class="method-name">loadState</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onCancelCommand" title="details" class="method-name">onCancelCommand</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onDeleteCommand" title="details" class="method-name">onDeleteCommand</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onEditCommand" title="details" class="method-name">onEditCommand</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onItemCommand" title="details" class="method-name">onItemCommand</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onItemCreated" title="details" class="method-name">onItemCreated</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridItemEventParameter.html">TDataGridItemEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onItemDataBound" title="details" class="method-name">onItemDataBound</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridItemEventParameter.html">TDataGridItemEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onPageIndexChanged" title="details" class="method-name">onPageIndexChanged</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPageChangedEventParameter.html">TDataGridPageChangedEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onPagerCreated" title="details" class="method-name">onPagerCreated</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPagerEventParameter.html">TDataGridPagerEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onSortCommand" title="details" class="method-name">onSortCommand</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridSortCommandEventParameter.html">TDataGridSortCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onUpdateCommand" title="details" class="method-name">onUpdateCommand</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#performDataBinding" title="details" class="method-name">performDataBinding</a>
+											(<span class="var-type">Traversable</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#render" title="details" class="method-name">render</a>
+											(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#renderBeginTag" title="details" class="method-name">renderBeginTag</a>
+											(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#renderTable" title="details" class="method-name">renderTable</a>
+											(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#reset" title="details" class="method-name">reset</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#restoreGridFromViewState" title="details" class="method-name">restoreGridFromViewState</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#saveState" title="details" class="method-name">saveState</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAllowSorting" title="details" class="method-name">setAllowSorting</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAutoGenerateColumns" title="details" class="method-name">setAutoGenerateColumns</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBackImageUrl" title="details" class="method-name">setBackImageUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCaption" title="details" class="method-name">setCaption</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCaptionAlign" title="details" class="method-name">setCaptionAlign</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TTableCaptionAlign.html">TTableCaptionAlign</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setEditItemIndex" title="details" class="method-name">setEditItemIndex</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setEmptyTemplate" title="details" class="method-name">setEmptyTemplate</a>
+											(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setSelectedItemIndex" title="details" class="method-name">setSelectedItemIndex</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setShowFooter" title="details" class="method-name">setShowFooter</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setShowHeader" title="details" class="method-name">setShowHeader</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodaddParsedObject" id="addParsedObject"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addParsedObject</span> (line <span class="line-number">234</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds objects parsed in template to datagrid.</p>
+<p class="description"><p>Datagrid columns are added into <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetColumns">Columns</a> collection.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addParsedObject
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$object</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$object</span><span class="var-description">: object parsed in template</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TControl.html#methodaddParsedObject">TControl::addParsedObject()</a></dt>
+						<dd>Adds the object instantiated on a template to the child control collection.</dd>
+					</dl>
+		
+	</div>
+<a name="methodapplyItemStyles" id="applyItemStyles"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyItemStyles</span> (line <span class="line-number">1439</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Applies styles to items, header, footer and separators.</p>
+<p class="description"><p>Item styles are applied in a hierarchical way. Style in higher hierarchy  will inherit from styles in lower hierarchy.  Starting from the lowest hierarchy, the item styles include  item's own style, <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetItemStyle">ItemStyle</a>, <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetAlternatingItemStyle">AlternatingItemStyle</a>,  <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetSelectedItemStyle">SelectedItemStyle</a>, and <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetEditItemStyle">EditItemStyle</a>.  Therefore, if background color is set as red in <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetItemStyle">ItemStyle</a>,  <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetEditItemStyle">EditItemStyle</a> will also have red background color  unless it is set to a different value explicitly.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applyItemStyles
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodbubbleEvent" id="bubbleEvent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">bubbleEvent</span> (line <span class="line-number">697</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method overrides parent's implementation to handle  onItemCommand event which is bubbled from  <a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a> child controls.</p>
+<p class="description"><p>If the event parameter is <a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a> and  the command name is a recognized one, which includes 'select', 'edit',  'delete', 'update', and 'cancel' (case-insensitive), then a  corresponding command event is also raised (such as <a href="../System.Web.UI.WebControls/TDataGrid.html#methodonEditCommand">OnEditCommand</a>).  This method should only be used by control developers.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the event bubbling should stop here.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			bubbleEvent
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>
+				<span class="var-name">$sender</span><span class="var-description">: the sender of the event</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System/TEventParameter.html">TEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TControl.html#methodbubbleEvent">TControl::bubbleEvent()</a></dt>
+						<dd>This method responds to a bubbled event.</dd>
+					</dl>
+		
+	</div>
+<a name="methodbuildNextPrevPager" id="buildNextPrevPager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">buildNextPrevPager</span> (line <span class="line-number">1265</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Builds a next-prev pager</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			buildNextPrevPager
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>&nbsp;<span class="var-name">$pager</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>
+				<span class="var-name">$pager</span><span class="var-description">: the container for the pager</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodbuildNumericPager" id="buildNumericPager"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">buildNumericPager</span> (line <span class="line-number">1324</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Builds a numeric pager</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			buildNumericPager
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>&nbsp;<span class="var-name">$pager</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>
+				<span class="var-name">$pager</span><span class="var-description">: the container for the pager</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodbuildPager" id="buildPager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">buildPager</span> (line <span class="line-number">1210</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Builds the pager content based on pager style.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			buildPager
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>&nbsp;<span class="var-name">$pager</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>
+				<span class="var-name">$pager</span><span class="var-description">: the container for the pager</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateAutoColumns" id="createAutoColumns"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createAutoColumns</span> (line <span class="line-number">1397</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Automatically generates datagrid columns based on datasource schema</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridColumnCollection.html">TDataGridColumnCollection</a></span>
+		<span class="method-name">
+			createAutoColumns
+		</span>
+					(<span class="var-type">Traversable</span>&nbsp;<span class="var-name">$dataSource</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Traversable</span>
+				<span class="var-name">$dataSource</span><span class="var-description">: data source bound to the datagrid</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateItem" id="createItem"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createItem</span> (line <span class="line-number">1147</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a datagrid item instance based on the item type and index.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> created data list item</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a></span>
+		<span class="method-name">
+			createItem
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$itemIndex</span>, <span class="var-type"><a href="../System.Web.UI.WebControls/TListItemType.html">TListItemType</a></span>&nbsp;<span class="var-name">$dataSourceIndex</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$itemType</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$itemIndex</span><span class="var-description">: zero-based item index</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TListItemType.html">TListItemType</a></span>
+				<span class="var-name">$dataSourceIndex</span><span class="var-description">: item type</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreatePagerButton" id="createPagerButton"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createPagerButton</span> (line <span class="line-number">1235</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a pager button.</p>
+<p class="description"><p>Depending on the button type, a TLinkButton or a TButton may be created.  If it is enabled (clickable), its command name and parameter will also be set.  Derived classes may override this method to create additional types of buttons, such as TImageButton.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the button instance</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			createPagerButton
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$buttonType</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$enabled</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$text</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$commandName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$commandParameter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$buttonType</span><span class="var-description">: button type, either LinkButton or PushButton</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$enabled</span><span class="var-description">: whether the button should be enabled</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$text</span><span class="var-description">: caption of the button</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$commandName</span><span class="var-description">: CommandName corresponding to the OnCommand event of the button</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$commandParameter</span><span class="var-description">: CommandParameter corresponding to the OnCommand event of the button</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web.UI.ActiveControls/TActiveDataGrid.html#methodcreatePagerButton">TActiveDataGrid::createPagerButton()</a>
+								: Creates a pager button.
+							</li>
+				</ul>
+	</div>
+<a name="methodcreateStyle" id="createStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createStyle</span> (line <span class="line-number">285</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a style object for the control.</p>
+<p class="description"><p>This method creates a <a href="../System.Web.UI.WebControls/TTableStyle.html">TTableStyle</a> to be used by datagrid.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> control style to be used</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TTableStyle.html">TTableStyle</a></span>
+		<span class="method-name">
+			createStyle
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodcreateStyle">TBaseDataList::createStyle()</a></dt>
+						<dd>Creates a style object for the control.</dd>
+					</dl>
+		
+	</div>
+<a name="methodgetAllowSorting" id="getAllowSorting"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAllowSorting</span> (line <span class="line-number">603</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether sorting is enabled. Defaults to false.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getAllowSorting
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAlternatingItemStyle" id="getAlternatingItemStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAlternatingItemStyle</span> (line <span class="line-number">322</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for each alternating item</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+		<span class="method-name">
+			getAlternatingItemStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAutoColumns" id="getAutoColumns"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAutoColumns</span> (line <span class="line-number">255</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> automatically generated datagrid columns</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridColumnCollection.html">TDataGridColumnCollection</a></span>
+		<span class="method-name">
+			getAutoColumns
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAutoGenerateColumns" id="getAutoGenerateColumns"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAutoGenerateColumns</span> (line <span class="line-number">619</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether datagrid columns should be automatically generated. Defaults to true.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getAutoGenerateColumns
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetBackImageUrl" id="getBackImageUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBackImageUrl</span> (line <span class="line-number">293</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the URL of the background image for the datagrid</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBackImageUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetBottomPager" id="getBottomPager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBottomPager</span> (line <span class="line-number">498</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the pager displayed at the bottom of datagrid. It could be null if paging is disabled.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>
+		<span class="method-name">
+			getBottomPager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCaption" id="getCaption"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCaption</span> (line <span class="line-number">442</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> caption for the datagrid</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCaption
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCaptionAlign" id="getCaptionAlign"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCaptionAlign</span> (line <span class="line-number">458</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> datagrid caption alignment. Defaults to TTableCaptionAlign::NotSet.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TTableCaptionAlign.html">TTableCaptionAlign</a></span>
+		<span class="method-name">
+			getCaptionAlign
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetColumns" id="getColumns"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getColumns</span> (line <span class="line-number">245</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> manually specified datagrid columns</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridColumnCollection.html">TDataGridColumnCollection</a></span>
+		<span class="method-name">
+			getColumns
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetEditItem" id="getEditItem"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEditItem</span> (line <span class="line-number">559</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the edit item</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a></span>
+		<span class="method-name">
+			getEditItem
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetEditItemIndex" id="getEditItemIndex"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEditItemIndex</span> (line <span class="line-number">573</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the zero-based index of the edit item in <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetItems">Items</a>.  A value -1 means no item is in edit mode.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getEditItemIndex
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetEditItemStyle" id="getEditItemStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEditItemStyle</span> (line <span class="line-number">348</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for edit item</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+		<span class="method-name">
+			getEditItemStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetEmptyTemplate" id="getEmptyTemplate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEmptyTemplate</span> (line <span class="line-number">667</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the template applied when no data is bound to the datagrid</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+		<span class="method-name">
+			getEmptyTemplate
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetFooter" id="getFooter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFooter</span> (line <span class="line-number">482</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the footer item</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a></span>
+		<span class="method-name">
+			getFooter
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetFooterStyle" id="getFooterStyle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFooterStyle</span> (line <span class="line-number">374</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for footer</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+		<span class="method-name">
+			getFooterStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHeader" id="getHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHeader</span> (line <span class="line-number">474</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the header item</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a></span>
+		<span class="method-name">
+			getHeader
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHeaderStyle" id="getHeaderStyle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHeaderStyle</span> (line <span class="line-number">361</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for header</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+		<span class="method-name">
+			getHeaderStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetItemCount" id="getItemCount"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getItemCount</span> (line <span class="line-number">275</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> number of items</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getItemCount
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetItems" id="getItems"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getItems</span> (line <span class="line-number">265</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> datagrid item collection</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItemCollection.html">TDataGridItemCollection</a></span>
+		<span class="method-name">
+			getItems
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetItemStyle" id="getItemStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getItemStyle</span> (line <span class="line-number">309</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for every item</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+		<span class="method-name">
+			getItemStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPagerStyle" id="getPagerStyle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPagerStyle</span> (line <span class="line-number">387</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for pager</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridPagerStyle.html">TDataGridPagerStyle</a></span>
+		<span class="method-name">
+			getPagerStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSelectedItem" id="getSelectedItem"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSelectedItem</span> (line <span class="line-number">506</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the selected item, null if no item is selected.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridItem.html">TDataGridItem</a></span>
+		<span class="method-name">
+			getSelectedItem
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSelectedItemIndex" id="getSelectedItemIndex"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSelectedItemIndex</span> (line <span class="line-number">520</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the zero-based index of the selected item in <a href="../System.Web.UI.WebControls/TDataGrid.html#methodgetItems">Items</a>.  A value -1 means no item selected.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getSelectedItemIndex
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSelectedItemStyle" id="getSelectedItemStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSelectedItemStyle</span> (line <span class="line-number">335</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for selected item</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TTableItemStyle.html">TTableItemStyle</a></span>
+		<span class="method-name">
+			getSelectedItemStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetShowFooter" id="getShowFooter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getShowFooter</span> (line <span class="line-number">651</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the footer should be displayed. Defaults to false.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getShowFooter
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetShowHeader" id="getShowHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getShowHeader</span> (line <span class="line-number">635</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the header should be displayed. Defaults to true.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getShowHeader
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTableBodyStyle" id="getTableBodyStyle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTableBodyStyle</span> (line <span class="line-number">415</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for tbody element, if any</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+		<span class="method-name">
+			getTableBodyStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTableFootStyle" id="getTableFootStyle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTableFootStyle</span> (line <span class="line-number">429</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for tfoot element, if any</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+		<span class="method-name">
+			getTableFootStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTableHeadStyle" id="getTableHeadStyle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTableHeadStyle</span> (line <span class="line-number">401</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the style for thead element, if any</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+		<span class="method-name">
+			getTableHeadStyle
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTagName" id="getTagName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTagName</span> (line <span class="line-number">224</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> tag name (table) of the datagrid</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTagName
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetTagName">TWebControl::getTagName()</a></dt>
+						<dd>Returns the tag name used for this control.</dd>
+					</dl>
+		
+	</div>
+<a name="methodgetTopPager" id="getTopPager"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTopPager</span> (line <span class="line-number">490</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the pager displayed at the top of datagrid. It could be null if paging is disabled.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TDataGridPager.html">TDataGridPager</a></span>
+		<span class="method-name">
+			getTopPager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinitializeItem" id="initializeItem"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">initializeItem</span> (line <span class="line-number">1178</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes a datagrid item and cells inside it</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			initializeItem
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGrid.html">TDataGrid</a></span>&nbsp;<span class="var-name">$item</span>, <span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridColumnCollection.html">TDataGridColumnCollection</a></span>&nbsp;<span class="var-name">$columns</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGrid.html">TDataGrid</a></span>
+				<span class="var-name">$item</span><span class="var-description">: datagrid item to be initialized</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridColumnCollection.html">TDataGridColumnCollection</a></span>
+				<span class="var-name">$columns</span><span class="var-description">: datagrid columns to be used to initialize the cells in the item</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadState" id="loadState"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadState</span> (line <span class="line-number">899</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads item count information from viewstate.</p>
+<p class="description"><p>This method is invoked right after control state is loaded.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadState
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TControl.html#methodloadState">TControl::loadState()</a></dt>
+						<dd>This method is invoked right after the control has loaded its state.</dd>
+					</dl>
+		
+	</div>
+<a name="methodonCancelCommand" id="onCancelCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onCancelCommand</span> (line <span class="line-number">760</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnCancelCommand</strong> event.</p>
+<p class="description"><p>This method is invoked when a button control raises <strong>OnCommand</strong> event  with <strong>cancel</strong> command name.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onCancelCommand
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonDeleteCommand" id="onDeleteCommand"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onDeleteCommand</span> (line <span class="line-number">771</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnDeleteCommand</strong> event.</p>
+<p class="description"><p>This method is invoked when a button control raises <strong>OnCommand</strong> event  with <strong>delete</strong> command name.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onDeleteCommand
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonEditCommand" id="onEditCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onEditCommand</span> (line <span class="line-number">782</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnEditCommand</strong> event.</p>
+<p class="description"><p>This method is invoked when a button control raises <strong>OnCommand</strong> event  with <strong>edit</strong> command name.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onEditCommand
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonItemCommand" id="onItemCommand"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onItemCommand</span> (line <span class="line-number">792</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnItemCommand</strong> event.</p>
+<p class="description"><p>This method is invoked when a button control raises <strong>OnCommand</strong> event.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onItemCommand
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonItemCreated" id="onItemCreated"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onItemCreated</span> (line <span class="line-number">825</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnItemCreated</strong> event.</p>
+<p class="description"><p>This method is invoked right after a datagrid item is created and before  added to page hierarchy.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onItemCreated
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridItemEventParameter.html">TDataGridItemEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridItemEventParameter.html">TDataGridItemEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonItemDataBound" id="onItemDataBound"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onItemDataBound</span> (line <span class="line-number">847</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnItemDataBound</strong> event.</p>
+<p class="description"><p>This method is invoked for each datagrid item after it performs  databinding.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onItemDataBound
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridItemEventParameter.html">TDataGridItemEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridItemEventParameter.html">TDataGridItemEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonPageIndexChanged" id="onPageIndexChanged"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onPageIndexChanged</span> (line <span class="line-number">857</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnPageIndexChanged</strong> event.</p>
+<p class="description"><p>This method is invoked when current page is changed.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onPageIndexChanged
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPageChangedEventParameter.html">TDataGridPageChangedEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPageChangedEventParameter.html">TDataGridPageChangedEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonPagerCreated" id="onPagerCreated"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onPagerCreated</span> (line <span class="line-number">836</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnPagerCreated</strong> event.</p>
+<p class="description"><p>This method is invoked right after a datagrid pager is created and before  added to page hierarchy.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onPagerCreated
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPagerEventParameter.html">TDataGridPagerEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridPagerEventParameter.html">TDataGridPagerEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonSortCommand" id="onSortCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onSortCommand</span> (line <span class="line-number">803</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnSortCommand</strong> event.</p>
+<p class="description"><p>This method is invoked when a button control raises <strong>OnCommand</strong> event  with <strong>sort</strong> command name.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onSortCommand
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridSortCommandEventParameter.html">TDataGridSortCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridSortCommandEventParameter.html">TDataGridSortCommandEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonUpdateCommand" id="onUpdateCommand"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onUpdateCommand</span> (line <span class="line-number">814</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises <strong>OnUpdateCommand</strong> event.</p>
+<p class="description"><p>This method is invoked when a button control raises <strong>OnCommand</strong> event  with <strong>update</strong> command name.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onUpdateCommand
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TDataGridCommandEventParameter.html">TDataGridCommandEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodperformDataBinding" id="performDataBinding"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">performDataBinding</span> (line <span class="line-number">1010</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs databinding to populate datagrid items from data source.</p>
+<p class="description"><p>This method is invoked by <a href="../System.Web.UI.WebControls/TDataBoundControl.html#methoddataBind">dataBind()</a>.  You may override this function to provide your own way of data population.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			performDataBinding
+		</span>
+					(<span class="var-type">Traversable</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Traversable</span>
+				<span class="var-name">$data</span><span class="var-description">: the bound data</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodperformDataBinding">TDataBoundControl::performDataBinding()</a></dt>
+					</dl>
+		
+	</div>
+<a name="methodrender" id="render"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">render</span> (line <span class="line-number">1593</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the datagrid.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			render
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+				<span class="var-name">$writer</span><span class="var-description">: writer for the rendering purpose</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TWebControl.html#methodrender">TWebControl::render()</a></dt>
+						<dd>Renders the control.</dd>
+					</dl>
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web.UI.ActiveControls/TActiveDataGrid.html#methodrender">TActiveDataGrid::render()</a>
+								: Renders the datagrid.
+							</li>
+				</ul>
+	</div>
+<a name="methodrenderBeginTag" id="renderBeginTag"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">renderBeginTag</span> (line <span class="line-number">1576</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the openning tag for the datagrid control which will render table caption if present.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			renderBeginTag
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+				<span class="var-name">$writer</span><span class="var-description">: the writer used for the rendering purpose</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderBeginTag">TWebControl::renderBeginTag()</a></dt>
+						<dd>Renders the openning tag for the control (including attributes)</dd>
+					</dl>
+		
+	</div>
+<a name="methodrenderTable" id="renderTable"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">renderTable</span> (line <span class="line-number">1631</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the tabular data.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			renderTable
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></span>
+				<span class="var-name">$writer</span><span class="var-description">: writer</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodreset" id="reset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">reset</span> (line <span class="line-number">936</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clears up all items in the datagrid.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			reset
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodrestoreGridFromViewState" id="restoreGridFromViewState"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">restoreGridFromViewState</span> (line <span class="line-number">950</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Restores datagrid content from viewstate.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			restoreGridFromViewState
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsaveState" id="saveState"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">saveState</span> (line <span class="line-number">866</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Saves item count in viewstate.</p>
+<p class="description"><p>This method is invoked right before control state is to be saved.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			saveState
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI/TControl.html#methodsaveState">TControl::saveState()</a></dt>
+						<dd>This method is invoked when control state is to be saved.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetAllowSorting" id="setAllowSorting"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAllowSorting</span> (line <span class="line-number">611</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAllowSorting
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether sorting is enabled</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetAutoGenerateColumns" id="setAutoGenerateColumns"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAutoGenerateColumns</span> (line <span class="line-number">627</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAutoGenerateColumns
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether datagrid columns should be automatically generated</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetBackImageUrl" id="setBackImageUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBackImageUrl</span> (line <span class="line-number">301</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBackImageUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the URL of the background image for the datagrid</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCaption" id="setCaption"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCaption</span> (line <span class="line-number">450</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCaption
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: caption for the datagrid</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCaptionAlign" id="setCaptionAlign"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCaptionAlign</span> (line <span class="line-number">466</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCaptionAlign
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TTableCaptionAlign.html">TTableCaptionAlign</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TTableCaptionAlign.html">TTableCaptionAlign</a></span>
+				<span class="var-name">$value</span><span class="var-description">: datagrid caption alignment. Valid values include</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetEditItemIndex" id="setEditItemIndex"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setEditItemIndex</span> (line <span class="line-number">584</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Edits an item by its index in getItems.</p>
+<p class="description"><p>Previously editting item will change to normal item state.  If the index is less than 0, any existing edit item will be cleared up.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEditItemIndex
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: the edit item index</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetEmptyTemplate" id="setEmptyTemplate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setEmptyTemplate</span> (line <span class="line-number">676</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataTypeException if the input is not an <a href="../System.Web.UI/ITemplate.html">ITemplate</a> or not null.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEmptyTemplate
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/ITemplate.html">ITemplate</a></span>
+				<span class="var-name">$value</span><span class="var-description">: the template applied when no data is bound to the datagrid</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetSelectedItemIndex" id="setSelectedItemIndex"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSelectedItemIndex</span> (line <span class="line-number">532</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Selects an item by its index in getItems.</p>
+<p class="description"><p>Previously selected item will be un-selected.  If the item to be selected is already in edit mode, it will remain in edit mode.  If the index is less than 0, any existing selection will be cleared up.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSelectedItemIndex
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: the selected item index</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetShowFooter" id="setShowFooter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setShowFooter</span> (line <span class="line-number">659</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setShowFooter
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether the footer should be displayed</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetShowHeader" id="setShowHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setShowHeader</span> (line <span class="line-number">643</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setShowHeader
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether the header should be displayed</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.WebControls/TBaseDataList.html">TBaseDataList</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodcreateStyle">TBaseDataList::createStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodgetCellPadding">TBaseDataList::getCellPadding()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodgetCellSpacing">TBaseDataList::getCellSpacing()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodgetDataFieldValue">TBaseDataList::getDataFieldValue()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodgetDataKeyField">TBaseDataList::getDataKeyField()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodgetDataKeys">TBaseDataList::getDataKeys()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodgetGridLines">TBaseDataList::getGridLines()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodgetHorizontalAlign">TBaseDataList::getHorizontalAlign()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodonSelectedIndexChanged">TBaseDataList::onSelectedIndexChanged()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodsetCellPadding">TBaseDataList::setCellPadding()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodsetCellSpacing">TBaseDataList::setCellSpacing()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodsetDataKeyField">TBaseDataList::setDataKeyField()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodsetGridLines">TBaseDataList::setGridLines()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TBaseDataList.html#methodsetHorizontalAlign">TBaseDataList::setHorizontalAlign()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.WebControls/TDataBoundControl.html">TDataBoundControl</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodcreatePagedDataSource">TDataBoundControl::createPagedDataSource()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methoddataBind">TDataBoundControl::dataBind()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methoddataSourceViewChanged">TDataBoundControl::dataSourceViewChanged()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methoddetermineDataSource">TDataBoundControl::determineDataSource()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodensureDataBound">TDataBoundControl::ensureDataBound()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetAllowCustomPaging">TDataBoundControl::getAllowCustomPaging()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetAllowPaging">TDataBoundControl::getAllowPaging()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetCurrentPageIndex">TDataBoundControl::getCurrentPageIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetDataMember">TDataBoundControl::getDataMember()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetDataSource">TDataBoundControl::getDataSource()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetDataSourceID">TDataBoundControl::getDataSourceID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetDataSourceView">TDataBoundControl::getDataSourceView()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetInitialized">TDataBoundControl::getInitialized()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetIsDataBound">TDataBoundControl::getIsDataBound()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetPageCount">TDataBoundControl::getPageCount()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetPageSize">TDataBoundControl::getPageSize()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetRequiresDataBinding">TDataBoundControl::getRequiresDataBinding()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetSelectParameters">TDataBoundControl::getSelectParameters()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetUsingDataSourceID">TDataBoundControl::getUsingDataSourceID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodgetVirtualItemCount">TDataBoundControl::getVirtualItemCount()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodonDataBound">TDataBoundControl::onDataBound()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodonDataSourceChanged">TDataBoundControl::onDataSourceChanged()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodonInit">TDataBoundControl::onInit()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodonPreRender">TDataBoundControl::onPreRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodpagePreLoad">TDataBoundControl::pagePreLoad()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodperformDataBinding">TDataBoundControl::performDataBinding()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetAllowCustomPaging">TDataBoundControl::setAllowCustomPaging()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetAllowPaging">TDataBoundControl::setAllowPaging()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetCurrentPageIndex">TDataBoundControl::setCurrentPageIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetDataMember">TDataBoundControl::setDataMember()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetDataSource">TDataBoundControl::setDataSource()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetDataSourceID">TDataBoundControl::setDataSourceID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetInitialized">TDataBoundControl::setInitialized()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetIsDataBound">TDataBoundControl::setIsDataBound()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetPageSize">TDataBoundControl::setPageSize()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetRequiresDataBinding">TDataBoundControl::setRequiresDataBinding()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodsetVirtualItemCount">TDataBoundControl::setVirtualItemCount()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataBoundControl.html#methodvalidateDataSource">TDataBoundControl::validateDataSource()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.WebControls/TWebControl.html">TWebControl</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodaddAttributesToRender">TWebControl::addAttributesToRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodclearStyle">TWebControl::clearStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodcopyBaseAttributes">TWebControl::copyBaseAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodcreateStyle">TWebControl::createStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetAccessKey">TWebControl::getAccessKey()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBackColor">TWebControl::getBackColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderColor">TWebControl::getBorderColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderStyle">TWebControl::getBorderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetBorderWidth">TWebControl::getBorderWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetCssClass">TWebControl::getCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetDisplay">TWebControl::getDisplay()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetFont">TWebControl::getFont()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetForeColor">TWebControl::getForeColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetHasStyle">TWebControl::getHasStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetHeight">TWebControl::getHeight()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetStyle">TWebControl::getStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetTabIndex">TWebControl::getTabIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetTagName">TWebControl::getTagName()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetToolTip">TWebControl::getToolTip()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodgetWidth">TWebControl::getWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrender">TWebControl::render()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderBeginTag">TWebControl::renderBeginTag()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderContents">TWebControl::renderContents()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodrenderEndTag">TWebControl::renderEndTag()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetAccessKey">TWebControl::setAccessKey()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBackColor">TWebControl::setBackColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderColor">TWebControl::setBorderColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderStyle">TWebControl::setBorderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetBorderWidth">TWebControl::setBorderWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetCssClass">TWebControl::setCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetDisplay">TWebControl::setDisplay()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetForeColor">TWebControl::setForeColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetHeight">TWebControl::setHeight()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetStyle">TWebControl::setStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetTabIndex">TWebControl::setTabIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetToolTip">TWebControl::setToolTip()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TWebControl.html#methodsetWidth">TWebControl::setWidth()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI/TControl.html">TControl</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#method__construct">TControl::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddedControl">TControl::addedControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddParsedObject">TControl::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodaddToPostDataLoader">TControl::addToPostDataLoader()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodapplyStyleSheetSkin">TControl::applyStyleSheetSkin()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodautoBindProperty">TControl::autoBindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodautoDataBindProperties">TControl::autoDataBindProperties()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbindProperty">TControl::bindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbroadcastEvent">TControl::broadcastEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodbubbleEvent">TControl::bubbleEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearChildState">TControl::clearChildState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearControlState">TControl::clearControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearNamingContainer">TControl::clearNamingContainer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodclearViewState">TControl::clearViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodconvertUniqueIdToClientId">TControl::convertUniqueIdToClientId()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodcreateChildControls">TControl::createChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodcreateControlCollection">TControl::createControlCollection()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBind">TControl::dataBind()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBindChildren">TControl::dataBindChildren()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methoddataBindProperties">TControl::dataBindProperties()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodensureChildControls">TControl::ensureChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControl">TControl::findControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControlsByID">TControl::findControlsByID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfindControlsByType">TControl::findControlsByType()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodfocus">TControl::focus()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAdapter">TControl::getAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAllowChildControls">TControl::getAllowChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAttribute">TControl::getAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetAttributes">TControl::getAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetChildControlsCreated">TControl::getChildControlsCreated()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetClientID">TControl::getClientID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControls">TControl::getControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControlStage">TControl::getControlStage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetControlState">TControl::getControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetCustomData">TControl::getCustomData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnabled">TControl::getEnabled()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnableTheming">TControl::getEnableTheming()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetEnableViewState">TControl::getEnableViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasAdapter">TControl::getHasAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasAttributes">TControl::getHasAttributes()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasChildInitialized">TControl::getHasChildInitialized()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasControls">TControl::getHasControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasInitialized">TControl::getHasInitialized()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasLoaded">TControl::getHasLoaded()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasLoadedPostData">TControl::getHasLoadedPostData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetHasPreRendered">TControl::getHasPreRendered()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetID">TControl::getID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetNamingContainer">TControl::getNamingContainer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetPage">TControl::getPage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetParent">TControl::getParent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetRegisteredObject">TControl::getRegisteredObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetSkinID">TControl::getSkinID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetSourceTemplateControl">TControl::getSourceTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetTemplateControl">TControl::getTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetUniqueID">TControl::getUniqueID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetViewState">TControl::getViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodgetVisible">TControl::getVisible()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodhasAttribute">TControl::hasAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodinitRecursive">TControl::initRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodisDescendentOf">TControl::isDescendentOf()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodisObjectRegistered">TControl::isObjectRegistered()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadRecursive">TControl::loadRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadState">TControl::loadState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodloadStateRecursive">TControl::loadStateRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonDataBinding">TControl::onDataBinding()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonInit">TControl::onInit()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonLoad">TControl::onLoad()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonPreRender">TControl::onPreRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodonUnload">TControl::onUnload()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodpreRenderRecursive">TControl::preRenderRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodraiseBubbleEvent">TControl::raiseBubbleEvent()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodregisterObject">TControl::registerObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodremoveAttribute">TControl::removeAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodremovedControl">TControl::removedControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrender">TControl::render()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrenderChildren">TControl::renderChildren()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodrenderControl">TControl::renderControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsaveState">TControl::saveState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsaveStateRecursive">TControl::saveStateRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetAdapter">TControl::setAdapter()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetAttribute">TControl::setAttribute()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetChildControlsCreated">TControl::setChildControlsCreated()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetControlStage">TControl::setControlStage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetControlState">TControl::setControlState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetCustomData">TControl::setCustomData()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnabled">TControl::setEnabled()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnableTheming">TControl::setEnableTheming()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetEnableViewState">TControl::setEnableViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetID">TControl::setID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetPage">TControl::setPage()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetSkinID">TControl::setSkinID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetTemplateControl">TControl::setTemplateControl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetViewState">TControl::setViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodsetVisible">TControl::setVisible()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodtrackViewState">TControl::trackViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodtraverseChildControls">TControl::traverseChildControls()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunbindProperty">TControl::unbindProperty()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunloadRecursive">TControl::unloadRecursive()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#methodunregisterObject">TControl::unregisterObject()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI/TControl.html#method__get">TControl::__get()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constCMD_CANCEL" id="CMD_CANCEL"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_CANCEL</span>
+			 = <span class="const-default">'Cancel'</span>
+			(line <span class="line-number">174</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_DELETE" id="CMD_DELETE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_DELETE</span>
+			 = <span class="const-default">'Delete'</span>
+			(line <span class="line-number">173</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_EDIT" id="CMD_EDIT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_EDIT</span>
+			 = <span class="const-default">'Edit'</span>
+			(line <span class="line-number">171</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_PAGE" id="CMD_PAGE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_PAGE</span>
+			 = <span class="const-default">'Page'</span>
+			(line <span class="line-number">176</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_PAGE_FIRST" id="CMD_PAGE_FIRST"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_PAGE_FIRST</span>
+			 = <span class="const-default">'First'</span>
+			(line <span class="line-number">179</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_PAGE_LAST" id="CMD_PAGE_LAST"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_PAGE_LAST</span>
+			 = <span class="const-default">'Last'</span>
+			(line <span class="line-number">180</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_PAGE_NEXT" id="CMD_PAGE_NEXT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_PAGE_NEXT</span>
+			 = <span class="const-default">'Next'</span>
+			(line <span class="line-number">177</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_PAGE_PREV" id="CMD_PAGE_PREV"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_PAGE_PREV</span>
+			 = <span class="const-default">'Previous'</span>
+			(line <span class="line-number">178</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_SELECT" id="CMD_SELECT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_SELECT</span>
+			 = <span class="const-default">'Select'</span>
+			(line <span class="line-number">170</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Command name that TDataGrid understands.</p>
+	
+	
+</div>
+<a name="constCMD_SORT" id="CMD_SORT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_SORT</span>
+			 = <span class="const-default">'Sort'</span>
+			(line <span class="line-number">175</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCMD_UPDATE" id="CMD_UPDATE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CMD_UPDATE</span>
+			 = <span class="const-default">'Update'</span>
+			(line <span class="line-number">172</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constIT_ALTERNATINGITEM" id="IT_ALTERNATINGITEM"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">IT_ALTERNATINGITEM</span>
+			 = <span class="const-default">'AlternatingItem'</span>
+			(line <span class="line-number">162</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constIT_EDITITEM" id="IT_EDITITEM"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">IT_EDITITEM</span>
+			 = <span class="const-default">'EditItem'</span>
+			(line <span class="line-number">163</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constIT_FOOTER" id="IT_FOOTER"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">IT_FOOTER</span>
+			 = <span class="const-default">'Footer'</span>
+			(line <span class="line-number">159</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constIT_HEADER" id="IT_HEADER"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">IT_HEADER</span>
+			 = <span class="const-default">'Header'</span>
+			(line <span class="line-number">158</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">datagrid item types</p>
+	<ul class="tags">
+				<li><span class="field">deprecated:</span> deprecated since version 3.0.4. Use TListItemType constants instead.</li>
+			</ul>
+	
+	
+</div>
+<a name="constIT_ITEM" id="IT_ITEM"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">IT_ITEM</span>
+			 = <span class="const-default">'Item'</span>
+			(line <span class="line-number">160</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constIT_PAGER" id="IT_PAGER"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">IT_PAGER</span>
+			 = <span class="const-default">'Pager'</span>
+			(line <span class="line-number">165</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constIT_SELECTEDITEM" id="IT_SELECTEDITEM"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">IT_SELECTEDITEM</span>
+			 = <span class="const-default">'SelectedItem'</span>
+			(line <span class="line-number">164</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constIT_SEPARATOR" id="IT_SEPARATOR"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">IT_SEPARATOR</span>
+			 = <span class="const-default">'Separator'</span>
+			(line <span class="line-number">161</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+							<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../System.Web.UI/TControl.html">TControl</a></span></p>
+					<blockquote>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constAUTOMATIC_ID_PREFIX">TControl::AUTOMATIC_ID_PREFIX</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCLIENT_ID_SEPARATOR">TControl::CLIENT_ID_SEPARATOR</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_CHILD_INITIALIZED">TControl::CS_CHILD_INITIALIZED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_CONSTRUCTED">TControl::CS_CONSTRUCTED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_INITIALIZED">TControl::CS_INITIALIZED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_LOADED">TControl::CS_LOADED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_PRERENDERED">TControl::CS_PRERENDERED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constCS_STATE_LOADED">TControl::CS_STATE_LOADED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constID_FORMAT">TControl::ID_FORMAT</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constID_SEPARATOR">TControl::ID_SEPARATOR</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_CHILD_CREATED">TControl::IS_CHILD_CREATED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_CREATING_CHILD">TControl::IS_CREATING_CHILD</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_DISABLE_THEMING">TControl::IS_DISABLE_THEMING</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_DISABLE_VIEWSTATE">TControl::IS_DISABLE_VIEWSTATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_ID_SET">TControl::IS_ID_SET</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_SKIN_APPLIED">TControl::IS_SKIN_APPLIED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constIS_STYLESHEET_APPLIED">TControl::IS_STYLESHEET_APPLIED</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_ADAPTER">TControl::RF_ADAPTER</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_AUTO_BINDINGS">TControl::RF_AUTO_BINDINGS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CHILD_STATE">TControl::RF_CHILD_STATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CONTROLS">TControl::RF_CONTROLS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_CONTROLSTATE">TControl::RF_CONTROLSTATE</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_DATA_BINDINGS">TControl::RF_DATA_BINDINGS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_EVENTS">TControl::RF_EVENTS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_CONTROLS">TControl::RF_NAMED_CONTROLS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_CONTROLS_ID">TControl::RF_NAMED_CONTROLS_ID</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_NAMED_OBJECTS">TControl::RF_NAMED_OBJECTS</a></span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Web.UI/TControl.html#constRF_SKIN_ID">TControl::RF_SKIN_ID</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:13:31 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

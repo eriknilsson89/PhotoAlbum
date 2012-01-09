@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TTemplate</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TTemplate</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../System.Web.UI/ITemplate.html">ITemplate</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TTemplate implements PRADO template parsing logic.</p>
+<p class="description"><p>A TTemplate object represents a parsed PRADO control template.  It can instantiate the template as child controls of a specified control.  The template format is like HTML, with the following special tags introduced, <ul><li>component tags: a component tag represents the configuration of a component.</li></ul> The tag name is in the format of com:ComponentType, where ComponentType is the component  class name. Component tags must be well-formed. Attributes of the component tag  are treated as either property initial values, event handler attachment, or regular  tag attributes. <ul><li>property tags: property tags are used to set large block of attribute values.</li></ul> The property tag name is in the format of &lt;prop:AttributeName&gt; where AttributeName  can be a property name, an event name or a regular tag attribute name. <ul><li>group subproperty tags: subproperties of a common property can be configured using</li></ul> &lt;prop:MainProperty SubProperty1=&quot;Value1&quot; SubProperty2=&quot;Value2&quot; .../&gt; <ul><li>directive: directive specifies the property values for the template owner.</li></ul> It is in the format of &lt;%@ property name-value pairs %&gt;; <ul><li>expressions: They are in the formate of &lt;%= PHP expression %&gt; and &lt;%% PHP statements %&gt;</li><li>comments: There are two kinds of comments, regular HTML comments and special template comments.</li></ul> The former is in the format of &lt;!-- comments --&gt;, which will be treated as text strings.  The latter is in the format of &lt;!-- comments --!&gt;, which will be stripped out.</p><p>Tags other than the above are not required to be well-formed.</p><p>A TTemplate object represents a parsed PRADO template. To instantiate the template  for a particular control, call instantiateIn($control), which  will create and intialize all components specified in the template and  set their parent as $control.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TTemplateManager.php 2918 2011-05-21 17:10:29Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_TTemplateManager_php.html">/Web/UI/TTemplateManager.php</a> (line <span class="field">169</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --TTemplate</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_ASSET" title="details" class="const-name">CONFIG_ASSET</a> = 					<span class="var-type">2</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_DATABIND" title="details" class="const-name">CONFIG_DATABIND</a> = 					<span class="var-type">0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_EXPRESSION" title="details" class="const-name">CONFIG_EXPRESSION</a> = 					<span class="var-type">1</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_LOCALIZATION" title="details" class="const-name">CONFIG_LOCALIZATION</a> = 					<span class="var-type">4</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_PARAMETER" title="details" class="const-name">CONFIG_PARAMETER</a> = 					<span class="var-type">3</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_TEMPLATE" title="details" class="const-name">CONFIG_TEMPLATE</a> = 					<span class="var-type">5</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#REGEX_RULES" title="details" class="const-name">REGEX_RULES</a> = 					<span class="var-type">'/&lt;!--.*?--!&gt;|&lt;!---.*?---&gt;|&lt;\/?com:([\w\.]+)((?:\s*[\w\.]+\s*=\s*\'.*?\'|\s*[\w\.]+\s*=\s*&quot;.*?&quot;|\s*[\w\.]+\s*=\s*&lt;%.*?%&gt;)*)\s*\/?&gt;|&lt;\/?prop:([\w\.]+)\s*&gt;|&lt;%@\s*((?:\s*[\w\.]+\s*=\s*\'.*?\'|\s*[\w\.]+\s*=\s*&quot;.*?&quot;)*)\s*%&gt;|&lt;%[%#~\/\\$=\\[](.*?)%&gt;|&lt;prop:([\w\.]+)((?:\s*[\w\.]+\s*=\s*\'.*?\'|\s*[\w\.]+\s*=\s*&quot;.*?&quot;|\s*[\w\.]+\s*=\s*&lt;%.*?%&gt;)*)\s*\/&gt;/msS'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TTemplate</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$template</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$contextPath</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$tplFile</span> = <span class="var-default">null</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">$startingLine</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$sourceTemplate</span> = <span class="var-default">true</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#configureComponent" title="details" class="method-name">configureComponent</a>
+											(<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>&nbsp;<span class="var-name">$component</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#configureControl" title="details" class="method-name">configureControl</a>
+											(<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$control</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#configureEvent" title="details" class="method-name">configureEvent</a>
+											(<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$control</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$contextControl</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#configureProperty" title="details" class="method-name">configureProperty</a>
+											(<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>&nbsp;<span class="var-name">$component</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#configureSubProperty" title="details" class="method-name">configureSubProperty</a>
+											(<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>&nbsp;<span class="var-name">$component</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getContextPath" title="details" class="method-name">getContextPath</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getDirective" title="details" class="method-name">getDirective</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getHashCode" title="details" class="method-name">getHashCode</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getIncludedFiles" title="details" class="method-name">getIncludedFiles</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsSourceTemplate" title="details" class="method-name">getIsSourceTemplate</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getItems" title="details" class="method-name">&amp;getItems</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTemplateFile" title="details" class="method-name">getTemplateFile</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#handleException" title="details" class="method-name">handleException</a>
+											(<span class="var-type">Exception</span>&nbsp;<span class="var-name">$e</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$line</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$input</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#instantiateIn" title="details" class="method-name">instantiateIn</a>
+											(<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$tplControl</span>, [<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$parentControl</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#parse" title="details" class="method-name">parse</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$input</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#parseAttribute" title="details" class="method-name">parseAttribute</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#parseAttributes" title="details" class="method-name">parseAttributes</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$str</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#parseTemplateProperty" title="details" class="method-name">parseTemplateProperty</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$content</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#preprocess" title="details" class="method-name">preprocess</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$input</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#validateAttributes" title="details" class="method-name">validateAttributes</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$attributes</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">240</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor.</p>
+<p class="description"><p>The template will be parsed after construction.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TTemplate</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$template</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$contextPath</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$tplFile</span> = <span class="var-default">null</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">$startingLine</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$sourceTemplate</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$template</span><span class="var-description">: the template string</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$contextPath</span><span class="var-description">: the template context directory</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tplFile</span><span class="var-description">: the template file, null if no file</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$startingLine</span><span class="var-description">: the line number that parsing starts from (internal use)</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$sourceTemplate</span><span class="var-description">: whether this template is a source template, i.e., this template is loaded from  some external storage rather than from within another template.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodconfigureComponent" id="configureComponent"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">configureComponent</span> (line <span class="line-number">438</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Configures a property of a non-control component.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			configureComponent
+		</span>
+					(<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>&nbsp;<span class="var-name">$component</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>
+				<span class="var-name">$component</span><span class="var-description">: component to be configured</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: property name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: property initial value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodconfigureControl" id="configureControl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">configureControl</span> (line <span class="line-number">422</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Configures a property/event of a control.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			configureControl
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$control</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>
+				<span class="var-name">$control</span><span class="var-description">: control to be configured</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: property name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: property initial value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodconfigureEvent" id="configureEvent"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">configureEvent</span> (line <span class="line-number">453</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Configures an event for a control.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			configureEvent
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$control</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$contextControl</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>
+				<span class="var-name">$control</span><span class="var-description">: control to be configured</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: event name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: event handler</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>
+				<span class="var-name">$contextControl</span><span class="var-description">: context control</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodconfigureProperty" id="configureProperty"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">configureProperty</span> (line <span class="line-number">467</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Configures a simple property for a component.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			configureProperty
+		</span>
+					(<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>&nbsp;<span class="var-name">$component</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>
+				<span class="var-name">$component</span><span class="var-description">: component to be configured</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: property name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: property initial value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodconfigureSubProperty" id="configureSubProperty"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">configureSubProperty</span> (line <span class="line-number">520</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Configures a subproperty for a component.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			configureSubProperty
+		</span>
+					(<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>&nbsp;<span class="var-name">$component</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/TComponent.html">TComponent</a></span>
+				<span class="var-name">$component</span><span class="var-description">: component to be configured</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: subproperty name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: subproperty initial value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetContextPath" id="getContextPath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getContextPath</span> (line <span class="line-number">272</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> context directory path</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getContextPath
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDirective" id="getDirective"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDirective</span> (line <span class="line-number">280</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> name-value pairs declared in the directive</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getDirective
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHashCode" id="getHashCode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHashCode</span> (line <span class="line-number">288</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> hash code that can be used to identify the template</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getHashCode
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIncludedFiles" id="getIncludedFiles"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIncludedFiles</span> (line <span class="line-number">993</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of included external template files</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getIncludedFiles
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsSourceTemplate" id="getIsSourceTemplate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsSourceTemplate</span> (line <span class="line-number">264</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether this template is a source template, i.e., this template is loaded from  some external storage rather than from within another template.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsSourceTemplate
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetItems" id="getItems"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getItems</span> (line <span class="line-number">296</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the parsed template</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			&amp;getItems
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTemplateFile" id="getTemplateFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTemplateFile</span> (line <span class="line-number">255</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> template file path if available, null otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTemplateFile
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodhandleException" id="handleException"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">handleException</span> (line <span class="line-number">1006</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Handles template parsing exception.</p>
+<p class="description"><p>This method rethrows the exception caught during template parsing.  It adjusts the error location by giving out correct error line number and source file.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			handleException
+		</span>
+					(<span class="var-type">Exception</span>&nbsp;<span class="var-name">$e</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$line</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$input</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Exception</span>
+				<span class="var-name">$e</span><span class="var-description">: template exception</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$line</span><span class="var-description">: line number</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$input</span><span class="var-description">: template string if no source file is used</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodinstantiateIn" id="instantiateIn"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">instantiateIn</span> (line <span class="line-number">308</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Instantiates the template.</p>
+<p class="description"><p>Content in the template will be instantiated as components and text strings  and passed to the specified parent control.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			instantiateIn
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$tplControl</span>, [<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>&nbsp;<span class="var-name">$parentControl</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>
+				<span class="var-name">$tplControl</span><span class="var-description">: the control who owns the template</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TControl.html">TControl</a></span>
+				<span class="var-name">$parentControl</span><span class="var-description">: the control who will become the root parent of the controls on the template. If null, it uses the template control.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodparse" id="parse"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">parse</span> (line <span class="line-number">578</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parses a template string.</p>
+<p class="description"><p>This template parser recognizes five types of data:  regular string, well-formed component tags, well-formed property tags, directives, and expressions.</p><p>The parsing result is returned as an array. Each array element can be of three types: <ul><li>a string, 0: container index; 1: string content;</li><li>a component tag, 0: container index; 1: component type; 2: attributes (name=&gt;value pairs)</li></ul> If a directive is found in the template, it will be parsed and can be  retrieved via <a href="../System.Web.UI/TTemplate.html#methodgetDirective">getDirective</a>, which returns an array consisting of  name-value pairs in the directive.</p><p>Note, attribute names are treated as case-insensitive and will be turned into lower cases.  Component and directive types are case-sensitive.  Container index is the index to the array element that stores the container object.  If an object has no container, its container index is -1.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">throws:</span> TConfigurationException if a parsing error is encountered</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			parse
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$input</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$input</span><span class="var-description">: the template string</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodparseAttribute" id="parseAttribute"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">parseAttribute</span> (line <span class="line-number">865</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parses a single attribute.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> attribute initialization</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			parseAttribute
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the string to be parsed.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodparseAttributes" id="parseAttributes"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">parseAttributes</span> (line <span class="line-number">822</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parses the attributes of a tag from a string.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> attribute values indexed by names.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			parseAttributes
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$str</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$str</span><span class="var-description">: the string to be parsed.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodparseTemplateProperty" id="parseTemplateProperty"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">parseTemplateProperty</span> (line <span class="line-number">854</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			parseTemplateProperty
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$content</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodpreprocess" id="preprocess"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">preprocess</span> (line <span class="line-number">1041</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Preprocesses the template string by including external templates</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> expanded template string</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			preprocess
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$input</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$input</span><span class="var-description">: template string</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodvalidateAttributes" id="validateAttributes"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">validateAttributes</span> (line <span class="line-number">911</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			validateAttributes
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$attributes</span>)
+			</div>
+	
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constCONFIG_ASSET" id="CONFIG_ASSET"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_ASSET</span>
+			 = <span class="const-default">2</span>
+			(line <span class="line-number">187</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCONFIG_DATABIND" id="CONFIG_DATABIND"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_DATABIND</span>
+			 = <span class="const-default">0</span>
+			(line <span class="line-number">185</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Different configurations of component property/event/attribute</p>
+	
+	
+</div>
+<a name="constCONFIG_EXPRESSION" id="CONFIG_EXPRESSION"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_EXPRESSION</span>
+			 = <span class="const-default">1</span>
+			(line <span class="line-number">186</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCONFIG_LOCALIZATION" id="CONFIG_LOCALIZATION"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_LOCALIZATION</span>
+			 = <span class="const-default">4</span>
+			(line <span class="line-number">189</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCONFIG_PARAMETER" id="CONFIG_PARAMETER"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_PARAMETER</span>
+			 = <span class="const-default">3</span>
+			(line <span class="line-number">188</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCONFIG_TEMPLATE" id="CONFIG_TEMPLATE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_TEMPLATE</span>
+			 = <span class="const-default">5</span>
+			(line <span class="line-number">190</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constREGEX_RULES" id="REGEX_RULES"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">REGEX_RULES</span>
+			 = <span class="const-default">'/&lt;!--.*?--!&gt;|&lt;!---.*?---&gt;|&lt;\/?com:([\w\.]+)((?:\s*[\w\.]+\s*=\s*\'.*?\'|\s*[\w\.]+\s*=\s*&quot;.*?&quot;|\s*[\w\.]+\s*=\s*&lt;%.*?%&gt;)*)\s*\/?&gt;|&lt;\/?prop:([\w\.]+)\s*&gt;|&lt;%@\s*((?:\s*[\w\.]+\s*=\s*\'.*?\'|\s*[\w\.]+\s*=\s*&quot;.*?&quot;)*)\s*%&gt;|&lt;%[%#~\/\\$=\\[](.*?)%&gt;|&lt;prop:([\w\.]+)((?:\s*[\w\.]+\s*=\s*\'.*?\'|\s*[\w\.]+\s*=\s*&quot;.*?&quot;|\s*[\w\.]+\s*=\s*&lt;%.*?%&gt;)*)\s*\/&gt;/msS'</span>
+			(line <span class="line-number">180</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">'&lt;!--.*?--!&gt;' - template comments</p>
+<p class="description"><p>'&lt;!--.*?--&gt;'  - HTML comments 	'&lt;\/?com:([\w\.]+)((?:\s*[\w\.]+\s*=\s*\'.*?\'|\s*[\w\.]+\s*=\s*&quot;.*?&quot;|\s*[\w\.]+\s*=\s*&lt;%.*?%&gt;)*)\s*\/?&gt;' - component tags 	'&lt;\/?prop:([\w\.]+)\s*&gt;'  - property tags 	'&lt;%@\s*((?:\s*[\w\.]+\s*=\s*\'.*?\'|\s*[\w\.]+\s*=\s*&quot;.*?&quot;)*)\s*%&gt;'  - directives 	'&lt;%[%#~\/\\$=\\[](.*?)%&gt;'  - expressions   '&lt;prop:([\w\.]+)((?:\s*[\w\.]+=\'.*?\'|\s*[\w\.]+=&quot;.*?&quot;|\s*[\w\.]+=&lt;%.*?%&gt;)*)\s*\/&gt;' - group subproperty tags</p></p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:40 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

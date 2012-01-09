@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TUserManager</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TUserManager</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../System.Security/IUserManager.html">IUserManager</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TUserManager class</p>
+<p class="description"><p>TUserManager manages a static list of users <a href="../System.Security/TUser.html">TUser</a>.  The user information is specified via module configuration using the following XML syntax,  <pre><ol><code><pre><li> &lt;<span class="src-id">module id</span>=<span class="src-str">&quot;users&quot; </span><span class="src-key">class</span>=<span class="src-str">&quot;System.Security.TUserManager&quot; </span><span class="src-id">PasswordMode</span>=<span class="src-str">&quot;Clear&quot;</span>&gt;</li>
+<li>   &lt;<span class="src-id">user name</span>=<span class="src-str">&quot;Joe&quot; </span><span class="src-id">password</span>=<span class="src-str">&quot;demo&quot; </span>/&gt;</li>
+<li>   &lt;<span class="src-id">user name</span>=<span class="src-str">&quot;John&quot; </span><span class="src-id">password</span>=<span class="src-str">&quot;demo&quot; </span>/&gt;</li>
+<li>   &lt;<span class="src-id">role name</span>=<span class="src-str">&quot;Administrator&quot; </span><span class="src-id">users</span>=<span class="src-str">&quot;John&quot; </span>/&gt;</li>
+<li>   &lt;<span class="src-id">role name</span>=<span class="src-str">&quot;Writer&quot; </span><span class="src-id">users</span>=<span class="src-str">&quot;Joe,John&quot; </span>/&gt;</li>
+<li> &lt;/<span class="src-id">module</span>&gt;</li>
+</pre></code></ol></pre></p><p>In addition, user information can also be loaded from an external file  specified by <a href="../System.Security/TUserManager.html#methodsetUserFile">UserFile</a> property. Note, the property  only accepts a file path in namespace format. The user file format is  similar to the above sample.</p><p>The user passwords may be specified as clear text, SH1 or MD5 hashed by setting  <a href="../System.Security/TUserManager.html#methodsetPasswordMode">PasswordMode</a> as <strong>Clear</strong>, <strong>SHA1</strong> or <strong>MD5</strong>.  The default name for a guest user is <strong>Guest</strong>. It may be changed  by setting <a href="../System.Security/TUserManager.html#methodsetGuestName">GuestName</a> property.</p><p>TUserManager may be used together with <a href="../System.Security/TAuthManager.html">TAuthManager</a> which manages  how users are authenticated and authorized in a Prado application.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TUserManager.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Security_TUserManager_php.html">/Security/TUserManager.php</a> (line <span class="field">50</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --TUserManager</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#USER_FILE_EXT" title="details" class="const-name">USER_FILE_EXT</a> = 					<span class="var-type">'.xml'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getGuestName" title="details" class="method-name">getGuestName</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Security/TUserManagerPasswordMode.html">TUserManagerPasswordMode</a></span>
+										<a href="#getPasswordMode" title="details" class="method-name">getPasswordMode</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getRoles" title="details" class="method-name">getRoles</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Security/TUser.html">TUser</a></span>
+										<a href="#getUser" title="details" class="method-name">getUser</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUserFile" title="details" class="method-name">getUserFile</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Security/TUser.html">TUser</a></span>
+										<a href="#getUserFromCookie" title="details" class="method-name">getUserFromCookie</a>
+											(<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>&nbsp;<span class="var-name">$cookie</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getUsers" title="details" class="method-name">getUsers</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadUserData" title="details" class="method-name">loadUserData</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$xmlNode</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#saveUserToCookie" title="details" class="method-name">saveUserToCookie</a>
+											(<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>&nbsp;<span class="var-name">$cookie</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setGuestName" title="details" class="method-name">setGuestName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPasswordMode" title="details" class="method-name">setPasswordMode</a>
+											(<span class="var-type"><a href="../System.Security/TUserManagerPasswordMode.html">TUserManagerPasswordMode</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUserFile" title="details" class="method-name">setUserFile</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#switchToGuest" title="details" class="method-name">switchToGuest</a>
+											(<span class="var-type"><a href="../System.Security/TUser.html">TUser</a></span>&nbsp;<span class="var-name">$user</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#validateUser" title="details" class="method-name">validateUser</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetGuestName" id="getGuestName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getGuestName</span> (line <span class="line-number">178</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> guest name, defaults to 'Guest'</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getGuestName
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPasswordMode" id="getPasswordMode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPasswordMode</span> (line <span class="line-number">194</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> how password is stored, clear text, or MD5 or SHA1 hashed. Default to TUserManagerPasswordMode::MD5.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Security/TUserManagerPasswordMode.html">TUserManagerPasswordMode</a></span>
+		<span class="method-name">
+			getPasswordMode
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRoles" id="getRoles"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRoles</span> (line <span class="line-number">148</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array of user role information.</p>
+<p class="description"><p>Each array element represents the roles for a single user.  The array key is the username in lower case, and the array value is  the roles (represented as an array) that the user is in.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of user role information</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getRoles
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUser" id="getUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUser</span> (line <span class="line-number">228</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a user instance given the user name.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the user instance, null if the specified username is not in the user database.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Security/TUser.html">TUser</a></span>
+		<span class="method-name">
+			getUser
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$username</span><span class="var-description">: user name, null if it is a guest.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></dt>
+					</dl>
+		
+	</div>
+<a name="methodgetUserFile" id="getUserFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUserFile</span> (line <span class="line-number">156</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the full path to the file storing user/role information</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUserFile
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUserFromCookie" id="getUserFromCookie"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUserFromCookie</span> (line <span class="line-number">259</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a user instance according to auth data stored in a cookie.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the user instance generated based on the cookie auth data, null if the cookie does not have valid auth data.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Security/TUser.html">TUser</a></span>
+		<span class="method-name">
+			getUserFromCookie
+		</span>
+					(<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>&nbsp;<span class="var-name">$cookie</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>
+				<span class="var-name">$cookie</span><span class="var-description">: the cookie storing user authentication information</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetUsers" id="getUsers"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUsers</span> (line <span class="line-number">136</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array of all users.</p>
+<p class="description"><p>Each array element represents a single user.  The array key is the username in lower case, and the array value is the  corresponding user password.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of users</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getUsers
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">88</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the module.</p>
+<p class="description"><p>This method is required by IModule and is invoked by application.  It loads user/role information from the module configuration.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: module configuration</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TModule.html#methodinit">TModule::init()</a></dt>
+						<dd>Initializes the module.</dd>
+					</dl>
+		
+	</div>
+<a name="methodloadUserData" id="loadUserData"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadUserData</span> (line <span class="line-number">104</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads user/role information from an XML node.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadUserData
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$xmlNode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$xmlNode</span><span class="var-description">: the XML node containing the user information</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsaveUserToCookie" id="saveUserToCookie"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">saveUserToCookie</span> (line <span class="line-number">279</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Saves user auth data into a cookie.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			saveUserToCookie
+		</span>
+					(<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>&nbsp;<span class="var-name">$cookie</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>
+				<span class="var-name">$cookie</span><span class="var-description">: the cookie to receive the user auth data.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetGuestName" id="setGuestName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setGuestName</span> (line <span class="line-number">186</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setGuestName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: name to be used for guest users.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetPasswordMode" id="setPasswordMode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPasswordMode</span> (line <span class="line-number">202</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPasswordMode
+		</span>
+					(<span class="var-type"><a href="../System.Security/TUserManagerPasswordMode.html">TUserManagerPasswordMode</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Security/TUserManagerPasswordMode.html">TUserManagerPasswordMode</a></span>
+				<span class="var-name">$value</span><span class="var-description">: how password is stored, clear text, or MD5 or SHA1 hashed.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUserFile" id="setUserFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUserFile</span> (line <span class="line-number">167</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the module is already initialized</li>
+				<li><span class="field">throws:</span> TConfigurationException if the file is not in proper namespace format</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUserFile
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: user/role data file path (in namespace form). The file format is XML  whose content is similar to that user/role block in application configuration.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodswitchToGuest" id="switchToGuest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">switchToGuest</span> (line <span class="line-number">295</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a user as a guest.</p>
+<p class="description"><p>User name is changed as guest name, and roles are emptied.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			switchToGuest
+		</span>
+					(<span class="var-type"><a href="../System.Security/TUser.html">TUser</a></span>&nbsp;<span class="var-name">$user</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Security/TUser.html">TUser</a></span>
+				<span class="var-name">$user</span><span class="var-description">: the user to be changed to a guest.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodvalidateUser" id="validateUser"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">validateUser</span> (line <span class="line-number">213</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validates if the username and password are correct.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if validation is successful, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			validateUser
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$username</span><span class="var-description">: user name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$password</span><span class="var-description">: password</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constUSER_FILE_EXT" id="USER_FILE_EXT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">USER_FILE_EXT</span>
+			 = <span class="const-default">'.xml'</span>
+			(line <span class="line-number">55</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">extension name to the user file</p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:54 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

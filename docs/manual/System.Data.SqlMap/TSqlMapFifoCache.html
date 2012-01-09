@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TSqlMapFifoCache</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TSqlMapFifoCache</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">First-in-First-out cache implementation, removes  object that was first added when the cache is full.</p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TSqlMapCache.php 2757 2010-01-15 14:47:40Z Christophe.Boulain $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_SqlMap_DataMapper_TSqlMapCache_php.html">/Data/SqlMap/DataMapper/TSqlMapCache.php</a> (line <span class="field">96</span>)
+		</p>
+		
+				
+		<pre><a href="../System.Data.SqlMap/TSqlMapCache.html">TSqlMapCache</a>
+   |
+   --TSqlMapFifoCache</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#get" title="details" class="method-name">get</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#set" title="details" class="method-name">set</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$expire</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$dependency</span> = <span class="var-default">null</span>])
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../System.Data.SqlMap/TSqlMapCache.html">TSqlMapCache</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../System.Data.SqlMap/TSqlMapCache.html#var$_cache">TSqlMapCache::$_cache</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../System.Data.SqlMap/TSqlMapCache.html#var$_cacheModel">TSqlMapCache::$_cacheModel</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../System.Data.SqlMap/TSqlMapCache.html#var$_cacheSize">TSqlMapCache::$_cacheSize</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../System.Data.SqlMap/TSqlMapCache.html#var$_keyList">TSqlMapCache::$_keyList</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodget" id="get"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">get</span> (line <span class="line-number">101</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> Gets a cached object with the specified key.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			get
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodset" id="set"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">set</span> (line <span class="line-number">112</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stores a value identified by a key into cache.</p>
+<p class="description"><p>The expire and dependency parameters are ignored.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			set
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$expire</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$dependency</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: cache key</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: value to cache.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Data.SqlMap/TSqlMapCache.html">TSqlMapCache</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Data.SqlMap/TSqlMapCache.html#method__construct">TSqlMapCache::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Data.SqlMap/TSqlMapCache.html#methodadd">TSqlMapCache::add()</a></span><br>
+													<span class="method-name"><a href="../System.Data.SqlMap/TSqlMapCache.html#methoddelete">TSqlMapCache::delete()</a></span><br>
+													<span class="method-name"><a href="../System.Data.SqlMap/TSqlMapCache.html#methodflush">TSqlMapCache::flush()</a></span><br>
+													<span class="method-name"><a href="../System.Data.SqlMap/TSqlMapCache.html#methodgetCacheSize">TSqlMapCache::getCacheSize()</a></span><br>
+													<span class="method-name"><a href="../System.Data.SqlMap/TSqlMapCache.html#methodsetCacheSize">TSqlMapCache::setCacheSize()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:13 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TClientSideOptions</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TClientSideOptions</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TClientSideOptions abstract class.</p>
+<p class="description"><p>TClientSideOptions manages client-side options for components that have  common client-side javascript behaviours and client-side events such as  between ActiveControls and validators.</p></p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TClientScriptManager.php 2614 2009-02-24 09:54:08Z Christophe.Boulain $</li>
+				<li><span class="field">author:</span> &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_TClientScriptManager_php.html">/Web/UI/TClientScriptManager.php</a> (line <span class="field">686</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TClientSideOptions</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.ActiveControls/TCallbackClientSide.html">TCallbackClientSide</a></td>
+					<td>
+											TCallbackClientSide class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TColorPickerClientSide.html">TColorPickerClientSide</a></td>
+					<td>
+											TColorPickerClientSide class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TValidatorClientSide.html">TValidatorClientSide</a></td>
+					<td>
+											TValidatorClientSide class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TClientSideValidationSummaryOptions.html">TClientSideValidationSummaryOptions</a></td>
+					<td>
+											TClientSideValidationSummaryOptions class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TSliderClientScript.html">TSliderClientScript</a></td>
+					<td>
+											TSliderClientScript class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TDatePickerClientScript.html">TDatePickerClientScript</a></td>
+					<td>
+											TDatePickerClientScript class.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TClientSideOptions</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#ensureFunction" title="details" class="method-name">ensureFunction</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$javascript</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getOption" title="details" class="method-name">getOption</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+										<a href="#getOptions" title="details" class="method-name">getOptions</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setFunction" title="details" class="method-name">setFunction</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$code</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOption" title="details" class="method-name">setOption</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">696</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor, initialize the options list.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TClientSideOptions</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodensureFunction" id="ensureFunction"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ensureFunction</span> (line <span class="line-number">745</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Ensure that the javascript statements are wrapped in a javascript  function block as <pre><ol><code><pre><li><span class="src-key">function</span><span class="src-sym">(</span><span class="src-id">sender</span><span class="src-sym">, </span><span class="src-id">parameter</span><span class="src-sym">)</span><span class="src-sym">{ </span><span class="src-comm">//code }</span></li>
+</pre></code></ol></pre>.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ensureFunction
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$javascript</span>)
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web.UI.ActiveControls/TCallbackClientSide.html#methodensureFunction">TCallbackClientSide::ensureFunction()</a>
+								: Returns javascript statement enclosed within a javascript function.
+							</li>
+					<li>
+				<a href="../System.Web.UI.WebControls/TClientSideValidationSummaryOptions.html#methodensureFunction">TClientSideValidationSummaryOptions::ensureFunction()</a>
+								: Ensure the string is a valid javascript function. If the string begins  with &quot;javascript:&quot; valid javascript function is assumed, otherwise the  code block is enclosed with &quot;function(summary, validators){ }&quot; block.
+							</li>
+				</ul>
+	</div>
+<a name="methodgetOption" id="getOption"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOption</span> (line <span class="line-number">719</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> gets a particular option, null if not set.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getOption
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOptions" id="getOptions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOptions</span> (line <span class="line-number">736</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> gets the list of options as TMap</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+		<span class="method-name">
+			getOptions
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetFunction" id="setFunction"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFunction</span> (line <span class="line-number">709</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds on client-side event handler by wrapping the code within a  javascript function block. If the code begins with &quot;javascript:&quot;, the  code is assumed to be a javascript function block rather than arbiturary  javascript statements.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setFunction
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$code</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: option name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$code</span><span class="var-description">: javascript statements.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOption" id="setOption"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOption</span> (line <span class="line-number">728</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOption
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: option name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: option value.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:13:07 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

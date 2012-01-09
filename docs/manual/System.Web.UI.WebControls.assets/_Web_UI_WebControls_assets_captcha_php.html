@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page captcha.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/Web/UI/WebControls/assets/captcha.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+									<a href="#sec-includes">Includes</a>
+			|							<a href="#sec-constants">Constants</a>
+			|									<a href="#sec-functions">Functions</a>
+			</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">CAPTCHA generator script.</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> $Id: captcha.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">license:</span> <a href="http://www.pradosoft.com/license/">http://www.pradosoft.com/license/</a></li>
+				<li><span class="field">copyright:</span> Copyright &amp;copy; 2005-2008 PradoSoft</li>
+				<li><span class="field">link:</span> <a href="http://www.pradosoft.com/">http://www.pradosoft.com/</a></li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		
+			</div>
+</div>
+		
+
+	<a name="sec-includes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Includes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Includes</span>
+			|							<a href="#sec-constants">Constants</a>
+				|													<a href="#sec-functions">Functions</a>
+					</div>
+		<div class="info-box-body">	
+			<a name="_dirname(__FILE__)_/captcha_key_php"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="include-title">
+			<span class="include-type">require_once</span>
+			(<span class="include-name">dirname(__FILE__).'/captcha_key.php'</span>)
+			(line <span class="line-number">20</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+</div>
+		</div>
+	</div>
+	
+	<a name="sec-constants"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-includes">Includes</a>
+				|						<span class="disabled">Constants</span>
+			|										<a href="#sec-functions">Functions</a>
+					</div>
+		<div class="info-box-body">	
+			<a name="defineTHEME_HAS_GRID"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">THEME_HAS_GRID</span> = 0x0004
+			(line <span class="line-number">15</span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineTHEME_HAS_SCRIBBLE"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">THEME_HAS_SCRIBBLE</span> = 0x0008
+			(line <span class="line-number">16</span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineTHEME_MORPH_BACKGROUND"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">THEME_MORPH_BACKGROUND</span> = 0x0010
+			(line <span class="line-number">17</span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineTHEME_NOISY_BACKGROUND"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">THEME_NOISY_BACKGROUND</span> = 0x0002
+			(line <span class="line-number">14</span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineTHEME_OPAQUE_BACKGROUND"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">THEME_OPAQUE_BACKGROUND</span> = 0x0001
+			(line <span class="line-number">13</span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineTHEME_SHADOWED_TEXT"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">THEME_SHADOWED_TEXT</span> = 0x0020
+			(line <span class="line-number">18</span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+		</div>
+	</div>
+	
+	
+	<a name="sec-functions"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Functions</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-includes">Includes</a>
+				|										<a href="#sec-constants">Constants</a>
+				|									<span class="disabled">Functions</span>
+		</div>
+		<div class="info-box-body">	
+			<a name="functionaddBackground" id="functionaddBackground"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">addBackground</span> (line <span class="line-number">124</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addBackground
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$image</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$width</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$height</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$opaque</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$noisy</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$hasGrid</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$hasScribble</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$morph</span>)
+			</div>
+
+		
+	
+</div>
+<a name="functionaddGrid" id="functionaddGrid"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">addGrid</span> (line <span class="line-number">167</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addGrid
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$image</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$width</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$height</span>)
+			</div>
+
+		
+	
+</div>
+<a name="functionaddNoise" id="functionaddNoise"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">addNoise</span> (line <span class="line-number">151</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addNoise
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$image</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$width</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$height</span>)
+			</div>
+
+		
+	
+</div>
+<a name="functionaddScribble" id="functionaddScribble"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">addScribble</span> (line <span class="line-number">185</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addScribble
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$image</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$width</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$height</span>)
+			</div>
+
+		
+	
+</div>
+<a name="functiondisplayToken" id="functiondisplayToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">displayToken</span> (line <span class="line-number">77</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			displayToken
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$token</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$fontSize</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$theme</span>)
+			</div>
+
+		
+	
+</div>
+<a name="functiongenerateToken" id="functiongenerateToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">generateToken</span> (line <span class="line-number">52</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			generateToken
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$publicKey</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$privateKey</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$alphabet</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$tokenLength</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$caseSensitive</span>)
+			</div>
+
+		
+	
+</div>
+<a name="functionhash2string" id="functionhash2string"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">hash2string</span> (line <span class="line-number">58</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			hash2string
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$hex</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$alphabet</span>)
+			</div>
+
+		
+	
+</div>
+<a name="functionmorphImage" id="functionmorphImage"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">morphImage</span> (line <span class="line-number">202</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			morphImage
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$image</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$width</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$height</span>)
+			</div>
+
+		
+	
+</div>
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:11:24 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

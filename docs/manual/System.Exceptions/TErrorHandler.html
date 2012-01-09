@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TErrorHandler</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TErrorHandler</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TErrorHandler class</p>
+<p class="description"><p>TErrorHandler handles all PHP user errors and exceptions generated during  servicing user requests. It displays these errors using different templates  and if possible, using languages preferred by the client user.  Note, PHP parsing errors cannot be caught and handled by TErrorHandler.</p><p>The templates used to format the error output are stored under System.Exceptions.  You may choose to use your own templates, should you not like the templates  provided by Prado. Simply set <a href="../System.Exceptions/TErrorHandler.html#methodsetErrorTemplatePath">ErrorTemplatePath</a>  to the path (in namespace format) storing your own templates.</p><p>There are two sets of templates, one for errors to be displayed to client users  (called external errors), one for errors to be displayed to system developers  (called internal errors). The template file name for the former is  <strong>error[StatusCode][-LanguageCode].html</strong>, and for the latter it is  <strong>exception[-LanguageCode].html</strong>, where StatusCode refers to response status  code (e.g. 404, 500) specified when <a href="../System.Exceptions/THttpException.html">THttpException</a> is thrown,  and LanguageCode is the client user preferred language code (e.g. en, zh, de).  The templates <strong>error.html</strong> and <strong>exception.html</strong> are default ones  that are used if no other appropriate templates are available.  Note, these templates are not Prado control templates. They are simply  html files with keywords (e.g. %%ErrorMessage%%, %%Version%%)  to be replaced with the corresponding information.</p><p>By default, TErrorHandler is registered with <a href="../System/TApplication.html">TApplication</a> as the  error handler module. It can be accessed via <a href="../System/TApplication.html#methodgetErrorHandler">TApplication::getErrorHandler()</a>.  You seldom need to deal with the error handler directly. It is mainly used  by the application object to handle errors.</p><p>TErrorHandler may be configured in application configuration file as follows  &lt;module id=&quot;error&quot; class=&quot;TErrorHandler&quot; ErrorTemplatePath=&quot;System.Exceptions&quot; /&gt;</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TErrorHandler.php 2880 2011-01-19 14:56:01Z christophe.boulain $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Exceptions_TErrorHandler_php.html">/Exceptions/TErrorHandler.php</a> (line <span class="field">52</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --TErrorHandler</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.ActiveControls/TCallbackErrorHandler.html">TCallbackErrorHandler</a></td>
+					<td>
+											TCallbackErrorHandler class.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#ERROR_FILE_NAME" title="details" class="const-name">ERROR_FILE_NAME</a> = 					<span class="var-type">'error'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#EXCEPTION_FILE_NAME" title="details" class="const-name">EXCEPTION_FILE_NAME</a> = 					<span class="var-type">'exception'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#SOURCE_LINES" title="details" class="const-name">SOURCE_LINES</a> = 					<span class="var-type">12</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#displayException" title="details" class="method-name">displayException</a>
+											(<span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getErrorTemplate" title="details" class="method-name">getErrorTemplate</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$statusCode</span>, <span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getErrorTemplatePath" title="details" class="method-name">getErrorTemplatePath</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getExceptionTemplate" title="details" class="method-name">getExceptionTemplate</a>
+											(<span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#handleError" title="details" class="method-name">handleError</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#handleExternalError" title="details" class="method-name">handleExternalError</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$statusCode</span>, <span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#handleRecursiveError" title="details" class="method-name">handleRecursiveError</a>
+											(<span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#hideSecurityRelated" title="details" class="method-name">hideSecurityRelated</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">Exception|null$exception</span>&nbsp;<span class="var-name">$exception</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setErrorTemplatePath" title="details" class="method-name">setErrorTemplatePath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methoddisplayException" id="displayException"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">displayException</span> (line <span class="line-number">242</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Displays exception information.</p>
+<p class="description"><p>Exceptions are displayed with rich context information, including  the call stack and the context source code.  This method is only invoked when application is in <strong>Debug</strong> mode.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			displayException
+		</span>
+					(<span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Exception</span>
+				<span class="var-name">$exception</span><span class="var-description">: exception instance</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web.UI.ActiveControls/TCallbackErrorHandler.html#methoddisplayException">TCallbackErrorHandler::displayException()</a>
+								: Displays the exceptions to the client-side TJavascriptLogger.
+							</li>
+				</ul>
+	</div>
+<a name="methodgetErrorTemplate" id="getErrorTemplate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getErrorTemplate</span> (line <span class="line-number">329</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieves the template used for displaying external exceptions.</p>
+<p class="description"><p>External exceptions are those displayed to end-users. They do not contain  error source code. Therefore, you might want to override this method  to provide your own error template for displaying certain external exceptions.  The following tokens in the template will be replaced with corresponding content:  %%StatusCode%% : the status code of the exception  %%ErrorMessage%% : the error message (HTML encoded).  %%ServerAdmin%% : the server admin information (retrieved from Web server configuration)  %%Version%% : the version information of the Web server.  %%Time%% : the time the exception occurs at</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the template content</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getErrorTemplate
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$statusCode</span>, <span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$statusCode</span><span class="var-description">: status code (such as 404, 500, etc.)</span>			</li>
+					<li>
+				<span class="var-type">Exception</span>
+				<span class="var-name">$exception</span><span class="var-description">: the exception to be displayed</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetErrorTemplatePath" id="getErrorTemplatePath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getErrorTemplatePath</span> (line <span class="line-number">85</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the directory containing error template files.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getErrorTemplatePath
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetExceptionTemplate" id="getExceptionTemplate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getExceptionTemplate</span> (line <span class="line-number">302</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieves the template used for displaying internal exceptions.</p>
+<p class="description"><p>Internal exceptions will be displayed with source code causing the exception.  This occurs when the application is in debug mode.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the template content</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getExceptionTemplate
+		</span>
+					(<span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Exception</span>
+				<span class="var-name">$exception</span><span class="var-description">: the exception to be displayed</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodhandleError" id="handleError"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">handleError</span> (line <span class="line-number">115</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Handles PHP user errors and exceptions.</p>
+<p class="description"><p>This is the event handler responding to the <strong>Error</strong> event  raised in <a href="../System/TApplication.html">TApplication</a>.  The method mainly uses appropriate template to display the error/exception.  It terminates the application immediately after the error is displayed.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			handleError
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$sender</span><span class="var-description">: sender of the event</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter (if the event is raised by TApplication, it refers to the exception instance)</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodhandleExternalError" id="handleExternalError"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">handleExternalError</span> (line <span class="line-number">177</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Displays error to the client user.</p>
+<p class="description"><p>THttpException and errors happened when the application is in <strong>Debug</strong>  mode will be displayed to the client user.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			handleExternalError
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$statusCode</span>, <span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$statusCode</span><span class="var-description">: response status code</span>			</li>
+					<li>
+				<span class="var-type">Exception</span>
+				<span class="var-name">$exception</span><span class="var-description">: exception instance</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodhandleRecursiveError" id="handleRecursiveError"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">handleRecursiveError</span> (line <span class="line-number">219</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Handles error occurs during error handling (called recursive error).</p>
+<p class="description"><p>THttpException and errors happened when the application is in <strong>Debug</strong>  mode will be displayed to the client user.  Error is displayed without using existing template to prevent further errors.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			handleRecursiveError
+		</span>
+					(<span class="var-type">Exception</span>&nbsp;<span class="var-name">$exception</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Exception</span>
+				<span class="var-name">$exception</span><span class="var-description">: exception instance</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodhideSecurityRelated" id="hideSecurityRelated"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hideSecurityRelated</span> (line <span class="line-number">149</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">since:</span> 3.1.6</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			hideSecurityRelated
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">Exception|null$exception</span>&nbsp;<span class="var-name">$exception</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span>			</li>
+					<li>
+				<span class="var-type">Exception|null$exception</span>
+				<span class="var-name">$exception</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">77</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the module.</p>
+<p class="description"><p>This method is required by IModule and is invoked by application.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: module configuration</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TModule.html#methodinit">TModule::init()</a></dt>
+						<dd>Initializes the module.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetErrorTemplatePath" id="setErrorTemplatePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setErrorTemplatePath</span> (line <span class="line-number">98</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the path storing all error and exception template files.</p>
+<p class="description"><p>The path must be in namespace format, such as System.Exceptions (which is the default).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException if the template path is invalid</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setErrorTemplatePath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: template path in namespace format</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constERROR_FILE_NAME" id="ERROR_FILE_NAME"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ERROR_FILE_NAME</span>
+			 = <span class="const-default">'error'</span>
+			(line <span class="line-number">57</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">error template file basename</p>
+	
+	
+</div>
+<a name="constEXCEPTION_FILE_NAME" id="EXCEPTION_FILE_NAME"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">EXCEPTION_FILE_NAME</span>
+			 = <span class="const-default">'exception'</span>
+			(line <span class="line-number">61</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">exception template file basename</p>
+	
+	
+</div>
+<a name="constSOURCE_LINES" id="SOURCE_LINES"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">SOURCE_LINES</span>
+			 = <span class="const-default">12</span>
+			(line <span class="line-number">65</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">number of lines before and after the error line to be displayed in case of an exception</p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:14:14 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

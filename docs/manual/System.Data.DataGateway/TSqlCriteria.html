@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TSqlCriteria</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TSqlCriteria</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Search criteria for TDbDataGateway.</p>
+<p class="description"><p>Criteria object for data gateway finder methods. Usage:  <pre><ol><code><pre><li> <span class="src-var">$criteria </span>= <span class="src-key">new </span><span class="src-id"><a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$criteria</span><span class="src-sym">-&gt;</span><span class="src-id">Parameters</span><span class="src-sym">[</span><span class="src-str">':name'</span><span class="src-sym">] </span>= <span class="src-str">'admin'</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$criteria</span><span class="src-sym">-&gt;</span><span class="src-id">Parameters</span><span class="src-sym">[</span><span class="src-str">':pass'</span><span class="src-sym">] </span>= <span class="src-str">'prado'</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$criteria</span><span class="src-sym">-&gt;</span><span class="src-id">OrdersBy</span><span class="src-sym">[</span><span class="src-str">'level'</span><span class="src-sym">] </span>= <span class="src-str">'desc'</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$criteria</span><span class="src-sym">-&gt;</span><span class="src-id">OrdersBy</span><span class="src-sym">[</span><span class="src-str">'name'</span><span class="src-sym">] </span>= <span class="src-str">'asc'</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$criteria</span><span class="src-sym">-&gt;</span><span class="src-id">Limit </span>= <span class="src-num">10</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$criteria</span><span class="src-sym">-&gt;</span><span class="src-id">Offset </span>= <span class="src-num">20</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TDbSqlCriteria.php 1835 2007-04-03 01:38:15Z wei $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_DataGateway_TSqlCriteria_php.html">/Data/DataGateway/TSqlCriteria.php</a> (line <span class="field">32</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TSqlCriteria</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></td>
+					<td>
+											Search criteria for Active Record.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TSqlCriteria</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$condition</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCondition" title="details" class="method-name">getCondition</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsNamedParameters" title="details" class="method-name">getIsNamedParameters</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getLimit" title="details" class="method-name">getLimit</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getOffset" title="details" class="method-name">getOffset</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TAttributeCollection.html">TAttributeCollection</a></span>
+										<a href="#getOrdersBy" title="details" class="method-name">getOrdersBy</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TAttributeCollection.html">TAttributeCollection</a></span>
+										<a href="#getParameters" title="details" class="method-name">getParameters</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getSelect" title="details" class="method-name">getSelect</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCondition" title="details" class="method-name">setCondition</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setLimit" title="details" class="method-name">setLimit</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOffset" title="details" class="method-name">setOffset</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOrdersBy" title="details" class="method-name">setOrdersBy</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setParameters" title="details" class="method-name">setParameters</a>
+											(<span class="var-type">ArrayAccess</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setSelect" title="details" class="method-name">setSelect</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">50</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a new criteria with given condition;</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TSqlCriteria</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$condition</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$condition</span><span class="var-description">: sql string after the WHERE stanza</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameters</span><span class="var-description">: named or indexed parameters, accepts as multiple arguments.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetCondition" id="getCondition"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCondition</span> (line <span class="line-number">120</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> search conditions.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCondition
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsNamedParameters" id="getIsNamedParameters"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsNamedParameters</span> (line <span class="line-number">193</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the parameter index are string base, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsNamedParameters
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetLimit" id="getLimit"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLimit</span> (line <span class="line-number">230</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> maximum number of records to return.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getLimit
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOffset" id="getOffset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOffset</span> (line <span class="line-number">246</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> record offset.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getOffset
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOrdersBy" id="getOrdersBy"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOrdersBy</span> (line <span class="line-number">202</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> ordering clause.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TAttributeCollection.html">TAttributeCollection</a></span>
+		<span class="method-name">
+			getOrdersBy
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetParameters" id="getParameters"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getParameters</span> (line <span class="line-number">175</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of named parameters and values.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TAttributeCollection.html">TAttributeCollection</a></span>
+		<span class="method-name">
+			getParameters
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSelect" id="getSelect"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSelect</span> (line <span class="line-number">68</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the field list to be placed after the SELECT in the SQL. Default to '*'</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.7</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getSelect
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetCondition" id="setCondition"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCondition</span> (line <span class="line-number">129</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the search conditions to be placed after the WHERE clause in the SQL.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCondition
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: search conditions.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetLimit" id="setLimit"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setLimit</span> (line <span class="line-number">238</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setLimit
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$value</span><span class="var-description">: maximum number of records to return.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOffset" id="setOffset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOffset</span> (line <span class="line-number">254</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOffset
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$value</span><span class="var-description">: record offset.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetOrdersBy" id="setOrdersBy"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOrdersBy</span> (line <span class="line-number">210</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOrdersBy
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: ordering clause.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetParameters" id="setParameters"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setParameters</span> (line <span class="line-number">183</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setParameters
+		</span>
+					(<span class="var-type">ArrayAccess</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">ArrayAccess</span>
+				<span class="var-name">$value</span><span class="var-description">: named parameters.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetSelect" id="setSelect"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSelect</span> (line <span class="line-number">112</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the field list to be placed after the SELECT in the SQL.</p>
+<p class="description"><p>Different behavior depends on type of assigned value  string  	usage without modification</p><p>null  	will be expanded to full list of quoted table column names (quoting depends on database)</p><p>array <ul><li>Column names will be quoted if used as key or value of array
+ 	<pre><ol><code><pre><li>     <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'col1'</span><span class="src-sym">, </span><span class="src-str">'col2'</span><span class="src-sym">, </span><span class="src-str">'col2'</span><span class="src-sym">)</span></li>
+<li>     <span class="src-comm">// SELECT `col1`, `col2`, `col3` FROM...</span></li>
+</pre></code></ol></pre></li></ul> <ul><li>Column aliasing
+ <pre><ol><code><pre><li> <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'mycol1' </span>=&gt; <span class="src-str">'col1'</span><span class="src-sym">, </span><span class="src-str">'mycol2' </span>=&gt; <span class="src-str">'COUNT(*)'</span><span class="src-sym">)</span></li>
+<li> <span class="src-comm">// SELECT `col1` AS mycol1, COUNT(*) AS mycol2 FROM...</span></li>
+</pre></code></ol></pre></li></ul> <ul><li>NULL and scalar values (strings will be quoted depending on database)
+ <pre><ol><code><pre><li> <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'col1' </span>=&gt; <span class="src-str">'my custom string'</span><span class="src-sym">, </span><span class="src-str">'col2' </span>=&gt; <span class="src-num">1.0</span><span class="src-sym">, </span><span class="src-str">'col3' </span>=&gt; <span class="src-str">'NULL'</span><span class="src-sym">)</span></li>
+<li> <span class="src-comm">// SELECT &quot;my custom string&quot; AS `col1`, 1.0 AS `col2`, NULL AS `col3` FROM...</span></li>
+</pre></code></ol></pre></li></ul> <ul><li>If the *-wildcard char is used as key or value, add the full list of quoted table column names
+ <pre><ol><code><pre><li> <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'col1' </span>=&gt; <span class="src-str">'NULL'</span><span class="src-sym">, </span><span class="src-str">'*'</span><span class="src-sym">)</span></li>
+<li> <span class="src-comm">// SELECT `col1`, `col2`, `col3`, NULL AS `col1` FROM...</span></li>
+</pre></code></ol></pre></li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Data.Common/TDbCommandBuilder.html#methodgetSelectFieldList">TDbCommandBuilder::getSelectFieldList()</a></li>
+				<li><span class="field">since:</span> 3.1.7</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSelect
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">262</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> string representation of the parameters. Useful for debugging.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:10 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

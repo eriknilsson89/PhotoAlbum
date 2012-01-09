@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TUrlManager</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TUrlManager</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TUrlManager class</p>
+<p class="description"><p>TUrlManager is the base class for managing URLs that can be  recognized by PRADO applications. It provides the default implementation  for parsing and constructing URLs.</p><p>Derived classes may override <a href="../System.Web/TUrlManager.html#methodconstructUrl">constructUrl</a> and <a href="../System.Web/TUrlManager.html#methodparseUrl">parseUrl</a>  to provide customized URL schemes.</p><p>By default, <a href="../System.Web/THttpRequest.html">THttpRequest</a> uses TUrlManager as its URL manager.  If you want to use your customized URL manager, load your manager class  as an application module and set THttpRequest::setUrlManager  with the ID of your URL manager module.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0.6</li>
+				<li><span class="field">version:</span> $Id $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_TUrlManager_php.html">/Web/TUrlManager.php</a> (line <span class="field">33</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --TUrlManager</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web/TUrlMapping.html">TUrlMapping</a></td>
+					<td>
+											TUrlMapping Class
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#constructUrl" title="details" class="method-name">constructUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceID</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceParam</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$getItems</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#parseUrl" title="details" class="method-name">parseUrl</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodconstructUrl" id="constructUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">constructUrl</span> (line <span class="line-number">55</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructs a URL that can be recognized by PRADO.</p>
+<p class="description"><p>This method provides the actual implementation used by THttpRequest::constructUrl.  Override this method if you want to provide your own way of URL formatting.  If you do so, you may also need to override <a href="../System.Web/TUrlManager.html#methodparseUrl">parseUrl</a> so that the URL can be properly parsed.</p><p>The URL is constructed as the following format:  /entryscript.php?serviceID=serviceParameter&amp;get1=value1&amp;...  If THttpRequest::setUrlFormat is 'Path',  the following format is used instead:  /entryscript.php/serviceID/serviceParameter/get1,value1/get2,value2...</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> URL</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Web/TUrlManager.html#methodparseUrl">TUrlManager::parseUrl()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			constructUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceID</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceParam</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$getItems</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceID</span><span class="var-description">: service ID</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceParam</span><span class="var-description">: service parameter</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$getItems</span><span class="var-description">: GET parameters, null if not provided</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeAmpersand</span><span class="var-description">: whether to encode the ampersand in URL</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeGetItems</span><span class="var-description">: whether to encode the GET parameters (their names and values)</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web/TUrlMapping.html#methodconstructUrl">TUrlMapping::constructUrl()</a>
+								: Constructs a URL that can be recognized by PRADO.
+							</li>
+				</ul>
+	</div>
+<a name="methodparseUrl" id="parseUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">parseUrl</span> (line <span class="line-number">109</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parses the request URL and returns an array of input parameters.</p>
+<p class="description"><p>This method is automatically invoked by <a href="../System.Web/THttpRequest.html">THttpRequest</a> when  handling a user request.</p><p>In general, this method should parse the path info part of the requesting URL  and generate an array of name-value pairs according to some scheme.  The current implementation deals with both 'Get' and 'Path' URL formats.</p><p>You may override this method to support customized URL format.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of input parameters, indexed by parameter names</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Web/TUrlManager.html#methodconstructUrl">TUrlManager::constructUrl()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			parseUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web/TUrlMapping.html#methodparseUrl">TUrlMapping::parseUrl()</a>
+								: Parses the request URL and returns an array of input parameters.
+							</li>
+				</ul>
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:51 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

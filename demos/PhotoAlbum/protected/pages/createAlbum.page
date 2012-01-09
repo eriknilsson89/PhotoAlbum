@@ -1,0 +1,7 @@
+<com:TContent ID="Main">
+
+		<h3>Create new Album</h3>
+		<p>Album Name: <com:TTextBox id='textboxAlbumName' />
+		<com:TButton id='createAlbumSubmit' Text='Next' OnClick='createAlbumClicked' /> 
+
+</com:TContent>

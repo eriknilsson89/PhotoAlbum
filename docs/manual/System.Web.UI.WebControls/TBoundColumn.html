@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TBoundColumn</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TBoundColumn</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TBoundColumn class</p>
+<p class="description"><p>TBoundColumn represents a column that is bound to a field in a data source.  The cells in the column will be displayed using the data indexed by  <a href="../System.Web.UI.WebControls/TBoundColumn.html#methodsetDataField">DataField</a>. You can customize the display by  setting <a href="../System.Web.UI.WebControls/TBoundColumn.html#methodsetDataFormatString">DataFormatString</a>.</p><p>If <a href="../System.Web.UI.WebControls/TBoundColumn.html#methodsetReadOnly">ReadOnly</a> is false, TBoundColumn will display cells in edit mode  with textboxes. Otherwise, a static text is displayed.</p><p>When a datagrid row is in edit mode, the textbox control in the TBoundColumn  can be accessed by one of the following two methods:  <pre><ol><code><pre><li> <span class="src-var">$datagridItem</span><span class="src-sym">-&gt;</span><span class="src-id">BoundColumnID</span><span class="src-sym">-&gt;</span><span class="src-id">TextBox</span></li>
+<li> <span class="src-var">$datagridItem</span><span class="src-sym">-&gt;</span><span class="src-id">BoundColumnID</span><span class="src-sym">-&gt;</span><span class="src-id">Controls</span><span class="src-sym">[</span><span class="src-num">0</span><span class="src-sym">]</span></li>
+</pre></code></ol></pre>  The second method is possible because the textbox control created within the  datagrid cell is the first child.</p><p>Since v3.1.0, TBoundColumn has introduced two new properties <a href="../System.Web.UI.WebControls/TBoundColumn.html#methodsetItemRenderer">ItemRenderer</a>  and <a href="../System.Web.UI.WebControls/TBoundColumn.html#methodsetEditItemRenderer">EditItemRenderer</a> which can be used to specify  the layout of the datagrid cells in browsing and editing mode.  A renderer refers to a control class that is to be instantiated as a control.  For more details, see <a href="../System.Web.UI.WebControls/TRepeater.html">TRepeater</a> and <a href="../System.Web.UI.WebControls/TDataList.html">TDataList</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TBoundColumn.php 2918 2011-05-21 17:10:29Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_WebControls_TBoundColumn_php.html">/Web/UI/WebControls/TBoundColumn.php</a> (line <span class="field">49</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System.Web.UI.WebControls/TDataGridColumn.html">TDataGridColumn</a>
+         |
+         --TBoundColumn</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.ActiveControls/TActiveBoundColumn.html">TActiveBoundColumn</a></td>
+					<td>
+											TActiveBoundColumn class
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#dataBindColumn" title="details" class="method-name">dataBindColumn</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDataField" title="details" class="method-name">getDataField</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDataFormatString" title="details" class="method-name">getDataFormatString</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getEditItemRenderer" title="details" class="method-name">getEditItemRenderer</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getItemRenderer" title="details" class="method-name">getItemRenderer</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getReadOnly" title="details" class="method-name">getReadOnly</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#initializeCell" title="details" class="method-name">initializeCell</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TTableCell.html">TTableCell</a></span>&nbsp;<span class="var-name">$cell</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$columnIndex</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$itemType</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDataField" title="details" class="method-name">setDataField</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDataFormatString" title="details" class="method-name">setDataFormatString</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setEditItemRenderer" title="details" class="method-name">setEditItemRenderer</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setItemRenderer" title="details" class="method-name">setItemRenderer</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setReadOnly" title="details" class="method-name">setReadOnly</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methoddataBindColumn" id="dataBindColumn"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">dataBindColumn</span> (line <span class="line-number">237</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Databinds a cell in the column.</p>
+<p class="description"><p>This method is invoked when datagrid performs databinding.  It populates the content of the cell with the relevant data from data source.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			dataBindColumn
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDataField" id="getDataField"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDataField</span> (line <span class="line-number">110</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the field name from the data source to bind to the column</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDataField
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDataFormatString" id="getDataFormatString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDataFormatString</span> (line <span class="line-number">126</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the formatting string used to control how the bound data will be displayed.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDataFormatString
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetEditItemRenderer" id="getEditItemRenderer"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEditItemRenderer</span> (line <span class="line-number">83</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the class name for the edit item cell renderer. Defaults to empty, meaning not set.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.0</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getEditItemRenderer
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetItemRenderer" id="getItemRenderer"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getItemRenderer</span> (line <span class="line-number">55</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the class name for the item cell renderer. Defaults to empty, meaning not set.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.0</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getItemRenderer
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetReadOnly" id="getReadOnly"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getReadOnly</span> (line <span class="line-number">142</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the items in the column can be edited. Defaults to false.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getReadOnly
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinitializeCell" id="initializeCell"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">initializeCell</span> (line <span class="line-number">166</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the specified cell to its initial values.</p>
+<p class="description"><p>This method overrides the parent implementation.  It creates a textbox for item in edit mode and the column is not read-only.  Otherwise it displays a static text.  The caption of the button and the static text are retrieved  from the datasource.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			initializeCell
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TTableCell.html">TTableCell</a></span>&nbsp;<span class="var-name">$cell</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$columnIndex</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$itemType</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TTableCell.html">TTableCell</a></span>
+				<span class="var-name">$cell</span><span class="var-description">: the cell to be initialized.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$columnIndex</span><span class="var-description">: the index to the Columns property that the cell resides in.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$itemType</span><span class="var-description">: the type of cell (Header,Footer,Item,AlternatingItem,EditItem,SelectedItem)</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodinitializeCell">TDataGridColumn::initializeCell()</a></dt>
+						<dd>Initializes the specified cell to its initial values.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetDataField" id="setDataField"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDataField</span> (line <span class="line-number">118</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDataField
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the field name from the data source to bind to the column</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetDataFormatString" id="setDataFormatString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDataFormatString</span> (line <span class="line-number">134</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDataFormatString
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the formatting string used to control how the bound data will be displayed.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetEditItemRenderer" id="setEditItemRenderer"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setEditItemRenderer</span> (line <span class="line-number">102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the edit item cell renderer class.</p>
+<p class="description"><p>If not empty, the class will be used to instantiate as a child control in the item cell that is in edit mode.</p><p>If the class implements <a href="../System/IDataRenderer.html">IDataRenderer</a>, the <strong>Data</strong> property  will be set as the data associated with the datagrid cell during databinding.  The data can be either the whole data row or a field of the row if  <a href="../System.Web.UI.WebControls/TBoundColumn.html#methodgetDataField">DataField</a> is not empty. If <a href="../System.Web.UI.WebControls/TBoundColumn.html#methodgetDataFormatString">DataFormatString</a>  is not empty, the data will be formatted first before passing to the renderer.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.0</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEditItemRenderer
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the renderer class name in namespace format.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetItemRenderer" id="setItemRenderer"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setItemRenderer</span> (line <span class="line-number">74</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the item cell renderer class.</p>
+<p class="description"><p>If not empty, the class will be used to instantiate as a child control in the item cells of the column.</p><p>If the class implements <a href="../System/IDataRenderer.html">IDataRenderer</a>, the <strong>Data</strong> property  will be set as the data associated with the datagrid cell during databinding.  The data can be either the whole data row or a field of the row if  <a href="../System.Web.UI.WebControls/TBoundColumn.html#methodgetDataField">DataField</a> is not empty. If <a href="../System.Web.UI.WebControls/TBoundColumn.html#methodgetDataFormatString">DataFormatString</a>  is not empty, the data will be formatted first before passing to the renderer.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.0</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setItemRenderer
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the renderer class name in namespace format.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetReadOnly" id="setReadOnly"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setReadOnly</span> (line <span class="line-number">150</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setReadOnly
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether the items in the column can be edited</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.WebControls/TDataGridColumn.html">TDataGridColumn</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodformatDataValue">TDataGridColumn::formatDataValue()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetAllowSorting">TDataGridColumn::getAllowSorting()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetDataFieldValue">TDataGridColumn::getDataFieldValue()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetEnableCellGrouping">TDataGridColumn::getEnableCellGrouping()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetFooterRenderer">TDataGridColumn::getFooterRenderer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetFooterStyle">TDataGridColumn::getFooterStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetFooterText">TDataGridColumn::getFooterText()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetHeaderImageUrl">TDataGridColumn::getHeaderImageUrl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetHeaderRenderer">TDataGridColumn::getHeaderRenderer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetHeaderStyle">TDataGridColumn::getHeaderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetHeaderText">TDataGridColumn::getHeaderText()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetID">TDataGridColumn::getID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetItemStyle">TDataGridColumn::getItemStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetOwner">TDataGridColumn::getOwner()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetSortExpression">TDataGridColumn::getSortExpression()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetViewState">TDataGridColumn::getViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodgetVisible">TDataGridColumn::getVisible()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodinitialize">TDataGridColumn::initialize()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodinitializeCell">TDataGridColumn::initializeCell()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodinitializeFooterCell">TDataGridColumn::initializeFooterCell()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodinitializeHeaderCell">TDataGridColumn::initializeHeaderCell()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodloadState">TDataGridColumn::loadState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsaveState">TDataGridColumn::saveState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetEnableCellGrouping">TDataGridColumn::setEnableCellGrouping()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetFooterRenderer">TDataGridColumn::setFooterRenderer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetFooterText">TDataGridColumn::setFooterText()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetHeaderImageUrl">TDataGridColumn::setHeaderImageUrl()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetHeaderRenderer">TDataGridColumn::setHeaderRenderer()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetHeaderText">TDataGridColumn::setHeaderText()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetID">TDataGridColumn::setID()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetOwner">TDataGridColumn::setOwner()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetSortExpression">TDataGridColumn::setSortExpression()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetViewState">TDataGridColumn::setViewState()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TDataGridColumn.html#methodsetVisible">TDataGridColumn::setVisible()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:38 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

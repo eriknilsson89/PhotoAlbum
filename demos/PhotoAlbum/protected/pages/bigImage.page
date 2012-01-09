@@ -1,0 +1,7 @@
+<com:TContent ID="Main">
+	<com:TButton OnClick="BackButtonClicked" Text="Go Back"/>
+	<com:TImage ImageUrl=""  ID="BigImage" />
+</com:TContent>
+<com:TContent ID="Sidebar">
+	<com:myAlbums Visible="<%= !$this->User->IsGuest %>"/> 
+</com:TContent>

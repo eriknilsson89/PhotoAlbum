@@ -1,0 +1,23 @@
+<com:TContent ID="Main">
+<com:TButton id='editAlbumSubmit' Text='Edit' OnClick='editAlbumClicked' /> 
+<com:TRepeater ID="albumRepeater" EnableViewState="false">
+ 
+<prop:HeaderTemplate>
+<h3 id="albumName">Album</h3>
+
+<ul ID="albumList">
+</prop:HeaderTemplate>
+ 
+<prop:ItemTemplate>
+<li><a href="?page=bigimage&albumId=<%#$this->Data['Album_Id']%>&imageId=<%#$this->Data['Id']%>"><img src="images/<%#$this->Data['name']%>" alt="images/<%#$this->Data['name']%>" width="500" /></a></li>
+</prop:ItemTemplate>
+ 
+<prop:FooterTemplate>
+</ul>
+</prop:FooterTemplate>
+ 
+</com:TRepeater>
+</com:TContent>
+<com:TContent ID="Sidebar">
+	<com:myAlbums Visible="<%= !$this->User->IsGuest %>"/> 
+</com:TContent>

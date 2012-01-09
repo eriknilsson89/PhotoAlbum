@@ -1,0 +1,1502 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class THttpResponse</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class THttpResponse</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../System/ITextWriter.html">ITextWriter</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">THttpResponse class</p>
+<p class="description"><p>THttpResponse implements the mechanism for sending output to client users.</p><p>To output a string to client, use <a href="../System.Web/THttpResponse.html#methodwrite">write()</a>. By default, the output is  buffered until <a href="../System.Web/THttpResponse.html#methodflush">flush()</a> is called or the application ends. The output in  the buffer can also be cleaned by <a href="../System.Web/THttpResponse.html#methodclear">clear()</a>. To disable output buffering,  set BufferOutput property to false.</p><p>To send cookies to client, use <a href="../System.Web/THttpResponse.html#methodgetCookies">getCookies()</a>.  To redirect client browser to a new URL, use <a href="../System.Web/THttpResponse.html#methodredirect">redirect()</a>.  To send a file to client, use <a href="../System.Web/THttpResponse.html#methodwriteFile">writeFile()</a>.</p><p>By default, THttpResponse is registered with <a href="../System/TApplication.html">TApplication</a> as the  response module. It can be accessed via <a href="../System/TApplication.html#methodgetResponse">TApplication::getResponse()</a>.</p><p>THttpResponse may be configured in application configuration file as follows</p><p>&lt;module id=&quot;response&quot; class=&quot;System.Web.THttpResponse&quot; CacheExpire=&quot;20&quot; CacheControl=&quot;nocache&quot; BufferOutput=&quot;true&quot; /&gt;</p><p>where <a href="../System.Web/THttpResponse.html#methodgetCacheExpire">CacheExpire</a>, <a href="../System.Web/THttpResponse.html#methodgetCacheControl">CacheControl</a>  and <a href="../System.Web/THttpResponse.html#methodgetBufferOutput">BufferOutput</a> are optional properties of THttpResponse.</p><p>THttpResponse sends charset header if either <a href="../System.Web/THttpResponse.html#methodsetCharset">Charset</a>  or <a href="../System.I18N/TGlobalization.html#methodsetCharset">TGlobalization.Charset</a> is set.</p><p>Since 3.1.2, HTTP status code can be set with the <a href="../System.Web/THttpResponse.html#methodsetStatusCode">StatusCode</a> property.</p><p>Note: Some HTTP Status codes can require additional header or body information. So, if you use <a href="../System.Web/THttpResponse.html#methodsetStatusCode">StatusCode</a>  in your application, be sure to add theses informations.  E.g : to make an http authentication :  <pre><ol><code><pre><li>  <span class="src-key">public </span><span class="src-key">function </span><span class="src-id">clickAuth </span><span class="src-sym">(</span><span class="src-var">$sender</span><span class="src-sym">, </span><span class="src-var">$param</span><span class="src-sym">)</span></li>
+<li>  <span class="src-sym">{</span></li>
+<li>     <span class="src-var">$response</span>=<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../System/TApplicationComponent.html#methodgetResponse">getResponse</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>     <span class="src-var">$response</span><span class="src-sym">-&gt;</span><a href="../System.Web/THttpResponse.html#methodsetStatusCode">setStatusCode</a><span class="src-sym">(</span><span class="src-num">401</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>     <span class="src-var">$response</span><span class="src-sym">-&gt;</span><a href="../System.Web/THttpResponse.html#methodappendHeader">appendHeader</a><span class="src-sym">(</span><span class="src-str">'WWW-Authenticate: Basic realm=&quot;Test&quot;'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>  <span class="src-sym">}</span></li>
+</pre></code></ol></pre></p><p>This event handler will sent the 401 status code (Unauthorized) to the browser, with the WWW-Authenticate header field. This  will force the browser to ask for a username and a password.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: THttpResponse.php 2988 2011-06-20 08:40:48Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_THttpResponse_php.html">/Web/THttpResponse.php</a> (line <span class="field">67</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --THttpResponse</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#DEFAULT_CHARSET" title="details" class="const-name">DEFAULT_CHARSET</a> = 					<span class="var-type"> 'UTF-8'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#DEFAULT_CONTENTTYPE" title="details" class="const-name">DEFAULT_CONTENTTYPE</a> = 					<span class="var-type"> 'text/html'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__destruct" title="details" class="method-name">__destruct</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addCookie" title="details" class="method-name">addCookie</a>
+											(<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>&nbsp;<span class="var-name">$cookie</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#appendHeader" title="details" class="method-name">appendHeader</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#appendLog" title="details" class="method-name">appendLog</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$messageType</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$destination</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$extraHeaders</span> = <span class="var-default">''</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#clear" title="details" class="method-name">clear</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createHtmlWriter" title="details" class="method-name">createHtmlWriter</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createNewHtmlWriter" title="details" class="method-name">createNewHtmlWriter</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type"><a href="../System/ITextWriter.html">ITextWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#flush" title="details" class="method-name">flush</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#flushContent" title="details" class="method-name">flushContent</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpResponseAdapter.html">THttpResponseAdapter</a></span>
+										<a href="#getAdapter" title="details" class="method-name">getAdapter</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getBufferOutput" title="details" class="method-name">getBufferOutput</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCacheControl" title="details" class="method-name">getCacheControl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getCacheExpire" title="details" class="method-name">getCacheExpire</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string|boolean</span>
+										<a href="#getCharset" title="details" class="method-name">getCharset</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getContents" title="details" class="method-name">getContents</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getContentType" title="details" class="method-name">getContentType</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpCookieCollection.html">THttpCookieCollection</a></span>
+										<a href="#getCookies" title="details" class="method-name">getCookies</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getHasAdapter" title="details" class="method-name">getHasAdapter</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getHtmlWriterType" title="details" class="method-name">getHtmlWriterType</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getStatusCode" title="details" class="method-name">getStatusCode</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getStatusReason" title="details" class="method-name">getStatusReason</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">0</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#httpRedirect" title="details" class="method-name">httpRedirect</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#redirect" title="details" class="method-name">redirect</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#reload" title="details" class="method-name">reload</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#removeCookie" title="details" class="method-name">removeCookie</a>
+											(<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>&nbsp;<span class="var-name">$cookie</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#sendContentTypeHeader" title="details" class="method-name">sendContentTypeHeader</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#sendHttpHeader" title="details" class="method-name">sendHttpHeader</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAdapter" title="details" class="method-name">setAdapter</a>
+											(<span class="var-type">THttpResponseAdapter</span>&nbsp;<span class="var-name">$adapter</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBufferOutput" title="details" class="method-name">setBufferOutput</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCacheControl" title="details" class="method-name">setCacheControl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCacheExpire" title="details" class="method-name">setCacheExpire</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCharset" title="details" class="method-name">setCharset</a>
+											(<span class="var-type">string|boolean</span>&nbsp;<span class="var-name">$charset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#setContentType" title="details" class="method-name">setContentType</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setHtmlWriterType" title="details" class="method-name">setHtmlWriterType</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setStatusCode" title="details" class="method-name">setStatusCode</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$status</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$reason</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#write" title="details" class="method-name">write</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$str</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#writeFile" title="details" class="method-name">writeFile</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$fileName</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$content</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$mimeType</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$headers</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$forceDownload</span> = <span class="var-default">true</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$clientFileName</span> = <span class="var-default">null</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$fileSize</span> = <span class="var-default">null</span>])
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__destruct" id="__destruct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Destructor __destruct</span> (line <span class="line-number">124</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Destructor.</p>
+<p class="description"><p>Flushes any existing content in buffer.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__destruct
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodaddCookie" id="addCookie"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addCookie</span> (line <span class="line-number">540</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends a cookie.</p>
+<p class="description"><p>Do not call this method directly. Operate with the result of <a href="../System.Web/THttpResponse.html#methodgetCookies">getCookies</a> instead.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addCookie
+		</span>
+					(<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>&nbsp;<span class="var-name">$cookie</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>
+				<span class="var-name">$cookie</span><span class="var-description">: cook to be sent</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodappendHeader" id="appendHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">appendHeader</span> (line <span class="line-number">515</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends a header.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			appendHeader
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: header</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodappendLog" id="appendLog"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">appendLog</span> (line <span class="line-number">530</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Writes a log message into error log.</p>
+<p class="description"><p>This method is simple wrapper of PHP function error_log.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="http://us2.php.net/manual/en/function.error-log.php">http://us2.php.net/manual/en/function.error-log.php</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			appendLog
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$messageType</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$destination</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$extraHeaders</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$message</span><span class="var-description">: The error message that should be logged</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$messageType</span><span class="var-description">: where the error should go</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$destination</span><span class="var-description">: The destination. Its meaning depends on the message parameter as described above</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$extraHeaders</span><span class="var-description">: The extra headers. It's used when the message parameter is set to 1. This message type uses the same internal function as mail() does.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodclear" id="clear"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">clear</span> (line <span class="line-number">504</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clears any existing buffered content.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			clear
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateHtmlWriter" id="createHtmlWriter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createHtmlWriter</span> (line <span class="line-number">605</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a new instance of HTML writer.</p>
+<p class="description"><p>If the type of the HTML writer is not supplied, <a href="../System.Web/THttpResponse.html#methodgetHtmlWriterType">HtmlWriterType</a> will be assumed.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createHtmlWriter
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of the HTML writer to be created. If null, <a href="../System.Web/THttpResponse.html#methodgetHtmlWriterType">HtmlWriterType</a> will be assumed.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateNewHtmlWriter" id="createNewHtmlWriter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createNewHtmlWriter</span> (line <span class="line-number">621</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a new html writer instance.</p>
+<p class="description"><p>This method is used internally. Please use <a href="../System.Web/THttpResponse.html#methodcreateHtmlWriter">createHtmlWriter</a> instead.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createNewHtmlWriter
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type"><a href="../System/ITextWriter.html">ITextWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of HTML writer to be created.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System/ITextWriter.html">ITextWriter</a></span>
+				<span class="var-name">$writer</span><span class="var-description">: text writer holding the contents.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodflush" id="flush"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">flush</span> (line <span class="line-number">438</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flush the response contents and headers.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			flush
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodflushContent" id="flushContent"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">flushContent</span> (line <span class="line-number">450</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Outputs the buffered content, sends content-type and charset header.</p>
+<p class="description"><p>This method is used internally. Please use <a href="../System.Web/THttpResponse.html#methodflush">flush</a> instead.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			flushContent
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAdapter" id="getAdapter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAdapter</span> (line <span class="line-number">141</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> response adapter, null if not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpResponseAdapter.html">THttpResponseAdapter</a></span>
+		<span class="method-name">
+			getAdapter
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetBufferOutput" id="getBufferOutput"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBufferOutput</span> (line <span class="line-number">236</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether to enable output buffer</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getBufferOutput
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCacheControl" id="getCacheControl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCacheControl</span> (line <span class="line-number">187</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> cache control method to use for session pages</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCacheControl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCacheExpire" id="getCacheExpire"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCacheExpire</span> (line <span class="line-number">171</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> time-to-live for cached session pages in minutes, this has no effect for nocache limiter. Defaults to 180.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getCacheExpire
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCharset" id="getCharset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCharset</span> (line <span class="line-number">220</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> output charset.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string|boolean</span>
+		<span class="method-name">
+			getCharset
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetContents" id="getContents"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getContents</span> (line <span class="line-number">495</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the content in the output buffer.</p>
+<p class="description"><p>The buffer will NOT be cleared after calling this method.  Use <a href="../System.Web/THttpResponse.html#methodclear">clear()</a> is you want to clear the buffer.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> output that is in the buffer.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getContents
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetContentType" id="getContentType"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getContentType</span> (line <span class="line-number">212</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> current content type</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getContentType
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCookies" id="getCookies"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCookies</span> (line <span class="line-number">297</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of output cookies</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpCookieCollection.html">THttpCookieCollection</a></span>
+		<span class="method-name">
+			getCookies
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHasAdapter" id="getHasAdapter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHasAdapter</span> (line <span class="line-number">149</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if adapter exists, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getHasAdapter
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHtmlWriterType" id="getHtmlWriterType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHtmlWriterType</span> (line <span class="line-number">587</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the type of HTML writer to be used, defaults to THtmlWriter</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getHtmlWriterType
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStatusCode" id="getStatusCode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStatusCode</span> (line <span class="line-number">256</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> HTTP status code, defaults to 200</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getStatusCode
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStatusReason" id="getStatusReason"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStatusReason</span> (line <span class="line-number">290</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getStatusReason
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">0</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">0</span><span class="var-description">: HTTP status reason</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodhttpRedirect" id="httpRedirect"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">httpRedirect</span> (line <span class="line-number">410</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Redirect the browser to another URL and exists the current application.</p>
+<p class="description"><p>This method is used internally. Please use <a href="../System.Web/THttpResponse.html#methodredirect">redirect</a> instead.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.5  You can set the set <a href="../System.Web/THttpResponse.html#methodsetStatusCode">StatusCode</a> to a value between 300 and 399 before  calling this function to change the type of redirection.  If not specified, StatusCode will be 302 (Found) by default</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			httpRedirect
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$url</span><span class="var-description">: URL to be redirected to. If the URL is a relative one, the base URL of  the current request will be inserted at the beginning.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">160</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the module.</p>
+<p class="description"><p>This method is required by IModule and is invoked by application.  It starts output buffer if it is enabled.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: module configuration</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TModule.html#methodinit">TModule::init()</a></dt>
+						<dd>Initializes the module.</dd>
+					</dl>
+		
+	</div>
+<a name="methodredirect" id="redirect"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">redirect</span> (line <span class="line-number">390</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Redirects the browser to the specified URL.</p>
+<p class="description"><p>The current application will be terminated after this method is invoked.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			redirect
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$url</span><span class="var-description">: URL to be redirected to. If the URL is a relative one, the base URL of  the current request will be inserted at the beginning.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodreload" id="reload"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">reload</span> (line <span class="line-number">430</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reloads the current page.</p>
+<p class="description"><p>The effect of this method call is the same as user pressing the  refresh button on his browser (without post data).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			reload
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodremoveCookie" id="removeCookie"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">removeCookie</span> (line <span class="line-number">572</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletes a cookie.</p>
+<p class="description"><p>Do not call this method directly. Operate with the result of <a href="../System.Web/THttpResponse.html#methodgetCookies">getCookies</a> instead.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			removeCookie
+		</span>
+					(<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>&nbsp;<span class="var-name">$cookie</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>
+				<span class="var-name">$cookie</span><span class="var-description">: cook to be deleted</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsendContentTypeHeader" id="sendContentTypeHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendContentTypeHeader</span> (line <span class="line-number">473</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends content type header with optional charset.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			sendContentTypeHeader
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsendHttpHeader" id="sendHttpHeader"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendHttpHeader</span> (line <span class="line-number">462</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Send the HTTP header with the status code (defaults to 200) and status reason (defaults to OK)</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			sendHttpHeader
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetAdapter" id="setAdapter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAdapter</span> (line <span class="line-number">133</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAdapter
+		</span>
+					(<span class="var-type">THttpResponseAdapter</span>&nbsp;<span class="var-name">$adapter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpResponseAdapter.html">THttpResponseAdapter</a></span>
+				<span class="var-name">$adapter</span><span class="var-description">: response adapter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetBufferOutput" id="setBufferOutput"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBufferOutput</span> (line <span class="line-number">245</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if session is started already</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBufferOutput
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether to enable output buffer</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCacheControl" id="setCacheControl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCacheControl</span> (line <span class="line-number">196</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCacheControl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: cache control method to use for session pages. Valid values                include none/nocache/private/private_no_expire/public</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCacheExpire" id="setCacheExpire"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCacheExpire</span> (line <span class="line-number">179</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCacheExpire
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: time-to-live for cached session pages in minutes, this has no effect for nocache limiter.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCharset" id="setCharset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCharset</span> (line <span class="line-number">228</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCharset
+		</span>
+					(<span class="var-type">string|boolean</span>&nbsp;<span class="var-name">$charset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|boolean</span>
+				<span class="var-name">$charset</span><span class="var-description">: output charset.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetContentType" id="setContentType"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setContentType</span> (line <span class="line-number">204</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> content type, default is text/html</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			setContentType
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetHtmlWriterType" id="setHtmlWriterType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setHtmlWriterType</span> (line <span class="line-number">595</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setHtmlWriterType
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the type of HTML writer to be used, may be the class name or the namespace</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetStatusCode" id="setStatusCode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setStatusCode</span> (line <span class="line-number">269</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the HTTP status code for the response.</p>
+<p class="description"><p>The code and its reason will be sent to client using the currently requested http protocol version (see THttpRequest::getHttpProtocolVersion)  Keep in mind that HTTP/1.0 clients might not understand all status codes from HTTP/1.1</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setStatusCode
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$status</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$reason</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$status</span><span class="var-description">: HTTP status code</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$reason</span><span class="var-description">: HTTP status reason, defaults to standard HTTP reasons</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodwrite" id="write"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">write</span> (line <span class="line-number">309</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Outputs a string.</p>
+<p class="description"><p>It may not be sent back to user immediately if output buffer is enabled.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			write
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$str</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$str</span><span class="var-description">: string to be output</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodwriteFile" id="writeFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">writeFile</span> (line <span class="line-number">326</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends a file back to user.</p>
+<p class="description"><p>Make sure not to output anything else after calling this method.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if the file cannot be found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			writeFile
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$fileName</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$content</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$mimeType</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$headers</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$forceDownload</span> = <span class="var-default">true</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$clientFileName</span> = <span class="var-default">null</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$fileSize</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$fileName</span><span class="var-description">: file name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$content</span><span class="var-description">: content to be set. If null, the content will be read from the server file pointed to by $fileName.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$mimeType</span><span class="var-description">: mime type of the content.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$headers</span><span class="var-description">: list of headers to be sent. Each array element represents a header string (e.g. 'Content-Type: text/plain').</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$forceDownload</span><span class="var-description">: force download of file, even if browser able to display inline. Defaults to 'true'.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$clientFileName</span><span class="var-description">: force a specific file name on client side. Defaults to 'null' means auto-detect.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$fileSize</span><span class="var-description">: size of file or content in bytes if already known. Defaults to 'null' means auto-detect.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constDEFAULT_CHARSET" id="DEFAULT_CHARSET"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">DEFAULT_CHARSET</span>
+			 = <span class="const-default"> 'UTF-8'</span>
+			(line <span class="line-number">70</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constDEFAULT_CONTENTTYPE" id="DEFAULT_CONTENTTYPE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">DEFAULT_CONTENTTYPE</span>
+			 = <span class="const-default"> 'text/html'</span>
+			(line <span class="line-number">69</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:14:32 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

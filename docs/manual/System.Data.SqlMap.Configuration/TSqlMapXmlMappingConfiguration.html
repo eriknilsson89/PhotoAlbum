@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TSqlMapXmlMappingConfiguration</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TSqlMapXmlMappingConfiguration</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads the statements, result maps, parameters maps from xml configuration.</p>
+<p class="description"><p>description</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TSqlMapXmlConfiguration.php 2880 2011-01-19 14:56:01Z christophe.boulain $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_SqlMap_Configuration_TSqlMapXmlConfiguration_php.html">/Data/SqlMap/Configuration/TSqlMapXmlConfiguration.php</a> (line <span class="field">308</span>)
+		</p>
+		
+				
+		<pre><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfigBuilder.html">TSqlMapXmlConfigBuilder</a>
+   |
+   --TSqlMapXmlMappingConfiguration</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#ESCAPED_INLINE_SYMBOL_REGEXP" title="details" class="const-name">ESCAPED_INLINE_SYMBOL_REGEXP</a> = 					<span class="var-type">'/\#\#/'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#ESCAPED_SIMPLE_MARK_REGEXP" title="details" class="const-name">ESCAPED_SIMPLE_MARK_REGEXP</a> = 					<span class="var-type">'/\$\$/'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#INLINE_PLACEHOLDER" title="details" class="const-name">INLINE_PLACEHOLDER</a> = 					<span class="var-type">'`!!!`'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#INLINE_SYMBOL" title="details" class="const-name">INLINE_SYMBOL</a> = 					<span class="var-type">'#'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#SIMPLE_MARK" title="details" class="const-name">SIMPLE_MARK</a> = 					<span class="var-type">'$'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#SIMPLE_PLACEHOLDER" title="details" class="const-name">SIMPLE_PLACEHOLDER</a> = 					<span class="var-type">'`!!`'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TSqlMapXmlMappingConfiguration</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">TSqlMapXmlConfiguration</span>&nbsp;<span class="var-name">$xmlConfig</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applyInlineParameterMap" title="details" class="method-name">applyInlineParameterMap</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$sqlStatement</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#configure" title="details" class="method-name">configure</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TSqlMapInsert.html">TSqlMapInsert</a></span>
+										<a href="#createInsertStatement" title="details" class="method-name">createInsertStatement</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TParameterMap.html">TParameterMap</a></span>
+										<a href="#createParameterMap" title="details" class="method-name">createParameterMap</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+										<a href="#createResultMap" title="details" class="method-name">createResultMap</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getConfigFile" title="details" class="method-name">getConfigFile</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadCacheModel" title="details" class="method-name">loadCacheModel</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadDeleteTag" title="details" class="method-name">loadDeleteTag</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadFlushInterval" title="details" class="method-name">loadFlushInterval</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapCacheModel.html">TSqlMapCacheModel</a></span>&nbsp;<span class="var-name">$cacheModel</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadFlushOnCache" title="details" class="method-name">loadFlushOnCache</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapCacheModel.html">TSqlMapCacheModel</a></span>&nbsp;<span class="var-name">$cacheModel</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$parent</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadInsertTag" title="details" class="method-name">loadInsertTag</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadParameterMap" title="details" class="method-name">loadParameterMap</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadProcedureTag" title="details" class="method-name">loadProcedureTag</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadResultMap" title="details" class="method-name">loadResultMap</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadSelectKeyTag" title="details" class="method-name">loadSelectKeyTag</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$insert</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadSelectTag" title="details" class="method-name">loadSelectTag</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadStatementTag" title="details" class="method-name">loadStatementTag</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadUpdateTag" title="details" class="method-name">loadUpdateTag</a>
+											(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#prepareSql" title="details" class="method-name">prepareSql</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$sqlStatement</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#processSqlStatement" title="details" class="method-name">processSqlStatement</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#registerCacheTriggers" title="details" class="method-name">registerCacheTriggers</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">331</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TSqlMapXmlMappingConfiguration</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">TSqlMapXmlConfiguration</span>&nbsp;<span class="var-name">$xmlConfig</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfiguration.html">TSqlMapXmlConfiguration</a></span>
+				<span class="var-name">$xmlConfig</span><span class="var-description">: parent xml configuration.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodapplyInlineParameterMap" id="applyInlineParameterMap"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyInlineParameterMap</span> (line <span class="line-number">555</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Extract inline parameter maps.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applyInlineParameterMap
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$sqlStatement</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>
+				<span class="var-name">$statement</span><span class="var-description">: statement object.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sqlStatement</span><span class="var-description">: sql text</span>			</li>
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: statement node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodconfigure" id="configure"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">configure</span> (line <span class="line-number">346</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Configure an XML mapping.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			configure
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$filename</span><span class="var-description">: xml mapping filename.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateInsertStatement" id="createInsertStatement"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createInsertStatement</span> (line <span class="line-number">639</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create new insert statement from xml node.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> insert statement.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TSqlMapInsert.html">TSqlMapInsert</a></span>
+		<span class="method-name">
+			createInsertStatement
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: insert node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateParameterMap" id="createParameterMap"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createParameterMap</span> (line <span class="line-number">500</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a new parameter map from xml node.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> new parameter mapping.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TParameterMap.html">TParameterMap</a></span>
+		<span class="method-name">
+			createParameterMap
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: parameter map node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateResultMap" id="createResultMap"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createResultMap</span> (line <span class="line-number">428</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a new result map and its associated result properties,  disciminiator and sub maps.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> SqlMap result mapping.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+		<span class="method-name">
+			createResultMap
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: result map node</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetConfigFile" id="getConfigFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConfigFile</span> (line <span class="line-number">337</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getConfigFile
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfigBuilder.html#methodgetConfigFile">TSqlMapXmlConfigBuilder::getConfigFile()</a></dt>
+					</dl>
+		
+	</div>
+<a name="methodloadCacheModel" id="loadCacheModel"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadCacheModel</span> (line <span class="line-number">704</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load cache models from xml mapping.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadCacheModel
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: cache node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadDeleteTag" id="loadDeleteTag"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadDeleteTag</span> (line <span class="line-number">681</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load delete statement from xml mapping.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadDeleteTag
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: delete node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadFlushInterval" id="loadFlushInterval"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadFlushInterval</span> (line <span class="line-number">742</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load the flush interval</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadFlushInterval
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapCacheModel.html">TSqlMapCacheModel</a></span>&nbsp;<span class="var-name">$cacheModel</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapCacheModel.html">TSqlMapCacheModel</a></span>
+				<span class="var-name">$cacheModel</span><span class="var-description">: cache model</span>			</li>
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: cache node</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadFlushOnCache" id="loadFlushOnCache"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadFlushOnCache</span> (line <span class="line-number">777</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load the flush on cache properties.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadFlushOnCache
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapCacheModel.html">TSqlMapCacheModel</a></span>&nbsp;<span class="var-name">$cacheModel</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$parent</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapCacheModel.html">TSqlMapCacheModel</a></span>
+				<span class="var-name">$cacheModel</span><span class="var-description">: cache model</span>			</li>
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$parent</span><span class="var-description">: parent node.</span>			</li>
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: flush node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadInsertTag" id="loadInsertTag"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadInsertTag</span> (line <span class="line-number">626</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load insert statement from xml mapping.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadInsertTag
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: insert node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadParameterMap" id="loadParameterMap"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadParameterMap</span> (line <span class="line-number">471</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load parameter map from xml.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadParameterMap
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: parameter map node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadProcedureTag" id="loadProcedureTag"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadProcedureTag</span> (line <span class="line-number">695</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load procedure statement from xml mapping.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">todo:</span> Implement loading procedure</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadProcedureTag
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: procedure node</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadResultMap" id="loadResultMap"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadResultMap</span> (line <span class="line-number">395</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load the result maps.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadResultMap
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: result map node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadSelectKeyTag" id="loadSelectKeyTag"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadSelectKeyTag</span> (line <span class="line-number">652</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load the selectKey statement from xml mapping.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadSelectKeyTag
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$insert</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$insert</span><span class="var-description">: selectkey node</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadSelectTag" id="loadSelectTag"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadSelectTag</span> (line <span class="line-number">610</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load select statement from xml mapping.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadSelectTag
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: select node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadStatementTag" id="loadStatementTag"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadStatementTag</span> (line <span class="line-number">517</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load statement mapping from xml configuration file.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadStatementTag
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: statement node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadUpdateTag" id="loadUpdateTag"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadUpdateTag</span> (line <span class="line-number">668</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load update statement from xml mapping.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadUpdateTag
+		</span>
+					(<span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: update node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodprepareSql" id="prepareSql"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">prepareSql</span> (line <span class="line-number">589</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Prepare the sql text (may extend to dynamic sql).</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">todo:</span> Extend to dynamic sql.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			prepareSql
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$sqlStatement</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>
+				<span class="var-name">$statement</span><span class="var-description">: mapped statement.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sqlStatement</span><span class="var-description">: sql text.</span>			</li>
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: statement node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodprocessSqlStatement" id="processSqlStatement"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">processSqlStatement</span> (line <span class="line-number">532</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load extended SQL statements if application. Replaces global properties  in the sql text. Extracts inline parameter maps.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			processSqlStatement
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type">SimpleXmlElement</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>
+				<span class="var-name">$statement</span><span class="var-description">: mapped statement.</span>			</li>
+					<li>
+				<span class="var-type">SimpleXmlElement</span>
+				<span class="var-name">$node</span><span class="var-description">: statement node.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodregisterCacheTriggers" id="registerCacheTriggers"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">registerCacheTriggers</span> (line <span class="line-number">792</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Attach CacheModel to statement and register trigger statements for cache models</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			registerCacheTriggers
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfigBuilder.html">TSqlMapXmlConfigBuilder</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfigBuilder.html#methodcreateObjectFromNode">TSqlMapXmlConfigBuilder::createObjectFromNode()</a></span><br>
+													<span class="method-name"><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfigBuilder.html#methodgetAbsoluteFilePath">TSqlMapXmlConfigBuilder::getAbsoluteFilePath()</a></span><br>
+													<span class="method-name"><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfigBuilder.html#methodgetConfigFile">TSqlMapXmlConfigBuilder::getConfigFile()</a></span><br>
+													<span class="method-name"><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfigBuilder.html#methodgetElementByIdValue">TSqlMapXmlConfigBuilder::getElementByIdValue()</a></span><br>
+													<span class="method-name"><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfigBuilder.html#methodloadXmlDocument">TSqlMapXmlConfigBuilder::loadXmlDocument()</a></span><br>
+													<span class="method-name"><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfigBuilder.html#methodsetObjectPropFromNode">TSqlMapXmlConfigBuilder::setObjectPropFromNode()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constESCAPED_INLINE_SYMBOL_REGEXP" id="ESCAPED_INLINE_SYMBOL_REGEXP"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ESCAPED_INLINE_SYMBOL_REGEXP</span>
+			 = <span class="const-default">'/\#\#/'</span>
+			(line <span class="line-number">324</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constESCAPED_SIMPLE_MARK_REGEXP" id="ESCAPED_SIMPLE_MARK_REGEXP"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ESCAPED_SIMPLE_MARK_REGEXP</span>
+			 = <span class="const-default">'/\$\$/'</span>
+			(line <span class="line-number">323</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constINLINE_PLACEHOLDER" id="INLINE_PLACEHOLDER"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">INLINE_PLACEHOLDER</span>
+			 = <span class="const-default">'`!!!`'</span>
+			(line <span class="line-number">326</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constINLINE_SYMBOL" id="INLINE_SYMBOL"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">INLINE_SYMBOL</span>
+			 = <span class="const-default">'#'</span>
+			(line <span class="line-number">322</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constSIMPLE_MARK" id="SIMPLE_MARK"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">SIMPLE_MARK</span>
+			 = <span class="const-default">'$'</span>
+			(line <span class="line-number">321</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Regular expressions for escaping simple/inline parameter symbols</p>
+	
+	
+</div>
+<a name="constSIMPLE_PLACEHOLDER" id="SIMPLE_PLACEHOLDER"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">SIMPLE_PLACEHOLDER</span>
+			 = <span class="const-default">'`!!`'</span>
+			(line <span class="line-number">325</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:20 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

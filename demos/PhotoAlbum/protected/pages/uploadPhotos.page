@@ -1,0 +1,15 @@
+<com:TContent ID="Main">
+
+		<h3>Upload Photos to Album</h3>
+		<com:TFileUpload OnFileUpload="fileUploaded" />
+		<com:TFileUpload OnFileUpload="fileUploaded" />
+		<com:TFileUpload OnFileUpload="fileUploaded" />
+		<com:TFileUpload OnFileUpload="fileUploaded" />
+		
+ 
+<com:TButton Text="Upload" />
+<com:TButton Text="View Album" OnClick="ViewButtonClicked" />
+<br/>
+ 
+<com:TLabel ID="Result" />
+</com:TContent>

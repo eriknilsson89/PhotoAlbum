@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TSoapService</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TSoapService</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TSoapService class</p>
+<p class="description"><p>TSoapService processes SOAP requests for a PRADO application.  TSoapService requires PHP SOAP extension to be loaded.</p><p>TSoapService manages a set of SOAP providers. Each SOAP provider  is a class that implements a set of SOAP methods which are exposed  to SOAP clients for remote invocation. TSoapService generates WSDL  automatically for the SOAP providers by default.</p><p>To use TSoapService, configure it in the application specification like following:  <pre><ol><code><pre><li>   &lt;<span class="src-id">services</span>&gt;</li>
+<li>     &lt;<span class="src-id">service id</span>=<span class="src-str">&quot;soap&quot; </span><span class="src-key">class</span>=<span class="src-str">&quot;System.Web.Services.TSoapService&quot;</span>&gt;</li>
+<li>       &lt;<span class="src-id">soap id</span>=<span class="src-str">&quot;stockquote&quot; </span><span class="src-id">provider</span>=<span class="src-str">&quot;MyStockQuote&quot; </span>/&gt;</li>
+<li>     &lt;/<span class="src-id">service</span>&gt;</li>
+<li>   &lt;/<span class="src-id">services</span>&gt;</li>
+</pre></code></ol></pre></p><p>The above example specifies a single SOAP provider named &quot;stockquote&quot;  whose class is &quot;MyStockQuote&quot;. A SOAP client can then obtain the WSDL for  this provider via the following URL:  <pre><ol><code><pre><li>   <span class="src-id">http</span>:<span class="src-comm">//hostname/path/to/index.php?soap=stockquote.wsdl</span></li>
+</pre></code></ol></pre></p><p>The WSDL for the provider class &quot;MyStockQuote&quot; is generated based on special  comment tags in the class. In particular, if a class method's comment  contains the keyword &quot;@soapmethod&quot;, it is considered to be a SOAP method  and will be exposed to SOAP clients. For example,  <pre><ol><code><pre><li>   <span class="src-key">class </span><span class="src-id">MyStockQuote </span><span class="src-sym">{</span></li>
+<li>      / **</li>
+<li>       * <span class="src-sym">@</span><span class="src-id">param string </span><span class="src-var">$symbol </span><span class="src-id">the stock symbol</span></li>
+<li>       * <span class="src-sym">@</span><span class="src-key">return </span><span class="src-id">float the stock price</span></li>
+<li>       * <span class="src-sym">@</span><span class="src-id">soapmethod</span></li>
+<li>       * /</li>
+<li>      <span class="src-key">public </span><span class="src-key">function </span><span class="src-id">getQuote</span><span class="src-sym">(</span><span class="src-var">$symbol</span><span class="src-sym">) </span><span class="src-sym">{</span>...<span class="src-sym">}</span></li>
+<li>   <span class="src-sym">}</span></li>
+</pre></code></ol></pre></p><p>With the above SOAP provider, a typical SOAP client may call the method &quot;getQuote&quot;  remotely like the following:  <pre><ol><code><pre><li>   <span class="src-var">$client</span>=<span class="src-key">new </span><span class="src-id">SoapClient</span><span class="src-sym">(</span><span class="src-str">&quot;http://hostname/path/to/index.php?soap=stockquote.wsdl&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>   echo <span class="src-var">$client</span><span class="src-sym">-&gt;</span><span class="src-id">getQuote</span><span class="src-sym">(</span><span class="src-str">&quot;ibm&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p><p>Each &lt;soap&gt; element in the application specification actually configures  the properties of a SOAP server which defaults to <a href="../System.Web.Services/TSoapServer.html">TSoapServer</a>.  Therefore, any writable property of <a href="../System.Web.Services/TSoapServer.html">TSoapServer</a> may appear as an attribute  in the &lt;soap&gt; element. For example, the &quot;provider&quot; attribute refers to  the TSoapServer::setProvider property of <a href="../System.Web.Services/TSoapServer.html">TSoapServer</a>.  The following configuration specifies that the SOAP server is persistent within  the user session (that means a MyStockQuote object will be stored in session)  <pre><ol><code><pre><li>   &lt;<span class="src-id">services</span>&gt;</li>
+<li>     &lt;<span class="src-id">service id</span>=<span class="src-str">&quot;soap&quot; </span><span class="src-key">class</span>=<span class="src-str">&quot;System.Web.Services.TSoapService&quot;</span>&gt;</li>
+<li>       &lt;<span class="src-id">soap id</span>=<span class="src-str">&quot;stockquote&quot; </span><span class="src-id">provider</span>=<span class="src-str">&quot;MyStockQuote&quot; </span><span class="src-id">SessionPersistent</span>=<span class="src-str">&quot;true&quot; </span>/&gt;</li>
+<li>     &lt;/<span class="src-id">service</span>&gt;</li>
+<li>   &lt;/<span class="src-id">services</span>&gt;</li>
+</pre></code></ol></pre></p><p>You may also use your own SOAP server class by specifying the &quot;class&quot; attribute of &lt;soap&gt;.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> $Id: TService.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">author:</span> Knut Urdalen &lt;<a href="mailto:knut.urdalen@gmail.com">knut.urdalen@gmail.com</a>&gt;</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_Services_TSoapService_php.html">/Web/Services/TSoapService.php</a> (line <span class="field">85</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TService.html">TService</a>
+         |
+         --TSoapService</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_FILE_EXT" title="details" class="const-name">CONFIG_FILE_EXT</a> = 					<span class="var-type">'.xml'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#DEFAULT_SOAP_SERVER" title="details" class="const-name">DEFAULT_SOAP_SERVER</a> = 					<span class="var-type">'TSoapServer'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TSoapService</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#constructUrl" title="details" class="method-name">constructUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$serverID</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$getParams</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span> = <span class="var-default">true</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span> = <span class="var-default">true</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.Services/TSoapServer.html">TSoapServer</a></span>
+										<a href="#createServer" title="details" class="method-name">createServer</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getConfigFile" title="details" class="method-name">getConfigFile</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsWsdlRequest" title="details" class="method-name">getIsWsdlRequest</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getServerID" title="details" class="method-name">getServerID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#resolveRequest" title="details" class="method-name">resolveRequest</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#run" title="details" class="method-name">run</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setConfigFile" title="details" class="method-name">setConfigFile</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">98</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor.</p>
+<p class="description"><p>Sets default service ID to 'soap'.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TSoapService</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodconstructUrl" id="constructUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">constructUrl</span> (line <span class="line-number">194</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructs a URL with specified page path and GET parameters.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> URL for the page and GET parameters</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			constructUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$serverID</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$getParams</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span> = <span class="var-default">true</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serverID</span><span class="var-description">: soap server ID</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$getParams</span><span class="var-description">: list of GET parameters, null if no GET parameters required</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeAmpersand</span><span class="var-description">: whether to encode the ampersand in URL, defaults to true.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeGetItems</span><span class="var-description">: whether to encode the GET parameters (their names and values), defaults to true.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateServer" id="createServer"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createServer</span> (line <span class="line-number">221</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates the requested SOAP server.</p>
+<p class="description"><p>The SOAP server is initialized with the property values specified  in the configuration.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the SOAP server instance</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.Services/TSoapServer.html">TSoapServer</a></span>
+		<span class="method-name">
+			createServer
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetConfigFile" id="getConfigFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConfigFile</span> (line <span class="line-number">170</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> external configuration file. Defaults to null.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getConfigFile
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsWsdlRequest" id="getIsWsdlRequest"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsWsdlRequest</span> (line <span class="line-number">202</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether this is a request for WSDL</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsWsdlRequest
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetServerID" id="getServerID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServerID</span> (line <span class="line-number">210</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the SOAP server ID</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getServerID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">109</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes this module.</p>
+<p class="description"><p>This method is required by the IModule interface.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException if <a href="../System.Web.Services/TSoapService.html#methodgetConfigFile">ConfigFile</a> is invalid.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: configuration for this module, can be null</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TService.html#methodinit">TService::init()</a></dt>
+						<dd>Initializes the service and attaches run to the RunService event of application.</dd>
+					</dl>
+		
+	</div>
+<a name="methodresolveRequest" id="resolveRequest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">resolveRequest</span> (line <span class="line-number">134</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Resolves the request parameter.</p>
+<p class="description"><p>It identifies the server ID and whether the request is for WSDL.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">see:</span> <a href="../System.Web.Services/TSoapService.html#methodgetIsWsdlRequest">TSoapService::getIsWsdlRequest()</a></li>
+				<li><span class="field">see:</span> <a href="../System.Web.Services/TSoapService.html#methodgetServerID">TSoapService::getServerID()</a></li>
+				<li><span class="field">throws:</span> THttpException if the server ID cannot be found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			resolveRequest
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodrun" id="run"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">run</span> (line <span class="line-number">243</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Runs the service.</p>
+<p class="description"><p>If the service parameter ends with '.wsdl', it will serve a WSDL file for  the specified soap server.  Otherwise, it will handle the soap request using the specified server.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			run
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TService.html#methodrun">TService::run()</a></dt>
+						<dd>Runs the service.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetConfigFile" id="setConfigFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setConfigFile</span> (line <span class="line-number">180</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if the file is invalid.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setConfigFile
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: external configuration file in namespace format. The file  must be suffixed with '.xml'.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TService.html">TService</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TService.html#methodgetEnabled">TService::getEnabled()</a></span><br>
+													<span class="method-name"><a href="../System/TService.html#methodgetID">TService::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TService.html#methodinit">TService::init()</a></span><br>
+													<span class="method-name"><a href="../System/TService.html#methodrun">TService::run()</a></span><br>
+													<span class="method-name"><a href="../System/TService.html#methodsetEnabled">TService::setEnabled()</a></span><br>
+													<span class="method-name"><a href="../System/TService.html#methodsetID">TService::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constCONFIG_FILE_EXT" id="CONFIG_FILE_EXT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_FILE_EXT</span>
+			 = <span class="const-default">'.xml'</span>
+			(line <span class="line-number">88</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constDEFAULT_SOAP_SERVER" id="DEFAULT_SOAP_SERVER"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">DEFAULT_SOAP_SERVER</span>
+			 = <span class="const-default">'TSoapServer'</span>
+			(line <span class="line-number">87</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:10 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

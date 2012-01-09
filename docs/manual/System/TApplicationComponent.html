@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TApplicationComponent</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TApplicationComponent</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TApplicationComponent class</p>
+<p class="description"><p>TApplicationComponent is the base class for all components that are  application-related, such as controls, modules, services, etc.</p><p>TApplicationComponent mainly defines a few properties that are shortcuts  to some commonly used methods. The <a href="../System/TApplicationComponent.html#methodgetApplication">Application</a>  property gives the application instance that this component belongs to;  <a href="../System/TApplicationComponent.html#methodgetService">Service</a> gives the current running service;  <a href="../System/TApplicationComponent.html#methodgetRequest">Request</a>, <a href="../System/TApplicationComponent.html#methodgetResponse">Response</a> and <a href="../System/TApplicationComponent.html#methodgetSession">Session</a>  return the request and response modules, respectively;  And <a href="../System/TApplicationComponent.html#methodgetUser">User</a> gives the current user instance.</p><p>Besides, TApplicationComponent defines two shortcut methods for  publishing private files: <a href="../System/TApplicationComponent.html#methodpublishAsset">publishAsset</a> and <a href="../System/TApplicationComponent.html#methodpublishFilePath">publishFilePath</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TApplicationComponent.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_TApplicationComponent_php.html">/TApplicationComponent.php</a> (line <span class="field">35</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TApplicationComponent</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/TClientScriptManager.html">TClientScriptManager</a></td>
+					<td>
+											TClientScriptManager class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/TControlAdapter.html">TControlAdapter</a></td>
+					<td>
+											TControlAdapter class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.ActiveControls/TCallbackClientScript.html">TCallbackClientScript</a></td>
+					<td>
+											TCallbackClientScript class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/TTheme.html">TTheme</a></td>
+					<td>
+											TTheme class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI.WebControls/TDataGridColumn.html">TDataGridColumn</a></td>
+					<td>
+											TDataGridColumn class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/TTemplate.html">TTemplate</a></td>
+					<td>
+											TTemplate implements PRADO template parsing logic.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/TControl.html">TControl</a></td>
+					<td>
+											TControl class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.UI/THtmlWriter.html">THtmlWriter</a></td>
+					<td>
+											THtmlWriter class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web/THttpResponseAdapter.html">THttpResponseAdapter</a></td>
+					<td>
+											THttpResponseAdapter class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.Services/TSoapServer.html">TSoapServer</a></td>
+					<td>
+											TSoapServer class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web.Services/TJsonResponse.html">TJsonResponse</a></td>
+					<td>
+											TJsonResponse Class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web/THttpRequest.html">THttpRequest</a></td>
+					<td>
+											THttpRequest class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web/THttpSession.html">THttpSession</a></td>
+					<td>
+											THttpSession class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Util/TLogRoute.html">TLogRoute</a></td>
+					<td>
+											TLogRoute class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System/TService.html">TService</a></td>
+					<td>
+											TService class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System/TModule.html">TModule</a></td>
+					<td>
+											TModule class.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/TApplication.html">TApplication</a></span>
+										<a href="#getApplication" title="details" class="method-name">getApplication</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpRequest.html">THttpRequest</a></span>
+										<a href="#getRequest" title="details" class="method-name">getRequest</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpResponse.html">THttpResponse</a></span>
+										<a href="#getResponse" title="details" class="method-name">getResponse</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/IService.html">IService</a></span>
+										<a href="#getService" title="details" class="method-name">getService</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpSession.html">THttpSession</a></span>
+										<a href="#getSession" title="details" class="method-name">getSession</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/IUser.html">IUser</a></span>
+										<a href="#getUser" title="details" class="method-name">getUser</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#publishAsset" title="details" class="method-name">publishAsset</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$assetPath</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$className</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#publishFilePath" title="details" class="method-name">publishFilePath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$fullPath</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetApplication" id="getApplication"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getApplication</span> (line <span class="line-number">40</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> current application instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/TApplication.html">TApplication</a></span>
+		<span class="method-name">
+			getApplication
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRequest" id="getRequest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRequest</span> (line <span class="line-number">56</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the current user request</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpRequest.html">THttpRequest</a></span>
+		<span class="method-name">
+			getRequest
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetResponse" id="getResponse"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getResponse</span> (line <span class="line-number">64</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the response</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpResponse.html">THttpResponse</a></span>
+		<span class="method-name">
+			getResponse
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web/THttpResponseAdapter.html#methodgetResponse">THttpResponseAdapter::getResponse()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodgetService" id="getService"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getService</span> (line <span class="line-number">48</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the current service</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/IService.html">IService</a></span>
+		<span class="method-name">
+			getService
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSession" id="getSession"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSession</span> (line <span class="line-number">72</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> user session</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpSession.html">THttpSession</a></span>
+		<span class="method-name">
+			getSession
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUser" id="getUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUser</span> (line <span class="line-number">80</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> information about the current user</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/IUser.html">IUser</a></span>
+		<span class="method-name">
+			getUser
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Security/TDbUserManager.html#methodgetUser">TDbUserManager::getUser()</a>
+								: Returns a user instance given the user name.
+							</li>
+					<li>
+				<a href="../System.Security/TUserManager.html#methodgetUser">TUserManager::getUser()</a>
+								: Returns a user instance given the user name.
+							</li>
+				</ul>
+	</div>
+<a name="methodpublishAsset" id="publishAsset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">publishAsset</span> (line <span class="line-number">99</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Publishes a private asset and gets its URL.</p>
+<p class="description"><p>This method will publish a private asset (file or directory)  and gets the URL to the asset. Note, if the asset refers to  a directory, all contents under that directory will be published.  Also note, it is recommended that you supply a class name as the second  parameter to the method (e.g. publishAsset($assetPath,__CLASS__) ).  By doing so, you avoid the issue that child classes may not work properly  because the asset path will be relative to the directory containing the child class file.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> URL to the asset path.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			publishAsset
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$assetPath</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$className</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$assetPath</span><span class="var-description">: path of the asset that is relative to the directory containing the specified class file.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$className</span><span class="var-description">: name of the class whose containing directory will be prepend to the asset path. If null, it means get_class($this).</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodpublishFilePath" id="publishFilePath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">publishFilePath</span> (line <span class="line-number">113</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Publishes a file or directory and returns its URL.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> URL to the published file or directory</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			publishFilePath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$fullPath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$fullPath</span><span class="var-description">: absolute path of the file or directory to be published</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web/TAssetManager.html#methodpublishFilePath">TAssetManager::publishFilePath()</a>
+								: Publishes a file or a directory (recursively).
+							</li>
+				</ul>
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:26 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

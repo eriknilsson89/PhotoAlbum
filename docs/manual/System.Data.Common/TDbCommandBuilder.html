@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TDbCommandBuilder</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TDbCommandBuilder</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TDbCommandBuilder provides basic methods to create query commands for tables  giving by setTableInfo the property.</p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TDbCommandBuilder.php 2920 2011-05-21 19:29:39Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_Common_TDbCommandBuilder_php.html">/Data/Common/TDbCommandBuilder.php</a> (line <span class="field">22</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TDbCommandBuilder</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common/TMssqlCommandBuilder.html">TMssqlCommandBuilder</a></td>
+					<td>
+											TMssqlCommandBuilder provides specifics methods to create limit/offset query commands  for MSSQL servers.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common/TMysqlCommandBuilder.html">TMysqlCommandBuilder</a></td>
+					<td>
+											TMysqlCommandBuilder implements default TDbCommandBuilder
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common/TPgsqlCommandBuilder.html">TPgsqlCommandBuilder</a></td>
+					<td>
+											TPgsqlCommandBuilder provides specifics methods to create limit/offset query commands  for Pgsql database.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common/TOracleCommandBuilder.html">TOracleCommandBuilder</a></td>
+					<td>
+											TOracleCommandBuilder provides specifics methods to create limit/offset query commands  for Oracle database.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.Common/TSqliteCommandBuilder.html">TSqliteCommandBuilder</a></td>
+					<td>
+											TSqliteCommandBuilder provides specifics methods to create limit/offset query commands  for Sqlite database.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TDbCommandBuilder</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span> = <span class="var-default">null</span>], [<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>&nbsp;<span class="var-name">$tableInfo</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applyCriterias" title="details" class="method-name">applyCriterias</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$ordering</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">-1</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#applyLimitOffset" title="details" class="method-name">applyLimitOffset</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">-1</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">-1</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#applyOrdering" title="details" class="method-name">applyOrdering</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$ordering</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#bindArrayValues" title="details" class="method-name">bindArrayValues</a>
+											(<span class="var-type"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>&nbsp;<span class="var-name">$command</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#bindColumnValues" title="details" class="method-name">bindColumnValues</a>
+											(<span class="var-type"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>&nbsp;<span class="var-name">$command</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+										<a href="#createCommand" title="details" class="method-name">createCommand</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+										<a href="#createCountCommand" title="details" class="method-name">createCountCommand</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span> = <span class="var-default">'1=1'</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$ordering</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">-1</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+										<a href="#createDeleteCommand" title="details" class="method-name">createDeleteCommand</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+										<a href="#createFindCommand" title="details" class="method-name">createFindCommand</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span> = <span class="var-default">'1=1'</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$ordering</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$select</span> = <span class="var-default">'*'</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+										<a href="#createInsertCommand" title="details" class="method-name">createInsertCommand</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+										<a href="#createUpdateCommand" title="details" class="method-name">createUpdateCommand</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$where</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getColumnBindings" title="details" class="method-name">getColumnBindings</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$position</span> = <span class="var-default">false</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+										<a href="#getDbConnection" title="details" class="method-name">getDbConnection</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getInsertFieldBindings" title="details" class="method-name">getInsertFieldBindings</a>
+											(<span class="var-type">object array</span>&nbsp;<span class="var-name">$values</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getLastInsertID" title="details" class="method-name">getLastInsertID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getPdoType" title="details" class="method-name">getPdoType</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getSearchCondition" title="details" class="method-name">getSearchCondition</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$words</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getSearchExpression" title="details" class="method-name">getSearchExpression</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$keywords</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getSelectFieldList" title="details" class="method-name">getSelectFieldList</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$data</span> = <span class="var-default">'*'</span>], <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getTableInfo" title="details" class="method-name">getTableInfo</a>
+											(<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>&nbsp;<span class="var-name">0</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#hasIntegerKey" title="details" class="method-name">hasIntegerKey</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDbConnection" title="details" class="method-name">setDbConnection</a>
+											(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setTableInfo" title="details" class="method-name">setTableInfo</a>
+											(<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">31</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TDbCommandBuilder</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span> = <span class="var-default">null</span>], [<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>&nbsp;<span class="var-name">$tableInfo</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+				<span class="var-name">$tableInfo</span><span class="var-description">: table information.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodapplyCriterias" id="applyCriterias"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyCriterias</span> (line <span class="line-number">317</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applyCriterias
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$ordering</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">-1</span>])
+			</div>
+	
+		
+		
+	</div>
+<a name="methodapplyLimitOffset" id="applyLimitOffset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyLimitOffset</span> (line <span class="line-number">91</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Alters the sql to apply $limit and $offset. Default implementation is applicable  for PostgreSQL, MySQL and SQLite.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> SQL with limit and offset.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			applyLimitOffset
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">-1</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">-1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: SQL query string.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$limit</span><span class="var-description">: maximum number of rows, -1 to ignore limit.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$offset</span><span class="var-description">: row offset, -1 to ignore offset.</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.Common/TMssqlCommandBuilder.html#methodapplyLimitOffset">TMssqlCommandBuilder::applyLimitOffset()</a>
+								: Overrides parent implementation. Alters the sql to apply $limit and $offset.
+							</li>
+					<li>
+				<a href="../System.Data.Common/TOracleCommandBuilder.html#methodapplyLimitOffset">TOracleCommandBuilder::applyLimitOffset()</a>
+								: Overrides parent implementation to use Oracle way of get paginated RecordSet instead of using LIMIT sql clause.
+							</li>
+					<li>
+				<a href="../System.Data.Common/TSqliteCommandBuilder.html#methodapplyLimitOffset">TSqliteCommandBuilder::applyLimitOffset()</a>
+								: Alters the sql to apply $limit and $offset.
+							</li>
+				</ul>
+	</div>
+<a name="methodapplyOrdering" id="applyOrdering"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyOrdering</span> (line <span class="line-number">105</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> modified SQL applied with ORDER BY.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			applyOrdering
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$ordering</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: SQL string without existing ordering.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$ordering</span><span class="var-description">: pairs of column names as key and direction as value.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodbindArrayValues" id="bindArrayValues"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">bindArrayValues</span> (line <span class="line-number">461</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			bindArrayValues
+		</span>
+					(<span class="var-type"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>&nbsp;<span class="var-name">$command</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+				<span class="var-name">$command</span><span class="var-description">: database command</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values for binding.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodbindColumnValues" id="bindColumnValues"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">bindColumnValues</span> (line <span class="line-number">445</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Bind the name-value pairs of $values where the array keys correspond to column names.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			bindColumnValues
+		</span>
+					(<span class="var-type"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>&nbsp;<span class="var-name">$command</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+				<span class="var-name">$command</span><span class="var-description">: database command.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: name-value pairs.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateCommand" id="createCommand"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createCommand</span> (line <span class="line-number">434</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> corresponding database command.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+		<span class="method-name">
+			createCommand
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: SQL query string.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateCountCommand" id="createCountCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createCountCommand</span> (line <span class="line-number">334</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a count(*) command for the table described in setTableInfo.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> count command.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+		<span class="method-name">
+			createCountCommand
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span> = <span class="var-default">'1=1'</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$ordering</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">-1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$where</span><span class="var-description">: count condition.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parameters</span><span class="var-description">: binding parameters.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateDeleteCommand" id="createDeleteCommand"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createDeleteCommand</span> (line <span class="line-number">347</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a delete command for the table described in setTableInfo.</p>
+<p class="description"><p>The conditions for delete is given by the $where argument and the parameters  for the condition is given by $parameters.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> delete command.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+		<span class="method-name">
+			createDeleteCommand
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$where</span><span class="var-description">: delete condition.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parameters</span><span class="var-description">: delete parameters.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateFindCommand" id="createFindCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createFindCommand</span> (line <span class="line-number">307</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Appends the $where condition to the string &quot;SELECT * FROM tableName WHERE &quot;.</p>
+<p class="description"><p>The tableName is obtained from the <a href="../System.Data.Common/TDbCommandBuilder.html#methodsetTableInfo">TableInfo</a> property.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> query command.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+		<span class="method-name">
+			createFindCommand
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span> = <span class="var-default">'1=1'</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$ordering</span> = <span class="var-default">array()</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$select</span> = <span class="var-default">'*'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$where</span><span class="var-description">: query condition</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parameters</span><span class="var-description">: condition parameters.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateInsertCommand" id="createInsertCommand"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createInsertCommand</span> (line <span class="line-number">365</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates an insert command for the table described in setTableInfo for the given data.</p>
+<p class="description"><p>Each array key in the $data array must correspond to the column name of the table  (if a column allows to be null, it may be omitted) to be inserted with  the corresponding array value.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> insert command</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+		<span class="method-name">
+			createInsertCommand
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: name-value pairs of new data to be inserted.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateUpdateCommand" id="createUpdateCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createUpdateCommand</span> (line <span class="line-number">382</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates an update command for the table described in setTableInfo for the given data.</p>
+<p class="description"><p>Each array key in the $data array must correspond to the column name to be updated with the corresponding array value.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> update command.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbCommand.html">TDbCommand</a></span>
+		<span class="method-name">
+			createUpdateCommand
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$where</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: name-value pairs of data to be updated.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$where</span><span class="var-description">: update condition.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parameters</span><span class="var-description">: update parameters.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetColumnBindings" id="getColumnBindings"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getColumnBindings</span> (line <span class="line-number">419</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a name-value or position-value if $position=true binding strings.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> update column names with corresponding binding substrings.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getColumnBindings
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$position</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: data for binding.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$position</span><span class="var-description">: true to bind as position values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetDbConnection" id="getDbConnection"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDbConnection</span> (line <span class="line-number">40</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> database connection.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+		<span class="method-name">
+			getDbConnection
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetInsertFieldBindings" id="getInsertFieldBindings"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getInsertFieldBindings</span> (line <span class="line-number">402</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a list of insert field name and a list of binding names.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> tuple ($fields, $bindings)</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getInsertFieldBindings
+		</span>
+					(<span class="var-type">object array</span>&nbsp;<span class="var-name">$values</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">object array</span>
+				<span class="var-name">$values</span><span class="var-description">: or object to be inserted.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetLastInsertID" id="getLastInsertID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLastInsertID</span> (line <span class="line-number">74</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Iterate through all the columns and returns the last insert id of the  first column that has a sequence or serial.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> last insert id, null if none is found.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getLastInsertID
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.Common/TMssqlCommandBuilder.html#methodgetLastInsertID">TMssqlCommandBuilder::getLastInsertID()</a>
+								: Overrides parent implementation. Uses &quot;SELECT @@Identity&quot;.
+							</li>
+				</ul>
+	</div>
+<a name="methodgetPdoType" id="getPdoType"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPdoType</span> (line <span class="line-number">483</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> PDO parameter types.</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getPdoType
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: PHP value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetSearchCondition" id="getSearchCondition"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSearchCondition</span> (line <span class="line-number">151</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> search condition for all words in one column.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getSearchCondition
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$words</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$column</span><span class="var-description">: column name.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$words</span><span class="var-description">: keywords</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.Common/TPgsqlCommandBuilder.html#methodgetSearchCondition">TPgsqlCommandBuilder::getSearchCondition()</a>
+								: Overrides parent implementation to use PostgreSQL's ILIKE instead of LIKE (case-sensitive).
+							</li>
+				</ul>
+	</div>
+<a name="methodgetSearchExpression" id="getSearchExpression"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSearchExpression</span> (line <span class="line-number">133</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Computes the SQL condition for search a set of column using regular expression  (or LIKE, depending on database implementation) to match a string of  keywords (default matches all keywords).</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> SQL search condition matching on a set of columns.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getSearchExpression
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$keywords</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$fields</span><span class="var-description">: list of column id for potential search condition.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$keywords</span><span class="var-description">: string of keywords</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.Common/TPgsqlCommandBuilder.html#methodgetSearchExpression">TPgsqlCommandBuilder::getSearchExpression()</a>
+								: Overrides parent implementation. Only column of type text or character (and its variants)  accepts the LIKE criteria.
+							</li>
+					<li>
+				<a href="../System.Data.Common/TOracleCommandBuilder.html#methodgetSearchExpression">TOracleCommandBuilder::getSearchExpression()</a>
+								: Overrides parent implementation. Only column of type text or character (and its variants)  accepts the LIKE criteria.
+							</li>
+				</ul>
+	</div>
+<a name="methodgetSelectFieldList" id="getSelectFieldList"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSelectFieldList</span> (line <span class="line-number">198</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Different behavior depends on type of passed data  string  	usage without modification</p>
+<p class="description"><p>null  	will be expanded to full list of quoted table column names (quoting depends on database)</p><p>array <ul><li>Column names will be quoted if used as key or value of array
+ 	<pre><ol><code><pre><li>     <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'col1'</span><span class="src-sym">, </span><span class="src-str">'col2'</span><span class="src-sym">, </span><span class="src-str">'col2'</span><span class="src-sym">)</span></li>
+<li>     <span class="src-comm">// SELECT `col1`, `col2`, `col3` FROM...</span></li>
+</pre></code></ol></pre></li></ul> <ul><li>Column aliasing
+ <pre><ol><code><pre><li> <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'mycol1' </span>=&gt; <span class="src-str">'col1'</span><span class="src-sym">, </span><span class="src-str">'mycol2' </span>=&gt; <span class="src-str">'COUNT(*)'</span><span class="src-sym">)</span></li>
+<li> <span class="src-comm">// SELECT `col1` AS mycol1, COUNT(*) AS mycol2 FROM...</span></li>
+</pre></code></ol></pre></li></ul> <ul><li>NULL and scalar values (strings will be quoted depending on database)
+ <pre><ol><code><pre><li> <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'col1' </span>=&gt; <span class="src-str">'my custom string'</span><span class="src-sym">, </span><span class="src-str">'col2' </span>=&gt; <span class="src-num">1.0</span><span class="src-sym">, </span><span class="src-str">'col3' </span>=&gt; <span class="src-str">'NULL'</span><span class="src-sym">)</span></li>
+<li> <span class="src-comm">// SELECT &quot;my custom string&quot; AS `col1`, 1.0 AS `col2`, NULL AS `col3` FROM...</span></li>
+</pre></code></ol></pre></li></ul> <ul><li>If the *-wildcard char is used as key or value, add the full list of quoted table column names
+ <pre><ol><code><pre><li> <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'col1' </span>=&gt; <span class="src-str">'NULL'</span><span class="src-sym">, </span><span class="src-str">'*'</span><span class="src-sym">)</span></li>
+<li> <span class="src-comm">// SELECT `col1`, `col2`, `col3`, NULL AS `col1` FROM...</span></li>
+</pre></code></ol></pre></li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of generated fields - use implode(', ', $selectfieldlist) to collapse field list for usage</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">todo:</span> add support for table aliasing</li>
+				<li><span class="field">todo:</span> add support for quoting of column aliasing</li>
+				<li><span class="field">since:</span> 3.1.7</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getSelectFieldList
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$data</span> = <span class="var-default">'*'</span>], <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetTableInfo" id="getTableInfo"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTableInfo</span> (line <span class="line-number">64</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getTableInfo
+		</span>
+					(<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>&nbsp;<span class="var-name">0</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+				<span class="var-name">0</span><span class="var-description">: table information.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodhasIntegerKey" id="hasIntegerKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasIntegerKey</span> (line <span class="line-number">498</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if any array key is an integer.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			hasIntegerKey
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$array</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetDbConnection" id="setDbConnection"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDbConnection</span> (line <span class="line-number">48</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDbConnection
+		</span>
+					(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$value</span><span class="var-description">: database connection.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetTableInfo" id="setTableInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTableInfo</span> (line <span class="line-number">56</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTableInfo
+		</span>
+					(<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+				<span class="var-name">$value</span><span class="var-description">: table information.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:13:59 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

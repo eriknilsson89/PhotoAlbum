@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TPageService</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TPageService</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TPageService class.</p>
+<p class="description"><p>TPageService implements the service for serving user page requests.</p><p>Pages that are available to client users are stored under a directory specified by  <a href="../System.Web.Services/TPageService.html#methodsetBasePath">BasePath</a>. The directory may contain subdirectories.  Pages serving for a similar goal are usually placed under the same directory.  A directory may contain a configuration file <strong>config.xml</strong> whose content  is similar to that of application configuration file.</p><p>A page is requested via page path, which is a dot-connected directory names  appended by the page name. Assume '&lt;BasePath&gt;/Users/Admin' is the directory  containing the page 'Update'. Then the page can be requested via 'Users.Admin.Update'.  By default, the <a href="../System.Web.Services/TPageService.html#methodsetBasePath">BasePath</a> of the page service is the &quot;pages&quot;  directory under the application base path. You may change this default  by setting <a href="../System.Web.Services/TPageService.html#methodsetBasePath">BasePath</a> with a different path you prefer.</p><p>Page name refers to the file name (without extension) of the page template.  In order to differentiate from the common control template files, the extension  name of the page template files must be '.page'. If there is a PHP file with  the same page name under the same directory as the template file, that file  will be considered as the page class file and the file name is the page class name.  If such a file is not found, the page class is assumed as <a href="../System.Web.UI/TPage.html">TPage</a>.</p><p>Modules can be configured and loaded in page directory configurations.  Configuration of a module in a subdirectory will overwrite its parent  directory's configuration, if both configurations refer to the same module.</p><p>By default, TPageService will automatically load two modules: <ul><li><a href="../System.Web.UI/TTemplateManager.html">TTemplateManager</a> : manages page and control templates</li><li><a href="../System.Web.UI/TThemeManager.html">TThemeManager</a> : manages themes used in a Prado application</li></ul>  In page directory configurations, static authorization rules can also be specified,  which governs who and which roles can access particular pages.  Refer to <a href="../System.Security/TAuthorizationRule.html">TAuthorizationRule</a> for more details about authorization rules.  Page authorization rules can be configured within an &lt;authorization&gt; tag in  each page directory configuration as follows,  &lt;authorization&gt;    &lt;deny pages=&quot;Update&quot; users=&quot;?&quot; /&gt;    &lt;allow pages=&quot;Admin&quot; roles=&quot;administrator&quot; /&gt;    &lt;deny pages=&quot;Admin&quot; users=&quot;*&quot; /&gt;  &lt;/authorization&gt;  where the 'pages' attribute may be filled with a sequence of comma-separated  page IDs. If 'pages' attribute does not appear in a rule, the rule will be  applied to all pages in this directory and all subdirectories (recursively).  Application of authorization rules are in a bottom-up fashion, starting from  the directory containing the requested page up to all parent directories.  The first matching rule will be used. The last rule always allows all users  accessing to any resources.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TPageService.php 2737 2009-11-08 07:33:48Z godzilla80@gmx.net $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_Services_TPageService_php.html">/Web/Services/TPageService.php</a> (line <span class="field">76</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TService.html">TService</a>
+         |
+         --TPageService</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_CACHE_PREFIX" title="details" class="const-name">CONFIG_CACHE_PREFIX</a> = 					<span class="var-type">'prado:pageservice:'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_FILE" title="details" class="const-name">CONFIG_FILE</a> = 					<span class="var-type">'config.xml'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#DEFAULT_BASEPATH" title="details" class="const-name">DEFAULT_BASEPATH</a> = 					<span class="var-type">'pages'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#PAGE_FILE_EXT" title="details" class="const-name">PAGE_FILE_EXT</a> = 					<span class="var-type">'.page'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applyConfiguration" title="details" class="method-name">applyConfiguration</a>
+											(<span class="var-type"><a href="../System.Web.Services/TPageConfiguration.html">TPageConfiguration</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#constructUrl" title="details" class="method-name">constructUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$pagePath</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$getParams</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span> = <span class="var-default">true</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span> = <span class="var-default">true</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/TPage.html">TPage</a></span>
+										<a href="#createPage" title="details" class="method-name">createPage</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$pagePath</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#determineRequestedPagePath" title="details" class="method-name">determineRequestedPagePath</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBasePageClass" title="details" class="method-name">getBasePageClass</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBasePath" title="details" class="method-name">getBasePath</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getClientScriptManagerClass" title="details" class="method-name">getClientScriptManagerClass</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDefaultPage" title="details" class="method-name">getDefaultPage</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDefaultPageUrl" title="details" class="method-name">getDefaultPageUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/TPage.html">TPage</a></span>
+										<a href="#getRequestedPage" title="details" class="method-name">getRequestedPage</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getRequestedPagePath" title="details" class="method-name">getRequestedPagePath</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/TTemplateManager.html">TTemplateManager</a></span>
+										<a href="#getTemplateManager" title="details" class="method-name">getTemplateManager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI/TThemeManager.html">TThemeManager</a></span>
+										<a href="#getThemeManager" title="details" class="method-name">getThemeManager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#initPageContext" title="details" class="method-name">initPageContext</a>
+											(<span class="var-type"><a href="../System.Web.Services/TPageConfiguration.html">TPageConfiguration</a></span>&nbsp;<span class="var-name">$pageConfig</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.Services/TPageConfiguration.html">TPageConfiguration</a></span>
+										<a href="#loadPageConfig" title="details" class="method-name">loadPageConfig</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#run" title="details" class="method-name">run</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#runPage" title="details" class="method-name">runPage</a>
+											(<span class="var-type"><a href="../System.Web.UI/TPage.html">TPage</a></span>&nbsp;<span class="var-name">$page</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$properties</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBasePageClass" title="details" class="method-name">setBasePageClass</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBasePath" title="details" class="method-name">setBasePath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setClientScriptManagerClass" title="details" class="method-name">setClientScriptManagerClass</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDefaultPage" title="details" class="method-name">setDefaultPage</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setTemplateManager" title="details" class="method-name">setTemplateManager</a>
+											(<span class="var-type">TTemplateManager</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setThemeManager" title="details" class="method-name">setThemeManager</a>
+											(<span class="var-type">TThemeManager</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodapplyConfiguration" id="applyConfiguration"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyConfiguration</span> (line <span class="line-number">172</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Applies a page configuration.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applyConfiguration
+		</span>
+					(<span class="var-type"><a href="../System.Web.Services/TPageConfiguration.html">TPageConfiguration</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.Services/TPageConfiguration.html">TPageConfiguration</a></span>
+				<span class="var-name">$config</span><span class="var-description">: the configuration</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodconstructUrl" id="constructUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">constructUrl</span> (line <span class="line-number">509</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructs a URL with specified page path and GET parameters.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> URL for the page and GET parameters</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			constructUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$pagePath</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$getParams</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span> = <span class="var-default">true</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$pagePath</span><span class="var-description">: page path</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$getParams</span><span class="var-description">: list of GET parameters, null if no GET parameters required</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeAmpersand</span><span class="var-description">: whether to encode the ampersand in URL, defaults to true.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeGetItems</span><span class="var-description">: whether to encode the GET parameters (their names and values), defaults to true.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreatePage" id="createPage"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createPage</span> (line <span class="line-number">454</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a page instance based on requested page path.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the requested page instance</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">throws:</span> THttpException if requested page path is invalid</li>
+				<li><span class="field">throws:</span> TConfigurationException if the page class cannot be found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/TPage.html">TPage</a></span>
+		<span class="method-name">
+			createPage
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$pagePath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$pagePath</span><span class="var-description">: requested page path</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methoddetermineRequestedPagePath" id="determineRequestedPagePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">determineRequestedPagePath</span> (line <span class="line-number">200</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines the requested page path.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> page path requested</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			determineRequestedPagePath
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetBasePageClass" id="getBasePageClass"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBasePageClass</span> (line <span class="line-number">411</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> base page class name in namespace format. Defaults to 'TPage'.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBasePageClass
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetBasePath" id="getBasePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBasePath</span> (line <span class="line-number">373</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the root directory for storing pages. Defaults to the 'pages' directory under the application base path.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBasePath
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetClientScriptManagerClass" id="getClientScriptManagerClass"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClientScriptManagerClass</span> (line <span class="line-number">430</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> clientscript manager class in namespace format. Defaults to 'System.Web.UI.TClientScriptManager'.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.7</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getClientScriptManagerClass
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDefaultPage" id="getDefaultPage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDefaultPage</span> (line <span class="line-number">345</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> default page path to be served if no explicit page is request. Defaults to 'Home'.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDefaultPage
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDefaultPageUrl" id="getDefaultPageUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDefaultPageUrl</span> (line <span class="line-number">365</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the URL for the default page</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDefaultPageUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRequestedPage" id="getRequestedPage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRequestedPage</span> (line <span class="line-number">337</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the requested page</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/TPage.html">TPage</a></span>
+		<span class="method-name">
+			getRequestedPage
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRequestedPagePath" id="getRequestedPagePath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRequestedPagePath</span> (line <span class="line-number">323</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the requested page path</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getRequestedPagePath
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTemplateManager" id="getTemplateManager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTemplateManager</span> (line <span class="line-number">281</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> template manager</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/TTemplateManager.html">TTemplateManager</a></span>
+		<span class="method-name">
+			getTemplateManager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetThemeManager" id="getThemeManager"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getThemeManager</span> (line <span class="line-number">302</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> theme manager</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI/TThemeManager.html">TThemeManager</a></span>
+		<span class="method-name">
+			getThemeManager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">141</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the service.</p>
+<p class="description"><p>This method is required by IService interface and is invoked by application.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: service configuration</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TService.html#methodinit">TService::init()</a></dt>
+						<dd>Initializes the service and attaches run to the RunService event of application.</dd>
+					</dl>
+		
+	</div>
+<a name="methodinitPageContext" id="initPageContext"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">initPageContext</span> (line <span class="line-number">159</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes page context.</p>
+<p class="description"><p>Page context includes path alias settings, namespace usages,  parameter initialization, module loadings, page initial properties  and authorization rules.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			initPageContext
+		</span>
+					(<span class="var-type"><a href="../System.Web.Services/TPageConfiguration.html">TPageConfiguration</a></span>&nbsp;<span class="var-name">$pageConfig</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.Services/TPageConfiguration.html">TPageConfiguration</a></span>
+				<span class="var-name">$pageConfig</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadPageConfig" id="loadPageConfig"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadPageConfig</span> (line <span class="line-number">213</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Collects configuration for a page.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.Services/TPageConfiguration.html">TPageConfiguration</a></span>
+		<span class="method-name">
+			loadPageConfig
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: additional configuration specified in the application configuration</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrun" id="run"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">run</span> (line <span class="line-number">440</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Runs the service.</p>
+<p class="description"><p>This will create the requested page, initializes it with the property values  specified in the configuration, and executes the page.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			run
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TService.html#methodrun">TService::run()</a></dt>
+						<dd>Runs the service.</dd>
+					</dl>
+		
+	</div>
+<a name="methodrunPage" id="runPage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">runPage</span> (line <span class="line-number">494</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Executes a page.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			runPage
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/TPage.html">TPage</a></span>&nbsp;<span class="var-name">$page</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$properties</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TPage.html">TPage</a></span>
+				<span class="var-name">$page</span><span class="var-description">: the page instance to be run</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$properties</span><span class="var-description">: list of initial page properties</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetBasePageClass" id="setBasePageClass"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBasePageClass</span> (line <span class="line-number">403</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the base page class name (in namespace format).</p>
+<p class="description"><p>If a page only has a template file without page class file,  this base page class will be instantiated.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBasePageClass
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: class name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetBasePath" id="setBasePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBasePath</span> (line <span class="line-number">388</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the service is initialized already or basepath is invalid</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBasePath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: root directory (in namespace form) storing pages</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetClientScriptManagerClass" id="setClientScriptManagerClass"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setClientScriptManagerClass</span> (line <span class="line-number">421</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the clientscript manager class (in namespace format).</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.7</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setClientScriptManagerClass
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: class name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetDefaultPage" id="setDefaultPage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDefaultPage</span> (line <span class="line-number">354</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the page service is initialized</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDefaultPage
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: default page path to be served if no explicit page is request</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetTemplateManager" id="setTemplateManager"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTemplateManager</span> (line <span class="line-number">294</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTemplateManager
+		</span>
+					(<span class="var-type">TTemplateManager</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TTemplateManager.html">TTemplateManager</a></span>
+				<span class="var-name">$value</span><span class="var-description">: template manager</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetThemeManager" id="setThemeManager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setThemeManager</span> (line <span class="line-number">315</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setThemeManager
+		</span>
+					(<span class="var-type">TThemeManager</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TThemeManager.html">TThemeManager</a></span>
+				<span class="var-name">$value</span><span class="var-description">: theme manager</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TService.html">TService</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TService.html#methodgetEnabled">TService::getEnabled()</a></span><br>
+													<span class="method-name"><a href="../System/TService.html#methodgetID">TService::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TService.html#methodinit">TService::init()</a></span><br>
+													<span class="method-name"><a href="../System/TService.html#methodrun">TService::run()</a></span><br>
+													<span class="method-name"><a href="../System/TService.html#methodsetEnabled">TService::setEnabled()</a></span><br>
+													<span class="method-name"><a href="../System/TService.html#methodsetID">TService::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constCONFIG_CACHE_PREFIX" id="CONFIG_CACHE_PREFIX"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_CACHE_PREFIX</span>
+			 = <span class="const-default">'prado:pageservice:'</span>
+			(line <span class="line-number">89</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Prefix of ID used for storing parsed configuration in cache</p>
+	
+	
+</div>
+<a name="constCONFIG_FILE" id="CONFIG_FILE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_FILE</span>
+			 = <span class="const-default">'config.xml'</span>
+			(line <span class="line-number">81</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Configuration file name</p>
+	
+	
+</div>
+<a name="constDEFAULT_BASEPATH" id="DEFAULT_BASEPATH"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">DEFAULT_BASEPATH</span>
+			 = <span class="const-default">'pages'</span>
+			(line <span class="line-number">85</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Default base path</p>
+	
+	
+</div>
+<a name="constPAGE_FILE_EXT" id="PAGE_FILE_EXT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">PAGE_FILE_EXT</span>
+			 = <span class="const-default">'.page'</span>
+			(line <span class="line-number">93</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Page template file extension</p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:15:33 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

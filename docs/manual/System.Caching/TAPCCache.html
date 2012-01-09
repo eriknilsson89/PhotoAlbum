@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TAPCCache</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TAPCCache</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TAPCCache class</p>
+<p class="description"><p>TAPCCache implements a cache application module based on <a href="http://www.php.net/apc">APC</a>.</p><p>By definition, cache does not ensure the existence of a value  even if it never expires. Cache is not meant to be an persistent storage.</p><p>To use this module, the APC PHP extension must be loaded and set in the php.ini file the following:  <pre><ol><code><pre><li> <span class="src-id">apc</span>.<span class="src-id">cache_by_default</span>=<span class="src-num">0</span></li>
+</pre></code></ol></pre></p><p>Some usage examples of TAPCCache are as follows,  <pre><ol><code><pre><li> <span class="src-var">$cache</span>=<span class="src-key">new </span><span class="src-id"><a href="../System.Caching/TAPCCache.html">TAPCCache</a></span><span class="src-sym">;  </span><span class="src-comm">// TAPCCache may also be loaded as a Prado application module</span></li>
+<li>  <span class="src-var">$cache</span><span class="src-sym">-&gt;</span><a href="../System.Caching/TAPCCache.html#methodinit">init</a><span class="src-sym">(</span><span class="src-id">null</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$cache</span><span class="src-sym">-&gt;</span><a href="../System.Caching/TCache.html#methodadd">add</a><span class="src-sym">(</span><span class="src-str">'object'</span><span class="src-sym">,</span><span class="src-var">$object</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$object2</span>=<span class="src-var">$cache</span><span class="src-sym">-&gt;</span><a href="../System.Caching/TCache.html#methodget">get</a><span class="src-sym">(</span><span class="src-str">'object'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p><p>If loaded, TAPCCache will register itself with <a href="../System/TApplication.html">TApplication</a> as the  cache module. It can be accessed via <a href="../System/TApplication.html#methodgetCache">TApplication::getCache()</a>.</p><p>TAPCCache may be configured in application configuration file as follows  <pre><ol><code><pre><li> &lt;<span class="src-id">module id</span>=<span class="src-str">&quot;cache&quot; </span><span class="src-key">class</span>=<span class="src-str">&quot;System.Caching.TAPCCache&quot; </span>/&gt;</li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0b</li>
+				<li><span class="field">version:</span> $Id: TAPCCache.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">author:</span> Alban Hanry &lt;<a href="mailto:compte_messagerie@hotmail.com">compte_messagerie@hotmail.com</a>&gt;</li>
+				<li><span class="field">author:</span> Knut Urdalen &lt;<a href="mailto:knut.urdalen@gmail.com">knut.urdalen@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Caching_TAPCCache_php.html">/Caching/TAPCCache.php</a> (line <span class="field">48</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --<a href="../System.Caching/TCache.html">TCache</a>
+            |
+            --TAPCCache</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#addValue" title="details" class="method-name">addValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$expire</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#deleteValue" title="details" class="method-name">deleteValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#flush" title="details" class="method-name">flush</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getValue" title="details" class="method-name">getValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#setValue" title="details" class="method-name">setValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$expire</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodaddValue" id="addValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addValue</span> (line <span class="line-number">104</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stores a value identified by a key into cache if the cache does not contain this key.</p>
+<p class="description"><p>This is the implementation of the method declared in the parent class.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the value is successfully stored into cache, false otherwise</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			addValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$expire</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: the key identifying the value to be cached</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the value to be cached</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$expire</span><span class="var-description">: the number of seconds in which the cached value will expire. 0 means never expire.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Caching/TCache.html#methodaddValue">TCache::addValue()</a></dt>
+						<dd>Stores a value identified by a key into cache if the cache does not contain this key.</dd>
+					</dl>
+		
+	</div>
+<a name="methoddeleteValue" id="deleteValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteValue</span> (line <span class="line-number">119</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletes a value with the specified key from cache  This is the implementation of the method declared in the parent class.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> if no error happens during deletion</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			deleteValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: the key of the value to be deleted</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Caching/TCache.html#methoddeleteValue">TCache::deleteValue()</a></dt>
+						<dd>Deletes a value with the specified key from cache  This method should be implemented by child classes to delete the data from actual cache storage.</dd>
+					</dl>
+		
+	</div>
+<a name="methodflush" id="flush"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">flush</span> (line <span class="line-number">128</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletes all values from cache.</p>
+<p class="description"><p>Be careful of performing this operation if the cache is shared by multiple applications.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			flush
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Caching/TCache.html#methodflush">TCache::flush()</a></dt>
+						<dd>Deletes all values from cache.</dd>
+					</dl>
+		
+	</div>
+<a name="methodgetValue" id="getValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getValue</span> (line <span class="line-number">76</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieves a value from cache with a specified key.</p>
+<p class="description"><p>This is the implementation of the method declared in the parent class.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the value stored in cache, false if the value is not in the cache or expired.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: a unique key identifying the cached value</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Caching/TCache.html#methodgetValue">TCache::getValue()</a></dt>
+						<dd>Retrieves a value from cache with a specified key.</dd>
+					</dl>
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">56</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes this module.</p>
+<p class="description"><p>This method is required by the IModule interface.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException if apc extension is not installed or not started, check your php.ini</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: configuration for this module, can be null</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Caching/TCache.html#methodinit">TCache::init()</a></dt>
+						<dd>Initializes the cache module.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetValue" id="setValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setValue</span> (line <span class="line-number">90</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stores a value identified by a key in cache.</p>
+<p class="description"><p>This is the implementation of the method declared in the parent class.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the value is successfully stored into cache, false otherwise</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			setValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$expire</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: the key identifying the value to be cached</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the value to be cached</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$expire</span><span class="var-description">: the number of seconds in which the cached value will expire. 0 means never expire.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Caching/TCache.html#methodsetValue">TCache::setValue()</a></dt>
+						<dd>Stores a value identified by a key in cache.</dd>
+					</dl>
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Caching/TCache.html">TCache</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodadd">TCache::add()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodaddValue">TCache::addValue()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methoddelete">TCache::delete()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methoddeleteValue">TCache::deleteValue()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodflush">TCache::flush()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodgenerateUniqueKey">TCache::generateUniqueKey()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodget">TCache::get()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodgetKeyPrefix">TCache::getKeyPrefix()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodgetPrimaryCache">TCache::getPrimaryCache()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodgetValue">TCache::getValue()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodinit">TCache::init()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodoffsetExists">TCache::offsetExists()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodoffsetGet">TCache::offsetGet()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodoffsetSet">TCache::offsetSet()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodoffsetUnset">TCache::offsetUnset()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodset">TCache::set()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodsetKeyPrefix">TCache::setKeyPrefix()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodsetPrimaryCache">TCache::setPrimaryCache()</a></span><br>
+													<span class="method-name"><a href="../System.Caching/TCache.html#methodsetValue">TCache::setValue()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:24 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

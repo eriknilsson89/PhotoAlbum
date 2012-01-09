@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class IScaffoldEditRenderer</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Interface IScaffoldEditRenderer</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">IScaffoldEditRenderer interface.</p>
+<p class="description"><p>IScaffoldEditRenderer defines the interface that an edit renderer  needs to implement. Besides the <a href="../System/IDataRenderer.html#methodgetData">Data</a> property, an edit  renderer also needs to provide <a href="../System.Data.ActiveRecord.Scaffold/IScaffoldEditRenderer.html#methodupdateRecord">updateRecord</a> method  that is called before the save() method is called on the TActiveRecord.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TScaffoldEditView.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_ActiveRecord_Scaffold_TScaffoldEditView_php.html">/Data/ActiveRecord/Scaffold/TScaffoldEditView.php</a> (line <span class="field">301</span>)
+		</p>
+		
+				
+		<pre><a href="../System/IDataRenderer.html">IDataRenderer</a>
+   |
+   --IScaffoldEditRenderer</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateRecord" title="details" class="method-name">updateRecord</a>
+											(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodupdateRecord" id="updateRecord"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateRecord</span> (line <span class="line-number">307</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method should update the record with the user input data.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateRecord
+		</span>
+					(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>
+				<span class="var-name">$record</span><span class="var-description">: record to be saved.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/IDataRenderer.html">IDataRenderer</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/IDataRenderer.html#methodgetData">IDataRenderer::getData()</a></span><br>
+													<span class="method-name"><a href="../System/IDataRenderer.html#methodsetData">IDataRenderer::setData()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:15:59 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

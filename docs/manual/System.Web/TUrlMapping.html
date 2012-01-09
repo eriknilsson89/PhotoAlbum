@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TUrlMapping</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TUrlMapping</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TUrlMapping Class</p>
+<p class="description"><p>The TUrlMapping module allows PRADO to construct and recognize URLs  based on specific patterns.</p><p>TUrlMapping consists of a list of URL patterns which are used to match  against the currently requested URL. The first matching pattern will then  be used to decompose the URL into request parameters (accessible through  <pre><ol><code><pre><li><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">Request</span><span class="src-sym">[</span><span class="src-str">'paramname'</span><span class="src-sym">]</span></li>
+</pre></code></ol></pre>).</p><p>The patterns can also be used to construct customized URLs. In this case,  the parameters in an applied pattern will be replaced with the corresponding  GET variable values.</p><p>Since it is derived from <a href="../System.Web/TUrlManager.html">TUrlManager</a>, it should be configured globally  in the application configuration like the following,  <pre><ol><code><pre><li>  &lt;<span class="src-id">module id</span>=<span class="src-str">&quot;request&quot; </span><span class="src-key">class</span>=<span class="src-str">&quot;THttpRequest&quot; </span><span class="src-id">UrlManager</span>=<span class="src-str">&quot;friendly-url&quot; </span>/&gt;</li>
+<li>  &lt;<span class="src-id">module id</span>=<span class="src-str">&quot;friendly-url&quot; </span><span class="src-key">class</span>=<span class="src-str">&quot;System.Web.TUrlMapping&quot; </span><span class="src-id">EnableCustomUrl</span>=<span class="src-str">&quot;true&quot;</span>&gt;</li>
+<li>    &lt;<span class="src-id">url ServiceParameter</span>=<span class="src-str">&quot;Posts.ViewPost&quot; </span><span class="src-id">pattern</span>=<span class="src-str">&quot;post/{id}/&quot; </span><span class="src-id">parameters</span>.<span class="src-id">id</span>=<span class="src-str">&quot;\d+&quot; </span>/&gt;</li>
+<li>    &lt;<span class="src-id">url ServiceParameter</span>=<span class="src-str">&quot;Posts.ListPost&quot; </span><span class="src-id">pattern</span>=<span class="src-str">&quot;archive/{time}/&quot; </span><span class="src-id">parameters</span>.<span class="src-id">time</span>=<span class="src-str">&quot;\d{6}&quot; </span>/&gt;</li>
+<li>    &lt;<span class="src-id">url ServiceParameter</span>=<span class="src-str">&quot;Posts.ListPost&quot; </span><span class="src-id">pattern</span>=<span class="src-str">&quot;category/{cat}/&quot; </span><span class="src-id">parameters</span>.<span class="src-id">cat</span>=<span class="src-str">&quot;\d+&quot; </span>/&gt;</li>
+<li>  &lt;/<span class="src-id">module</span>&gt;</li>
+</pre></code></ol></pre></p><p>In the above, each &lt;tt&gt;&amp;lt;url&amp;gt;&lt;/tt&gt; element specifies a URL pattern represented  as a <a href="../System.Web/TUrlMappingPattern.html">TUrlMappingPattern</a> internally. You may create your own pattern classes  by extending <a href="../System.Web/TUrlMappingPattern.html">TUrlMappingPattern</a> and specifying the &lt;tt&gt;&amp;lt;class&amp;gt;&lt;/tt&gt; attribute  in the element.</p><p>The patterns can be also be specified in an external file using the <a href="../System.Web/TUrlMapping.html#methodsetConfigFile">ConfigFile</a> property.</p><p>The URL mapping are evaluated in order, only the first mapping that matches  the URL will be used. Cascaded mapping can be achieved by placing the URL mappings  in particular order. For example, placing the most specific mappings first.</p><p>Only the PATH_INFO part of the URL is used to match the available patterns. The matching  is strict in the sense that the whole pattern must match the whole PATH_INFO of the URL.</p><p>From PRADO v3.1.1, TUrlMapping also provides support for constructing URLs according to  the specified pattern. You may enable this functionality by setting <a href="../System.Web/TUrlMapping.html#methodsetEnableCustomUrl">EnableCustomUrl</a> to true.  When you call THttpRequest::constructUrl() (or via TPageService::constructUrl()),  TUrlMapping will examine the available URL mapping patterns using their TUrlMappingPattern::getServiceParameter  and TUrlMappingPattern::getPattern properties. A pattern is applied if its  TUrlMappingPattern::getServiceParameter matches the service parameter passed  to constructUrl() and every parameter in the getPattern is found  in the GET variables.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0.5</li>
+				<li><span class="field">version:</span> $Id: TUrlMapping.php 2918 2011-05-21 17:10:29Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_TUrlMapping_php.html">/Web/TUrlMapping.php</a> (line <span class="field">70</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --<a href="../System.Web/TUrlManager.html">TUrlManager</a>
+            |
+            --TUrlMapping</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_FILE_EXT" title="details" class="const-name">CONFIG_FILE_EXT</a> = 					<span class="var-type">'.xml'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$_constructRules" title="details" class="var-name">$_constructRules</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type">TUrlMappingPattern[]</span>
+					<a href="#$_patterns" title="details" class="var-name">$_patterns</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#constructUrl" title="details" class="method-name">constructUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceID</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceParam</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$getItems</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getConfigFile" title="details" class="method-name">getConfigFile</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDefaultMappingClass" title="details" class="method-name">getDefaultMappingClass</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getEnableCustomUrl" title="details" class="method-name">getEnableCustomUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/TUrlMappingPattern.html">TUrlMappingPattern</a></span>
+										<a href="#getMatchingPattern" title="details" class="method-name">getMatchingPattern</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUrlPrefix" title="details" class="method-name">getUrlPrefix</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$xml</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadConfigFile" title="details" class="method-name">loadConfigFile</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadUrlMappings" title="details" class="method-name">loadUrlMappings</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$xml</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#parseUrl" title="details" class="method-name">parseUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setConfigFile" title="details" class="method-name">setConfigFile</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDefaultMappingClass" title="details" class="method-name">setDefaultMappingClass</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setEnableCustomUrl" title="details" class="method-name">setEnableCustomUrl</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUrlPrefix" title="details" class="method-name">setUrlPrefix</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$_constructRules" id="$_constructRules"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$_constructRules</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">95</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> rules for constructing URLs</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_patterns" id="$_patterns"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">TUrlMappingPattern[]</span>
+			<span class="var-name">$_patterns</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">79</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> list of patterns.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																			<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodconstructUrl" id="constructUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">constructUrl</span> (line <span class="line-number">296</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructs a URL that can be recognized by PRADO.</p>
+<p class="description"><p>This method provides the actual implementation used by THttpRequest::constructUrl.  Override this method if you want to provide your own way of URL formatting.  If you do so, you may also need to override <a href="../System.Web/TUrlMapping.html#methodparseUrl">parseUrl</a> so that the URL can be properly parsed.</p><p>The URL is constructed as the following format:  /entryscript.php?serviceID=serviceParameter&amp;get1=value1&amp;...  If THttpRequest::setUrlFormat is 'Path',  the following format is used instead:  /entryscript.php/serviceID/serviceParameter/get1,value1/get2,value2...</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> URL</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+				<li><span class="field">see:</span> <a href="../System.Web/TUrlMapping.html#methodparseUrl">TUrlMapping::parseUrl()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			constructUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceID</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceParam</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$getItems</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceID</span><span class="var-description">: service ID</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceParam</span><span class="var-description">: service parameter</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$getItems</span><span class="var-description">: GET parameters, null if not provided</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeAmpersand</span><span class="var-description">: whether to encode the ampersand in URL</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeGetItems</span><span class="var-description">: whether to encode the GET parameters (their names and values)</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web/TUrlManager.html#methodconstructUrl">TUrlManager::constructUrl()</a></dt>
+						<dd>Constructs a URL that can be recognized by PRADO.</dd>
+					</dl>
+		
+	</div>
+<a name="methodgetConfigFile" id="getConfigFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConfigFile</span> (line <span class="line-number">182</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> external configuration file. Defaults to null.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getConfigFile
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDefaultMappingClass" id="getDefaultMappingClass"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDefaultMappingClass</span> (line <span class="line-number">202</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the default class of URL mapping patterns. Defaults to TUrlMappingPattern.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDefaultMappingClass
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetEnableCustomUrl" id="getEnableCustomUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEnableCustomUrl</span> (line <span class="line-number">143</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a value indicating whether to enable custom constructUrl.</p>
+<p class="description"><p>If true, constructUrl() will make use of the URL mapping rules to  construct valid URLs.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether to enable custom constructUrl. Defaults to false.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getEnableCustomUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetMatchingPattern" id="getMatchingPattern"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMatchingPattern</span> (line <span class="line-number">331</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the matched pattern, null if not found.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/TUrlMappingPattern.html">TUrlMappingPattern</a></span>
+		<span class="method-name">
+			getMatchingPattern
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUrlPrefix" id="getUrlPrefix"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrlPrefix</span> (line <span class="line-number">164</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the part that will be prefixed to the constructed URLs. Defaults to the requested script path (e.g. /path/to/index.php for a URL http://hostname/path/to/index.php)</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUrlPrefix
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">107</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes this module.</p>
+<p class="description"><p>This method is required by the IModule interface.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException if module is configured in the global scope.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$xml</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$xml</span><span class="var-description">: configuration for this module, can be null</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TModule.html#methodinit">TModule::init()</a></dt>
+						<dd>Initializes the module.</dd>
+					</dl>
+		
+	</div>
+<a name="methodloadConfigFile" id="loadConfigFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadConfigFile</span> (line <span class="line-number">124</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initialize the module from configuration file.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">throws:</span> TConfigurationException if <a href="../System.Web/TUrlMapping.html#methodgetConfigFile">ConfigFile</a> is invalid.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadConfigFile
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodloadUrlMappings" id="loadUrlMappings"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadUrlMappings</span> (line <span class="line-number">224</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load and configure each url mapping pattern.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">throws:</span> TConfigurationException if specific pattern class is invalid</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadUrlMappings
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$xml</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$xml</span><span class="var-description">: configuration node</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodparseUrl" id="parseUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">parseUrl</span> (line <span class="line-number">252</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parses the request URL and returns an array of input parameters.</p>
+<p class="description"><p>This method overrides the parent implementation.  The input parameters do not include GET and POST variables.  This method uses the request URL path to find the first matching pattern. If found  the matched pattern parameters are used to return as the input parameters.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of input parameters</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			parseUrl
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web/TUrlManager.html#methodparseUrl">TUrlManager::parseUrl()</a></dt>
+						<dd>Parses the request URL and returns an array of input parameters.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetConfigFile" id="setConfigFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setConfigFile</span> (line <span class="line-number">192</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if the file is invalid.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setConfigFile
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: external configuration file in namespace format. The file  must be suffixed with '.xml'.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetDefaultMappingClass" id="setDefaultMappingClass"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDefaultMappingClass</span> (line <span class="line-number">214</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the default class of URL mapping patterns.</p>
+<p class="description"><p>When a URL matching pattern does not specify &quot;class&quot; attribute, it will default to the class  specified by this property. You may use either a class name or a namespace format of class (if the class needs to be included first.)</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDefaultMappingClass
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the default class of URL mapping patterns.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetEnableCustomUrl" id="setEnableCustomUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setEnableCustomUrl</span> (line <span class="line-number">155</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a value indicating whether to enable custom constructUrl.</p>
+<p class="description"><p>If true, constructUrl() will make use of the URL mapping rules to  construct valid URLs.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEnableCustomUrl
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether to enable custom constructUrl.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUrlPrefix" id="setUrlPrefix"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUrlPrefix</span> (line <span class="line-number">174</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+				<li><span class="field">see:</span> <a href="../System.Web/TUrlMapping.html#methodgetUrlPrefix">TUrlMapping::getUrlPrefix()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUrlPrefix
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the part that will be prefixed to the constructed URLs. This is used by constructUrl() when EnableCustomUrl is set true.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web/TUrlManager.html">TUrlManager</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web/TUrlManager.html#methodconstructUrl">TUrlManager::constructUrl()</a></span><br>
+													<span class="method-name"><a href="../System.Web/TUrlManager.html#methodparseUrl">TUrlManager::parseUrl()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constCONFIG_FILE_EXT" id="CONFIG_FILE_EXT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_FILE_EXT</span>
+			 = <span class="const-default">'.xml'</span>
+			(line <span class="line-number">75</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">File extension of external configuration file</p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:52 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

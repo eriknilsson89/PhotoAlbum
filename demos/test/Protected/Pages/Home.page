@@ -1,0 +1,8 @@
+<%@ MasterClass="Application.common.MainLayout" Title="Home" %>
+<com:TContent ID="Main">
+	<p>Hello World</p>
+	<com:TLabel ID="Hello" /> 
+</com:TContent>
+<com:TContent ID="Sidebar">
+	<p>Hello Sidebar</p> 
+</com:TContent>

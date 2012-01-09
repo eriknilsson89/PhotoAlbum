@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TSimpleDateFormatter</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TSimpleDateFormatter</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TSimpleDateFormatter class.</p>
+<p class="description"><p>Formats and parses dates using the SimpleDateFormat pattern.  This pattern is compatible with the I18N and java's SimpleDateFormatter.  <pre><ol><code><pre><li> <span class="src-id">Pattern </span>|      <span class="src-id">Description</span></li>
+<li> ----------------------------------------------------</li>
+<li> <span class="src-id">d       </span>| <span class="src-id">Day of month </span><span class="src-num">1 </span><span class="src-id">to </span><span class="src-num">31</span><span class="src-sym">, </span><span class="src-id">no padding</span></li>
+<li> <span class="src-id">dd      </span>| <span class="src-id">Day of monath </span><span class="src-num">01 </span><span class="src-id">to </span><span class="src-num">31</span><span class="src-sym">, </span><span class="src-id">zero leading</span></li>
+<li> <span class="src-id">M       </span>| <span class="src-id">Month digit </span><span class="src-num">1 </span><span class="src-id">to </span><span class="src-num">12</span><span class="src-sym">, </span><span class="src-id">no padding</span></li>
+<li> <span class="src-id">MM      </span>| <span class="src-id">Month digit </span><span class="src-num">01 </span><span class="src-id">to </span><span class="src-num">12</span><span class="src-sym">, </span><span class="src-id">zero leading</span></li>
+<li> <span class="src-id">yy      </span>| <span class="src-num">2 </span><span class="src-id">year digit</span><span class="src-sym">, </span><span class="src-id">e</span>.<span class="src-id">g</span>.<span class="src-sym">, </span><span class="src-num">96</span><span class="src-sym">, </span><span class="src-num">05</span></li>
+<li> <span class="src-id">yyyy    </span>| <span class="src-num">4 </span><span class="src-id">year digit</span><span class="src-sym">, </span><span class="src-id">e</span>.<span class="src-id">g</span>.<span class="src-sym">, </span><span class="src-num">2005</span></li>
+<li> ----------------------------------------------------</li>
+</pre></code></ol></pre></p><p>Usage example, to format a date  <pre><ol><code><pre><li> <span class="src-var">$formatter </span>= <span class="src-key">new </span><span class="src-id"><a href="../System.Util/TSimpleDateFormatter.html">TSimpleDateFormatter</a></span><span class="src-sym">(</span><span class="src-str">&quot;dd/MM/yyy&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> echo <span class="src-var">$formatter</span><span class="src-sym">-&gt;</span><a href="../System.Util/TSimpleDateFormatter.html#methodformat">format</a><span class="src-sym">(</span><a href="http://www.php.net/time">time</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p><p>To parse the date string into a date timestamp.  <pre><ol><code><pre><li> <span class="src-var">$formatter </span>= <span class="src-key">new </span><span class="src-id"><a href="../System.Util/TSimpleDateFormatter.html">TSimpleDateFormatter</a></span><span class="src-sym">(</span><span class="src-str">&quot;d-M-yyy&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> echo <span class="src-var">$formatter</span><span class="src-sym">-&gt;</span><a href="../System.Util/TSimpleDateFormatter.html#methodparse">parse</a><span class="src-sym">(</span><span class="src-str">&quot;24-6-2005&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TSimpleDateFormatter.php 2918 2011-05-21 17:10:29Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Util_TSimpleDateFormatter_php.html">/Util/TSimpleDateFormatter.php</a> (line <span class="field">47</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TSimpleDateFormatter</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$pattern</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$charset</span> = <span class="var-default">'UTF-8'</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#format" title="details" class="method-name">format</a>
+											(<span class="var-type">string|int</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCharset" title="details" class="method-name">getCharset</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getDayMonthYearOrdering" title="details" class="method-name">getDayMonthYearOrdering</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getDayPattern" title="details" class="method-name">getDayPattern</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getMonthPattern" title="details" class="method-name">getMonthPattern</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPattern" title="details" class="method-name">getPattern</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getYearPattern" title="details" class="method-name">getYearPattern</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isValidDate" title="details" class="method-name">isValidDate</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#parse" title="details" class="method-name">parse</a>
+											(<span class="var-type">string|int</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$defaultToCurrentTime</span> = <span class="var-default">true</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCharset" title="details" class="method-name">setCharset</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$charset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPattern" title="details" class="method-name">setPattern</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$pattern</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">66</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor, create a new date time formatter.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TSimpleDateFormatter</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$pattern</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$charset</span> = <span class="var-default">'UTF-8'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$pattern</span><span class="var-description">: formatting pattern.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$charset</span><span class="var-description">: pattern and value charset</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodformat" id="format"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">format</span> (line <span class="line-number">109</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Format the date according to the pattern.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> formatted date.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			format
+		</span>
+					(<span class="var-type">string|int</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|int</span>
+				<span class="var-name">$value</span><span class="var-description">: the date to format, either integer or a string readable by strtotime.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetCharset" id="getCharset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCharset</span> (line <span class="line-number">91</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> formatting charset.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCharset
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDayMonthYearOrdering" id="getDayMonthYearOrdering"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDayMonthYearOrdering</span> (line <span class="line-number">156</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getDayMonthYearOrdering
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDayPattern" id="getDayPattern"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDayPattern</span> (line <span class="line-number">138</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getDayPattern
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetMonthPattern" id="getMonthPattern"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMonthPattern</span> (line <span class="line-number">125</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getMonthPattern
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPattern" id="getPattern"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPattern</span> (line <span class="line-number">75</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> formatting pattern.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPattern
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetYearPattern" id="getYearPattern"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getYearPattern</span> (line <span class="line-number">147</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getYearPattern
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodisValidDate" id="isValidDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isValidDate</span> (line <span class="line-number">190</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the given value matches with the date pattern.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isValidDate
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodparse" id="parse"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">parse</span> (line <span class="line-number">205</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse the string according to the pattern.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> date time stamp</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if date string is malformed.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			parse
+		</span>
+					(<span class="var-type">string|int</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$defaultToCurrentTime</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|int</span>
+				<span class="var-name">$value</span><span class="var-description">: date string or integer to parse</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCharset" id="setCharset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCharset</span> (line <span class="line-number">99</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCharset
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$charset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$charset</span><span class="var-description">: formatting charset.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetPattern" id="setPattern"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPattern</span> (line <span class="line-number">83</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPattern
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$pattern</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$pattern</span><span class="var-description">: formatting pattern.</span>			</li>
+				</ul>
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:06 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

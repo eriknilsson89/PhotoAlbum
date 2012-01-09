@@ -1,0 +1,139 @@
+body
+{
+	background: #d8d8d8;
+}
+/*--------HEADER-----------*/
+#header
+{
+	
+}
+#header h1
+{
+	font-family: Myriad Pro;
+	font-size: 60px;
+}
+#header h1 a
+{
+	color: #0038a7;
+	text-decoration: none;
+}
+#header h2
+{
+	color: #558eff;
+	margin-left: 140px;
+	margin-top: -30px;
+}
+/*-------END HEADER--------*/
+/*----------NAV------------*/
+#nav
+{
+	
+}
+#nav ul
+{
+	background: #0038a7;
+}
+#nav ul li
+{
+	padding: 10px;
+	background: #d8d8d8;
+	width: 100px;
+	display: inline;
+	border: 1px solid #0038a7;
+}
+#nav ul li a
+{
+	color: Black;
+	text-decoration: none;
+}
+#nav ul li:hover
+{
+	background: #558eff;
+	border: 1px solid Black;
+}
+/*--------END NAV-----------*/
+/*-------CONTAINER----------*/
+#container
+{
+	width: 1000px;
+	margin: auto;
+}
+/*------END CONTAINER-------*/
+/*--------MAIN--------------*/
+#main
+{
+	float: right;
+	min-height: 500px;
+	width: 800px;
+}
+#albumList
+{
+	
+}
+#albumList li
+{
+	display: inline-block;
+	width: 200px;
+}
+#albumList li img
+{
+	width: 200px;
+}
+#albumList li a
+{
+	
+}
+#ctl0_Main_BigImage
+{
+	width: 750px;
+}
+/*-------END MAIN-----------*/
+/*-------SIDEBAR------------*/
+#sidebar
+{
+	float: left;
+	min-height: 500px;
+	width: 196px;
+}
+#myalbums h3
+{
+	font-family: Myriad Pro;
+	font-size: 20px;
+	color: 	#0038a7;
+}
+#myalbums ul
+{
+	list-style: none;
+	margin-left: -40px;
+}
+#myalbums ul li
+{
+	text-align: center;
+	height: 20px;
+	width: 150px;
+	background: #558eff;
+	border: 1px solid Black;
+	margin-bottom: 1px;
+}
+#myalbums ul li:hover
+{
+	background: #0038a7;
+}
+#myalbums ul li a
+{
+	color: black;
+	text-decoration: none;
+}
+/*-------END SIDEBAR--------*/
+/*-------FOOTER-------------*/
+#footer
+{
+	float: left;
+	clear: both;
+	border: 3px solid #0038a7;
+}
+#footer .login
+{
+	margin: 5px;
+}
+/*-------END FOOTER---------*/

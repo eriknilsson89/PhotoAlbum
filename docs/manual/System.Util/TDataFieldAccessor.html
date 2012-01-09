@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TDataFieldAccessor</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TDataFieldAccessor</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TDataFieldAccessor class</p>
+<p class="description"><p>TDataFieldAccessor is a utility class that provides access to a field of some data.  The accessor attempts to obtain the field value in the following order: <ul><li>If the data is an array, then the field is treated as an array index
+   and the corresponding element value is returned;</li><li>If the data is a TMap or TList object, then the field is treated as a key
+   into the map or list, and the corresponding value is returned.</li><li>If the data is an object, the field is treated as a property or sub-property
+   defined with getter methods. For example, if the object has a method called
+   getMyValue(), then field 'MyValue' will retrieve the result of this method call.
+   If getMyValue() returns an object which contains a method getMySubValue(),
+   then field 'MyValue.MySubValue' will return that method call result.</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TDataFieldAccessor.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Util_TDataFieldAccessor_php.html">/Util/TDataFieldAccessor.php</a> (line <span class="field">33</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getDataFieldValue" title="details" class="method-name">getDataFieldValue</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$field</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetDataFieldValue" id="getDataFieldValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDataFieldValue</span> (line <span class="line-number">51</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Evaluates the data value at the specified field.</p>
+<p class="description"><p><ul><li>If the data is an array, then the field is treated as an array index
+   and the corresponding element value is returned;</li><li>If the data is a TMap or TList object, then the field is treated as a key
+   into the map or list, and the corresponding value is returned.</li><li>If the data is an object, the field is treated as a property or sub-property
+   defined with getter methods. For example, if the object has a method called
+   getMyValue(), then field 'MyValue' will retrieve the result of this method call.
+   If getMyValue() returns an object which contains a method getMySubValue(),
+   then field 'MyValue.MySubValue' will return that method call result.</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> value at the specified field</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if field or data is invalid</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getDataFieldValue
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$field</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$data</span><span class="var-description">: data containing the field value, can be an array, TMap, TList or object.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$field</span><span class="var-description">: field value</span>			</li>
+				</ul>
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:13:30 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

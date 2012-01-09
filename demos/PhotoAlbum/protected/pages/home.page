@@ -1,0 +1,16 @@
+<com:TContent ID="Main">
+<com:TConditional Condition="$this->User->IsGuest">
+	<prop:TrueTemplate>
+		<h2>Welcome to Photo Album</h2>
+		<p>Keep your memories by uploading your favourite images and sotre them in a album</p>
+		<p>You must log in to be able to upload images. Not a member? <a href="?page=register">Sign up now!</a></p>
+	</prop:TrueTemplate>
+	<prop:FalseTemplate>
+		<h2>Welcome <%=$this->User->Name%></h2>
+		<com:TImage ImageUrl="" ID="randomPic" Width="750px"/>
+	</prop:FalseTemplate>
+</com:TConditional>
+</com:TContent>
+<com:TContent ID="Sidebar">
+	<com:myAlbums Visible="<%= !$this->User->IsGuest %>"/> 
+</com:TContent>

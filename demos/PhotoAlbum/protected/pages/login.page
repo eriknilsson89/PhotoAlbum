@@ -1,0 +1,5 @@
+<com:TContent ID="Sidebar" >
+
+<com:LoginPortlet />
+
+</com:TContent>

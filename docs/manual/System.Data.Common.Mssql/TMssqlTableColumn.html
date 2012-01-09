@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TMssqlTableColumn</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TMssqlTableColumn</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Describes the column metadata of the schema for a Mssql database table.</p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TMssqlTableColumn.php 1863 2007-04-12 12:43:49Z wei $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_Common_Mssql_TMssqlTableColumn_php.html">/Data/Common/Mssql/TMssqlTableColumn.php</a> (line <span class="field">26</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System.Data.Common/TDbTableColumn.html">TDbTableColumn</a>
+      |
+      --TMssqlTableColumn</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getAutoIncrement" title="details" class="method-name">getAutoIncrement</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsExcluded" title="details" class="method-name">getIsExcluded</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getPHPType" title="details" class="method-name">getPHPType</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#hasSequence" title="details" class="method-name">hasSequence</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetAutoIncrement" id="getAutoIncrement"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAutoIncrement</span> (line <span class="line-number">43</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the column has identity (auto-increment)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getAutoIncrement
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsExcluded" id="getIsExcluded"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsExcluded</span> (line <span class="line-number">59</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if db type is 'timestamp'.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsExcluded
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Data.Common/TDbTableColumn.html#methodgetIsExcluded">TDbTableColumn::getIsExcluded()</a></dt>
+					</dl>
+		
+	</div>
+<a name="methodgetPHPType" id="getPHPType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPHPType</span> (line <span class="line-number">34</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Overrides parent implementation, returns PHP type from the db type.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> derived PHP primitive type from the column db type.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getPHPType
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Data.Common/TDbTableColumn.html#methodgetPHPType">TDbTableColumn::getPHPType()</a></dt>
+						<dd>Returns the derived PHP primitive type from the db type. Default returns 'string'.</dd>
+					</dl>
+		
+	</div>
+<a name="methodhasSequence" id="hasSequence"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasSequence</span> (line <span class="line-number">51</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if auto increments.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			hasSequence
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Data.Common/TDbTableColumn.html#methodhasSequence">TDbTableColumn::hasSequence()</a></dt>
+					</dl>
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Data.Common/TDbTableColumn.html">TDbTableColumn</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#method__construct">TDbTableColumn::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetAllowNull">TDbTableColumn::getAllowNull()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetColumnId">TDbTableColumn::getColumnId()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetColumnIndex">TDbTableColumn::getColumnIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetColumnName">TDbTableColumn::getColumnName()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetColumnSize">TDbTableColumn::getColumnSize()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetDbType">TDbTableColumn::getDbType()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetDefaultValue">TDbTableColumn::getDefaultValue()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetInfo">TDbTableColumn::getInfo()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetIsExcluded">TDbTableColumn::getIsExcluded()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetIsForeignKey">TDbTableColumn::getIsForeignKey()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetIsPrimaryKey">TDbTableColumn::getIsPrimaryKey()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetMaxiumNumericConstraint">TDbTableColumn::getMaxiumNumericConstraint()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetNumericPrecision">TDbTableColumn::getNumericPrecision()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetNumericScale">TDbTableColumn::getNumericScale()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetPdoType">TDbTableColumn::getPdoType()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetPHPType">TDbTableColumn::getPHPType()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodgetSequenceName">TDbTableColumn::getSequenceName()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodhasSequence">TDbTableColumn::hasSequence()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableColumn.html#methodsetInfo">TDbTableColumn::setInfo()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../System.Data.Common/TDbTableColumn.html">TDbTableColumn</a></span></p>
+					<blockquote>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Data.Common/TDbTableColumn.html#constUNDEFINED_VALUE">TDbTableColumn::UNDEFINED_VALUE</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:15:16 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TWizardStepCollection</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TWizardStepCollection</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TWizardStepCollection class.</p>
+<p class="description"><p>TWizardStepCollection represents the collection of wizard steps owned  by a <a href="../System.Web.UI.WebControls/TWizard.html">TWizard</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TWizard.php 2919 2011-05-21 18:14:36Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_WebControls_TWizard_php.html">/Web/UI/WebControls/TWizard.php</a> (line <span class="field">1683</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System.Collections/TList.html">TList</a>
+      |
+      --TWizardStepCollection</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TWizardStepCollection</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">TWizard</span>&nbsp;<span class="var-name">$wizard</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#insertAt" title="details" class="method-name">insertAt</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$index</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#removeAt" title="details" class="method-name">removeAt</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$index</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">1694</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TWizardStepCollection</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">TWizard</span>&nbsp;<span class="var-name">$wizard</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TWizard.html">TWizard</a></span>
+				<span class="var-name">$wizard</span><span class="var-description">: wizard that owns this collection</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Collections/TList.html#method__construct">TList::__construct()</a></dt>
+						<dd>Constructor.</dd>
+					</dl>
+		
+	</div>
+<a name="methodinsertAt" id="insertAt"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">insertAt</span> (line <span class="line-number">1707</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Inserts an item at the specified position.</p>
+<p class="description"><p>This method overrides the parent implementation by checking if  the item being added is a <a href="../System.Web.UI.WebControls/TWizardStep.html">TWizardStep</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataTypeException if the item being added is not TWizardStep.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			insertAt
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$index</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$index</span><span class="var-description">: the speicified position.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$item</span><span class="var-description">: new item</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Collections/TList.html#methodinsertAt">TList::insertAt()</a></dt>
+						<dd>Inserts an item at the specified position.</dd>
+					</dl>
+		
+	</div>
+<a name="methodremoveAt" id="removeAt"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">removeAt</span> (line <span class="line-number">1724</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Removes an item at the specified position.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the removed item.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			removeAt
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$index</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$index</span><span class="var-description">: the index of the item to be removed.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Collections/TList.html#methodremoveAt">TList::removeAt()</a></dt>
+						<dd>Removes an item at the specified position.</dd>
+					</dl>
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Collections/TList.html">TList</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Collections/TList.html#method__construct">TList::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodadd">TList::add()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodclear">TList::clear()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodcontains">TList::contains()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodcopyFrom">TList::copyFrom()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodcount">TList::count()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodgetCount">TList::getCount()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodgetIterator">TList::getIterator()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodgetReadOnly">TList::getReadOnly()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodindexOf">TList::indexOf()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodinsertAt">TList::insertAt()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methoditemAt">TList::itemAt()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodmergeWith">TList::mergeWith()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodoffsetExists">TList::offsetExists()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodoffsetGet">TList::offsetGet()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodoffsetSet">TList::offsetSet()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodoffsetUnset">TList::offsetUnset()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodremove">TList::remove()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodremoveAt">TList::removeAt()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodsetReadOnly">TList::setReadOnly()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodtoArray">TList::toArray()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:17:07 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

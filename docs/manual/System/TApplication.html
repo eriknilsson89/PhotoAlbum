@@ -1,0 +1,2631 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TApplication</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TApplication</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TApplication class.</p>
+<p class="description"><p>TApplication coordinates modules and services, and serves as a configuration  context for all Prado components.</p><p>TApplication uses a configuration file to specify the settings of  the application, the modules, the services, the parameters, and so on.</p><p>TApplication adopts a modular structure. A TApplication instance is a composition  of multiple modules. A module is an instance of class implementing  <a href="../System/IModule.html">IModule</a> interface. Each module accomplishes certain functionalities  that are shared by all Prado components in an application.  There are default modules and user-defined modules. The latter offers extreme  flexibility of extending TApplication in a plug-and-play fashion.  Modules cooperate with each other to serve a user request by following  a sequence of lifecycles predefined in TApplication.</p><p>TApplication has four modes that can be changed by setting <a href="../System/TApplication.html#methodsetMode">Mode</a>  property (in the application configuration file). <ul><li><strong>Off</strong> mode will prevent the application from serving user requests.</li><li><strong>Debug</strong> mode is mainly used during application development. It ensures
+   the cache is always up-to-date if caching is enabled. It also allows
+   exceptions are displayed with rich context information if they occur.</li><li><strong>Normal</strong> mode is mainly used during production stage. Exception information
+   will only be recorded in system error logs. The cache is ensured to be
+   up-to-date if it is enabled.</li><li><strong>Performance</strong> mode is similar to <strong>Normal</strong> mode except that it
+   does not ensure the cache is up-to-date.</li></ul>  TApplication dispatches each user request to a particular service which  finishes the actual work for the request with the aid from the application  modules.</p><p>TApplication maintains a lifecycle with the following stages: <ul><li>[construct] : construction of the application instance</li><li>[initApplication] : load application configuration and instantiate modules and the requested service</li><li>onBeginRequest : this event happens right after application initialization</li><li>onAuthentication : this event happens when authentication is needed for the current request</li><li>onAuthenticationComplete : this event happens right after the authentication is done for the current request</li><li>onAuthorization : this event happens when authorization is needed for the current request</li><li>onAuthorizationComplete : this event happens right after the authorization is done for the current request</li><li>onLoadState : this event happens when application state needs to be loaded</li><li>onLoadStateComplete : this event happens right after the application state is loaded</li><li>onPreRunService : this event happens right before the requested service is to run</li><li>runService : the requested service runs</li><li>onSaveState : this event happens when application needs to save its state</li><li>onSaveStateComplete : this event happens right after the application saves its state</li><li>onPreFlushOutput : this event happens right before the application flushes output to client side.</li><li>flushOutput : the application flushes output to client side.</li><li>onEndRequest : this is the last stage a request is being completed</li><li>[destruct] : destruction of the application instance</li></ul> Modules and services can attach their methods to one or several of the above  events and do appropriate processing when the events are raised. By this way,  the application is able to coordinate the activities of modules and services  in the above order. To terminate an application before the whole lifecycle  completes, call <a href="../System/TApplication.html#methodcompleteRequest">completeRequest</a>.</p><p>Examples: <ul><li>Create and run a Prado application:
+ <pre><ol><code><pre><li> <span class="src-var">$application</span>=<span class="src-key">new </span><span class="src-id"><a href="../System/TApplication.html">TApplication</a></span><span class="src-sym">(</span><span class="src-var">$configFile</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$application</span><span class="src-sym">-&gt;</span><a href="../System/TApplication.html#methodrun">run</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TApplication.php 2704 2009-09-15 08:23:47Z Christophe.Boulain $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_TApplication_php.html">/TApplication.php</a> (line <span class="field">112</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TApplication</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System/TShellApplication.html">TShellApplication</a></td>
+					<td>
+											TShellApplication class.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIGCACHE_FILE" title="details" class="const-name">CONFIGCACHE_FILE</a> = 					<span class="var-type">'config.cache'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_FILE" title="details" class="const-name">CONFIG_FILE</a> = 					<span class="var-type">'application.xml'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CONFIG_FILE_EXT" title="details" class="const-name">CONFIG_FILE_EXT</a> = 					<span class="var-type">'.xml'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#GLOBAL_FILE" title="details" class="const-name">GLOBAL_FILE</a> = 					<span class="var-type">'global.cache'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#PAGE_SERVICE_ID" title="details" class="const-name">PAGE_SERVICE_ID</a> = 					<span class="var-type">'page'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#RUNTIME_PATH" title="details" class="const-name">RUNTIME_PATH</a> = 					<span class="var-type">'runtime'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#STATE_DEBUG" title="details" class="const-name">STATE_DEBUG</a> = 					<span class="var-type">'Debug'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#STATE_NORMAL" title="details" class="const-name">STATE_NORMAL</a> = 					<span class="var-type">'Normal'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#STATE_OFF" title="details" class="const-name">STATE_OFF</a> = 					<span class="var-type">'Off'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#STATE_PERFORMANCE" title="details" class="const-name">STATE_PERFORMANCE</a> = 					<span class="var-type">'Performance'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TApplication</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$basePath</span> = <span class="var-default">'protected'</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$cacheConfig</span> = <span class="var-default">true</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applyConfiguration" title="details" class="method-name">applyConfiguration</a>
+											(<span class="var-type"><a href="../System/TApplicationConfiguration.html">TApplicationConfiguration</a></span>&nbsp;<span class="var-name">$config</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$withinService</span> = <span class="var-default">false</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#clearGlobalState" title="details" class="method-name">clearGlobalState</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#completeRequest" title="details" class="method-name">completeRequest</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#flushOutput" title="details" class="method-name">flushOutput</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/IStatePersister.html">IStatePersister</a></span>
+										<a href="#getApplicationStatePersister" title="details" class="method-name">getApplicationStatePersister</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/TAssetManager.html">TAssetManager</a></span>
+										<a href="#getAssetManager" title="details" class="method-name">getAssetManager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Security/TAuthorizationRuleCollection.html">TAuthorizationRuleCollection</a></span>
+										<a href="#getAuthorizationRules" title="details" class="method-name">getAuthorizationRules</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBasePath" title="details" class="method-name">getBasePath</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/ICache.html">ICache</a></span>
+										<a href="#getCache" title="details" class="method-name">getCache</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getConfigurationFile" title="details" class="method-name">getConfigurationFile</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Exceptions/TErrorHandler.html">TErrorHandler</a></span>
+										<a href="#getErrorHandler" title="details" class="method-name">getErrorHandler</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.I18N/TGlobalization.html">TGlobalization</a></span>
+										<a href="#getGlobalization" title="details" class="method-name">getGlobalization</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$createIfNotExists</span> = <span class="var-default">true</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getGlobalState" title="details" class="method-name">getGlobalState</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$defaultValue</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getID" title="details" class="method-name">getID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/TApplicationMode.html">TApplicationMode</a></span>
+										<a href="#getMode" title="details" class="method-name">getMode</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/IModule.html">IModule</a></span>
+										<a href="#getModule" title="details" class="method-name">getModule</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getModules" title="details" class="method-name">getModules</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPageServiceID" title="details" class="method-name">getPageServiceID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+										<a href="#getParameters" title="details" class="method-name">getParameters</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpRequest.html">THttpRequest</a></span>
+										<a href="#getRequest" title="details" class="method-name">getRequest</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getRequestCompleted" title="details" class="method-name">getRequestCompleted</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpResponse.html">THttpResponse</a></span>
+										<a href="#getResponse" title="details" class="method-name">getResponse</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getRuntimePath" title="details" class="method-name">getRuntimePath</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Security/TSecurityManager.html">TSecurityManager</a></span>
+										<a href="#getSecurityManager" title="details" class="method-name">getSecurityManager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/IService.html">IService</a></span>
+										<a href="#getService" title="details" class="method-name">getService</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpSession.html">THttpSession</a></span>
+										<a href="#getSession" title="details" class="method-name">getSession</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUniqueID" title="details" class="method-name">getUniqueID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/IUser.html">IUser</a></span>
+										<a href="#getUser" title="details" class="method-name">getUser</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#initApplication" title="details" class="method-name">initApplication</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">0</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">1</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#loadGlobals" title="details" class="method-name">loadGlobals</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onAuthentication" title="details" class="method-name">onAuthentication</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onAuthenticationComplete" title="details" class="method-name">onAuthenticationComplete</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onAuthorization" title="details" class="method-name">onAuthorization</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onAuthorizationComplete" title="details" class="method-name">onAuthorizationComplete</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onBeginRequest" title="details" class="method-name">onBeginRequest</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onEndRequest" title="details" class="method-name">onEndRequest</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onError" title="details" class="method-name">onError</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onLoadState" title="details" class="method-name">onLoadState</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onLoadStateComplete" title="details" class="method-name">onLoadStateComplete</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onPreFlushOutput" title="details" class="method-name">onPreFlushOutput</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onPreRunService" title="details" class="method-name">onPreRunService</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onSaveState" title="details" class="method-name">onSaveState</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onSaveStateComplete" title="details" class="method-name">onSaveStateComplete</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#resolvePaths" title="details" class="method-name">resolvePaths</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$basePath</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#run" title="details" class="method-name">run</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#runService" title="details" class="method-name">runService</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#saveGlobals" title="details" class="method-name">saveGlobals</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setApplicationStatePersister" title="details" class="method-name">setApplicationStatePersister</a>
+											(<span class="var-type">IStatePersister</span>&nbsp;<span class="var-name">$persister</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAssetManager" title="details" class="method-name">setAssetManager</a>
+											(<span class="var-type">TAssetManager</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBasePath" title="details" class="method-name">setBasePath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCache" title="details" class="method-name">setCache</a>
+											(<span class="var-type">ICache</span>&nbsp;<span class="var-name">$cache</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setConfigurationFile" title="details" class="method-name">setConfigurationFile</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setErrorHandler" title="details" class="method-name">setErrorHandler</a>
+											(<span class="var-type">TErrorHandler</span>&nbsp;<span class="var-name">$handler</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setGlobalization" title="details" class="method-name">setGlobalization</a>
+											(<span class="var-type">TGlobalization</span>&nbsp;<span class="var-name">$glob</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setGlobalState" title="details" class="method-name">setGlobalState</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$defaultValue</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setID" title="details" class="method-name">setID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setMode" title="details" class="method-name">setMode</a>
+											(<span class="var-type"><a href="../System/TApplicationMode.html">TApplicationMode</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setModule" title="details" class="method-name">setModule</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">IModule</span>&nbsp;<span class="var-name">$module</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPageServiceID" title="details" class="method-name">setPageServiceID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setRequest" title="details" class="method-name">setRequest</a>
+											(<span class="var-type">THttpRequest</span>&nbsp;<span class="var-name">$request</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setResponse" title="details" class="method-name">setResponse</a>
+											(<span class="var-type">THttpResponse</span>&nbsp;<span class="var-name">$response</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setRuntimePath" title="details" class="method-name">setRuntimePath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setSecurityManager" title="details" class="method-name">setSecurityManager</a>
+											(<span class="var-type">TSecurityManager</span>&nbsp;<span class="var-name">$sm</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setService" title="details" class="method-name">setService</a>
+											(<span class="var-type"><a href="../System/IService.html">IService</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setSession" title="details" class="method-name">setSession</a>
+											(<span class="var-type">THttpSession</span>&nbsp;<span class="var-name">$session</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUser" title="details" class="method-name">setUser</a>
+											(<span class="var-type">IUser</span>&nbsp;<span class="var-name">$user</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#startService" title="details" class="method-name">startService</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceID</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">295</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor.</p>
+<p class="description"><p>Sets application base path and initializes the application singleton.  Application base path refers to the root directory storing application  data and code not directly accessible by Web users.  By default, the base path is assumed to be the <strong>protected</strong>  directory under the directory containing the current running script.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException if configuration file cannot be read or the runtime path is invalid.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TApplication</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$basePath</span> = <span class="var-default">'protected'</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$cacheConfig</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$basePath</span><span class="var-description">: application base path or configuration file path.         If the parameter is a file, it is assumed to be the application         configuration file, and the directory containing the file is treated         as the application base path.         If it is a directory, it is assumed to be the application base path,         and within that directory, a file named <strong>application.xml</strong>         will be looked for. If found, the file is considered as the application         configuration file.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$cacheConfig</span><span class="var-description">: whether to cache application configuration. Defaults to true.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodapplyConfiguration" id="applyConfiguration"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyConfiguration</span> (line <span class="line-number">856</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Applies an application configuration.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applyConfiguration
+		</span>
+					(<span class="var-type"><a href="../System/TApplicationConfiguration.html">TApplicationConfiguration</a></span>&nbsp;<span class="var-name">$config</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$withinService</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/TApplicationConfiguration.html">TApplicationConfiguration</a></span>
+				<span class="var-name">$config</span><span class="var-description">: the configuration</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$withinService</span><span class="var-description">: whether the configuration is specified within a service.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodclearGlobalState" id="clearGlobalState"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">clearGlobalState</span> (line <span class="line-number">448</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clears a global value.</p>
+<p class="description"><p>The value cleared will no longer be available in this request and the following requests.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			clearGlobalState
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: the name of the value to be cleared</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcompleteRequest" id="completeRequest"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">completeRequest</span> (line <span class="line-number">398</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Completes current request processing.</p>
+<p class="description"><p>This method can be used to exit the application lifecycles after finishing  the current cycle.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			completeRequest
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodflushOutput" id="flushOutput"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">flushOutput</span> (line <span class="line-number">1129</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flushes output to client side.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			flushOutput
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetApplicationStatePersister" id="getApplicationStatePersister"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getApplicationStatePersister</span> (line <span class="line-number">772</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> application state persister</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/IStatePersister.html">IStatePersister</a></span>
+		<span class="method-name">
+			getApplicationStatePersister
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAssetManager" id="getAssetManager"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAssetManager</span> (line <span class="line-number">751</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> asset manager</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/TAssetManager.html">TAssetManager</a></span>
+		<span class="method-name">
+			getAssetManager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAuthorizationRules" id="getAuthorizationRules"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAuthorizationRules</span> (line <span class="line-number">844</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of authorization rules for the current request</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Security/TAuthorizationRuleCollection.html">TAuthorizationRuleCollection</a></span>
+		<span class="method-name">
+			getAuthorizationRules
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetBasePath" id="getBasePath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBasePath</span> (line <span class="line-number">537</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the directory containing the application configuration file (absolute path)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBasePath
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCache" id="getCache"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCache</span> (line <span class="line-number">793</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the cache module, null if cache module is not installed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/ICache.html">ICache</a></span>
+		<span class="method-name">
+			getCache
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetConfigurationFile" id="getConfigurationFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConfigurationFile</span> (line <span class="line-number">553</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the application configuration file (absolute path)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getConfigurationFile
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetErrorHandler" id="getErrorHandler"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getErrorHandler</span> (line <span class="line-number">709</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the error handler module</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Exceptions/TErrorHandler.html">TErrorHandler</a></span>
+		<span class="method-name">
+			getErrorHandler
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetGlobalization" id="getGlobalization"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getGlobalization</span> (line <span class="line-number">826</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> globalization module</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.I18N/TGlobalization.html">TGlobalization</a></span>
+		<span class="method-name">
+			getGlobalization
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$createIfNotExists</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$createIfNotExists</span><span class="var-description">: whether to create globalization if it does not exist</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetGlobalState" id="getGlobalState"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getGlobalState</span> (line <span class="line-number">419</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a global value.</p>
+<p class="description"><p>A global value is one that is persistent across users sessions and requests.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the global value corresponding to $key</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getGlobalState
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$defaultValue</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: the name of the value to be returned</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$defaultValue</span><span class="var-description">: the default value. If $key is not found, $defaultValue will be returned</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetID" id="getID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getID</span> (line <span class="line-number">481</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> application ID</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetMode" id="getMode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMode</span> (line <span class="line-number">521</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> application mode. Defaults to TApplicationMode::Debug.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/TApplicationMode.html">TApplicationMode</a></span>
+		<span class="method-name">
+			getMode
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetModule" id="getModule"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getModule</span> (line <span class="line-number">619</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the module with the specified ID, null if not found</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/IModule.html">IModule</a></span>
+		<span class="method-name">
+			getModule
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetModules" id="getModules"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getModules</span> (line <span class="line-number">627</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of loaded application modules, indexed by module IDs</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getModules
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPageServiceID" id="getPageServiceID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPageServiceID</span> (line <span class="line-number">497</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> page service ID</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPageServiceID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetParameters" id="getParameters"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getParameters</span> (line <span class="line-number">638</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the list of application parameters.</p>
+<p class="description"><p>Since the parameters are returned as a <a href="../System.Collections/TMap.html">TMap</a> object, you may use  the returned result to access, add or remove individual parameters.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the list of application parameters</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TMap.html">TMap</a></span>
+		<span class="method-name">
+			getParameters
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRequest" id="getRequest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRequest</span> (line <span class="line-number">646</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the request module</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpRequest.html">THttpRequest</a></span>
+		<span class="method-name">
+			getRequest
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRequestCompleted" id="getRequestCompleted"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRequestCompleted</span> (line <span class="line-number">406</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the current request is processed.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getRequestCompleted
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetResponse" id="getResponse"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getResponse</span> (line <span class="line-number">667</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the response module</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpResponse.html">THttpResponse</a></span>
+		<span class="method-name">
+			getResponse
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRuntimePath" id="getRuntimePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRuntimePath</span> (line <span class="line-number">569</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the directory storing cache data and application-level persistent data. (absolute path)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getRuntimePath
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSecurityManager" id="getSecurityManager"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSecurityManager</span> (line <span class="line-number">730</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the security manager module</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Security/TSecurityManager.html">TSecurityManager</a></span>
+		<span class="method-name">
+			getSecurityManager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetService" id="getService"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getService</span> (line <span class="line-number">589</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the currently requested service</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/IService.html">IService</a></span>
+		<span class="method-name">
+			getService
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSession" id="getSession"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSession</span> (line <span class="line-number">688</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the session module, null if session module is not installed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpSession.html">THttpSession</a></span>
+		<span class="method-name">
+			getSession
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUniqueID" id="getUniqueID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUniqueID</span> (line <span class="line-number">513</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> an ID that uniquely identifies this Prado application from the others</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUniqueID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUser" id="getUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUser</span> (line <span class="line-number">809</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the application user</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/IUser.html">IUser</a></span>
+		<span class="method-name">
+			getUser
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinitApplication" id="initApplication"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">initApplication</span> (line <span class="line-number">940</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads configuration and initializes application.</p>
+<p class="description"><p>Configuration file will be read and parsed (if a valid cached version exists,  it will be used instead). Then, modules are created and initialized;  Afterwards, the requested service is created and initialized.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">throws:</span> TConfigurationException if module is redefined of invalid type, or service not defined or of invalid type</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			initApplication
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">0</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">1</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">0</span><span class="var-description">: configuration file path (absolute or relative to current executing script)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">1</span><span class="var-description">: cache file path, empty if no present or needed</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadGlobals" id="loadGlobals"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadGlobals</span> (line <span class="line-number">460</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads global values from persistent storage.</p>
+<p class="description"><p>This method is invoked when <a href="../System/TApplication.html#methodonLoadState">OnLoadState</a> event is raised.  After this method, values that are stored in previous requests become  available to the current request via <a href="../System/TApplication.html#methodgetGlobalState">getGlobalState</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			loadGlobals
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonAuthentication" id="onAuthentication"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onAuthentication</span> (line <span class="line-number">1029</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnAuthentication event.</p>
+<p class="description"><p>This method is invoked when the user request needs to be authenticated.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onAuthentication
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonAuthenticationComplete" id="onAuthenticationComplete"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onAuthenticationComplete</span> (line <span class="line-number">1038</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnAuthenticationComplete event.</p>
+<p class="description"><p>This method is invoked right after the user request is authenticated.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onAuthenticationComplete
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonAuthorization" id="onAuthorization"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onAuthorization</span> (line <span class="line-number">1047</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnAuthorization event.</p>
+<p class="description"><p>This method is invoked when the user request needs to be authorized.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onAuthorization
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonAuthorizationComplete" id="onAuthorizationComplete"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onAuthorizationComplete</span> (line <span class="line-number">1056</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnAuthorizationComplete event.</p>
+<p class="description"><p>This method is invoked right after the user request is authorized.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onAuthorizationComplete
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonBeginRequest" id="onBeginRequest"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onBeginRequest</span> (line <span class="line-number">1020</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnBeginRequest event.</p>
+<p class="description"><p>At the time when this method is invoked, application modules are loaded  and initialized, user request is resolved and the corresponding service  is loaded and initialized. The application is about to start processing  the user request.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onBeginRequest
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonEndRequest" id="onEndRequest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onEndRequest</span> (line <span class="line-number">1138</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnEndRequest event.</p>
+<p class="description"><p>This method is invoked when the application completes the processing of the request.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onEndRequest
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonError" id="onError"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onError</span> (line <span class="line-number">1006</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnError event.</p>
+<p class="description"><p>This method is invoked when an exception is raised during the lifecycles  of the application.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onError
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonLoadState" id="onLoadState"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onLoadState</span> (line <span class="line-number">1065</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnLoadState event.</p>
+<p class="description"><p>This method is invoked when the application needs to load state (probably stored in session).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onLoadState
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonLoadStateComplete" id="onLoadStateComplete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onLoadStateComplete</span> (line <span class="line-number">1075</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnLoadStateComplete event.</p>
+<p class="description"><p>This method is invoked right after the application state has been loaded.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onLoadStateComplete
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonPreFlushOutput" id="onPreFlushOutput"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onPreFlushOutput</span> (line <span class="line-number">1121</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnPreFlushOutput event.</p>
+<p class="description"><p>This method is invoked right before the application flushes output to client.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onPreFlushOutput
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonPreRunService" id="onPreRunService"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onPreRunService</span> (line <span class="line-number">1084</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnPreRunService event.</p>
+<p class="description"><p>This method is invoked right before the service is to be run.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onPreRunService
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonSaveState" id="onSaveState"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onSaveState</span> (line <span class="line-number">1102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnSaveState event.</p>
+<p class="description"><p>This method is invoked when the application needs to save state (probably stored in session).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onSaveState
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonSaveStateComplete" id="onSaveStateComplete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onSaveStateComplete</span> (line <span class="line-number">1112</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises OnSaveStateComplete event.</p>
+<p class="description"><p>This method is invoked right after the application state has been saved.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onSaveStateComplete
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodresolvePaths" id="resolvePaths"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">resolvePaths</span> (line <span class="line-number">323</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Resolves application-relevant paths.</p>
+<p class="description"><p>This method is invoked by the application constructor  to determine the application configuration file,  application root path and the runtime path.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">see:</span> <a href="../System/TApplication.html#methodsetConfigurationFile">TApplication::setConfigurationFile()</a></li>
+				<li><span class="field">see:</span> <a href="../System/TApplication.html#methodsetRuntimePath">TApplication::setRuntimePath()</a></li>
+				<li><span class="field">see:</span> <a href="../System/TApplication.html#methodsetBasePath">TApplication::setBasePath()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			resolvePaths
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$basePath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$basePath</span><span class="var-description">: the application root path or the application configuration file</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrun" id="run"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">run</span> (line <span class="line-number">366</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Executes the lifecycles of the application.</p>
+<p class="description"><p>This is the main entry function that leads to the running of the whole  Prado application.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			run
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System/TShellApplication.html#methodrun">TShellApplication::run()</a>
+								: Runs the application.
+							</li>
+				</ul>
+	</div>
+<a name="methodrunService" id="runService"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">runService</span> (line <span class="line-number">1092</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Runs the requested service.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			runService
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsaveGlobals" id="saveGlobals"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">saveGlobals</span> (line <span class="line-number">469</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Saves global values into persistent storage.</p>
+<p class="description"><p>This method is invoked when <a href="../System/TApplication.html#methodonSaveState">OnSaveState</a> event is raised.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			saveGlobals
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetApplicationStatePersister" id="setApplicationStatePersister"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setApplicationStatePersister</span> (line <span class="line-number">785</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setApplicationStatePersister
+		</span>
+					(<span class="var-type">IStatePersister</span>&nbsp;<span class="var-name">$persister</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/IStatePersister.html">IStatePersister</a></span>
+				<span class="var-name">$persister</span><span class="var-description">: application state persister</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetAssetManager" id="setAssetManager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAssetManager</span> (line <span class="line-number">764</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAssetManager
+		</span>
+					(<span class="var-type">TAssetManager</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/TAssetManager.html">TAssetManager</a></span>
+				<span class="var-name">$value</span><span class="var-description">: asset manager</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetBasePath" id="setBasePath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBasePath</span> (line <span class="line-number">545</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBasePath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the directory containing the application configuration file</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCache" id="setCache"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCache</span> (line <span class="line-number">801</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCache
+		</span>
+					(<span class="var-type">ICache</span>&nbsp;<span class="var-name">$cache</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/ICache.html">ICache</a></span>
+				<span class="var-name">$cache</span><span class="var-description">: the cache module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetConfigurationFile" id="setConfigurationFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setConfigurationFile</span> (line <span class="line-number">561</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setConfigurationFile
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the application configuration file (absolute path)</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetErrorHandler" id="setErrorHandler"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setErrorHandler</span> (line <span class="line-number">722</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setErrorHandler
+		</span>
+					(<span class="var-type">TErrorHandler</span>&nbsp;<span class="var-name">$handler</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Exceptions/TErrorHandler.html">TErrorHandler</a></span>
+				<span class="var-name">$handler</span><span class="var-description">: the error handler module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetGlobalization" id="setGlobalization"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setGlobalization</span> (line <span class="line-number">836</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setGlobalization
+		</span>
+					(<span class="var-type">TGlobalization</span>&nbsp;<span class="var-name">$glob</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.I18N/TGlobalization.html">TGlobalization</a></span>
+				<span class="var-name">$glob</span><span class="var-description">: globalization module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetGlobalState" id="setGlobalState"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setGlobalState</span> (line <span class="line-number">433</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a global value.</p>
+<p class="description"><p>A global value is one that is persistent across users sessions and requests.  Make sure that the value is serializable and unserializable.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setGlobalState
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$defaultValue</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: the name of the value to be set</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the global value to be set</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$defaultValue</span><span class="var-description">: the default value. If $key is not found, $defaultValue will be returned</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetID" id="setID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setID</span> (line <span class="line-number">489</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: application ID</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetMode" id="setMode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setMode</span> (line <span class="line-number">529</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setMode
+		</span>
+					(<span class="var-type"><a href="../System/TApplicationMode.html">TApplicationMode</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/TApplicationMode.html">TApplicationMode</a></span>
+				<span class="var-name">$value</span><span class="var-description">: application mode</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetModule" id="setModule"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setModule</span> (line <span class="line-number">608</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a module to application.</p>
+<p class="description"><p>Note, this method does not do module initialization.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setModule
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">IModule</span>&nbsp;<span class="var-name">$module</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: ID of the module</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System/IModule.html">IModule</a></span>
+				<span class="var-name">$module</span><span class="var-description">: module object</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetPageServiceID" id="setPageServiceID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPageServiceID</span> (line <span class="line-number">505</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPageServiceID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: page service ID</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetRequest" id="setRequest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setRequest</span> (line <span class="line-number">659</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setRequest
+		</span>
+					(<span class="var-type">THttpRequest</span>&nbsp;<span class="var-name">$request</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpRequest.html">THttpRequest</a></span>
+				<span class="var-name">$request</span><span class="var-description">: the request module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetResponse" id="setResponse"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setResponse</span> (line <span class="line-number">680</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setResponse
+		</span>
+					(<span class="var-type">THttpResponse</span>&nbsp;<span class="var-name">$response</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpRequest.html">THttpRequest</a></span>
+				<span class="var-name">$response</span><span class="var-description">: the request module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetRuntimePath" id="setRuntimePath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setRuntimePath</span> (line <span class="line-number">577</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setRuntimePath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the directory storing cache data and application-level persistent data. (absolute path)</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetSecurityManager" id="setSecurityManager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSecurityManager</span> (line <span class="line-number">743</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSecurityManager
+		</span>
+					(<span class="var-type">TSecurityManager</span>&nbsp;<span class="var-name">$sm</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Security/TSecurityManager.html">TSecurityManager</a></span>
+				<span class="var-name">$sm</span><span class="var-description">: the security manager module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetService" id="setService"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setService</span> (line <span class="line-number">597</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setService
+		</span>
+					(<span class="var-type"><a href="../System/IService.html">IService</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/IService.html">IService</a></span>
+				<span class="var-name">$value</span><span class="var-description">: the currently requested service</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetSession" id="setSession"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSession</span> (line <span class="line-number">701</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSession
+		</span>
+					(<span class="var-type">THttpSession</span>&nbsp;<span class="var-name">$session</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpSession.html">THttpSession</a></span>
+				<span class="var-name">$session</span><span class="var-description">: the session module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUser" id="setUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUser</span> (line <span class="line-number">817</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUser
+		</span>
+					(<span class="var-type">IUser</span>&nbsp;<span class="var-name">$user</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/IUser.html">IUser</a></span>
+				<span class="var-name">$user</span><span class="var-description">: the application user</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodstartService" id="startService"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">startService</span> (line <span class="line-number">971</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Starts the specified service.</p>
+<p class="description"><p>The service instance will be created. Its properties will be initialized  and the configurations will be applied, if any.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			startService
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceID</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceID</span><span class="var-description">: service ID</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System/TShellApplication.html#methodstartService">TShellApplication::startService()</a>
+								: Override parent implementation. TShellApplication doesn't need to start any service
+							</li>
+				</ul>
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constCONFIGCACHE_FILE" id="CONFIGCACHE_FILE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIGCACHE_FILE</span>
+			 = <span class="const-default">'config.cache'</span>
+			(line <span class="line-number">142</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Config cache file</p>
+	
+	
+</div>
+<a name="constCONFIG_FILE" id="CONFIG_FILE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_FILE</span>
+			 = <span class="const-default">'application.xml'</span>
+			(line <span class="line-number">130</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Application configuration file name</p>
+	
+	
+</div>
+<a name="constCONFIG_FILE_EXT" id="CONFIG_FILE_EXT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONFIG_FILE_EXT</span>
+			 = <span class="const-default">'.xml'</span>
+			(line <span class="line-number">134</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">File extension for external config files</p>
+	
+	
+</div>
+<a name="constGLOBAL_FILE" id="GLOBAL_FILE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">GLOBAL_FILE</span>
+			 = <span class="const-default">'global.cache'</span>
+			(line <span class="line-number">146</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Global data file</p>
+	
+	
+</div>
+<a name="constPAGE_SERVICE_ID" id="PAGE_SERVICE_ID"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">PAGE_SERVICE_ID</span>
+			 = <span class="const-default">'page'</span>
+			(line <span class="line-number">126</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Page service ID</p>
+	
+	
+</div>
+<a name="constRUNTIME_PATH" id="RUNTIME_PATH"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">RUNTIME_PATH</span>
+			 = <span class="const-default">'runtime'</span>
+			(line <span class="line-number">138</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Runtime directory name</p>
+	
+	
+</div>
+<a name="constSTATE_DEBUG" id="STATE_DEBUG"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STATE_DEBUG</span>
+			 = <span class="const-default">'Debug'</span>
+			(line <span class="line-number">119</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constSTATE_NORMAL" id="STATE_NORMAL"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STATE_NORMAL</span>
+			 = <span class="const-default">'Normal'</span>
+			(line <span class="line-number">120</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constSTATE_OFF" id="STATE_OFF"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STATE_OFF</span>
+			 = <span class="const-default">'Off'</span>
+			(line <span class="line-number">118</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">possible application mode.</p>
+	<ul class="tags">
+				<li><span class="field">deprecated:</span> deprecated since version 3.0.4 (use TApplicationMode constants instead)</li>
+			</ul>
+	
+	
+</div>
+<a name="constSTATE_PERFORMANCE" id="STATE_PERFORMANCE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STATE_PERFORMANCE</span>
+			 = <span class="const-default">'Performance'</span>
+			(line <span class="line-number">121</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:25 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

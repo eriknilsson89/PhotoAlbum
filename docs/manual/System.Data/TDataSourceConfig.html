@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TDataSourceConfig</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TDataSourceConfig</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TDataSourceConfig module class provides &lt;module&gt; configuration for database connections.</p>
+<p class="description"><p>Example usage: mysql connection  <pre><ol><code><pre><li> &lt;<span class="src-id">modules</span>&gt;</li>
+<li>     &lt;<span class="src-id">module id</span>=<span class="src-str">&quot;db1&quot;</span>&gt;</li>
+<li>         &lt;<span class="src-id">database ConnectionString</span>=<span class="src-str">&quot;mysqli:host=localhost;dbname=test&quot;</span></li>
+<li>             <span class="src-id">username</span>=<span class="src-str">&quot;dbuser&quot; </span><span class="src-id">password</span>=<span class="src-str">&quot;dbpass&quot; </span>/&gt;</li>
+<li>     &lt;/<span class="src-id">module</span>&gt;</li>
+<li> &lt;/<span class="src-id">modules</span>&gt;</li>
+</pre></code></ol></pre></p><p>Usage in php:  <pre><ol><code><pre><li> <span class="src-key">class </span><span class="src-id">Home </span><span class="src-key">extends </span><a href="../System.Web.UI/TPage.html">TPage</a></li>
+<li> <span class="src-sym">{</span></li>
+<li>         <span class="src-key">function </span><span class="src-id">onLoad</span><span class="src-sym">(</span><span class="src-var">$param</span><span class="src-sym">)</span></li>
+<li>         <span class="src-sym">{</span></li>
+<li>             <span class="src-var">$db </span>= <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">Application</span><span class="src-sym">-&gt;</span><span class="src-id">Modules</span><span class="src-sym">[</span><span class="src-str">'db1'</span><span class="src-sym">]</span><span class="src-sym">-&gt;</span><span class="src-id">DbConnection</span><span class="src-sym">;</span></li>
+<li>             <span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">createCommand</span><span class="src-sym">(</span><span class="src-str">'...'</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//...</span></li>
+<li>         <span class="src-sym">}</span></li>
+<li> <span class="src-sym">}</span></li>
+</pre></code></ol></pre></p><p>The properties of &lt;connection&gt; are those of the class TDbConnection.  Set <a href="../System.Data/TDataSourceConfig.html#methodsetConnectionClass">setConnectionClass</a> attribute for a custom database connection class  that extends the TDbConnection class.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TDataSourceConfig.php 2880 2011-01-19 14:56:01Z christophe.boulain $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_TDataSourceConfig_php.html">/Data/TDataSourceConfig.php</a> (line <span class="field">49</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --TDataSourceConfig</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.ActiveRecord/TActiveRecordConfig.html">TActiveRecordConfig</a></td>
+					<td>
+											TActiveRecordConfig module configuration class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap/TSqlMapConfig.html">TSqlMapConfig</a></td>
+					<td>
+											TSqlMapConfig module configuration class.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+										<a href="#findConnectionByID" title="details" class="method-name">findConnectionByID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getConnectionClass" title="details" class="method-name">getConnectionClass</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">0</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getConnectionID" title="details" class="method-name">getConnectionID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+										<a href="#getDatabase" title="details" class="method-name">getDatabase</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+										<a href="#getDbConnection" title="details" class="method-name">getDbConnection</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlDocument.html">TXmlDocument</a></span>&nbsp;<span class="var-name">$xml</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setConnectionClass" title="details" class="method-name">setConnectionClass</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setConnectionID" title="details" class="method-name">setConnectionID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodfindConnectionByID" id="findConnectionByID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">findConnectionByID</span> (line <span class="line-number">145</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Finds the database connection instance from the Application modules.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> database connection.</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">throws:</span> TConfigurationException when module is not of TDbConnection or TDataSourceConfig.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+		<span class="method-name">
+			findConnectionByID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: Database connection module ID.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetConnectionClass" id="getConnectionClass"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConnectionClass</span> (line <span class="line-number">118</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getConnectionClass
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">0</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">0</span><span class="var-description">: Database connection class name to be created.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetConnectionID" id="getConnectionID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConnectionID</span> (line <span class="line-number">83</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> connection module ID.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getConnectionID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDatabase" id="getDatabase"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDatabase</span> (line <span class="line-number">110</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Alias for getDbConnection().</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> database connection.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+		<span class="method-name">
+			getDatabase
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDbConnection" id="getDbConnection"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDbConnection</span> (line <span class="line-number">94</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the TDbConnection from another module if setConnectionID  is supplied and valid. Otherwise, a connection of type given by  setConnectionClass is created.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> database connection.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+		<span class="method-name">
+			getDbConnection
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">59</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initalize the database connection properties from attributes in &lt;database&gt; tag.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlDocument.html">TXmlDocument</a></span>&nbsp;<span class="var-name">$xml</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlDocument.html">TXmlDocument</a></span>
+				<span class="var-name">$xml</span><span class="var-description">: xml configuration.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TModule.html#methodinit">TModule::init()</a></dt>
+						<dd>Initializes the module.</dd>
+					</dl>
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.ActiveRecord/TActiveRecordConfig.html#methodinit">TActiveRecordConfig::init()</a>
+								: Initialize the active record manager.
+							</li>
+				</ul>
+	</div>
+<a name="methodsetConnectionClass" id="setConnectionClass"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setConnectionClass</span> (line <span class="line-number">132</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The database connection class name to be created when getDbConnection</p>
+<p class="description"><p>method is called <strong>and</strong> <a href="../System.Data/TDataSourceConfig.html#methodsetConnectionID">ConnectionID</a> is null. The  <a href="../System.Data/TDataSourceConfig.html#methodsetConnectionClass">ConnectionClass</a> property must be set before  calling <a href="../System.Data/TDataSourceConfig.html#methodgetDbConnection">getDbConnection</a> if you wish to create the connection using the  given class name.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException when database connection is already established.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setConnectionClass
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: Database connection class name.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetConnectionID" id="setConnectionID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setConnectionID</span> (line <span class="line-number">75</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The module ID of another TDataSourceConfig. The getDbConnection  property of this configuration will equal to getDbConnection  of the given TDataSourceConfig module.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setConnectionID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: module ID.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:13:47 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

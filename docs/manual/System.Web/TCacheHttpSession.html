@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TCacheHttpSession</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TCacheHttpSession</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TCacheHttpSession class</p>
+<p class="description"><p>TCacheHttpSession provides access for storing session data using a cache module (e.g. TMemCache, TDbCache).  To specify the cache module for data storage, set the <a href="../System.Web/TCacheHttpSession.html#methodsetCacheModuleID">CacheModuleID</a> property  which should refer to a valid cache module configured in the application configuration.</p><p>The following example shows how we configure TCacheHttpSession:  <pre><ol><code><pre><li>  &lt;<span class="src-id">modules</span>&gt;</li>
+<li>    &lt;<span class="src-id">module id</span>=<span class="src-str">&quot;cache&quot; </span><span class="src-key">class</span>=<span class="src-str">&quot;System.Caching.TMemCache&quot; </span><span class="src-id">Host</span>=<span class="src-str">&quot;localhost&quot; </span><span class="src-id">Port</span>=<span class="src-str">&quot;11211&quot; </span>/&gt;</li>
+<li>    &lt;<span class="src-id">module id</span>=<span class="src-str">&quot;session&quot; </span><span class="src-key">class</span>=<span class="src-str">&quot;System.Web.TCacheHttpSession&quot;</span></li>
+<li>         <span class="src-id">CacheModuleID</span>=<span class="src-str">&quot;cache&quot; </span><span class="src-id">SessionName</span>=<span class="src-str">&quot;SSID&quot;</span></li>
+<li>         <span class="src-id">CookieMode</span>=<span class="src-str">&quot;Allow&quot; </span><span class="src-id">AutoStart</span>=<span class="src-str">&quot;true&quot; </span><span class="src-id">GCProbability</span>=<span class="src-str">&quot;1&quot;</span></li>
+<li>         <span class="src-id">UseTransparentSessionID</span>=<span class="src-str">&quot;true&quot; </span><span class="src-id">TimeOut</span>=<span class="src-str">&quot;3600&quot; </span>/&gt;</li>
+<li>  &lt;/<span class="src-id">modules</span>&gt;</li>
+</pre></code></ol></pre></p><p>Beware, by definition cache storage are volatile, which means the data stored on them  may be swapped out and get lost. This may not be the case for certain cache storage,  such as database. So make sure you manage your cache properly to avoid loss of session data.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1.1</li>
+				<li><span class="field">version:</span> $Id: TCacheHttpSession.php 2985 2011-06-17 11:24:06Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Carl G. Mathisen &lt;<a href="mailto:carlgmathisen@gmail.com">carlgmathisen@gmail.com</a>&gt;</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_TCacheHttpSession_php.html">/Web/TCacheHttpSession.php</a> (line <span class="field">43</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System.Web/THttpSession.html">THttpSession</a>
+         |
+         --TCacheHttpSession</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#calculateKey" title="details" class="method-name">calculateKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/ICache.html">ICache</a></span>
+										<a href="#getCache" title="details" class="method-name">getCache</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCacheModuleID" title="details" class="method-name">getCacheModuleID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getKeyPrefix" title="details" class="method-name">getKeyPrefix</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCacheModuleID" title="details" class="method-name">setCacheModuleID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setKeyPrefix" title="details" class="method-name">setKeyPrefix</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#_destroy" title="details" class="method-name">_destroy</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#_read" title="details" class="method-name">_read</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#_write" title="details" class="method-name">_write</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodcalculateKey" id="calculateKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">calculateKey</span> (line <span class="line-number">145</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> a safe cache key associated with the session variable name</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			calculateKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: session variable name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetCache" id="getCache"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCache</span> (line <span class="line-number">88</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the cache module being used for data storage</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/ICache.html">ICache</a></span>
+		<span class="method-name">
+			getCache
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCacheModuleID" id="getCacheModuleID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCacheModuleID</span> (line <span class="line-number">72</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the ID of the cache module.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCacheModuleID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetKeyPrefix" id="getKeyPrefix"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getKeyPrefix</span> (line <span class="line-number">128</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> prefix of session variable name to avoid conflict with other cache data. Defaults to 'session'.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getKeyPrefix
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">55</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the module.</p>
+<p class="description"><p>This method is required by IModule.  It reads the CacheModule property.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: module configuration</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web/THttpSession.html#methodinit">THttpSession::init()</a></dt>
+						<dd>Initializes the module.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetCacheModuleID" id="setCacheModuleID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCacheModuleID</span> (line <span class="line-number">80</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCacheModuleID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the ID of the cache module.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetKeyPrefix" id="setKeyPrefix"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setKeyPrefix</span> (line <span class="line-number">136</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setKeyPrefix
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: prefix of session variable name to avoid conflict with other cache data</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_destroy" id="_destroy"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_destroy</span> (line <span class="line-number">120</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Session destroy handler.</p>
+<p class="description"><p>This method should be overriden if <a href="../System.Web/THttpSession.html#methodsetUseCustomStorage">UseCustomStorage</a> is set true.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether session is destroyed successfully</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_destroy
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: session ID</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web/THttpSession.html#method_destroy">THttpSession::_destroy()</a></dt>
+						<dd>Session destroy handler.</dd>
+					</dl>
+		
+	</div>
+<a name="method_read" id="_read"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_read</span> (line <span class="line-number">98</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Session read handler.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the session data</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			_read
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: session ID</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web/THttpSession.html#method_read">THttpSession::_read()</a></dt>
+						<dd>Session read handler.</dd>
+					</dl>
+		
+	</div>
+<a name="method_write" id="_write"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_write</span> (line <span class="line-number">109</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Session write handler.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether session write is successful</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_write
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: session ID</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$data</span><span class="var-description">: session data</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web/THttpSession.html#method_write">THttpSession::_write()</a></dt>
+						<dd>Session write handler.</dd>
+					</dl>
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web/THttpSession.html">THttpSession</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodadd">THttpSession::add()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodclear">THttpSession::clear()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodclose">THttpSession::close()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodcontains">THttpSession::contains()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodcount">THttpSession::count()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methoddestroy">THttpSession::destroy()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetAutoStart">THttpSession::getAutoStart()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetCookie">THttpSession::getCookie()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetCookieMode">THttpSession::getCookieMode()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetCount">THttpSession::getCount()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetGCProbability">THttpSession::getGCProbability()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetID">THttpSession::getID()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetIsStarted">THttpSession::getIsStarted()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetIterator">THttpSession::getIterator()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetKeys">THttpSession::getKeys()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetSavePath">THttpSession::getSavePath()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetSessionID">THttpSession::getSessionID()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetSessionName">THttpSession::getSessionName()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetTimeout">THttpSession::getTimeout()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetUseCustomStorage">THttpSession::getUseCustomStorage()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodgetUseTransparentSessionID">THttpSession::getUseTransparentSessionID()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodinit">THttpSession::init()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methoditemAt">THttpSession::itemAt()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodoffsetExists">THttpSession::offsetExists()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodoffsetGet">THttpSession::offsetGet()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodoffsetSet">THttpSession::offsetSet()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodoffsetUnset">THttpSession::offsetUnset()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodopen">THttpSession::open()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodremove">THttpSession::remove()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodsetAutoStart">THttpSession::setAutoStart()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodsetCookieMode">THttpSession::setCookieMode()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodsetGCProbability">THttpSession::setGCProbability()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodsetID">THttpSession::setID()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodsetSavePath">THttpSession::setSavePath()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodsetSessionID">THttpSession::setSessionID()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodsetSessionName">THttpSession::setSessionName()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodsetTimeout">THttpSession::setTimeout()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodsetUseCustomStorage">THttpSession::setUseCustomStorage()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodsetUseTransparentSessionID">THttpSession::setUseTransparentSessionID()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#methodtoArray">THttpSession::toArray()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#method_close">THttpSession::_close()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#method_destroy">THttpSession::_destroy()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#method_gc">THttpSession::_gc()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#method_open">THttpSession::_open()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#method_read">THttpSession::_read()</a></span><br>
+													<span class="method-name"><a href="../System.Web/THttpSession.html#method_write">THttpSession::_write()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:47 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

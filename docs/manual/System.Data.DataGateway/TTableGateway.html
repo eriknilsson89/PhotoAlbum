@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TTableGateway</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TTableGateway</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TTableGateway class provides several find methods to get data from the database  and update, insert, and delete methods.</p>
+<p class="description"><p>Each method maps the input parameters into a SQL call and executes the SQL  against a database connection. The TTableGateway is stateless  (with respect to the data and data objects), as its role is to push data back and forth.</p><p>Example usage:  <pre><ol><code><pre><li> <span class="src-comm">//create a connection</span></li>
+<li>  <span class="src-var">$dsn </span>= <span class="src-str">'pgsql:host=localhost;dbname=test'</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$conn </span>= <span class="src-key">new </span><span class="src-id"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span><span class="src-sym">(</span><span class="src-var">$dsn</span><span class="src-sym">, </span><span class="src-str">'dbuser'</span><span class="src-sym">,</span><span class="src-str">'dbpass'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-comm">//create a table gateway for table/view named 'address'</span></li>
+<li>  <span class="src-var">$table </span>= <span class="src-key">new </span><span class="src-id"><a href="../System.Data.DataGateway/TTableGateway.html">TTableGateway</a></span><span class="src-sym">(</span><span class="src-str">'address'</span><span class="src-sym">, </span><span class="src-var">$conn</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-comm">//insert a new row, returns last insert id (if applicable)</span></li>
+<li>  <span class="src-var">$id </span>= <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodinsert">insert</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'name'</span>=&gt;<span class="src-str">'wei'</span><span class="src-sym">, </span><span class="src-str">'phone'</span>=&gt;<span class="src-str">'111111'</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-var">$record1 </span>= <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfindByPk">findByPk</a><span class="src-sym">(</span><span class="src-var">$id</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//find inserted record</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-comm">//finds all records, returns an iterator</span></li>
+<li>  <span class="src-var">$records </span>= <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfindAll">findAll</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <a href="http://www.php.net/print_r">print_r</a><span class="src-sym">(</span><span class="src-var">$records</span><span class="src-sym">-&gt;</span><span class="src-id">readAll</span><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-comm">//update the row</span></li>
+<li>  <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">updateByPk</span><span class="src-sym">(</span><span class="src-var">$record1</span><span class="src-sym">, </span><span class="src-var">$id</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p><p>All methods that may return more than one row of data will return an  TDbDataReader iterator.</p><p>The OnCreateCommand event is raised when a command is prepared and parameter  binding is completed. The parameter object is a TDataGatewayEventParameter of which the  TDataGatewayEventParameter::getCommand property can be  inspected to obtain the sql query to be executed.</p><p>The OnExecuteCommand    event is raised when a command is executed and the result  from the database was returned. The parameter object is a  TDataGatewayResultEventParameter of which the  TDataGatewayEventParameter::getResult property contains  the data return from the database. The data returned can be changed  by setting the TDataGatewayEventParameter::setResult property.</p><p><pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">OnCreateCommand</span><span class="src-sym">[</span><span class="src-sym">] </span>= <span class="src-str">'log_it'</span><span class="src-sym">; </span><span class="src-comm">//any valid PHP callback statement</span></li>
+<li>  <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">OnExecuteCommand</span><span class="src-sym">[</span><span class="src-sym">] </span>= <span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$obj</span><span class="src-sym">, </span><span class="src-str">'method_name'</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">// calls 'method_name' on $obj</span></li>
+<li>&nbsp;</li>
+<li> </li>
+<li> <span class="src-key">function </span><span class="src-id">log_it</span><span class="src-sym">(</span><span class="src-var">$sender</span><span class="src-sym">, </span><span class="src-var">$param</span><span class="src-sym">)</span></li>
+<li> <span class="src-sym">{</span></li>
+<li>     <a href="http://www.php.net/var_dump">var_dump</a><span class="src-sym">(</span><span class="src-var">$param</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//TDataGatewayEventParameter object.</span></li>
+<li> <span class="src-sym">}</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id$</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_DataGateway_TTableGateway_php.html">/Data/DataGateway/TTableGateway.php</a> (line <span class="field">79</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TTableGateway</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TTableGateway</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string|<a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>&nbsp;<span class="var-name">$table</span>, <span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#count" title="details" class="method-name">count</a>
+											([<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#deleteAll" title="details" class="method-name">deleteAll</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$criteria</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteAllByPks" title="details" class="method-name">deleteAllByPks</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#deleteByPk" title="details" class="method-name">deleteByPk</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#find" title="details" class="method-name">find</a>
+											(<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>&nbsp;<span class="var-name">$criteria</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbDataReader.html">TDbDataReader</a></span>
+										<a href="#findAll" title="details" class="method-name">findAll</a>
+											([<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbDataReader.html">TDbDataReader</a></span>
+										<a href="#findAllByPks" title="details" class="method-name">findAllByPks</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbDataReader.html">TDbDataReader</a></span>
+										<a href="#findAllBySql" title="details" class="method-name">findAllBySql</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#findByPk" title="details" class="method-name">findByPk</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#findBySql" title="details" class="method-name">findBySql</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.DataGateway/TDataGatewayCommand.html">TDataGatewayCommand</a></span>
+										<a href="#getCommand" title="details" class="method-name">getCommand</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>
+										<a href="#getCriteria" title="details" class="method-name">getCriteria</a>
+											(<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>&nbsp;<span class="var-name">$criteria</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$args</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+										<a href="#getDbConnection" title="details" class="method-name">getDbConnection</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getLastInsertId" title="details" class="method-name">getLastInsertId</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getTableInfo" title="details" class="method-name">getTableInfo</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getTableName" title="details" class="method-name">getTableName</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#initCommandBuilder" title="details" class="method-name">initCommandBuilder</a>
+											(<span class="var-type"><a href="../System.Data.Common/TDbCommandBuilder.html">TDbCommandBuilder</a></span>&nbsp;<span class="var-name">$builder</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#insert" title="details" class="method-name">insert</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onCreateCommand" title="details" class="method-name">onCreateCommand</a>
+											(<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayCommand.html">TDataGatewayCommand</a></span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayEventParameter.html">TDataGatewayEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onExecuteCommand" title="details" class="method-name">onExecuteCommand</a>
+											(<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayCommand.html">TDataGatewayCommand</a></span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayResultEventParameter.html">TDataGatewayResultEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setTableInfo" title="details" class="method-name">setTableInfo</a>
+											(<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>&nbsp;<span class="var-name">$tableInfo</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setTableName" title="details" class="method-name">setTableName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$tableName</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#update" title="details" class="method-name">update</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$criteria</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__call" title="details" class="method-name">__call</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$args</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">90</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a new generic table gateway for a given table or view name  and a database connection.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TTableGateway</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string|<a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>&nbsp;<span class="var-name">$table</span>, <span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+				<span class="var-name">$table</span><span class="var-description">: table or view name or table information.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcount" id="count"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">count</span> (line <span class="line-number">355</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Find the number of records.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of records.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			count
+		</span>
+					([<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>
+				<span class="var-name">$criteria</span><span class="var-description">: SQL condition or criteria object.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameters</span><span class="var-description">: parameter values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methoddeleteAll" id="deleteAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteAll</span> (line <span class="line-number">302</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete records from the table with condition given by $where and  binding values specified by $parameter argument.</p>
+<p class="description"><p>This method uses additional arguments as $parameters. E.g.  <pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">delete</span><span class="src-sym">(</span><span class="src-str">'age &gt; ? AND location = ?'</span><span class="src-sym">, </span><span class="src-var">$age</span><span class="src-sym">, </span><span class="src-var">$location</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of records deleted.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			deleteAll
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$criteria</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$criteria</span><span class="var-description">: delete condition.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parameters</span><span class="var-description">: condition parameters.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methoddeleteAllByPks" id="deleteAllByPks"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteAllByPks</span> (line <span class="line-number">342</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Alias for deleteByPk()</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteAllByPks
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methoddeleteByPk" id="deleteByPk"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteByPk</span> (line <span class="line-number">332</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete records by primary key. Usage:</p>
+<p class="description"><p><pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-var">$primaryKey</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//delete 1 record</span></li>
+<li>  <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">,</span>...<span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//delete multiple records</span></li>
+<li>  <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">,</span>...<span class="src-sym">))</span><span class="src-sym">; </span><span class="src-comm">//delete multiple records</span></li>
+</pre></code></ol></pre></p><p>For composite primary keys (determined from the table definitions):  <pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">))</span><span class="src-sym">; </span><span class="src-comm">//delete 1 record</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-comm">//delete multiple records</span></li>
+<li>  <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">)</span><span class="src-sym">, </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key3</span><span class="src-sym">,</span><span class="src-var">$key4</span><span class="src-sym">)</span><span class="src-sym">,</span>...<span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-comm">//delete multiple records</span></li>
+<li>  <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">( </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">)</span><span class="src-sym">, </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key3</span><span class="src-sym">,</span><span class="src-var">$key4</span><span class="src-sym">)</span><span class="src-sym">, </span>.. <span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of records deleted.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			deleteByPk
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$keys</span><span class="var-description">: primary key values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfind" id="find"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">find</span> (line <span class="line-number">227</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Find one single record that matches the criteria.</p>
+<p class="description"><p>Usage:  <pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfind">find</a><span class="src-sym">(</span><span class="src-str">'username = :name AND password = :pass'</span><span class="src-sym">,</span></li>
+<li>                     <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">':name'</span>=&gt;<span class="src-var">$name</span><span class="src-sym">, </span><span class="src-str">':pass'</span>=&gt;<span class="src-var">$pass</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfind">find</a><span class="src-sym">(</span><span class="src-str">'username = ? AND password = ?'</span><span class="src-sym">, </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">, </span><span class="src-var">$pass</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfind">find</a><span class="src-sym">(</span><span class="src-str">'username = ? AND password = ?'</span><span class="src-sym">, </span><span class="src-var">$name</span><span class="src-sym">, </span><span class="src-var">$pass</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-comm">//$criteria is of TSqlCriteria</span></li>
+<li>  <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfind">find</a><span class="src-sym">(</span><span class="src-var">$criteria</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//the 2nd parameter for find() is ignored.</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> matching record object.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			find
+		</span>
+					(<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>&nbsp;<span class="var-name">$criteria</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>
+				<span class="var-name">$criteria</span><span class="var-description">: SQL condition or criteria object.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameters</span><span class="var-description">: parameter values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindAll" id="findAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">findAll</span> (line <span class="line-number">240</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Accepts same parameters as find(), but returns TDbDataReader instead.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> matching records.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbDataReader.html">TDbDataReader</a></span>
+		<span class="method-name">
+			findAll
+		</span>
+					([<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>
+				<span class="var-name">$criteria</span><span class="var-description">: SQL condition or criteria object.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameters</span><span class="var-description">: parameter values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindAllByPks" id="findAllByPks"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">findAllByPks</span> (line <span class="line-number">284</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Similar to findByPk(), but returns TDbDataReader instead.</p>
+<p class="description"><p>For scalar primary keys:  <pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">findAllByPk</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">, </span><span class="src-var">$key2</span><span class="src-sym">, </span>...<span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">findAllByPk</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">, </span><span class="src-var">$key2</span><span class="src-sym">, </span>...<span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p><p>For composite keys:  <pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">findAllByPk</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">, </span><span class="src-var">$key2</span><span class="src-sym">)</span><span class="src-sym">, </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key3</span><span class="src-sym">, </span><span class="src-var">$key4</span><span class="src-sym">)</span><span class="src-sym">, </span>...<span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">findAllByPk</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">, </span><span class="src-var">$key2</span><span class="src-sym">)</span><span class="src-sym">, </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key3</span><span class="src-sym">, </span><span class="src-var">$key4</span><span class="src-sym">)</span><span class="src-sym">, </span>...<span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> data reader.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbDataReader.html">TDbDataReader</a></span>
+		<span class="method-name">
+			findAllByPks
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$keys</span><span class="var-description">: primary keys</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindAllBySql" id="findAllBySql"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">findAllBySql</span> (line <span class="line-number">203</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Execute arbituary sql command with binding parameters.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> query results.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbDataReader.html">TDbDataReader</a></span>
+		<span class="method-name">
+			findAllBySql
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: SQL query string.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parameters</span><span class="var-description">: binding parameters, positional or named.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindByPk" id="findByPk"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">findByPk</span> (line <span class="line-number">260</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Find one record using only the primary key or composite primary keys. Usage:</p>
+<p class="description"><p><pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfindByPk">findByPk</a><span class="src-sym">(</span><span class="src-var">$primaryKey</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfindByPk">findByPk</a><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">, </span><span class="src-var">$key2</span><span class="src-sym">, </span>...<span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfindByPk">findByPk</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">,</span>...<span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> matching record.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			findByPk
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$keys</span><span class="var-description">: primary keys</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindBySql" id="findBySql"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">findBySql</span> (line <span class="line-number">190</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Execute arbituary sql command with binding parameters.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> query results.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			findBySql
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: SQL query string.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parameters</span><span class="var-description">: binding parameters, positional or named.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetCommand" id="getCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCommand</span> (line <span class="line-number">171</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> command builder and executor.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.DataGateway/TDataGatewayCommand.html">TDataGatewayCommand</a></span>
+		<span class="method-name">
+			getCommand
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCriteria" id="getCriteria"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCriteria</span> (line <span class="line-number">413</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a new TSqlCriteria object from a string $criteria. The $args  are additional parameters and are used in place of the $parameters  if $parameters is not an array and $args is an arrary.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> criteria object.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>
+		<span class="method-name">
+			getCriteria
+		</span>
+					(<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>&nbsp;<span class="var-name">$criteria</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$args</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>
+				<span class="var-name">$criteria</span><span class="var-description">: sql criteria</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameters</span><span class="var-description">: parameters passed by the user.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$args</span><span class="var-description">: additional parameters obtained from function_get_args().</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetDbConnection" id="getDbConnection"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDbConnection</span> (line <span class="line-number">179</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> database connection.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+		<span class="method-name">
+			getDbConnection
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetLastInsertId" id="getLastInsertId"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLastInsertId</span> (line <span class="line-number">399</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> last insert id, null if none is found.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getLastInsertId
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTableInfo" id="getTableInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTableInfo</span> (line <span class="line-number">121</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getTableInfo
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTableName" id="getTableName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTableName</span> (line <span class="line-number">126</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getTableName
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinitCommandBuilder" id="initCommandBuilder"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">initCommandBuilder</span> (line <span class="line-number">134</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			initCommandBuilder
+		</span>
+					(<span class="var-type"><a href="../System.Data.Common/TDbCommandBuilder.html">TDbCommandBuilder</a></span>&nbsp;<span class="var-name">$builder</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.Common/TDbCommandBuilder.html">TDbCommandBuilder</a></span>
+				<span class="var-name">$builder</span><span class="var-description">: database specific command builder.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodinsert" id="insert"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">insert</span> (line <span class="line-number">391</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Inserts a new record into the table. Each array key must  correspond to a column name in the table unless a null value is permitted.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> last insert id if one column contains a serial or sequence,  otherwise true if command executes successfully and affected 1 or more rows.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			insert
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: new record data.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonCreateCommand" id="onCreateCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onCreateCommand</span> (line <span class="line-number">149</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raised when a command is prepared and parameter binding is completed.</p>
+<p class="description"><p>The parameter object is TDataGatewayEventParameter of which the  TDataGatewayEventParameter::getCommand property can be  inspected to obtain the sql query to be executed.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onCreateCommand
+		</span>
+					(<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayCommand.html">TDataGatewayCommand</a></span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayEventParameter.html">TDataGatewayEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayCommand.html">TDataGatewayCommand</a></span>
+				<span class="var-name">$sender</span><span class="var-description">: originator $sender</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayEventParameter.html">TDataGatewayEventParameter</a></span>
+				<span class="var-name">$param</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonExecuteCommand" id="onExecuteCommand"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onExecuteCommand</span> (line <span class="line-number">163</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raised when a command is executed and the result from the database was returned.</p>
+<p class="description"><p>The parameter object is TDataGatewayResultEventParameter of which the  TDataGatewayEventParameter::getResult property contains  the data return from the database. The data returned can be changed  by setting the TDataGatewayEventParameter::setResult property.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onExecuteCommand
+		</span>
+					(<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayCommand.html">TDataGatewayCommand</a></span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayResultEventParameter.html">TDataGatewayResultEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayCommand.html">TDataGatewayCommand</a></span>
+				<span class="var-name">$sender</span><span class="var-description">: originator $sender</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayResultEventParameter.html">TDataGatewayResultEventParameter</a></span>
+				<span class="var-name">$param</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetTableInfo" id="setTableInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTableInfo</span> (line <span class="line-number">104</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTableInfo
+		</span>
+					(<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>&nbsp;<span class="var-name">$tableInfo</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+				<span class="var-name">$tableInfo</span><span class="var-description">: table or view information.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetTableName" id="setTableName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTableName</span> (line <span class="line-number">114</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets up the command builder for the given table.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTableName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$tableName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tableName</span><span class="var-description">: table or view name.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodupdate" id="update"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">update</span> (line <span class="line-number">377</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the table with new name-value pair $data. Each array key must  correspond to a column name in the table. The update condition is  specified by the $where argument and additional binding values can be  specified using the $parameter argument.</p>
+<p class="description"><p>This method uses additional arguments as $parameters. E.g.  <pre><ol><code><pre><li> <span class="src-var">$gateway</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodupdate">update</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">, </span><span class="src-str">'age &gt; ? AND location = ?'</span><span class="src-sym">, </span><span class="src-var">$age</span><span class="src-sym">, </span><span class="src-var">$location</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of records updated.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			update
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$criteria</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: new record data.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$criteria</span><span class="var-description">: update condition</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parameters</span><span class="var-description">: additional binding name-value pairs.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method__call" id="__call"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__call</span> (line <span class="line-number">455</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Dynamic find method using parts of method name as search criteria.</p>
+<p class="description"><p>Method name starting with &quot;findBy&quot; only returns 1 record.  Method name starting with &quot;findAllBy&quot; returns 0 or more records.  Method name starting with &quot;deleteBy&quot; deletes records by the trail criteria.  The condition is taken as part of the method name after &quot;findBy&quot;, &quot;findAllBy&quot;  or &quot;deleteBy&quot;.</p><p>The following are equivalent:  <pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">findByName</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">)</span></li>
+<li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfind">find</a><span class="src-sym">(</span><span class="src-str">'Name = ?'</span><span class="src-sym">, </span><span class="src-var">$name</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  <pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">findByUsernameAndPassword</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">,</span><span class="src-var">$pass</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">// OR may be used</span></li>
+<li>  <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">findBy_Username_And_Password</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">,</span><span class="src-var">$pass</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">// _OR_ may be used</span></li>
+<li>  <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfind">find</a><span class="src-sym">(</span><span class="src-str">'Username = ? AND Password = ?'</span><span class="src-sym">, </span><span class="src-var">$name</span><span class="src-sym">, </span><span class="src-var">$pass</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  <pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">findAllByAge</span><span class="src-sym">(</span><span class="src-var">$age</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methodfindAll">findAll</a><span class="src-sym">(</span><span class="src-str">'Age = ?'</span><span class="src-sym">, </span><span class="src-var">$age</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  <pre><ol><code><pre><li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><a href="../System.Data.DataGateway/TTableGateway.html#methoddeleteAll">deleteAll</a><span class="src-sym">(</span><span class="src-str">'Name = ?'</span><span class="src-sym">, </span><span class="src-var">$name</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$table</span><span class="src-sym">-&gt;</span><span class="src-id">deleteByName</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> single record if method name starts with &quot;findBy&quot;, 0 or more records  if method name starts with &quot;findAllBy&quot;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__call
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$args</span>)
+			</div>
+	
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:29 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

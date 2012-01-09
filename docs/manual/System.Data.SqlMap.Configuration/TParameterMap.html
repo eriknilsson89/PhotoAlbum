@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TParameterMap</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TParameterMap</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TParameterMap corresponds to the &lt;parameterMap&gt; element.</p>
+<p class="description"><p>TParameterMap holds one or more parameter child elements that map object  properties to placeholders in a SQL statement.</p><p>A TParameterMap defines an ordered list of values that match up with the  placeholders of a parameterized query statement. While the attributes  specified by the map still need to be in the correct order, each parameter  is named. You can populate the underlying class in any order, and the  TParameterMap ensures each value is passed in the correct order.</p><p>Parameter Maps can be provided as an external element and inline.  The &lt;parameterMap&gt; element accepts two attributes: id (required) and extends (optional).</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TParameterMap.php 2920 2011-05-21 19:29:39Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_SqlMap_Configuration_TParameterMap_php.html">/Data/SqlMap/Configuration/TParameterMap.php</a> (line <span class="field">33</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TParameterMap</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TParameterMap</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addProperty" title="details" class="method-name">addProperty</a>
+											(<span class="var-type">TParameterProperty</span>&nbsp;<span class="var-name">$property</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap/TSqlMapTypeHandler.html">TSqlMapTypeHandler</a></span>
+										<a href="#createTypeHandler" title="details" class="method-name">createTypeHandler</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type"><a href="../System.Data.SqlMap/TSqlMapTypeHandlerRegistry.html">TSqlMapTypeHandlerRegistry</a></span>&nbsp;<span class="var-name">$registry</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getExtends" title="details" class="method-name">getExtends</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getID" title="details" class="method-name">getID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getObjectValue" title="details" class="method-name">getObjectValue</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$object</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>&nbsp;<span class="var-name">$property</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">TParameterProperty[]</span>
+										<a href="#getProperties" title="details" class="method-name">getProperties</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>
+										<a href="#getProperty" title="details" class="method-name">getProperty</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$index</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getPropertyNames" title="details" class="method-name">getPropertyNames</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">unknown</span>
+										<a href="#getPropertyValue" title="details" class="method-name">getPropertyValue</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap/TSqlMapTypeHandlerRegistry.html">TSqlMapTypeHandlerRegistry</a></span>&nbsp;<span class="var-name">$registry</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameterValue</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#insertProperty" title="details" class="method-name">insertProperty</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$index</span>, <span class="var-type">TParameterProperty</span>&nbsp;<span class="var-name">$property</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#nullifyDefaultValue" title="details" class="method-name">nullifyDefaultValue</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setExtends" title="details" class="method-name">setExtends</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setID" title="details" class="method-name">setID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">44</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initialize the properties and property map collections.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TParameterMap</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodaddProperty" id="addProperty"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addProperty</span> (line <span class="line-number">108</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addProperty
+		</span>
+					(<span class="var-type">TParameterProperty</span>&nbsp;<span class="var-name">$property</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>
+				<span class="var-name">$property</span><span class="var-description">: new parameter property</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateTypeHandler" id="createTypeHandler"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createTypeHandler</span> (line <span class="line-number">161</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create type handler from Type or TypeHandler.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> type handler.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap/TSqlMapTypeHandler.html">TSqlMapTypeHandler</a></span>
+		<span class="method-name">
+			createTypeHandler
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type"><a href="../System.Data.SqlMap/TSqlMapTypeHandlerRegistry.html">TSqlMapTypeHandlerRegistry</a></span>&nbsp;<span class="var-name">$registry</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>
+				<span class="var-name">$property</span><span class="var-description">: parameter property</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap/TSqlMapTypeHandlerRegistry.html">TSqlMapTypeHandlerRegistry</a></span>
+				<span class="var-name">$registry</span><span class="var-description">: type handler registry</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetExtends" id="getExtends"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getExtends</span> (line <span class="line-number">77</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> name of another &lt;parameterMap&gt; upon which to base this TParameterMap.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getExtends
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetID" id="getID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getID</span> (line <span class="line-number">53</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> a unique identifier for the &lt;parameterMap&gt;.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetObjectValue" id="getObjectValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getObjectValue</span> (line <span class="line-number">177</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> property value.</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">throws:</span> TSqlMapException if property access is invalid.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getObjectValue
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$object</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>&nbsp;<span class="var-name">$property</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$object</span><span class="var-description">: object to obtain the property from.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>
+				<span class="var-name">$property</span><span class="var-description">: parameter property.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetProperties" id="getProperties"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProperties</span> (line <span class="line-number">69</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of properties for the parameter map.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TParameterProperty[]</span>
+		<span class="method-name">
+			getProperties
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetProperty" id="getProperty"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProperty</span> (line <span class="line-number">95</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> parameter property.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TSqlMapException if index is not string nor integer.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>
+		<span class="method-name">
+			getProperty
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$index</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$index</span><span class="var-description">: name of a parameter property.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetPropertyNames" id="getPropertyNames"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPropertyNames</span> (line <span class="line-number">127</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of property names.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getPropertyNames
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPropertyValue" id="getPropertyValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPropertyValue</span> (line <span class="line-number">139</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the value of a property from the the parameter object.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">unknown</span>
+		<span class="method-name">
+			getPropertyValue
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap/TSqlMapTypeHandlerRegistry.html">TSqlMapTypeHandlerRegistry</a></span>&nbsp;<span class="var-name">$registry</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameterValue</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap/TSqlMapTypeHandlerRegistry.html">TSqlMapTypeHandlerRegistry</a></span>
+				<span class="var-name">$registry</span><span class="var-description">: type handler registry.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>
+				<span class="var-name">$property</span><span class="var-description">: parameter proproperty.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameterValue</span><span class="var-description">: parameter object to get the value from.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodinsertProperty" id="insertProperty"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">insertProperty</span> (line <span class="line-number">118</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			insertProperty
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$index</span>, <span class="var-type">TParameterProperty</span>&nbsp;<span class="var-name">$property</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$index</span><span class="var-description">: parameter property index</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>
+				<span class="var-name">$property</span><span class="var-description">: new parameter property.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodnullifyDefaultValue" id="nullifyDefaultValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">nullifyDefaultValue</span> (line <span class="line-number">201</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">When the actual value matches the NullValue,  set the current value to null.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> null if NullValue matches currrent value.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			nullifyDefaultValue
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TParameterProperty.html">TParameterProperty</a></span>
+				<span class="var-name">$property</span><span class="var-description">: parameter property.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: current property value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetExtends" id="setExtends"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setExtends</span> (line <span class="line-number">85</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setExtends
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: name of another &lt;parameterMap&gt; upon which to base this TParameterMap.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetID" id="setID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setID</span> (line <span class="line-number">61</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: a unique identifier for the &lt;parameterMap&gt;.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:15:35 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

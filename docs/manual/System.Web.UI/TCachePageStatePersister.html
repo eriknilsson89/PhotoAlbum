@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TCachePageStatePersister</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TCachePageStatePersister</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../System.Web.UI/IPageStatePersister.html">IPageStatePersister</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TCachePageStatePersister class</p>
+<p class="description"><p>TCachePageStatePersister implements a page state persistent method based on cache.  Page state are stored in cache (e.g. memcache, DB cache, etc.), and only a small token  is passed to the client side to identify the state. This greatly reduces the size of  the page state that needs to be transmitted between the server and the client. Of course,  this is at the cost of using server side resource.</p><p>A cache module has to be loaded in order to use TCachePageStatePersister.  By default, TCachePageStatePersister will use the primary cache module.  A non-primary cache module can be used by setting <a href="../System.Web.UI/TCachePageStatePersister.html#methodsetCacheModuleID">CacheModuleID</a>.  Any cache module, as long as it implements the interface <a href="../System/ICache.html">ICache</a>, may be used.  For example, one can use <a href="../System.Caching/TDbCache.html">TDbCache</a>, <a href="../System.Caching/TMemCache.html">TMemCache</a>, <a href="../System.Caching/TAPCCache.html">TAPCCache</a>, etc.</p><p>TCachePageStatePersister uses <a href="../System.Web.UI/TCachePageStatePersister.html#methodsetCacheTimeout">CacheTimeout</a> to limit the data  that stores in cache.</p><p>Since server resource is often limited, be cautious if you plan to use TCachePageStatePersister  for high-traffic Web pages. You may consider using a small <a href="../System.Web.UI/TCachePageStatePersister.html#methodsetCacheTimeout">CacheTimeout</a>.</p><p>There are a couple of ways to use TCachePageStatePersister.  One can override the page's <a href="../System.Web.UI/TPage.html#methodgetStatePersister">TPage::getStatePersister()</a> method and  create a TCachePageStatePersister instance there.  Or one can configure the pages to use TCachePageStatePersister in page configurations  as follows,  <pre><ol><code><pre><li>   &lt;<span class="src-id">pages StatePersisterClass</span>=<span class="src-str">&quot;System.Web.UI.TCachePageStatePersister&quot;</span></li>
+<li>          <span class="src-id">StatePersister</span>.<span class="src-id">CacheModuleID</span>=<span class="src-str">&quot;mycache&quot;</span></li>
+<li>          <span class="src-id">StatePersister</span>.<span class="src-id">CacheTimeout</span>=<span class="src-str">&quot;3600&quot; </span>/&gt;</li>
+</pre></code></ol></pre>  Note in the above, we use StatePersister.CacheModuleID to configure the cache module ID  for the TCachePageStatePersister instance.</p><p>The above configuration will affect the pages under the directory containing  this configuration and all its subdirectories.  To configure individual pages to use TCachePageStatePersister, use  <pre><ol><code><pre><li>   &lt;<span class="src-id">pages</span>&gt;</li>
+<li>     &lt;<span class="src-id">page id</span>=<span class="src-str">&quot;PageID&quot; </span><span class="src-id">StatePersisterClass</span>=<span class="src-str">&quot;System.Web.UI.TCachePageStatePersister&quot; </span>/&gt;</li>
+<li>   &lt;/<span class="src-id">pages</span>&gt;</li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1.1</li>
+				<li><span class="field">version:</span> $Id: TCachePageStatePersister.php 3008 2011-07-06 12:50:13Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_TCachePageStatePersister_php.html">/Web/UI/TCachePageStatePersister.php</a> (line <span class="field">61</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TCachePageStatePersister</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#calculateKey" title="details" class="method-name">calculateKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$timestamp</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/ICache.html">ICache</a></span>
+										<a href="#getCache" title="details" class="method-name">getCache</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCacheModuleID" title="details" class="method-name">getCacheModuleID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getCacheTimeout" title="details" class="method-name">getCacheTimeout</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getKeyPrefix" title="details" class="method-name">getKeyPrefix</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getPage" title="details" class="method-name">getPage</a>
+											(<span class="var-type"><a href="../System.Web.UI/TPage.html">TPage</a></span>&nbsp;<span class="var-name">0</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#load" title="details" class="method-name">load</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#save" title="details" class="method-name">save</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$state</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCacheModuleID" title="details" class="method-name">setCacheModuleID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCacheTimeout" title="details" class="method-name">setCacheTimeout</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setKeyPrefix" title="details" class="method-name">setKeyPrefix</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPage" title="details" class="method-name">setPage</a>
+											(<span class="var-type">TPage</span>&nbsp;<span class="var-name">$page</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodcalculateKey" id="calculateKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">calculateKey</span> (line <span class="line-number">164</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> a key that is unique per user request</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			calculateKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$timestamp</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$timestamp</span><span class="var-description">: micro timestamp when saving state occurs</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetCache" id="getCache"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCache</span> (line <span class="line-number">104</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the cache module being used for data storage</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/ICache.html">ICache</a></span>
+		<span class="method-name">
+			getCache
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCacheModuleID" id="getCacheModuleID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCacheModuleID</span> (line <span class="line-number">88</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the ID of the cache module.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCacheModuleID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCacheTimeout" id="getCacheTimeout"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCacheTimeout</span> (line <span class="line-number">127</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the number of seconds in which the cached state will expire. Defaults to 1800.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getCacheTimeout
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetKeyPrefix" id="getKeyPrefix"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getKeyPrefix</span> (line <span class="line-number">147</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> prefix of cache variable name to avoid conflict with other cache data. Defaults to 'statepersister'.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getKeyPrefix
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPage" id="getPage"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPage</span> (line <span class="line-number">72</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getPage
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI/TPage.html">TPage</a></span>&nbsp;<span class="var-name">0</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TPage.html">TPage</a></span>
+				<span class="var-name">0</span><span class="var-description">: the page that this persister works for</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodload" id="load"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">load</span> (line <span class="line-number">190</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads page state from cache.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the restored state</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> THttpException if page state is corrupted</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			load
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsave" id="save"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">save</span> (line <span class="line-number">176</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Saves state in cache.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			save
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$state</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$state</span><span class="var-description">: state to be stored</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCacheModuleID" id="setCacheModuleID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCacheModuleID</span> (line <span class="line-number">96</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCacheModuleID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the ID of the cache module. If not set, the primary cache module will be used.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCacheTimeout" id="setCacheTimeout"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCacheTimeout</span> (line <span class="line-number">136</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if the number is smaller than 0.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCacheTimeout
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: the number of seconds in which the cached state will expire. 0 means never expire.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetKeyPrefix" id="setKeyPrefix"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setKeyPrefix</span> (line <span class="line-number">155</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setKeyPrefix
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: prefix of cache variable name to avoid conflict with other cache data</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetPage" id="setPage"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPage</span> (line <span class="line-number">80</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPage
+		</span>
+					(<span class="var-type">TPage</span>&nbsp;<span class="var-name">$page</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI/TPage.html">TPage</a></span>
+				<span class="var-name">$page</span><span class="var-description">: the page that this persister works for.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:48 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

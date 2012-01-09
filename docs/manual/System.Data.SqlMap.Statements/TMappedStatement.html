@@ -1,0 +1,1747 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TMappedStatement</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TMappedStatement</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../System.Data.SqlMap.Statements/IMappedStatement.html">IMappedStatement</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TMappedStatement class executes SQL mapped statements. Mapped Statements can  hold any SQL statement and use Parameter Maps and Result Maps for input and output.</p>
+<p class="description"><p>This class is usualy instantiated during SQLMap configuration by TSqlDomBuilder.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TMappedStatement.php 2920 2011-05-21 19:29:39Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_SqlMap_Statements_TMappedStatement_php.html">/Data/SqlMap/Statements/TMappedStatement.php</a> (line <span class="field">24</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TMappedStatement</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Statements/TSelectMappedStatement.html">TSelectMappedStatement</a></td>
+					<td>
+											TSelectMappedStatment class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Statements/TInsertMappedStatement.html">TInsertMappedStatement</a></td>
+					<td>
+											TInsertMappedStatement class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Statements/TUpdateMappedStatement.html">TUpdateMappedStatement</a></td>
+					<td>
+											TUpdateMappedStatement class.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#QUERY_FOR_ARRAY" title="details" class="const-name">QUERY_FOR_ARRAY</a> = 					<span class="var-type"> 1</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#QUERY_FOR_LIST" title="details" class="const-name">QUERY_FOR_LIST</a> = 					<span class="var-type"> 0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#QUERY_FOR_OBJECT" title="details" class="const-name">QUERY_FOR_OBJECT</a> = 					<span class="var-type"> 2</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TMappedStatement</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">TSqlMapManager</span>&nbsp;<span class="var-name">$sqlMap</span>, <span class="var-type">TSqlMapStatement</span>&nbsp;<span class="var-name">$statement</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">object result</span>
+										<a href="#addResultMapGroupBy" title="details" class="method-name">addResultMapGroupBy</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">$parent</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">&$resultObject</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">object the</span>
+										<a href="#applyResultMap" title="details" class="method-name">applyResultMap</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, [<span class="var-type">object the</span>&nbsp;<span class="var-name">&$resultObject</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#enquequePostSelect" title="details" class="method-name">enquequePostSelect</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$select</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultProperty.html">TResultProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">$resultObject</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#executeInsert" title="details" class="method-name">executeInsert</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#executePostSelect" title="details" class="method-name">executePostSelect</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#executeQueryForList" title="details" class="method-name">executeQueryForList</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, [<span class="var-type">object result</span>&nbsp;<span class="var-name">$result</span> = <span class="var-default">null</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$skip</span> = <span class="var-default">-1</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">-1</span>], [<span class="var-type">callback</span>&nbsp;<span class="var-name">$delegate</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#executeQueryForMap" title="details" class="method-name">executeQueryForMap</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$keyProperty</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$valueProperty</span> = <span class="var-default">null</span>], [<span class="var-type">callback</span>&nbsp;<span class="var-name">$skip</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$delegate</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">${return}</span>
+										<a href="#executeQueryForObject" title="details" class="method-name">executeQueryForObject</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$result</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#executeSelectKey" title="details" class="method-name">executeSelectKey</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapSelectKey.html">TSqlMapSelectKey</a></span>&nbsp;<span class="var-name">$selectKey</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#executeSQLQueryLimit" title="details" class="method-name">executeSQLQueryLimit</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$command</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$max</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$skip</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#executeUpdate" title="details" class="method-name">executeUpdate</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#fillArrayResultMap" title="details" class="method-name">fillArrayResultMap</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">$resultObject</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#fillDefaultResultMap" title="details" class="method-name">fillDefaultResultMap</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">$resultObject</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#fillPropertyWithResultMap" title="details" class="method-name">fillPropertyWithResultMap</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">&$resultObject</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">object result</span>
+										<a href="#fillResultArrayList" title="details" class="method-name">fillResultArrayList</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object result</span>&nbsp;<span class="var-name">$resultObject</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">object result</span>
+										<a href="#fillResultClass" title="details" class="method-name">fillResultClass</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$resultClass</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">$resultObject</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">object result</span>
+										<a href="#fillResultMap" title="details" class="method-name">fillResultMap</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$resultMapName</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, [<span class="var-type">object result</span>&nbsp;<span class="var-name">$parentGroup</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">&$resultObject</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">object result</span>
+										<a href="#fillResultObjectProperty" title="details" class="method-name">fillResultObjectProperty</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object result</span>&nbsp;<span class="var-name">$resultObject</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap.Statements/TPreparedCommand.html">TPreparedCommand</a></span>
+										<a href="#getCommand" title="details" class="method-name">getCommand</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getID" title="details" class="method-name">getID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">TSqlMapper</span>
+										<a href="#getManager" title="details" class="method-name">getManager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPostGeneratedSelectKey" title="details" class="method-name">getPostGeneratedSelectKey</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getPostSelectKeys" title="details" class="method-name">getPostSelectKeys</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultProperty.html">TResultProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPreGeneratedSelectKey" title="details" class="method-name">getPreGeneratedSelectKey</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getResultMapGroupKey" title="details" class="method-name">getResultMapGroupKey</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getScalarResult" title="details" class="method-name">getScalarResult</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$result</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getSqlString" title="details" class="method-name">getSqlString</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>
+										<a href="#getStatement" title="details" class="method-name">getStatement</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#initialGroupByResults" title="details" class="method-name">initialGroupByResults</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onExecuteQuery" title="details" class="method-name">onExecuteQuery</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$sql</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#raiseRowDelegate" title="details" class="method-name">raiseRowDelegate</a>
+											(<span class="var-type">object event</span>&nbsp;<span class="var-name">$handler</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#runQueryForList" title="details" class="method-name">runQueryForList</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">object result</span>&nbsp;<span class="var-name">$result</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$delegate</span> = <span class="var-default">null</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">5</span>, <span class="var-type">callback</span>&nbsp;<span class="var-name">6</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#runQueryForMap" title="details" class="method-name">runQueryForMap</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$command</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$keyProperty</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$valueProperty</span> = <span class="var-default">null</span>], [<span class="var-type">callback</span>&nbsp;<span class="var-name">$delegate</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">object the</span>
+										<a href="#runQueryForObject" title="details" class="method-name">runQueryForObject</a>
+											(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$command</span>, <span class="var-type">object The</span>&nbsp;<span class="var-name">&$result</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setObjectProperty" title="details" class="method-name">setObjectProperty</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultProperty.html">TResultProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">&$resultObject</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">117</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a new mapped statement.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TMappedStatement</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">TSqlMapManager</span>&nbsp;<span class="var-name">$sqlMap</span>, <span class="var-type">TSqlMapStatement</span>&nbsp;<span class="var-name">$statement</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">TSqlMapper</span>
+				<span class="var-name">$sqlMap</span><span class="var-description">: an sqlmap.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>
+				<span class="var-name">$statement</span><span class="var-description">: An SQL statement.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodaddResultMapGroupBy" id="addResultMapGroupBy"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addResultMapGroupBy</span> (line <span class="line-number">672</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">ResultMap with GroupBy property. Save object collection graph in a tree  and collect the result later.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object result</span>
+		<span class="method-name">
+			addResultMapGroupBy
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">$parent</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">&$resultObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+				<span class="var-name">$resultMap</span><span class="var-description">: result mapping details.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object the</span>
+				<span class="var-name">$parent</span><span class="var-description">: result object</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodapplyResultMap" id="applyResultMap"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyResultMap</span> (line <span class="line-number">549</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Apply result mapping.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> result filled with data, null if not filled.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object the</span>
+		<span class="method-name">
+			applyResultMap
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, [<span class="var-type">object the</span>&nbsp;<span class="var-name">&$resultObject</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object the</span>
+				<span class="var-name">&$resultObject</span><span class="var-description">: result object, will create if necessary.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodenquequePostSelect" id="enquequePostSelect"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">enquequePostSelect</span> (line <span class="line-number">844</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add nested result property to post select queue.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			enquequePostSelect
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$select</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultProperty.html">TResultProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">$resultObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$select</span><span class="var-description">: post select statement ID</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+				<span class="var-name">$resultMap</span><span class="var-description">: current result mapping details.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultProperty.html">TResultProperty</a></span>
+				<span class="var-name">$property</span><span class="var-description">: current result property.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object the</span>
+				<span class="var-name">$resultObject</span><span class="var-description">: result object</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodexecuteInsert" id="executeInsert"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeInsert</span> (line <span class="line-number">421</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Execute an insert statement. Fill the parameter object with the ouput  parameters if any, also could return the insert generated key.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the insert generated key.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			executeInsert
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: The parameter object used to fill the statement.</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.SqlMap.Statements/TSelectMappedStatement.html#methodexecuteInsert">TSelectMappedStatement::executeInsert()</a>
+							</li>
+					<li>
+				<a href="../System.Data.SqlMap.Statements/TUpdateMappedStatement.html#methodexecuteInsert">TUpdateMappedStatement::executeInsert()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodexecutePostSelect" id="executePostSelect"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">executePostSelect</span> (line <span class="line-number">507</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Process 'select' result properties</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			executePostSelect
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodexecuteQueryForList" id="executeQueryForList"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeQueryForList</span> (line <span class="line-number">204</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Executes the SQL and retuns a List of result objects.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> a list of result objects</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Data.SqlMap.Statements/TMappedStatement.html#methodexecuteQueryForList">TMappedStatement::executeQueryForList()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			executeQueryForList
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, [<span class="var-type">object result</span>&nbsp;<span class="var-name">$result</span> = <span class="var-default">null</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$skip</span> = <span class="var-default">-1</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">-1</span>], [<span class="var-type">callback</span>&nbsp;<span class="var-name">$delegate</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: The object used to set the parameters in the SQL.</span>			</li>
+					<li>
+				<span class="var-type">object result</span>
+				<span class="var-name">$result</span><span class="var-description">: collection object.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$skip</span><span class="var-description">: The number of rows to skip over.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$max</span><span class="var-description">: The maximum number of rows to return.</span>			</li>
+					<li>
+				<span class="var-type">callback</span>
+				<span class="var-name">$delegate</span><span class="var-description">: row delegate handler</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.SqlMap.Statements/TInsertMappedStatement.html#methodexecuteQueryForList">TInsertMappedStatement::executeQueryForList()</a>
+							</li>
+					<li>
+				<a href="../System.Data.SqlMap.Statements/TUpdateMappedStatement.html#methodexecuteQueryForList">TUpdateMappedStatement::executeQueryForList()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodexecuteQueryForMap" id="executeQueryForMap"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeQueryForMap</span> (line <span class="line-number">277</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Executes the SQL and retuns all rows selected in a map that is keyed on  the property named in the keyProperty parameter.  The value at each key  will be the value of the property specified in the valueProperty parameter.</p>
+<p class="description"><p>If valueProperty is null, the entire result object will be entered.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> An array of object containing the rows keyed by keyProperty.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			executeQueryForMap
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$keyProperty</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$valueProperty</span> = <span class="var-default">null</span>], [<span class="var-type">callback</span>&nbsp;<span class="var-name">$skip</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$max</span> = <span class="var-default">-1</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$delegate</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: The object used to set the parameters in the SQL.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$keyProperty</span><span class="var-description">: The property of the result object to be used as the key.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$valueProperty</span><span class="var-description">: The property of the result object to be used as the value (or null).</span>			</li>
+					<li>
+				<span class="var-type">callback</span>
+				<span class="var-name">$skip</span><span class="var-description">: row delegate handler</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.SqlMap.Statements/TInsertMappedStatement.html#methodexecuteQueryForMap">TInsertMappedStatement::executeQueryForMap()</a>
+							</li>
+					<li>
+				<a href="../System.Data.SqlMap.Statements/TUpdateMappedStatement.html#methodexecuteQueryForMap">TUpdateMappedStatement::executeQueryForMap()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodexecuteQueryForObject" id="executeQueryForObject"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeQueryForObject</span> (line <span class="line-number">375</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Executes an SQL statement that returns a single row as an object of the  type of the &lt;tt&gt;$result&lt;/tt&gt; passed in as a parameter.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">${return}</span>
+		<span class="method-name">
+			executeQueryForObject
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$result</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: The parameter data (object, arrary, primitive) used to set the parameters in the SQL</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$result</span><span class="var-description">: The result object.</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.SqlMap.Statements/TInsertMappedStatement.html#methodexecuteQueryForObject">TInsertMappedStatement::executeQueryForObject()</a>
+							</li>
+					<li>
+				<a href="../System.Data.SqlMap.Statements/TUpdateMappedStatement.html#methodexecuteQueryForObject">TUpdateMappedStatement::executeQueryForObject()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodexecuteSelectKey" id="executeSelectKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeSelectKey</span> (line <span class="line-number">476</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Execute the select key statement, used to obtain last insert ID.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> last insert ID.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			executeSelectKey
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapSelectKey.html">TSqlMapSelectKey</a></span>&nbsp;<span class="var-name">$selectKey</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: insert statement parameter</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TSqlMapSelectKey.html">TSqlMapSelectKey</a></span>
+				<span class="var-name">$selectKey</span><span class="var-description">: select key statement</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodexecuteSQLQueryLimit" id="executeSQLQueryLimit"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeSQLQueryLimit</span> (line <span class="line-number">164</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Execute SQL Query with limits.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> record set if applicable.</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">throws:</span> TSqlMapExecutionException if execution error or false record set.</li>
+				<li><span class="field">throws:</span> TSqlMapQueryExecutionException if any execution error</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			executeSQLQueryLimit
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$command</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$max</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$skip</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$command</span><span class="var-description">: SQL statement and parameters.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodexecuteUpdate" id="executeUpdate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">executeUpdate</span> (line <span class="line-number">493</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Execute an update statement. Also used for delete statement.</p>
+<p class="description"><p>Return the number of rows effected.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The number of rows effected.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			executeUpdate
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: The object used to set the parameters in the SQL.</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.SqlMap.Statements/TSelectMappedStatement.html#methodexecuteUpdate">TSelectMappedStatement::executeUpdate()</a>
+							</li>
+					<li>
+				<a href="../System.Data.SqlMap.Statements/TInsertMappedStatement.html#methodexecuteUpdate">TInsertMappedStatement::executeUpdate()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodfillArrayResultMap" id="fillArrayResultMap"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">fillArrayResultMap</span> (line <span class="line-number">759</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieve the result map as an array.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> array list of result objects.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			fillArrayResultMap
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">$resultObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+				<span class="var-name">$resultMap</span><span class="var-description">: result mapping details.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object the</span>
+				<span class="var-name">$resultObject</span><span class="var-description">: result object</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfillDefaultResultMap" id="fillDefaultResultMap"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">fillDefaultResultMap</span> (line <span class="line-number">735</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fill the result map using default settings. If &lt;tt&gt;$resultMap&lt;/tt&gt; is null  the result object returned will be guessed from &lt;tt&gt;$resultObject&lt;/tt&gt;.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the result object filled with data.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			fillDefaultResultMap
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">$resultObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+				<span class="var-name">$resultMap</span><span class="var-description">: result mapping details.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object the</span>
+				<span class="var-name">$resultObject</span><span class="var-description">: result object</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfillPropertyWithResultMap" id="fillPropertyWithResultMap"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">fillPropertyWithResultMap</span> (line <span class="line-number">909</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fills the property with result mapping results.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the data was found, false otherwise.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			fillPropertyWithResultMap
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">&$resultObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+				<span class="var-name">$resultMap</span><span class="var-description">: nested result mapping details.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object the</span>
+				<span class="var-name">&$resultObject</span><span class="var-description">: result object</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfillResultArrayList" id="fillResultArrayList"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">fillResultArrayList</span> (line <span class="line-number">598</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Apply the result to a TList or an array.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> filled with data.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object result</span>
+		<span class="method-name">
+			fillResultArrayList
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object result</span>&nbsp;<span class="var-name">$resultObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object result</span>
+				<span class="var-name">$resultObject</span><span class="var-description">: object, array or list</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfillResultClass" id="fillResultClass"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">fillResultClass</span> (line <span class="line-number">576</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fill the result using ResultClass, will creates new result object if required.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object filled with data</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object result</span>
+		<span class="method-name">
+			fillResultClass
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$resultClass</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">$resultObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$resultClass</span><span class="var-description">: result object class name</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object the</span>
+				<span class="var-name">$resultObject</span><span class="var-description">: result object, will create if necessary.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfillResultMap" id="fillResultMap"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">fillResultMap</span> (line <span class="line-number">640</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fills the result object according to result mappings.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object filled with data.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object result</span>
+		<span class="method-name">
+			fillResultMap
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$resultMapName</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, [<span class="var-type">object result</span>&nbsp;<span class="var-name">$parentGroup</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">&$resultObject</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$resultMapName</span><span class="var-description">: result map name.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object result</span>
+				<span class="var-name">$parentGroup</span><span class="var-description">: object to fill, will create new instances if required.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfillResultObjectProperty" id="fillResultObjectProperty"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">fillResultObjectProperty</span> (line <span class="line-number">615</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Apply the result to an object.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> filled with data.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object result</span>
+		<span class="method-name">
+			fillResultObjectProperty
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object result</span>&nbsp;<span class="var-name">$resultObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object result</span>
+				<span class="var-name">$resultObject</span><span class="var-description">: object, array or list</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetCommand" id="getCommand"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCommand</span> (line <span class="line-number">99</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> command to prepare SQL statements.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap.Statements/TPreparedCommand.html">TPreparedCommand</a></span>
+		<span class="method-name">
+			getCommand
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetID" id="getID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getID</span> (line <span class="line-number">75</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> Name used to identify the TMappedStatement amongst the others.  This the name of the SQL statement by default.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetManager" id="getManager"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getManager</span> (line <span class="line-number">91</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> The SqlMap used by this MappedStatement</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TSqlMapper</span>
+		<span class="method-name">
+			getManager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPostGeneratedSelectKey" id="getPostGeneratedSelectKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPostGeneratedSelectKey</span> (line <span class="line-number">459</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the inserted row ID after executing an insert statement.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> last insert ID, null otherwise.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPostGeneratedSelectKey
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: insert statement parameter.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetPostSelectKeys" id="getPostSelectKeys"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPostSelectKeys</span> (line <span class="line-number">882</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Finds in the post select property the SQL statement primary selection keys.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of primary key values.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getPostSelectKeys
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultProperty.html">TResultProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+				<span class="var-name">$resultMap</span><span class="var-description">: result mapping details</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultProperty.html">TResultProperty</a></span>
+				<span class="var-name">$property</span><span class="var-description">: result property</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: current row data.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetPreGeneratedSelectKey" id="getPreGeneratedSelectKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPreGeneratedSelectKey</span> (line <span class="line-number">443</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the insert generated ID before executing an insert statement.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> new insert ID if pre-select key statement was executed, null otherwise.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPreGeneratedSelectKey
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: insert statement parameter.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetResultMapGroupKey" id="getResultMapGroupKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getResultMapGroupKey</span> (line <span class="line-number">718</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the result 'group by' groupping key for each row.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> groupping key.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getResultMapGroupKey
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+				<span class="var-name">$resultMap</span><span class="var-description">: result mapping details.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetScalarResult" id="getScalarResult"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getScalarResult</span> (line <span class="line-number">779</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Converts the first array value to scalar value of given type.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> scalar value.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getScalarResult
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$result</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$result</span><span class="var-description">: list of results</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: scalar type.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetSqlString" id="getSqlString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSqlString</span> (line <span class="line-number">125</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getSqlString
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetStatement" id="getStatement"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStatement</span> (line <span class="line-number">83</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> The SQL statment used by this MappedStatement</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.SqlMap.Configuration/TSqlMapStatement.html">TSqlMapStatement</a></span>
+		<span class="method-name">
+			getStatement
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinitialGroupByResults" id="initialGroupByResults"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">initialGroupByResults</span> (line <span class="line-number">107</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Empty the group by results cache.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			initialGroupByResults
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodonExecuteQuery" id="onExecuteQuery"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onExecuteQuery</span> (line <span class="line-number">538</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raise the execute query event.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onExecuteQuery
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$sql</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$sql</span><span class="var-description">: prepared SQL statement and subsititution parameters</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodraiseRowDelegate" id="raiseRowDelegate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">raiseRowDelegate</span> (line <span class="line-number">341</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raises delegate handler.</p>
+<p class="description"><p>This method is invoked for each new list item. It is the responsibility  of the handler to add the item to the list.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			raiseRowDelegate
+		</span>
+					(<span class="var-type">object event</span>&nbsp;<span class="var-name">$handler</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">object event</span>
+				<span class="var-name">$handler</span><span class="var-description">: parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrunQueryForList" id="runQueryForList"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">runQueryForList</span> (line <span class="line-number">226</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Executes the SQL and retuns a List of result objects.</p>
+<p class="description"><p>This method should only be called by internal developers, consider using  &lt;tt&gt;executeQueryForList()&lt;/tt&gt; first.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> a list of result objects</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Data.SqlMap.Statements/TMappedStatement.html#methodexecuteQueryForList">TMappedStatement::executeQueryForList()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			runQueryForList
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">object result</span>&nbsp;<span class="var-name">$result</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$delegate</span> = <span class="var-default">null</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">5</span>, <span class="var-type">callback</span>&nbsp;<span class="var-name">6</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">5</span><span class="var-description">: The maximum number of rows to return.</span>			</li>
+					<li>
+				<span class="var-type">callback</span>
+				<span class="var-name">6</span><span class="var-description">: row delegate handler</span>			</li>
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: The object used to set the parameters in the SQL.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$sql</span><span class="var-description">: SQL string and subsititution parameters.</span>			</li>
+					<li>
+				<span class="var-type">object result</span>
+				<span class="var-name">$result</span><span class="var-description">: collection object.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$delegate</span><span class="var-description">: The number of rows to skip over.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrunQueryForMap" id="runQueryForMap"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">runQueryForMap</span> (line <span class="line-number">301</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Executes the SQL and retuns all rows selected in a map that is keyed on  the property named in the keyProperty parameter.  The value at each key  will be the value of the property specified in the valueProperty parameter.</p>
+<p class="description"><p>If valueProperty is null, the entire result object will be entered.</p><p>This method should only be called by internal developers, consider using  &lt;tt&gt;executeQueryForMap()&lt;/tt&gt; first.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> An array of object containing the rows keyed by keyProperty.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Data.SqlMap.Statements/TMappedStatement.html#methodexecuteQueryForMap">TMappedStatement::executeQueryForMap()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			runQueryForMap
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$command</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$keyProperty</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$valueProperty</span> = <span class="var-default">null</span>], [<span class="var-type">callback</span>&nbsp;<span class="var-name">$delegate</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: The object used to set the parameters in the SQL.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$command</span><span class="var-description">: SQL string and subsititution parameters.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$keyProperty</span><span class="var-description">: The property of the result object to be used as the key.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$valueProperty</span><span class="var-description">: The property of the result object to be used as the value (or null).</span>			</li>
+					<li>
+				<span class="var-type">callback</span>
+				<span class="var-name">$delegate</span><span class="var-description">: row delegate, a callback function</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodrunQueryForObject" id="runQueryForObject"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">runQueryForObject</span> (line <span class="line-number">394</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Executes an SQL statement that returns a single row as an object of the  type of the &lt;tt&gt;$result&lt;/tt&gt; passed in as a parameter.</p>
+<p class="description"><p>This method should only be called by internal developers, consider using  &lt;tt&gt;executeQueryForObject()&lt;/tt&gt; first.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Data.SqlMap.Statements/TMappedStatement.html#methodexecuteQueryForObject">TMappedStatement::executeQueryForObject()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object the</span>
+		<span class="method-name">
+			runQueryForObject
+		</span>
+					(<span class="var-type">IDbConnection</span>&nbsp;<span class="var-name">$connection</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$command</span>, <span class="var-type">object The</span>&nbsp;<span class="var-name">&$result</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">IDbConnection</span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$command</span><span class="var-description">: SQL string and subsititution parameters.</span>			</li>
+					<li>
+				<span class="var-type">object The</span>
+				<span class="var-name">&$result</span><span class="var-description">: result object.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetObjectProperty" id="setObjectProperty"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setObjectProperty</span> (line <span class="line-number">793</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set a property of the result object with appropriate value.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setObjectProperty
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>&nbsp;<span class="var-name">$resultMap</span>, <span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultProperty.html">TResultProperty</a></span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$row</span>, <span class="var-type">object the</span>&nbsp;<span class="var-name">&$resultObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultMap.html">TResultMap</a></span>
+				<span class="var-name">$resultMap</span><span class="var-description">: result mapping details.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Configuration/TResultProperty.html">TResultProperty</a></span>
+				<span class="var-name">$property</span><span class="var-description">: the result property to fill.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$row</span><span class="var-description">: a result set row retrieved from the database</span>			</li>
+					<li>
+				<span class="var-type">object the</span>
+				<span class="var-name">&$resultObject</span><span class="var-description">: result object</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constQUERY_FOR_ARRAY" id="QUERY_FOR_ARRAY"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">QUERY_FOR_ARRAY</span>
+			 = <span class="const-default"> 1</span>
+			(line <span class="line-number">64</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> select is to query for list.</li>
+			</ul>
+	
+	
+</div>
+<a name="constQUERY_FOR_LIST" id="QUERY_FOR_LIST"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">QUERY_FOR_LIST</span>
+			 = <span class="const-default"> 0</span>
+			(line <span class="line-number">59</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> select is to query for list.</li>
+			</ul>
+	
+	
+</div>
+<a name="constQUERY_FOR_OBJECT" id="QUERY_FOR_OBJECT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">QUERY_FOR_OBJECT</span>
+			 = <span class="const-default"> 2</span>
+			(line <span class="line-number">69</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> select is to query for object.</li>
+			</ul>
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:15:10 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TPropertyValue</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TPropertyValue</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TPropertyValue class</p>
+<p class="description"><p>TPropertyValue is a utility class that provides static methods  to convert component property values to specific types.</p><p>TPropertyValue is commonly used in component setter methods to ensure  the new property value is of specific type.  For example, a boolean-typed property setter method would be as follows,  <pre><ol><code><pre><li> <span class="src-key">function </span><span class="src-id">setPropertyName</span><span class="src-sym">(</span><span class="src-var">$value</span><span class="src-sym">) </span><span class="src-sym">{</span></li>
+<li>     <span class="src-var">$value</span>=<span class="src-id"><a href="../System/TPropertyValue.html">TPropertyValue</a></span><span class="src-sym">::</span><a href="../System/TPropertyValue.html#methodensureBoolean">ensureBoolean</a><span class="src-sym">(</span><span class="src-var">$value</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>     <span class="src-comm">// $value is now of boolean type</span></li>
+<li> <span class="src-sym">}</span></li>
+</pre></code></ol></pre></p><p>Properties can be of the following types with specific type conversion rules: <ul><li>string: a boolean value will be converted to 'true' or 'false'.</li><li>boolean: string 'true' (case-insensitive) will be converted to true,
+            string 'false' (case-insensitive) will be converted to false.</li><li>integer</li><li>float</li><li>array: string starting with '(' and ending with ')' will be considered as
+          as an array expression and will be evaluated. Otherwise, an array
+          with the value to be ensured is returned.</li><li>object</li><li>enum: enumerable type, represented by an array of strings.</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TComponent.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_TComponent_php.html">/TComponent.php</a> (line <span class="field">515</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#ensureArray" title="details" class="method-name">ensureArray</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#ensureBoolean" title="details" class="method-name">ensureBoolean</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#ensureEnum" title="details" class="method-name">ensureEnum</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$enums</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#ensureFloat" title="details" class="method-name">ensureFloat</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#ensureInteger" title="details" class="method-name">ensureInteger</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">object</span>
+										<a href="#ensureObject" title="details" class="method-name">ensureObject</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#ensureString" title="details" class="method-name">ensureString</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodensureArray" id="ensureArray"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ensureArray</span> (line <span class="line-number">577</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Converts a value to array type. If the value is a string and it is</p>
+<p class="description"><p>in the form (a,b,c) then an array consisting of each of the elements  will be returned. If the value is a string and it is not in this form  then an array consisting of just the string will be returned. If the value  is not a string then</p></p>
+	<ul class="tags">
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			ensureArray
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the value to be converted.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodensureBoolean" id="ensureBoolean"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ensureBoolean</span> (line <span class="line-number">525</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Converts a value to boolean type.</p>
+<p class="description"><p>Note, string 'true' (case-insensitive) will be converted to true,  string 'false' (case-insensitive) will be converted to false.  If a string represents a non-zero number, it will be treated as true.</p></p>
+	<ul class="tags">
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			ensureBoolean
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the value to be converted.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodensureEnum" id="ensureEnum"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ensureEnum</span> (line <span class="line-number">621</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Converts a value to enum type.</p>
+<p class="description"><p>This method checks if the value is of the specified enumerable type.  A value is a valid enumerable value if it is equal to the name of a constant  in the specified enumerable type (class).  For more details about enumerable, see <a href="../System/TEnumerable.html">TEnumerable</a>.</p><p>For backward compatibility, this method also supports sanity  check of a string value to see if it is among the given list of strings.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the valid enumeration value</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if the original value is not in the string array.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			ensureEnum
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$enums</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the value to be converted.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$enums</span><span class="var-description">: class name of the enumerable type, or array of valid enumeration values. If this is not an array,  the method considers its parameters are of variable length, and the second till the last parameters are enumeration values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodensureFloat" id="ensureFloat"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ensureFloat</span> (line <span class="line-number">563</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Converts a value to float type.</p>
+	<ul class="tags">
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			ensureFloat
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the value to be converted.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodensureInteger" id="ensureInteger"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ensureInteger</span> (line <span class="line-number">553</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Converts a value to integer type.</p>
+	<ul class="tags">
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			ensureInteger
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the value to be converted.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodensureObject" id="ensureObject"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ensureObject</span> (line <span class="line-number">600</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Converts a value to object type.</p>
+	<ul class="tags">
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object</span>
+		<span class="method-name">
+			ensureObject
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the value to be converted.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodensureString" id="ensureString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ensureString</span> (line <span class="line-number">540</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Converts a value to string type.</p>
+<p class="description"><p>Note, a boolean value will be converted to 'true' if it is true  and 'false' if it is false.</p></p>
+	<ul class="tags">
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			ensureString
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the value to be converted.</span>			</li>
+				</ul>
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:13:14 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

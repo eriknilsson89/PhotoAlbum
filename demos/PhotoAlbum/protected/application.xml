@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<application id="photoalbum" mode="Debug">
+  <paths>
+    
+  </paths>
+  <services>
+    <service id="page" 
+           class="TPageService" 
+           DefaultPage="Home"
+           />
+  </services>
+  <modules>
+ 
+	<module id="db" class="System.Data.TDataSourceConfig">
+    <database ConnectionString="mysql:host=localhost;dbname=photo" username="root" password=""/>
+  	</module>
+ 
+  	<module class="System.Data.ActiveRecord.TActiveRecordConfig" ConnectionID="db" />
+  	<module id="friendly-url" class="System.Web.TUrlMapping">
+        <url ServiceParameter="uploadPhotos" pattern="uploadphotos/{id}/" parameters.id="\d+" />
+    </module>
+
+    <module id="users"
+     class="System.Security.TDbUserManager"
+     UserClass="Application.Common.User"
+     ConnectionID="db" />
+    <module id="auth" class="System.Security.TAuthManager" UserManager="users" LoginPage="login" />
+
+</modules>
+<paths>
+  <using namespace="Application.database.*" />
+  <using namespace="Application.common.*" />
+  <using namespace="System.Data.*" />
+    <using namespace="System.Data.ActiveRecord.*" />
+    <using namespace="System.Security.*" />
+    <using namespace="System.Web.UI.ActiveControls.*" />
+</paths>
+</application>

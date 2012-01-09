@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TSqliteTableInfo</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TSqliteTableInfo</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TSqliteTableInfo class provides additional table information for PostgreSQL database.</p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TSqliteTableInfo.php 1861 2007-04-12 08:05:03Z wei $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_Common_Sqlite_TSqliteTableInfo_php.html">/Data/Common/Sqlite/TSqliteTableInfo.php</a> (line <span class="field">27</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a>
+      |
+      --TSqliteTableInfo</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.Common/TDbCommandBuilder.html">TDbCommandBuilder</a></span>
+										<a href="#createCommandBuilder" title="details" class="method-name">createCommandBuilder</a>
+											(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTableFullName" title="details" class="method-name">getTableFullName</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodcreateCommandBuilder" id="createCommandBuilder"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createCommandBuilder</span> (line <span class="line-number">33</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> new command builder</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.Common/TDbCommandBuilder.html">TDbCommandBuilder</a></span>
+		<span class="method-name">
+			createCommandBuilder
+		</span>
+					(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$connection</span><span class="var-description">: database connection.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Data.Common/TDbTableInfo.html#methodcreateCommandBuilder">TDbTableInfo::createCommandBuilder()</a></dt>
+					</dl>
+		
+	</div>
+<a name="methodgetTableFullName" id="getTableFullName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTableFullName</span> (line <span class="line-number">42</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> full name of the table, database dependent.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTableFullName
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Data.Common/TDbTableInfo.html#methodgetTableFullName">TDbTableInfo::getTableFullName()</a></dt>
+					</dl>
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#method__construct">TDbTableInfo::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodcreateCommandBuilder">TDbTableInfo::createCommandBuilder()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodgetColumn">TDbTableInfo::getColumn()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodgetColumnNames">TDbTableInfo::getColumnNames()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodgetColumns">TDbTableInfo::getColumns()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodgetForeignKeys">TDbTableInfo::getForeignKeys()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodgetInfo">TDbTableInfo::getInfo()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodgetIsView">TDbTableInfo::getIsView()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodgetLowerCaseColumnNames">TDbTableInfo::getLowerCaseColumnNames()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodgetPrimaryKeys">TDbTableInfo::getPrimaryKeys()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodgetTableFullName">TDbTableInfo::getTableFullName()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodgetTableName">TDbTableInfo::getTableName()</a></span><br>
+													<span class="method-name"><a href="../System.Data.Common/TDbTableInfo.html#methodsetInfo">TDbTableInfo::setInfo()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:13 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

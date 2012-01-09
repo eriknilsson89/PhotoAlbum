@@ -1,0 +1,95 @@
+<com:TContent ID="Main">
+	<h3>Register</h3>
+
+<com:TValidationSummary
+	Display="Dynamic"
+	ValidationGroup="user" />
+
+<p class="input-label">Username
+<com:TTextBox ID="Username" /></p>
+<com:TRequiredFieldValidator
+	ControlToValidate="Username"
+	ValidationGroup="user"
+	Display="Dynamic"
+	Text="*"
+	ErrorMessage="Please choose a username."
+	ControlCssClass="input-error1" />
+<com:TRegularExpressionValidator
+	ControlToValidate="Username"
+	ValidationGroup="user"
+	Display="Dynamic"
+	RegularExpression="[\w]{3,16}"
+	Text="*"
+	ErrorMessage="Your username must contain only letters, digits and underscores, and it must contain at least 3 and at most 16 characters."
+	ControlCssClass="input-error2" />
+<com:TCustomValidator
+	ControlToValidate="Username"
+	ValidationGroup="user"
+	Display="Dynamic"
+	OnServerValidate="checkUsername"
+	Text="*"
+	ErrorMessage="Sorry, your username is taken by someone else. Please choose another username."
+	ControlCssClass="input-error3" />
+	
+<p class="input-label">Email Address
+<com:TTextBox ID="Email" /></p>
+<com:TRequiredFieldValidator
+	ControlToValidate="Email"
+	ValidationGroup="user"
+	Text="*"
+	ErrorMessage="Please provide your email address."
+	ControlCssClass="input-error1" />
+<com:TEmailAddressValidator
+	ControlToValidate="Email"
+	ValidationGroup="user"
+	Display="Dynamic"
+	Text="*"
+	ErrorMessage="You entered an invalid email address."
+	FocusOnError="true"
+	ControlCssClass="input-error2" />
+<com:TCustomValidator
+	ControlToValidate="Email"
+	ValidationGroup="user"
+	Display="Dynamic"
+	OnServerValidate="checkEmail"
+	Text="*"
+	ErrorMessage="Sorry, your Email is already registred."
+	ControlCssClass="input-error3" />
+
+<p class="input-label">Password
+<com:TTextBox ID="Password" TextMode="Password" /></p>
+<com:TRequiredFieldValidator
+	ControlToValidate="Password"
+	ValidationGroup="user"
+	Display="Dynamic"
+	Text="*"
+	ErrorMessage="Please choose a password."
+	ControlCssClass="input-error1" />
+<com:TRegularExpressionValidator
+	ControlToValidate="Password"
+	ValidationGroup="user"
+	Display="Dynamic"
+	RegularExpression="[\w\.]{6,20}"
+	Text="*"
+	ErrorMessage="Your password must contain only letters, digits and underscores, and it must contain at least 6 and at most 20 characters."
+	ControlCssClass="input-error2" />
+
+<br/>
+
+<p class="input-label">Re-type Password
+<com:TTextBox ID="Password2" TextMode="Password" /></p>
+<com:TCompareValidator
+	ControlToValidate="Password"
+	ControlToCompare="Password2"
+	ValidationGroup="user"
+	Display="Dynamic"
+	Text="*"
+	ErrorMessage="Your password entries did not match."
+	ControlCssClass="input-error3" />
+
+<com:TButton
+	Text="Register"
+	ValidationGroup="user"
+	CssClass="link-button"
+	OnClick="createUser" />
+</com:TContent>

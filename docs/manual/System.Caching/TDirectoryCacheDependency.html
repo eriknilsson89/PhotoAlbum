@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TDirectoryCacheDependency</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TDirectoryCacheDependency</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TDirectoryCacheDependency class.</p>
+<p class="description"><p>TDirectoryCacheDependency performs dependency checking based on the  modification time of the files contained in the specified directory.  The directory being checked is specified via <a href="../System.Caching/TDirectoryCacheDependency.html#methodsetDirectory">Directory</a>.</p><p>By default, all files under the specified directory and subdirectories  will be checked. If the last modification time of any of them is changed  or if different number of files are contained in a directory, the dependency  is reported as changed. By specifying <a href="../System.Caching/TDirectoryCacheDependency.html#methodsetRecursiveCheck">RecursiveCheck</a>  and <a href="../System.Caching/TDirectoryCacheDependency.html#methodsetRecursiveLevel">RecursiveLevel</a>, one can limit the checking  to a certain depth of the subdirectories.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1.0</li>
+				<li><span class="field">version:</span> $Id: TCache.php 2513 2008-10-13 10:46:23Z carl $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Caching_TCache_php.html">/Caching/TCache.php</a> (line <span class="field">408</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System.Caching/TCacheDependency.html">TCacheDependency</a>
+      |
+      --TDirectoryCacheDependency</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TDirectoryCacheDependency</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$directory</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#generateTimestamps" title="details" class="method-name">generateTimestamps</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$directory</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$level</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDirectory" title="details" class="method-name">getDirectory</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getHasChanged" title="details" class="method-name">getHasChanged</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getRecursiveCheck" title="details" class="method-name">getRecursiveCheck</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getRecursiveLevel" title="details" class="method-name">getRecursiveLevel</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDirectory" title="details" class="method-name">setDirectory</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$directory</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setRecursiveCheck" title="details" class="method-name">setRecursiveCheck</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setRecursiveLevel" title="details" class="method-name">setRecursiveLevel</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#validateDirectory" title="details" class="method-name">validateDirectory</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$directory</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#validateFile" title="details" class="method-name">validateFile</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$fileName</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">419</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TDirectoryCacheDependency</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$directory</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$directory</span><span class="var-description">: the directory to be checked</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgenerateTimestamps" id="generateTimestamps"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateTimestamps</span> (line <span class="line-number">527</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines the last modification time for files under the directory.</p>
+<p class="description"><p>This method may go recursively into subdirectories if  <a href="../System.Caching/TDirectoryCacheDependency.html#methodsetRecursiveCheck">RecursiveCheck</a> is set true.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of file modification time indexed by the file path</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			generateTimestamps
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$directory</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$level</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$directory</span><span class="var-description">: the directory name</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$level</span><span class="var-description">: level of the recursion</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetDirectory" id="getDirectory"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDirectory</span> (line <span class="line-number">427</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the directory to be checked</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDirectory
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHasChanged" id="getHasChanged"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHasChanged</span> (line <span class="line-number">488</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs the actual dependency checking.</p>
+<p class="description"><p>This method returns true if the directory is changed.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the dependency is changed or not.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getHasChanged
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRecursiveCheck" id="getRecursiveCheck"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRecursiveCheck</span> (line <span class="line-number">448</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the subdirectories of the directory will also be checked.  It defaults to true.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getRecursiveCheck
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRecursiveLevel" id="getRecursiveLevel"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRecursiveLevel</span> (line <span class="line-number">465</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the depth of the subdirectories to be checked.  It defaults to -1, meaning unlimited depth.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getRecursiveLevel
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetDirectory" id="setDirectory"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDirectory</span> (line <span class="line-number">436</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if the directory does not exist</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDirectory
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$directory</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$directory</span><span class="var-description">: the directory to be checked</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetRecursiveCheck" id="setRecursiveCheck"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setRecursiveCheck</span> (line <span class="line-number">456</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setRecursiveCheck
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether the subdirectories of the directory will also be checked.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetRecursiveLevel" id="setRecursiveLevel"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setRecursiveLevel</span> (line <span class="line-number">478</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a value indicating the depth of the subdirectories to be checked.</p>
+<p class="description"><p>This is meaningful only when <a href="../System.Caching/TDirectoryCacheDependency.html#methodgetRecursiveCheck">RecursiveCheck</a>  is true.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setRecursiveLevel
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$value</span><span class="var-description">: the depth of the subdirectories to be checked.  If the value is less than 0, it means unlimited depth.  If the value is 0, it means checking the files directly under the specified directory.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodvalidateDirectory" id="validateDirectory"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">validateDirectory</span> (line <span class="line-number">514</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks to see if the specified subdirectory should be checked for dependency.</p>
+<p class="description"><p>This method is invoked when dependency of the whole directory is being checked.  By default, it always returns true, meaning the subdirectory should be checked.  You may override this method to check only certain subdirectories.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether this subdirectory should be checked.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			validateDirectory
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$directory</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$directory</span><span class="var-description">: the name of the subdirectory that may be checked for dependency.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodvalidateFile" id="validateFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">validateFile</span> (line <span class="line-number">501</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks to see if the file should be checked for dependency.</p>
+<p class="description"><p>This method is invoked when dependency of the whole directory is being checked.  By default, it always returns true, meaning the file should be checked.  You may override this method to check only certain files.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether this file should be checked.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			validateFile
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$fileName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$fileName</span><span class="var-description">: the name of the file that may be checked for dependency.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:46 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

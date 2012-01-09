@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TSqlMapXmlConfigBuilder</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TSqlMapXmlConfigBuilder</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TSqlMapXmlConfig class file.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">version:</span> $Id: TSqlMapXmlConfiguration.php 2880 2011-01-19 14:56:01Z christophe.boulain $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_SqlMap_Configuration_TSqlMapXmlConfiguration_php.html">/Data/SqlMap/Configuration/TSqlMapXmlConfiguration.php</a> (line <span class="field">22</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfiguration.html">TSqlMapXmlConfiguration</a></td>
+					<td>
+											TSqlMapXmlConfig class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.SqlMap.Configuration/TSqlMapXmlMappingConfiguration.html">TSqlMapXmlMappingConfiguration</a></td>
+					<td>
+											Loads the statements, result maps, parameters maps from xml configuration.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">Object</span>
+										<a href="#createObjectFromNode" title="details" class="method-name">createObjectFromNode</a>
+											(<span class="var-type">SimpleXmlNode</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAbsoluteFilePath" title="details" class="method-name">getAbsoluteFilePath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$basefile</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$resource</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getConfigFile" title="details" class="method-name">getConfigFile</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">SimpleXmlElement</span>
+										<a href="#getElementByIdValue" title="details" class="method-name">getElementByIdValue</a>
+											(<span class="var-type">SimpleXmlDocument</span>&nbsp;<span class="var-name">$document</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tag</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">SimpleXmlElement</span>
+										<a href="#loadXmlDocument" title="details" class="method-name">loadXmlDocument</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>, <span class="var-type">TSqlMapXmlConfiguration</span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setObjectPropFromNode" title="details" class="method-name">setObjectPropFromNode</a>
+											(<span class="var-type">Object</span>&nbsp;<span class="var-name">$obj</span>, <span class="var-type">SimpleXmlNode</span>&nbsp;<span class="var-name">$node</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$except</span> = <span class="var-default">array()</span>])
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodcreateObjectFromNode" id="createObjectFromNode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createObjectFromNode</span> (line <span class="line-number">30</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create an instance of an object give by the attribute named 'class' in the  node and set the properties on the object given by attribute names and values.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> new instance of class with class name given by 'class' attribute value.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Object</span>
+		<span class="method-name">
+			createObjectFromNode
+		</span>
+					(<span class="var-type">SimpleXmlNode</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlNode</span>
+				<span class="var-name">$node</span><span class="var-description">: property node</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetAbsoluteFilePath" id="getAbsoluteFilePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAbsoluteFilePath</span> (line <span class="line-number">72</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the filename relative to the basefile.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> absolute filename.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAbsoluteFilePath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$basefile</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$resource</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$basefile</span><span class="var-description">: base filename</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$resource</span><span class="var-description">: relative filename</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetConfigFile" id="getConfigFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConfigFile</span> (line <span class="line-number">122</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> configuration file.</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getConfigFile
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.SqlMap.Configuration/TSqlMapXmlConfiguration.html#methodgetConfigFile">TSqlMapXmlConfiguration::getConfigFile()</a>
+							</li>
+					<li>
+				<a href="../System.Data.SqlMap.Configuration/TSqlMapXmlMappingConfiguration.html#methodgetConfigFile">TSqlMapXmlMappingConfiguration::getConfigFile()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodgetElementByIdValue" id="getElementByIdValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getElementByIdValue</span> (line <span class="line-number">108</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get element node by ID value (try for attribute name ID as case insensitive).</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> node if found, null otherwise.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">SimpleXmlElement</span>
+		<span class="method-name">
+			getElementByIdValue
+		</span>
+					(<span class="var-type">SimpleXmlDocument</span>&nbsp;<span class="var-name">$document</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tag</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">SimpleXmlDocument</span>
+				<span class="var-name">$document</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tag</span><span class="var-description">: tag name.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: id value.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodloadXmlDocument" id="loadXmlDocument"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">loadXmlDocument</span> (line <span class="line-number">90</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load document using simple xml.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> xml document.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">SimpleXmlElement</span>
+		<span class="method-name">
+			loadXmlDocument
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>, <span class="var-type">TSqlMapXmlConfiguration</span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$filename</span><span class="var-description">: filename.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetObjectPropFromNode" id="setObjectPropFromNode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setObjectPropFromNode</span> (line <span class="line-number">50</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">For each attributes (excluding attribute named in $except) set the  property of the $obj given by the name of the attribute with the value  of the attribute.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setObjectPropFromNode
+		</span>
+					(<span class="var-type">Object</span>&nbsp;<span class="var-name">$obj</span>, <span class="var-type">SimpleXmlNode</span>&nbsp;<span class="var-name">$node</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$except</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Object</span>
+				<span class="var-name">$obj</span><span class="var-description">: object instance</span>			</li>
+					<li>
+				<span class="var-type">SimpleXmlNode</span>
+				<span class="var-name">$node</span><span class="var-description">: property node</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$except</span><span class="var-description">: exception property name</span>			</li>
+				</ul>
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:20 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

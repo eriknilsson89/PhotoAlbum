@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TWizardNavigationButtonStyle</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TWizardNavigationButtonStyle</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TWizardNavigationButtonStyle class.</p>
+<p class="description"><p>TWizardNavigationButtonStyle defines the style applied to a wizard navigation button.  The button type can be specified via <a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html#methodsetButtonType">ButtonType</a>, which  can be 'Button', 'Image' or 'Link'.  If the button is an image button, <a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html#methodsetImageUrl">ImageUrl</a> will be  used to load the image for the button.  Otherwise, <a href="../System.Web.UI.WebControls/TWizardNavigationButtonStyle.html#methodsetButtonText">ButtonText</a> will be displayed as the button caption.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TWizardNavigationButtonStyle.php 2541 2008-10-21 15:05:13Z qiang.xue $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_UI_WebControls_TWizardNavigationButtonStyle_php.html">/Web/UI/WebControls/TWizardNavigationButtonStyle.php</a> (line <span class="field">32</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a>
+      |
+      --TWizardNavigationButtonStyle</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#apply" title="details" class="method-name">apply</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$button</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#copyFrom" title="details" class="method-name">copyFrom</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>&nbsp;<span class="var-name">$style</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getButtonText" title="details" class="method-name">getButtonText</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonType.html">TWizardNavigationButtonType</a></span>
+										<a href="#getButtonType" title="details" class="method-name">getButtonType</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getImageUrl" title="details" class="method-name">getImageUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#mergeWith" title="details" class="method-name">mergeWith</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>&nbsp;<span class="var-name">$style</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#reset" title="details" class="method-name">reset</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setButtonText" title="details" class="method-name">setButtonText</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setButtonType" title="details" class="method-name">setButtonType</a>
+											(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonType.html">TWizardNavigationButtonType</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setImageUrl" title="details" class="method-name">setImageUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodapply" id="apply"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">apply</span> (line <span class="line-number">143</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Applies this style to the specified button</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			apply
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$button</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$button</span><span class="var-description">: button to be applied with this style</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcopyFrom" id="copyFrom"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">copyFrom</span> (line <span class="line-number">57</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Copies the fields in a new style to this style.</p>
+<p class="description"><p>If a style field is set in the new style, the corresponding field  in this style will be overwritten.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			copyFrom
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>&nbsp;<span class="var-name">$style</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+				<span class="var-name">$style</span><span class="var-description">: the new style</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TStyle.html#methodcopyFrom">TStyle::copyFrom()</a></dt>
+						<dd>Copies the fields in a new style to this style.</dd>
+					</dl>
+		
+	</div>
+<a name="methodgetButtonText" id="getButtonText"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getButtonText</span> (line <span class="line-number">110</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> button caption</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getButtonText
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetButtonType" id="getButtonType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getButtonType</span> (line <span class="line-number">126</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> button type. Default to TWizardNavigationButtonType::Button.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonType.html">TWizardNavigationButtonType</a></span>
+		<span class="method-name">
+			getButtonType
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetImageUrl" id="getImageUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getImageUrl</span> (line <span class="line-number">94</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> image URL for the image button</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getImageUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodmergeWith" id="mergeWith"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">mergeWith</span> (line <span class="line-number">77</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Merges the style with a new one.</p>
+<p class="description"><p>If a style field is not set in this style, it will be overwritten by  the new one.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			mergeWith
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>&nbsp;<span class="var-name">$style</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span>
+				<span class="var-name">$style</span><span class="var-description">: the new style</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TStyle.html#methodmergeWith">TStyle::mergeWith()</a></dt>
+						<dd>Merges the style with a new one.</dd>
+					</dl>
+		
+	</div>
+<a name="methodreset" id="reset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">reset</span> (line <span class="line-number">43</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the style attributes to default values.</p>
+<p class="description"><p>This method overrides the parent implementation by  resetting additional TWizardNavigationButtonStyle specific attributes.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			reset
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Web.UI.WebControls/TStyle.html#methodreset">TStyle::reset()</a></dt>
+						<dd>Resets the style to the original empty state.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetButtonText" id="setButtonText"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setButtonText</span> (line <span class="line-number">118</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setButtonText
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: button caption</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetButtonType" id="setButtonType"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setButtonType</span> (line <span class="line-number">134</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setButtonType
+		</span>
+					(<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonType.html">TWizardNavigationButtonType</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web.UI.WebControls/TWizardNavigationButtonType.html">TWizardNavigationButtonType</a></span>
+				<span class="var-name">$value</span><span class="var-description">: button type.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetImageUrl" id="setImageUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setImageUrl</span> (line <span class="line-number">102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setImageUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: image URL for the image button</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Web.UI.WebControls/TStyle.html">TStyle</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#method__construct">TStyle::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodaddAttributesToRender">TStyle::addAttributesToRender()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodclearStyleField">TStyle::clearStyleField()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodcopyFrom">TStyle::copyFrom()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetBackColor">TStyle::getBackColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetBorderColor">TStyle::getBorderColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetBorderStyle">TStyle::getBorderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetBorderWidth">TStyle::getBorderWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetCssClass">TStyle::getCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetCustomStyle">TStyle::getCustomStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetDisplayStyle">TStyle::getDisplayStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetFont">TStyle::getFont()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetForeColor">TStyle::getForeColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetHeight">TStyle::getHeight()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetStyleField">TStyle::getStyleField()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetStyleFields">TStyle::getStyleFields()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodgetWidth">TStyle::getWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodhasCssClass">TStyle::hasCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodhasFont">TStyle::hasFont()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodhasStyleField">TStyle::hasStyleField()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodmergeWith">TStyle::mergeWith()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodreset">TStyle::reset()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetBackColor">TStyle::setBackColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetBorderColor">TStyle::setBorderColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetBorderStyle">TStyle::setBorderStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetBorderWidth">TStyle::setBorderWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetCssClass">TStyle::setCssClass()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetCustomStyle">TStyle::setCustomStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetDisplayStyle">TStyle::setDisplayStyle()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetForeColor">TStyle::setForeColor()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetHeight">TStyle::setHeight()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetStyleField">TStyle::setStyleField()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#methodsetWidth">TStyle::setWidth()</a></span><br>
+													<span class="method-name"><a href="../System.Web.UI.WebControls/TStyle.html#method__clone">TStyle::__clone()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:17:08 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

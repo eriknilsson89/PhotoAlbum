@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TScaffoldInputCommon</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TScaffoldInputCommon</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TScaffoldInputCommon class file.</p>
+	<ul class="tags">
+				<li><span class="field">license:</span> <a href="http://www.pradosoft.com/license/">http://www.pradosoft.com/license/</a></li>
+				<li><span class="field">copyright:</span> Copyright &amp;copy; 2005-2008 PradoSoft</li>
+				<li><span class="field">link:</span> <a href="http://www.pradosoft.com/">http://www.pradosoft.com/</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_ActiveRecord_Scaffold_InputBuilder_TScaffoldInputCommon_php.html">/Data/ActiveRecord/Scaffold/InputBuilder/TScaffoldInputCommon.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html">TScaffoldInputBase</a>
+   |
+   --TScaffoldInputCommon</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-consts">Constants</a>
+							
+					</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TSqliteScaffoldInput.html">TSqliteScaffoldInput</a></td>
+					<td>
+											TSqliteScaffoldInput class file.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TIbmScaffoldInput.html">TIbmScaffoldInput</a></td>
+					<td>
+											TIbmScaffoldInput class file.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TMysqlScaffoldInput.html">TMysqlScaffoldInput</a></td>
+					<td>
+											TMysqlScaffoldInput class file.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TMssqlScaffoldInput.html">TMssqlScaffoldInput</a></td>
+					<td>
+											TMssqlScaffoldInput class file.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TPgsqlScaffoldInput.html">TPgsqlScaffoldInput</a></td>
+					<td>
+											TPgsqlScaffoldInput class file.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-consts">Constants</a>
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createBooleanControl" title="details" class="method-name">createBooleanControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createDateControl" title="details" class="method-name">createDateControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createDateTimeControl" title="details" class="method-name">createDateTimeControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createDefaultControl" title="details" class="method-name">createDefaultControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createEnumControl" title="details" class="method-name">createEnumControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createFloatControl" title="details" class="method-name">createFloatControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createIntegerControl" title="details" class="method-name">createIntegerControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createMultiLineControl" title="details" class="method-name">createMultiLineControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createRangeValidator" title="details" class="method-name">createRangeValidator</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createRequiredValidator" title="details" class="method-name">createRequiredValidator</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createSetControl" title="details" class="method-name">createSetControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createTimeControl" title="details" class="method-name">createTimeControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createTypeValidator" title="details" class="method-name">createTypeValidator</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createYearControl" title="details" class="method-name">createYearControl</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getDateTimeValue" title="details" class="method-name">getDateTimeValue</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getDefaultControlValue" title="details" class="method-name">getDefaultControlValue</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getEnumValue" title="details" class="method-name">getEnumValue</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getMatchingIndices" title="details" class="method-name">getMatchingIndices</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$checks</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$values</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getSetValue" title="details" class="method-name">getSetValue</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getTimeValue" title="details" class="method-name">getTimeValue</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDefaultProperty" title="details" class="method-name">setDefaultProperty</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$control</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setNotNullProperty" title="details" class="method-name">setNotNullProperty</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$control</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodcreateBooleanControl" id="createBooleanControl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createBooleanControl</span> (line <span class="line-number">28</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createBooleanControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateDateControl" id="createDateControl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createDateControl</span> (line <span class="line-number">198</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createDateControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TSqliteScaffoldInput.html#methodcreateDateControl">TSqliteScaffoldInput::createDateControl()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodcreateDateTimeControl" id="createDateTimeControl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createDateTimeControl</span> (line <span class="line-number">212</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createDateTimeControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TSqliteScaffoldInput.html#methodcreateDateTimeControl">TSqliteScaffoldInput::createDateTimeControl()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodcreateDefaultControl" id="createDefaultControl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createDefaultControl</span> (line <span class="line-number">38</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createDefaultControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateEnumControl" id="createEnumControl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createEnumControl</span> (line <span class="line-number">276</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createEnumControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateFloatControl" id="createFloatControl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createFloatControl</span> (line <span class="line-number">95</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createFloatControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateIntegerControl" id="createIntegerControl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createIntegerControl</span> (line <span class="line-number">86</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createIntegerControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TMysqlScaffoldInput.html#methodcreateIntegerControl">TMysqlScaffoldInput::createIntegerControl()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodcreateMultiLineControl" id="createMultiLineControl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createMultiLineControl</span> (line <span class="line-number">59</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createMultiLineControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateRangeValidator" id="createRangeValidator"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createRangeValidator</span> (line <span class="line-number">137</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createRangeValidator
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateRequiredValidator" id="createRequiredValidator"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createRequiredValidator</span> (line <span class="line-number">112</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createRequiredValidator
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateSetControl" id="createSetControl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createSetControl</span> (line <span class="line-number">250</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createSetControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateTimeControl" id="createTimeControl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createTimeControl</span> (line <span class="line-number">149</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createTimeControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateTypeValidator" id="createTypeValidator"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createTypeValidator</span> (line <span class="line-number">125</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createTypeValidator
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcreateYearControl" id="createYearControl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createYearControl</span> (line <span class="line-number">70</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createYearControl
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDateTimeValue" id="getDateTimeValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDateTimeValue</span> (line <span class="line-number">233</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getDateTimeValue
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TSqliteScaffoldInput.html#methodgetDateTimeValue">TSqliteScaffoldInput::getDateTimeValue()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodgetDefaultControlValue" id="getDefaultControlValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDefaultControlValue</span> (line <span class="line-number">50</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getDefaultControlValue
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetEnumValue" id="getEnumValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEnumValue</span> (line <span class="line-number">304</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getEnumValue
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetMatchingIndices" id="getMatchingIndices"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMatchingIndices</span> (line <span class="line-number">265</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getMatchingIndices
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$checks</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$values</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSetValue" id="getSetValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSetValue</span> (line <span class="line-number">293</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getSetValue
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTimeValue" id="getTimeValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTimeValue</span> (line <span class="line-number">242</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getTimeValue
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetDefaultProperty" id="setDefaultProperty"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDefaultProperty</span> (line <span class="line-number">14</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDefaultProperty
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$control</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetNotNullProperty" id="setNotNullProperty"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setNotNullProperty</span> (line <span class="line-number">21</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setNotNullProperty
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$container</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$control</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$column</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$record</span>)
+			</div>
+	
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html">TScaffoldInputBase</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#methodcreateControl">TScaffoldInputBase::createControl()</a></span><br>
+													<span class="method-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#methodcreateControlLabel">TScaffoldInputBase::createControlLabel()</a></span><br>
+													<span class="method-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#methodcreateInputBuilder">TScaffoldInputBase::createInputBuilder()</a></span><br>
+													<span class="method-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#methodcreateScaffoldInput">TScaffoldInputBase::createScaffoldInput()</a></span><br>
+													<span class="method-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#methodgetControlValue">TScaffoldInputBase::getControlValue()</a></span><br>
+													<span class="method-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#methodgetIsEnabled">TScaffoldInputBase::getIsEnabled()</a></span><br>
+													<span class="method-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#methodgetParent">TScaffoldInputBase::getParent()</a></span><br>
+													<span class="method-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#methodgetRecordPropertyValue">TScaffoldInputBase::getRecordPropertyValue()</a></span><br>
+													<span class="method-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#methodloadScaffoldInput">TScaffoldInputBase::loadScaffoldInput()</a></span><br>
+													<span class="method-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#methodsetRecordPropertyValue">TScaffoldInputBase::setRecordPropertyValue()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html">TScaffoldInputBase</a></span></p>
+					<blockquote>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name"><a href="../System.Data.ActiveReecord.Scaffold.InputBuilder/TScaffoldInputBase.html#constDEFAULT_ID">TScaffoldInputBase::DEFAULT_ID</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:00 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

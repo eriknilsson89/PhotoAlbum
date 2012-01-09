@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TSqlMapPagedList</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TSqlMapPagedList</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TSqlMapPagedList implements a list with paging functionality that retrieves  data from a SqlMap statement.</p>
+<p class="description"><p>The maximum number of records fetched is 3 times the page size. It fetches  the current, the previous and the next page at a time. This allows the paged  list to determine if the page is a the begin, the middle or the end of the list.</p><p>The paged list does not need to know about the total number of records.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TSqlMapPagedList.php 2624 2009-03-19 21:20:47Z godzilla80@gmx.net $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_SqlMap_DataMapper_TSqlMapPagedList_php.html">/Data/SqlMap/DataMapper/TSqlMapPagedList.php</a> (line <span class="field">30</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System.Collections/TList.html">TList</a>
+      |
+      --<a href="../System.Collections/TPagedList.html">TPagedList</a>
+         |
+         --TSqlMapPagedList</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TSqlMapPagedList</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">IMappedStatement</span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$pageSize</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$delegate</span> = <span class="var-default">null</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$page</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#fetchDataFromStatement" title="details" class="method-name">fetchDataFromStatement</a>
+											(<span class="var-type">TPageList</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System.Collections/TPagedListFetchDataEventParameter.html">TPagedListFetchDataEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsLastPage" title="details" class="method-name">getIsLastPage</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsMiddlePage" title="details" class="method-name">getIsMiddlePage</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsNextPageAvailable" title="details" class="method-name">getIsNextPageAvailable</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsPreviousPageAvailable" title="details" class="method-name">getIsPreviousPageAvailable</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getOffsetAndLimit" title="details" class="method-name">getOffsetAndLimit</a>
+											(<span class="var-type"><a href="../System.Collections/TPagedListFetchDataEventParameter.html">TPagedListFetchDataEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#initialize" title="details" class="method-name">initialize</a>
+											(<span class="var-type"><a href="../System.Data.SqlMap.Statements/IMappedStatement.html">IMappedStatement</a></span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$pageSize</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$page</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer|boolean</span>
+										<a href="#nextPage" title="details" class="method-name">nextPage</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#populateData" title="details" class="method-name">populateData</a>
+											(<span class="var-type"><a href="../System.Collections/TPagedListFetchDataEventParameter.html">TPagedListFetchDataEventParameter</a></span>&nbsp;<span class="var-name">$param</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer|boolean</span>
+										<a href="#previousPage" title="details" class="method-name">previousPage</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCustomPaging" title="details" class="method-name">setCustomPaging</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">46</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a new SqlMap paged list.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TSqlMapPagedList</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">IMappedStatement</span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$pageSize</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$delegate</span> = <span class="var-default">null</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$page</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Statements/IMappedStatement.html">IMappedStatement</a></span>
+				<span class="var-name">$statement</span><span class="var-description">: SqlMap statement.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: query parameters</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$pageSize</span><span class="var-description">: page size</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$delegate</span><span class="var-description">: delegate for each data row retrieved.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$page</span><span class="var-description">: number of page to fetch on initialization</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Collections/TPagedList.html#method__construct">TPagedList::__construct()</a></dt>
+						<dd>Constructor.</dd>
+					</dl>
+		
+	</div>
+<a name="methodfetchDataFromStatement" id="fetchDataFromStatement"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">fetchDataFromStatement</span> (line <span class="line-number">83</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fetch data by executing the SqlMap statement.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			fetchDataFromStatement
+		</span>
+					(<span class="var-type">TPageList</span>&nbsp;<span class="var-name">$sender</span>, <span class="var-type"><a href="../System.Collections/TPagedListFetchDataEventParameter.html">TPagedListFetchDataEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">TPageList</span>
+				<span class="var-name">$sender</span><span class="var-description">: current object.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Collections/TPagedListFetchDataEventParameter.html">TPagedListFetchDataEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: fetch parameters</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetIsLastPage" id="getIsLastPage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsLastPage</span> (line <span class="line-number">195</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if is the very last page, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsLastPage
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Collections/TPagedList.html#methodgetIsLastPage">TPagedList::getIsLastPage()</a></dt>
+					</dl>
+		
+	</div>
+<a name="methodgetIsMiddlePage" id="getIsMiddlePage"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsMiddlePage</span> (line <span class="line-number">203</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if is not first nor last page, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsMiddlePage
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsNextPageAvailable" id="getIsNextPageAvailable"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsNextPageAvailable</span> (line <span class="line-number">179</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the next page is available, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsNextPageAvailable
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsPreviousPageAvailable" id="getIsPreviousPageAvailable"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsPreviousPageAvailable</span> (line <span class="line-number">187</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the previous page is available, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsPreviousPageAvailable
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetOffsetAndLimit" id="getOffsetAndLimit"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOffsetAndLimit</span> (line <span class="line-number">169</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Calculate the data fetch offsets and limits.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> 1st element is the offset, 2nd element is the limit.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getOffsetAndLimit
+		</span>
+					(<span class="var-type"><a href="../System.Collections/TPagedListFetchDataEventParameter.html">TPagedListFetchDataEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Collections/TPagedListFetchDataEventParameter.html">TPagedListFetchDataEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: fetch parameters</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodinitialize" id="initialize"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">initialize</span> (line <span class="line-number">61</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initialize the paged list.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			initialize
+		</span>
+					(<span class="var-type"><a href="../System.Data.SqlMap.Statements/IMappedStatement.html">IMappedStatement</a></span>&nbsp;<span class="var-name">$statement</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameter</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$pageSize</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$page</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.SqlMap.Statements/IMappedStatement.html">IMappedStatement</a></span>
+				<span class="var-name">$statement</span><span class="var-description">: SqlMap statement.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameter</span><span class="var-description">: query parameters</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$pageSize</span><span class="var-description">: page size.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$page</span><span class="var-description">: number of page.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodnextPage" id="nextPage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">nextPage</span> (line <span class="line-number">96</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Switches to the next page.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the new page index, false if next page is not availabe.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer|boolean</span>
+		<span class="method-name">
+			nextPage
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Collections/TPagedList.html#methodnextPage">TPagedList::nextPage()</a></dt>
+						<dd>Switches to the next page.</dd>
+					</dl>
+		
+	</div>
+<a name="methodpopulateData" id="populateData"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">populateData</span> (line <span class="line-number">115</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Populate the list with the fetched data.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			populateData
+		</span>
+					(<span class="var-type"><a href="../System.Collections/TPagedListFetchDataEventParameter.html">TPagedListFetchDataEventParameter</a></span>&nbsp;<span class="var-name">$param</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Collections/TPagedListFetchDataEventParameter.html">TPagedListFetchDataEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: fetch parameters</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: fetched data.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodpreviousPage" id="previousPage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">previousPage</span> (line <span class="line-number">105</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Switches to the previous page.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the new page index, false if previous page is not availabe.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer|boolean</span>
+		<span class="method-name">
+			previousPage
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Collections/TPagedList.html#methodpreviousPage">TPagedList::previousPage()</a></dt>
+						<dd>Switches to the previous page.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetCustomPaging" id="setCustomPaging"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCustomPaging</span> (line <span class="line-number">73</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TSqlMapException custom paging must be enabled.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCustomPaging
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Collections/TPagedList.html#methodsetCustomPaging">TPagedList::setCustomPaging()</a></dt>
+					</dl>
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Collections/TPagedList.html">TPagedList</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#method__construct">TPagedList::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodgetCount">TPagedList::getCount()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodgetCurrentPageIndex">TPagedList::getCurrentPageIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodgetCustomPaging">TPagedList::getCustomPaging()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodgetIsFirstPage">TPagedList::getIsFirstPage()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodgetIsLastPage">TPagedList::getIsLastPage()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodgetIterator">TPagedList::getIterator()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodgetPageCount">TPagedList::getPageCount()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodgetPageSize">TPagedList::getPageSize()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodgetVirtualCount">TPagedList::getVirtualCount()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodgotoPage">TPagedList::gotoPage()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodindexOf">TPagedList::indexOf()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methoditemAt">TPagedList::itemAt()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodnextPage">TPagedList::nextPage()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodoffsetExists">TPagedList::offsetExists()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodoffsetGet">TPagedList::offsetGet()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodonFetchData">TPagedList::onFetchData()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodonPageIndexChanged">TPagedList::onPageIndexChanged()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodpreviousPage">TPagedList::previousPage()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodsetCurrentPageIndex">TPagedList::setCurrentPageIndex()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodsetCustomPaging">TPagedList::setCustomPaging()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodsetPageSize">TPagedList::setPageSize()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodsetVirtualCount">TPagedList::setVirtualCount()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TPagedList.html#methodtoArray">TPagedList::toArray()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Collections/TList.html">TList</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Collections/TList.html#method__construct">TList::__construct()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodadd">TList::add()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodclear">TList::clear()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodcontains">TList::contains()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodcopyFrom">TList::copyFrom()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodcount">TList::count()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodgetCount">TList::getCount()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodgetIterator">TList::getIterator()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodgetReadOnly">TList::getReadOnly()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodindexOf">TList::indexOf()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodinsertAt">TList::insertAt()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methoditemAt">TList::itemAt()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodmergeWith">TList::mergeWith()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodoffsetExists">TList::offsetExists()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodoffsetGet">TList::offsetGet()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodoffsetSet">TList::offsetSet()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodoffsetUnset">TList::offsetUnset()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodremove">TList::remove()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodremoveAt">TList::removeAt()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodsetReadOnly">TList::setReadOnly()</a></span><br>
+													<span class="method-name"><a href="../System.Collections/TList.html#methodtoArray">TList::toArray()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:16 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

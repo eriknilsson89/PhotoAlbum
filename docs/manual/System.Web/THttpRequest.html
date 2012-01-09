@@ -1,0 +1,2199 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class THttpRequest</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class THttpRequest</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li></li><li></li><li></li><li><a href="../System/IModule.html">IModule</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">THttpRequest class</p>
+<p class="description"><p>THttpRequest provides storage and access scheme for user request sent via HTTP.  It also encapsulates a uniform way to parse and construct URLs.</p><p>User post data can be retrieved from THttpRequest by using it like an associative array.  For example, to test if a user supplies a variable named 'param1', you can use,  <pre><ol><code><pre><li>   <span class="src-key">if</span><span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$request</span><span class="src-sym">[</span><span class="src-str">'param1'</span><span class="src-sym">]</span><span class="src-sym">)) </span>...</li>
+<li>   <span class="src-comm">// equivalent to:</span></li>
+<li>   <span class="src-comm">// if($request-&gt;contains('param1')) ...</span></li>
+</pre></code></ol></pre>  To get the value of 'param1', use,  <pre><ol><code><pre><li>   <span class="src-var">$value</span>=<span class="src-var">$request</span><span class="src-sym">[</span><span class="src-str">'param1'</span><span class="src-sym">]</span><span class="src-sym">;</span></li>
+<li>   <span class="src-comm">// equivalent to:</span></li>
+<li>   <span class="src-comm">//   $value=$request-&gt;itemAt('param1');</span></li>
+</pre></code></ol></pre>  To traverse the user post data, use  <pre><ol><code><pre><li>   <span class="src-key">foreach</span><span class="src-sym">(</span><span class="src-var">$request </span><span class="src-key">as </span><span class="src-var">$name</span>=&gt;<span class="src-var">$value</span><span class="src-sym">) </span>...</li>
+</pre></code></ol></pre>  Note, POST and GET variables are merged together in THttpRequest.  If a variable name appears in both POST and GET data, then POST data  takes precedence.</p><p>To construct a URL that can be recognized by Prado, use <a href="../System.Web/THttpRequest.html#methodconstructUrl">constructUrl()</a>.  The format of the recognizable URLs is determined according to  <a href="../System.Web/THttpRequest.html#methodsetUrlManager">UrlManager</a>. By default, the following two formats  are recognized:  <pre><ol><code><pre><li> /<span class="src-id">index</span>.<span class="src-id">php</span>?<span class="src-id">ServiceID</span>=<span class="src-id">ServiceParameter</span><span class="src-sym">&amp;</span><span class="src-id">Name1</span>=<span class="src-id">Value1</span><span class="src-sym">&amp;</span><span class="src-id">Name2</span>=<span class="src-id">Value2</span></li>
+<li> /<span class="src-id">index</span>.<span class="src-id">php</span>/<span class="src-id">ServiceID</span><span class="src-sym">,</span><span class="src-id">ServiceParameter</span>/<span class="src-id">Name1</span><span class="src-sym">,</span><span class="src-id">Value1</span>/<span class="src-id">Name2</span><span class="src-sym">,</span><span class="src-id">Value2</span></li>
+</pre></code></ol></pre>  The first format is called 'Get' while the second 'Path', which is specified  via <a href="../System.Web/THttpRequest.html#methodsetUrlFormat">UrlFormat</a>. For advanced users who want to use  their own URL formats, they can write customized URL management modules  and install the managers as application modules and set <a href="../System.Web/THttpRequest.html#methodsetUrlManager">UrlManager</a>.</p><p>The ServiceID in the above URLs is as defined in the application configuration  (e.g. the default page service's service ID is 'page').  As a consequence, your GET variable names should not conflict with the service  IDs that your application supports.</p><p>THttpRequest also provides the cookies sent by the user, user information such  as his browser capabilities, accepted languages, etc.</p><p>By default, THttpRequest is registered with <a href="../System/TApplication.html">TApplication</a> as the  request module. It can be accessed via <a href="../System/TApplication.html#methodgetRequest">TApplication::getRequest()</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: THttpRequest.php 2919 2011-05-21 18:14:36Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_THttpRequest_php.html">/Web/THttpRequest.php</a> (line <span class="field">71</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --THttpRequest</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CGIFIX__PATH_INFO" title="details" class="const-name">CGIFIX__PATH_INFO</a> = 					<span class="var-type"> 1</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CGIFIX__SCRIPT_NAME" title="details" class="const-name">CGIFIX__SCRIPT_NAME</a> = 					<span class="var-type"> 2</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#add" title="details" class="method-name">add</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#clear" title="details" class="method-name">clear</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#constructUrl" title="details" class="method-name">constructUrl</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceID</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceParam</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$getItems</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span> = <span class="var-default">true</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span> = <span class="var-default">true</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#contains" title="details" class="method-name">contains</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#count" title="details" class="method-name">count</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAbsoluteApplicationUrl" title="details" class="method-name">getAbsoluteApplicationUrl</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$forceSecureConnection</span> = <span class="var-default">false</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getAcceptTypes" title="details" class="method-name">getAcceptTypes</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getApplicationFilePath" title="details" class="method-name">getApplicationFilePath</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getApplicationUrl" title="details" class="method-name">getApplicationUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBaseUrl" title="details" class="method-name">getBaseUrl</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$forceSecureConnection</span> = <span class="var-default">false</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getBrowser" title="details" class="method-name">getBrowser</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getCgiFix" title="details" class="method-name">getCgiFix</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpCookieCollection.html">THttpCookieCollection</a></span>
+										<a href="#getCookies" title="details" class="method-name">getCookies</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getCount" title="details" class="method-name">getCount</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getEnableCookieValidation" title="details" class="method-name">getEnableCookieValidation</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getEnvironmentVariables" title="details" class="method-name">getEnvironmentVariables</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getHttpProtocolVersion" title="details" class="method-name">getHttpProtocolVersion</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getID" title="details" class="method-name">getID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsSecureConnection" title="details" class="method-name">getIsSecureConnection</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">Iterator</span>
+										<a href="#getIterator" title="details" class="method-name">getIterator</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getKeys" title="details" class="method-name">getKeys</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPathInfo" title="details" class="method-name">getPathInfo</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getQueryString" title="details" class="method-name">getQueryString</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getRequestResolved" title="details" class="method-name">getRequestResolved</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getRequestType" title="details" class="method-name">getRequestType</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getRequestUri" title="details" class="method-name">getRequestUri</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getServerName" title="details" class="method-name">getServerName</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getServerPort" title="details" class="method-name">getServerPort</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getServerVariables" title="details" class="method-name">getServerVariables</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getServiceID" title="details" class="method-name">getServiceID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getServiceParameter" title="details" class="method-name">getServiceParameter</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getUploadedFiles" title="details" class="method-name">getUploadedFiles</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/TUri.html">TUri</a></span>
+										<a href="#getUrl" title="details" class="method-name">getUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpRequestUrlFormat.html">THttpRequestUrlFormat</a></span>
+										<a href="#getUrlFormat" title="details" class="method-name">getUrlFormat</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUrlManager" title="details" class="method-name">getUrlManager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/TUrlManager.html">TUrlManager</a></span>
+										<a href="#getUrlManagerModule" title="details" class="method-name">getUrlManagerModule</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUrlParamSeparator" title="details" class="method-name">getUrlParamSeparator</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUrlReferrer" title="details" class="method-name">getUrlReferrer</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUserAgent" title="details" class="method-name">getUserAgent</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUserHost" title="details" class="method-name">getUserHost</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUserHostAddress" title="details" class="method-name">getUserHostAddress</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getUserLanguages" title="details" class="method-name">getUserLanguages</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#itemAt" title="details" class="method-name">itemAt</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#offsetExists" title="details" class="method-name">offsetExists</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#offsetGet" title="details" class="method-name">offsetGet</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#offsetSet" title="details" class="method-name">offsetSet</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#offsetUnset" title="details" class="method-name">offsetUnset</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#parseUrl" title="details" class="method-name">parseUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#remove" title="details" class="method-name">remove</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#resolveRequest" title="details" class="method-name">resolveRequest</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$serviceIDs</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCgiFix" title="details" class="method-name">setCgiFix</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setEnableCookieValidation" title="details" class="method-name">setEnableCookieValidation</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setID" title="details" class="method-name">setID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setServiceID" title="details" class="method-name">setServiceID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setServiceParameter" title="details" class="method-name">setServiceParameter</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUrlFormat" title="details" class="method-name">setUrlFormat</a>
+											(<span class="var-type"><a href="../System.Web/THttpRequestUrlFormat.html">THttpRequestUrlFormat</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUrlManager" title="details" class="method-name">setUrlManager</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUrlParamSeparator" title="details" class="method-name">setUrlParamSeparator</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#stripSlashes" title="details" class="method-name">stripSlashes</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">&$data</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#toArray" title="details" class="method-name">toArray</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodadd" id="add"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">add</span> (line <span class="line-number">744</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds an item into the request.</p>
+<p class="description"><p>Note, if the specified key already exists, the old value will be overwritten.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			add
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$key</span><span class="var-description">: key</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodclear" id="clear"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">clear</span> (line <span class="line-number">770</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Removes all items in the request.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			clear
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodconstructUrl" id="constructUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">constructUrl</span> (line <span class="line-number">595</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructs a URL that can be recognized by PRADO.</p>
+<p class="description"><p>The actual construction work is done by the URL manager module.  This method may append session information to the generated URL if needed.  You may provide your own URL manager module by setting <a href="../System.Web/THttpRequest.html#methodsetUrlManager">UrlManager</a>  to provide your own URL scheme.</p><p>Note, the constructed URL does not contain the protocol and hostname part.  You may obtain an absolute URL by prepending the constructed URL with <a href="../System.Web/THttpRequest.html#methodgetBaseUrl">BaseUrl</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> URL</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> TUrlManager::constructUrl</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			constructUrl
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceID</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceParam</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$getItems</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span> = <span class="var-default">true</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceID</span><span class="var-description">: service ID</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceParam</span><span class="var-description">: service parameter</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$getItems</span><span class="var-description">: GET parameters, null if not needed</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeAmpersand</span><span class="var-description">: whether to encode the ampersand in URL, defaults to true.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeGetItems</span><span class="var-description">: whether to encode the GET parameters (their names and values), defaults to false.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcontains" id="contains"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">contains</span> (line <span class="line-number">780</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the request contains an item with the specified key</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			contains
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$key</span><span class="var-description">: the key</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcount" id="count"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">count</span> (line <span class="line-number">714</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the number of items in the request.</p>
+<p class="description"><p>This method is required by Countable interface.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of items in the request.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			count
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAbsoluteApplicationUrl" id="getAbsoluteApplicationUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAbsoluteApplicationUrl</span> (line <span class="line-number">394</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> entry script URL (w/ host part)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAbsoluteApplicationUrl
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$forceSecureConnection</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$forceSecureConnection</span><span class="var-description">: whether to use HTTPS instead of HTTP even if the current request is sent via HTTP</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetAcceptTypes" id="getAcceptTypes"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAcceptTypes</span> (line <span class="line-number">474</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> user browser accept types</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getAcceptTypes
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetApplicationFilePath" id="getApplicationFilePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getApplicationFilePath</span> (line <span class="line-number">402</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> application entry script file path (processed w/ realpath())</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getApplicationFilePath
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetApplicationUrl" id="getApplicationUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getApplicationUrl</span> (line <span class="line-number">382</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> entry script URL (w/o host part)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getApplicationUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetBaseUrl" id="getBaseUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBaseUrl</span> (line <span class="line-number">370</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> schema and hostname of the requested URL</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBaseUrl
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$forceSecureConnection</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$forceSecureConnection</span><span class="var-description">: whether to use HTTPS instead of HTTP even if the current request is sent via HTTP</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetBrowser" id="getBrowser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBrowser</span> (line <span class="line-number">435</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> user browser capabilities</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="http://www.php.net/get_browser">get_browser</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getBrowser
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCgiFix" id="getCgiFix"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCgiFix</span> (line <span class="line-number">512</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether to use ORIG_PATH_INFO and/or ORIG_SCRIPT_NAME. Defaults to 0.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Web/THttpRequest.html#constCGIFIX__PATH_INFO">THttpRequest::CGIFIX__PATH_INFO</a>, <a href="../System.Web/THttpRequest.html#constCGIFIX__SCRIPT_NAME">THttpRequest::CGIFIX__SCRIPT_NAME</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getCgiFix
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCookies" id="getCookies"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCookies</span> (line <span class="line-number">531</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of cookies to be sent</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpCookieCollection.html">THttpCookieCollection</a></span>
+		<span class="method-name">
+			getCookies
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCount" id="getCount"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCount</span> (line <span class="line-number">704</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the number of items in the request</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getCount
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetEnableCookieValidation" id="getEnableCookieValidation"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEnableCookieValidation</span> (line <span class="line-number">495</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether cookies should be validated. Defaults to false.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getEnableCookieValidation
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetEnvironmentVariables" id="getEnvironmentVariables"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEnvironmentVariables</span> (line <span class="line-number">573</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of environment variables.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getEnvironmentVariables
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetHttpProtocolVersion" id="getHttpProtocolVersion"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHttpProtocolVersion</span> (line <span class="line-number">353</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the requested http procolol. Blank string if not defined.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getHttpProtocolVersion
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetID" id="getID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getID</span> (line <span class="line-number">134</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> id of this module</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsSecureConnection" id="getIsSecureConnection"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsSecureConnection</span> (line <span class="line-number">329</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> if the request is sent via secure channel (https)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsSecureConnection
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIterator" id="getIterator"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIterator</span> (line <span class="line-number">696</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an iterator for traversing the items in the list.</p>
+<p class="description"><p>This method is required by the interface IteratorAggregate.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> an iterator for traversing the items in the list.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Iterator</span>
+		<span class="method-name">
+			getIterator
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetKeys" id="getKeys"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getKeys</span> (line <span class="line-number">722</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the key list</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getKeys
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPathInfo" id="getPathInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPathInfo</span> (line <span class="line-number">337</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> part of the request URL after script name and before question mark.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPathInfo
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetQueryString" id="getQueryString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getQueryString</span> (line <span class="line-number">345</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> part of that request URL after the question mark</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getQueryString
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRequestResolved" id="getRequestResolved"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRequestResolved</span> (line <span class="line-number">650</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if request is already resolved, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getRequestResolved
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRequestType" id="getRequestType"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRequestType</span> (line <span class="line-number">321</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> request type, can be GET, POST, HEAD, or PUT</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getRequestType
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRequestUri" id="getRequestUri"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRequestUri</span> (line <span class="line-number">361</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> part of that request URL after the host info (including pathinfo and query string)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getRequestUri
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetServerName" id="getServerName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServerName</span> (line <span class="line-number">410</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> server name</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getServerName
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetServerPort" id="getServerPort"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServerPort</span> (line <span class="line-number">418</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> server port number</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getServerPort
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetServerVariables" id="getServerVariables"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServerVariables</span> (line <span class="line-number">565</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of server variables.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getServerVariables
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetServiceID" id="getServiceID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServiceID</span> (line <span class="line-number">658</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> requested service ID</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getServiceID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetServiceParameter" id="getServiceParameter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServiceParameter</span> (line <span class="line-number">675</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> requested service parameter</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getServiceParameter
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUploadedFiles" id="getUploadedFiles"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUploadedFiles</span> (line <span class="line-number">557</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of uploaded files.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getUploadedFiles
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUrl" id="getUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrl</span> (line <span class="line-number">227</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the request URL</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/TUri.html">TUri</a></span>
+		<span class="method-name">
+			getUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUrlFormat" id="getUrlFormat"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrlFormat</span> (line <span class="line-number">280</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the format of URLs. Defaults to THttpRequestUrlFormat::Get.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpRequestUrlFormat.html">THttpRequestUrlFormat</a></span>
+		<span class="method-name">
+			getUrlFormat
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUrlManager" id="getUrlManager"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrlManager</span> (line <span class="line-number">251</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the ID of the URL manager module</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUrlManager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUrlManagerModule" id="getUrlManagerModule"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrlManagerModule</span> (line <span class="line-number">272</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the URL manager module</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/TUrlManager.html">TUrlManager</a></span>
+		<span class="method-name">
+			getUrlManagerModule
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUrlParamSeparator" id="getUrlParamSeparator"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrlParamSeparator</span> (line <span class="line-number">301</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> separator used to separate GET variable name and value when URL format is Path. Defaults to comma ','.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUrlParamSeparator
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUrlReferrer" id="getUrlReferrer"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrlReferrer</span> (line <span class="line-number">426</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> URL referrer, null if not present</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUrlReferrer
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUserAgent" id="getUserAgent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUserAgent</span> (line <span class="line-number">450</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> user agent</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUserAgent
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUserHost" id="getUserHost"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUserHost</span> (line <span class="line-number">466</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> user host name, null if cannot be determined</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUserHost
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUserHostAddress" id="getUserHostAddress"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUserHostAddress</span> (line <span class="line-number">458</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> user IP address</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUserHostAddress
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUserLanguages" id="getUserLanguages"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUserLanguages</span> (line <span class="line-number">487</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a list of user preferred languages.</p>
+<p class="description"><p>The languages are returned as an array. Each array element  represents a single language preference. The languages are ordered  according to user preferences. The first language is the most preferred.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of user preferred languages.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getUserLanguages
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">152</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the module.</p>
+<p class="description"><p>This method is required by IModule and is invoked by application.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: module configuration</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methoditemAt" id="itemAt"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">itemAt</span> (line <span class="line-number">733</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the item with the specified key.</p>
+<p class="description"><p>This method is exactly the same as <a href="../System.Web/THttpRequest.html#methodoffsetGet">offsetGet</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the element at the offset, null if no element is found at the offset</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			itemAt
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$key</span><span class="var-description">: the key</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodoffsetExists" id="offsetExists"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">offsetExists</span> (line <span class="line-number">799</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns whether there is an element at the specified offset.</p>
+<p class="description"><p>This method is required by the interface ArrayAccess.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			offsetExists
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$offset</span><span class="var-description">: the offset to check on</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodoffsetGet" id="offsetGet"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">offsetGet</span> (line <span class="line-number">810</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the element at the specified offset.</p>
+<p class="description"><p>This method is required by the interface ArrayAccess.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the element at the offset, null if no element is found at the offset</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			offsetGet
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$offset</span><span class="var-description">: the offset to retrieve element.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodoffsetSet" id="offsetSet"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">offsetSet</span> (line <span class="line-number">821</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the element at the specified offset.</p>
+<p class="description"><p>This method is required by the interface ArrayAccess.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			offsetSet
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$offset</span><span class="var-description">: the offset to set element</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$item</span><span class="var-description">: the element value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodoffsetUnset" id="offsetUnset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">offsetUnset</span> (line <span class="line-number">831</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Unsets the element at the specified offset.</p>
+<p class="description"><p>This method is required by the interface ArrayAccess.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			offsetUnset
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$offset</span><span class="var-description">: the offset to unset element</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodparseUrl" id="parseUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">parseUrl</span> (line <span class="line-number">612</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parses the request URL and returns an array of input parameters (excluding GET variables).</p>
+<p class="description"><p>You may override this method to support customized URL format.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of input parameters, indexed by parameter names</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">see:</span> TUrlManager::parseUrl</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			parseUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodremove" id="remove"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">remove</span> (line <span class="line-number">755</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Removes an item from the request by its key.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the removed value, null if no such key exists.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if the item cannot be removed</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			remove
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$key</span><span class="var-description">: the key of the item to be removed</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodresolveRequest" id="resolveRequest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">resolveRequest</span> (line <span class="line-number">627</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Resolves the requested service.</p>
+<p class="description"><p>This method implements a URL-based service resolution.  A URL in the format of /index.php?sp=serviceID.serviceParameter  will be resolved with the serviceID and the serviceParameter.  You may override this method to provide your own way of service resolution.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the currently requested service ID, null if no service ID is found</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Web/THttpRequest.html#methodconstructUrl">THttpRequest::constructUrl()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			resolveRequest
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$serviceIDs</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$serviceIDs</span><span class="var-description">: list of valid service IDs</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCgiFix" id="setCgiFix"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCgiFix</span> (line <span class="line-number">523</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Enable this, if you're using PHP via CGI with php.ini setting &quot;cgi.fix_pathinfo=1&quot;</p>
+<p class="description"><p>and have trouble with friendly URL feature. Enable this only if you really know what you are doing!</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Web/THttpRequest.html#constCGIFIX__PATH_INFO">THttpRequest::CGIFIX__PATH_INFO</a>, <a href="../System.Web/THttpRequest.html#constCGIFIX__SCRIPT_NAME">THttpRequest::CGIFIX__SCRIPT_NAME</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCgiFix
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: enable bitwise to use ORIG_PATH_INFO and/or ORIG_SCRIPT_NAME.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetEnableCookieValidation" id="setEnableCookieValidation"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setEnableCookieValidation</span> (line <span class="line-number">503</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEnableCookieValidation
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether cookies should be validated.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetID" id="setID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setID</span> (line <span class="line-number">142</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: id of this module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetServiceID" id="setServiceID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setServiceID</span> (line <span class="line-number">667</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the requested service ID.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setServiceID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: requested service ID</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetServiceParameter" id="setServiceParameter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setServiceParameter</span> (line <span class="line-number">684</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the requested service parameter.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setServiceParameter
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: requested service parameter</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUrlFormat" id="setUrlFormat"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUrlFormat</span> (line <span class="line-number">293</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the format of URLs constructed and interpretted by the request module.</p>
+<p class="description"><p>A Get URL format is like index.php?name1=value1&amp;name2=value2  while a Path URL format is like index.php/name1,value1/name2,value.  Changing the UrlFormat will affect <a href="../System.Web/THttpRequest.html#methodconstructUrl">constructUrl</a> and how GET variables  are parsed.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUrlFormat
+		</span>
+					(<span class="var-type"><a href="../System.Web/THttpRequestUrlFormat.html">THttpRequestUrlFormat</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpRequestUrlFormat.html">THttpRequestUrlFormat</a></span>
+				<span class="var-name">$value</span><span class="var-description">: the format of URLs.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUrlManager" id="setUrlManager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUrlManager</span> (line <span class="line-number">264</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the URL manager module.</p>
+<p class="description"><p>By default, <a href="../System.Web/TUrlManager.html">TUrlManager</a> is used for managing URLs.  You may specify a different module for URL managing tasks  by loading it as an application module and setting this property  with the module ID.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUrlManager
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the ID of the URL manager module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUrlParamSeparator" id="setUrlParamSeparator"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUrlParamSeparator</span> (line <span class="line-number">310</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if the separator is not a single character</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUrlParamSeparator
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: separator used to separate GET variable name and value when URL format is Path.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodstripSlashes" id="stripSlashes"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">stripSlashes</span> (line <span class="line-number">219</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Strips slashes from input data.</p>
+<p class="description"><p>This method is applied when magic quotes is enabled.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> processed data</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			stripSlashes
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">&$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">&$data</span><span class="var-description">: input data to be processed</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodtoArray" id="toArray"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">toArray</span> (line <span class="line-number">788</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the list of items in array</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			toArray
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constCGIFIX__PATH_INFO" id="CGIFIX__PATH_INFO"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CGIFIX__PATH_INFO</span>
+			 = <span class="const-default"> 1</span>
+			(line <span class="line-number">73</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCGIFIX__SCRIPT_NAME" id="CGIFIX__SCRIPT_NAME"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CGIFIX__SCRIPT_NAME</span>
+			 = <span class="const-default"> 2</span>
+			(line <span class="line-number">74</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:14:30 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

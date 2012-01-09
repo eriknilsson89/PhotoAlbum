@@ -1,0 +1,1721 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class THttpSession</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class THttpSession</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li></li><li></li><li></li><li><a href="../System/IModule.html">IModule</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">THttpSession class</p>
+<p class="description"><p>THttpSession provides session-level data management and the related configurations.  To start the session, call <a href="../System.Web/THttpSession.html#methodopen">open</a>; to complete and send out session data, call <a href="../System.Web/THttpSession.html#methodclose">close</a>;  to destroy the session, call <a href="../System.Web/THttpSession.html#methoddestroy">destroy</a>. If AutoStart is true, then the session  will be started once the session module is loaded and initialized.</p><p>To access data stored in session, use THttpSession like an associative array. For example,  <pre><ol><code><pre><li>   <span class="src-var">$session</span>=<span class="src-key">new </span><span class="src-id"><a href="../System.Web/THttpSession.html">THttpSession</a></span><span class="src-sym">;</span></li>
+<li>   <span class="src-var">$session</span><span class="src-sym">-&gt;</span><a href="../System.Web/THttpSession.html#methodopen">open</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>   <span class="src-var">$value1</span>=<span class="src-var">$session</span><span class="src-sym">[</span><span class="src-str">'name1'</span><span class="src-sym">]</span><span class="src-sym">;  </span><span class="src-comm">// get session variable 'name1'</span></li>
+<li>      <span class="src-var">$value2</span>=<span class="src-var">$session</span><span class="src-sym">[</span><span class="src-str">'name2'</span><span class="src-sym">]</span><span class="src-sym">;  </span><span class="src-comm">// get session variable 'name2'</span></li>
+<li>      <span class="src-key">foreach</span><span class="src-sym">(</span><span class="src-var">$session </span><span class="src-key">as </span><span class="src-var">$name</span>=&gt;<span class="src-var">$value</span><span class="src-sym">) </span><span class="src-comm">// traverse all session variables</span></li>
+<li>      <span class="src-var">$session</span><span class="src-sym">[</span><span class="src-str">'name3'</span><span class="src-sym">]</span>=<span class="src-var">$value3</span><span class="src-sym">;  </span><span class="src-comm">// set session variable 'name3'</span></li>
+</pre></code></ol></pre></p><p>The following configurations are available for session:  <a href="../System.Web/THttpSession.html#methodsetAutoStart">AutoStart</a>, <a href="../System.Web/THttpSession.html#methodsetCookieMode">CookieMode</a>,  <a href="../System.Web/THttpSession.html#methodsetSavePath">SavePath</a>,  <a href="../System.Web/THttpSession.html#methodsetUseCustomStorage">UseCustomStorage</a>, <a href="../System.Web/THttpSession.html#methodsetGCProbability">GCProbability</a>,  <a href="../System.Web/THttpSession.html#methodsetTimeout">Timeout</a>.  See the corresponding setter and getter documentation for more information.  Note, these properties must be set before the session is started.</p><p>THttpSession can be inherited with customized session storage method.  Override <a href="../System.Web/THttpSession.html#method_open">_open</a>, <a href="../System.Web/THttpSession.html#method_close">_close</a>, <a href="../System.Web/THttpSession.html#method_read">_read</a>, <a href="../System.Web/THttpSession.html#method_write">_write</a>, <a href="../System.Web/THttpSession.html#method_destroy">_destroy</a> and <a href="../System.Web/THttpSession.html#method_gc">_gc</a>  and set <a href="../System.Web/THttpSession.html#methodsetUseCustomStorage">UseCustomStorage</a> to true.  Then, the session data will be stored using the above methods.</p><p>By default, THttpSession is registered with <a href="../System/TApplication.html">TApplication</a> as the  request module. It can be accessed via <a href="../System/TApplication.html#methodgetSession">TApplication::getSession()</a>.</p><p>THttpSession may be configured in application configuration file as follows,  <pre><ol><code><pre><li> &lt;<span class="src-id">module id</span>=<span class="src-str">&quot;session&quot; </span><span class="src-key">class</span>=<span class="src-str">&quot;THttpSession&quot; </span><span class="src-id">SessionName</span>=<span class="src-str">&quot;SSID&quot; </span><span class="src-id">SavePath</span>=<span class="src-str">&quot;/tmp&quot;</span></li>
+<li>         <span class="src-id">CookieMode</span>=<span class="src-str">&quot;Allow&quot; </span><span class="src-id">UseCustomStorage</span>=<span class="src-str">&quot;false&quot; </span><span class="src-id">AutoStart</span>=<span class="src-str">&quot;true&quot; </span><span class="src-id">GCProbability</span>=<span class="src-str">&quot;1&quot;</span></li>
+<li>         <span class="src-id">UseTransparentSessionID</span>=<span class="src-str">&quot;true&quot; </span><span class="src-id">TimeOut</span>=<span class="src-str">&quot;3600&quot; </span>/&gt;</li>
+</pre></code></ol></pre>  where <a href="../System.Web/THttpSession.html#methodgetSessionName">SessionName</a>, <a href="../System.Web/THttpSession.html#methodgetSavePath">SavePath</a>,  <a href="../System.Web/THttpSession.html#methodgetCookieMode">CookieMode</a>, <a href="../System.Web/THttpSession.html#methodgetUseCustomStorage"> UseCustomStorage</a>, <a href="../System.Web/THttpSession.html#methodgetAutoStart">AutoStart</a>, <a href="../System.Web/THttpSession.html#methodgetGCProbability"> GCProbability</a>, <a href="../System.Web/THttpSession.html#methodgetUseTransparentSessionID">UseTransparentSessionID</a>  and <a href="../System.Web/THttpSession.html#methodgetTimeout">TimeOut</a> are configurable properties of THttpSession.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: THttpSession.php 2773 2010-02-17 13:55:18Z Christophe.Boulain $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_THttpSession_php.html">/Web/THttpSession.php</a> (line <span class="field">64</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --THttpSession</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Web/TCacheHttpSession.html">TCacheHttpSession</a></td>
+					<td>
+											TCacheHttpSession class
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#add" title="details" class="method-name">add</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#clear" title="details" class="method-name">clear</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#close" title="details" class="method-name">close</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#contains" title="details" class="method-name">contains</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#count" title="details" class="method-name">count</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#destroy" title="details" class="method-name">destroy</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getAutoStart" title="details" class="method-name">getAutoStart</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>
+										<a href="#getCookie" title="details" class="method-name">getCookie</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpSessionCookieMode.html">THttpSessionCookieMode</a></span>
+										<a href="#getCookieMode" title="details" class="method-name">getCookieMode</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getCount" title="details" class="method-name">getCount</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getGCProbability" title="details" class="method-name">getGCProbability</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getID" title="details" class="method-name">getID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsStarted" title="details" class="method-name">getIsStarted</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/TSessionIterator.html">TSessionIterator</a></span>
+										<a href="#getIterator" title="details" class="method-name">getIterator</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getKeys" title="details" class="method-name">getKeys</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getSavePath" title="details" class="method-name">getSavePath</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getSessionID" title="details" class="method-name">getSessionID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getSessionName" title="details" class="method-name">getSessionName</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getTimeout" title="details" class="method-name">getTimeout</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getUseCustomStorage" title="details" class="method-name">getUseCustomStorage</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getUseTransparentSessionID" title="details" class="method-name">getUseTransparentSessionID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#itemAt" title="details" class="method-name">itemAt</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#offsetExists" title="details" class="method-name">offsetExists</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#offsetGet" title="details" class="method-name">offsetGet</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#offsetSet" title="details" class="method-name">offsetSet</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#offsetUnset" title="details" class="method-name">offsetUnset</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#open" title="details" class="method-name">open</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#remove" title="details" class="method-name">remove</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAutoStart" title="details" class="method-name">setAutoStart</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCookieMode" title="details" class="method-name">setCookieMode</a>
+											(<span class="var-type"><a href="../System.Web/THttpSessionCookieMode.html">THttpSessionCookieMode</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setGCProbability" title="details" class="method-name">setGCProbability</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setID" title="details" class="method-name">setID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setSavePath" title="details" class="method-name">setSavePath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setSessionID" title="details" class="method-name">setSessionID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setSessionName" title="details" class="method-name">setSessionName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setTimeout" title="details" class="method-name">setTimeout</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUseCustomStorage" title="details" class="method-name">setUseCustomStorage</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUseTransparentSessionID" title="details" class="method-name">setUseTransparentSessionID</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#toArray" title="details" class="method-name">toArray</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#_close" title="details" class="method-name">_close</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#_destroy" title="details" class="method-name">_destroy</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#_gc" title="details" class="method-name">_gc</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$maxLifetime</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#_open" title="details" class="method-name">_open</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$savePath</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$sessionName</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#_read" title="details" class="method-name">_read</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#_write" title="details" class="method-name">_write</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodadd" id="add"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">add</span> (line <span class="line-number">520</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a session variable.</p>
+<p class="description"><p>Note, if the specified name already exists, the old value will be removed first.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			add
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$key</span><span class="var-description">: session variable name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: session variable value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodclear" id="clear"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">clear</span> (line <span class="line-number">545</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Removes all session variables</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			clear
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodclose" id="close"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">close</span> (line <span class="line-number">142</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Ends the current session and store session data.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			close
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcontains" id="contains"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">contains</span> (line <span class="line-number">555</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether there is the named session variable</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			contains
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$key</span><span class="var-description">: session variable name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcount" id="count"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">count</span> (line <span class="line-number">490</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the number of items in the session.</p>
+<p class="description"><p>This method is required by Countable interface.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of items in the session.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			count
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methoddestroy" id="destroy"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">destroy</span> (line <span class="line-number">154</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Destroys all data registered to a session.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			destroy
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetAutoStart" id="getAutoStart"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAutoStart</span> (line <span class="line-number">307</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the session should be automatically started when the session module is initialized, defaults to false.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getAutoStart
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCookie" id="getCookie"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCookie</span> (line <span class="line-number">257</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> cookie that will be used to store session ID</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpCookie.html">THttpCookie</a></span>
+		<span class="method-name">
+			getCookie
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCookieMode" id="getCookieMode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCookieMode</span> (line <span class="line-number">267</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> how to use cookie to store session ID. Defaults to THttpSessionCookieMode::Allow.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpSessionCookieMode.html">THttpSessionCookieMode</a></span>
+		<span class="method-name">
+			getCookieMode
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCount" id="getCount"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCount</span> (line <span class="line-number">480</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the number of session variables</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getCount
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetGCProbability" id="getGCProbability"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getGCProbability</span> (line <span class="line-number">327</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the probability (percentage) that the gc (garbage collection) process is started on every session initialization, defaults to 1 meaning 1% chance.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getGCProbability
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetID" id="getID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getID</span> (line <span class="line-number">94</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> id of this module</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsStarted" id="getIsStarted"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsStarted</span> (line <span class="line-number">166</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the session has started</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsStarted
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIterator" id="getIterator"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIterator</span> (line <span class="line-number">472</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an iterator for traversing the session variables.</p>
+<p class="description"><p>This method is required by the interface IteratorAggregate.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> an iterator for traversing the session variables.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/TSessionIterator.html">TSessionIterator</a></span>
+		<span class="method-name">
+			getIterator
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetKeys" id="getKeys"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getKeys</span> (line <span class="line-number">498</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the list of session variable names</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getKeys
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSavePath" id="getSavePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSavePath</span> (line <span class="line-number">216</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the current session save path, defaults to '/tmp'.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getSavePath
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSessionID" id="getSessionID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSessionID</span> (line <span class="line-number">174</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the current session ID</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getSessionID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSessionName" id="getSessionName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSessionName</span> (line <span class="line-number">194</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the current session name</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getSessionName
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetTimeout" id="getTimeout"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTimeout</span> (line <span class="line-number">381</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the number of seconds after which data will be seen as 'garbage' and cleaned up, defaults to 1440 seconds.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getTimeout
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUseCustomStorage" id="getUseCustomStorage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUseCustomStorage</span> (line <span class="line-number">238</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether to use user-specified handlers to store session data. Defaults to false.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getUseCustomStorage
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUseTransparentSessionID" id="getUseTransparentSessionID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUseTransparentSessionID</span> (line <span class="line-number">357</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether transparent sid support is enabled or not, defaults to false.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getUseTransparentSessionID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">113</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the module.</p>
+<p class="description"><p>This method is required by IModule.  If AutoStart is true, the session will be started.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: module configuration</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web/TCacheHttpSession.html#methodinit">TCacheHttpSession::init()</a>
+								: Initializes the module.
+							</li>
+				</ul>
+	</div>
+<a name="methoditemAt" id="itemAt"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">itemAt</span> (line <span class="line-number">509</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the session variable value with the session variable name.</p>
+<p class="description"><p>This method is exactly the same as <a href="../System.Web/THttpSession.html#methodoffsetGet">offsetGet</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the session variable value, null if no such variable exists</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			itemAt
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$key</span><span class="var-description">: the session variable name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodoffsetExists" id="offsetExists"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">offsetExists</span> (line <span class="line-number">573</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method is required by the interface ArrayAccess.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			offsetExists
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$offset</span><span class="var-description">: the offset to check on</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodoffsetGet" id="offsetGet"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">offsetGet</span> (line <span class="line-number">583</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method is required by the interface ArrayAccess.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the element at the offset, null if no element is found at the offset</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			offsetGet
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$offset</span><span class="var-description">: the offset to retrieve element.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodoffsetSet" id="offsetSet"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">offsetSet</span> (line <span class="line-number">593</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method is required by the interface ArrayAccess.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			offsetSet
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$offset</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$offset</span><span class="var-description">: the offset to set element</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$item</span><span class="var-description">: the element value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodoffsetUnset" id="offsetUnset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">offsetUnset</span> (line <span class="line-number">602</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method is required by the interface ArrayAccess.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			offsetUnset
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$offset</span><span class="var-description">: the offset to unset element</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodopen" id="open"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">open</span> (line <span class="line-number">125</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Starts the session if it has not started yet.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			open
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodremove" id="remove"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">remove</span> (line <span class="line-number">530</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Removes a session variable.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the removed value, null if no such session variable.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			remove
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$key</span><span class="var-description">: the name of the session variable to be removed</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetAutoStart" id="setAutoStart"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAutoStart</span> (line <span class="line-number">316</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if session is started already</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAutoStart
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether the session should be automatically started when the session module is initialized, defaults to false.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCookieMode" id="setCookieMode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCookieMode</span> (line <span class="line-number">281</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if session is started already</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCookieMode
+		</span>
+					(<span class="var-type"><a href="../System.Web/THttpSessionCookieMode.html">THttpSessionCookieMode</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpSessionCookieMode.html">THttpSessionCookieMode</a></span>
+				<span class="var-name">$value</span><span class="var-description">: how to use cookie to store session ID</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetGCProbability" id="setGCProbability"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setGCProbability</span> (line <span class="line-number">337</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if session is started already</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if the value is beyond [0,100].</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setGCProbability
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: the probability (percentage) that the gc (garbage collection) process is started on every session initialization.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetID" id="setID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setID</span> (line <span class="line-number">102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: id of this module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetSavePath" id="setSavePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSavePath</span> (line <span class="line-number">225</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if session is started already</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSavePath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the current session save path</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetSessionID" id="setSessionID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSessionID</span> (line <span class="line-number">183</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if session is started already</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSessionID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the session ID for the current session</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetSessionName" id="setSessionName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSessionName</span> (line <span class="line-number">203</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if session is started already</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSessionName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the session name for the current session, must be an alphanumeric string, defaults to PHPSESSID</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetTimeout" id="setTimeout"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTimeout</span> (line <span class="line-number">390</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidOperationException if session is started already</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTimeout
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: the number of seconds after which data will be seen as 'garbage' and cleaned up</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUseCustomStorage" id="setUseCustomStorage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUseCustomStorage</span> (line <span class="line-number">249</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUseCustomStorage
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether to use user-specified handlers to store session data.  If true, make sure the methods <a href="../System.Web/THttpSession.html#method_open">_open</a>, <a href="../System.Web/THttpSession.html#method_close">_close</a>, <a href="../System.Web/TCacheHttpSession.html#method_read">_read</a>,  <a href="../System.Web/TCacheHttpSession.html#method_write">_write</a>, <a href="../System.Web/TCacheHttpSession.html#method_destroy">_destroy</a>, and <a href="../System.Web/THttpSession.html#method_gc">_gc</a> are overridden in child  class, because they will be used as the callback handlers.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUseTransparentSessionID" id="setUseTransparentSessionID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUseTransparentSessionID</span> (line <span class="line-number">365</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUseTransparentSessionID
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether transparent sid support is enabled or not.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodtoArray" id="toArray"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">toArray</span> (line <span class="line-number">563</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the list of all session variables in array</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			toArray
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="method_close" id="_close"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_close</span> (line <span class="line-number">415</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Session close handler.</p>
+<p class="description"><p>This method should be overridden if <a href="../System.Web/THttpSession.html#methodsetUseCustomStorage">UseCustomStorage</a> is set true.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether session is closed successfully</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_close
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="method_destroy" id="_destroy"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_destroy</span> (line <span class="line-number">449</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Session destroy handler.</p>
+<p class="description"><p>This method should be overridden if <a href="../System.Web/THttpSession.html#methodsetUseCustomStorage">UseCustomStorage</a> is set true.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether session is destroyed successfully</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_destroy
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: session ID</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web/TCacheHttpSession.html#method_destroy">TCacheHttpSession::_destroy()</a>
+								: Session destroy handler.
+							</li>
+				</ul>
+	</div>
+<a name="method_gc" id="_gc"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_gc</span> (line <span class="line-number">460</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Session GC (garbage collection) handler.</p>
+<p class="description"><p>This method should be overridden if <a href="../System.Web/THttpSession.html#methodsetUseCustomStorage">UseCustomStorage</a> is set true.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether session is GCed successfully</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_gc
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$maxLifetime</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$maxLifetime</span><span class="var-description">: the number of seconds after which data will be seen as 'garbage' and cleaned up.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_open" id="_open"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_open</span> (line <span class="line-number">405</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Session open handler.</p>
+<p class="description"><p>This method should be overridden if <a href="../System.Web/THttpSession.html#methodsetUseCustomStorage">UseCustomStorage</a> is set true.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether session is opened successfully</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_open
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$savePath</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$sessionName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$savePath</span><span class="var-description">: session save path</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sessionName</span><span class="var-description">: session name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_read" id="_read"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_read</span> (line <span class="line-number">426</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Session read handler.</p>
+<p class="description"><p>This method should be overridden if <a href="../System.Web/THttpSession.html#methodsetUseCustomStorage">UseCustomStorage</a> is set true.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the session data</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			_read
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: session ID</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web/TCacheHttpSession.html#method_read">TCacheHttpSession::_read()</a>
+								: Session read handler.
+							</li>
+				</ul>
+	</div>
+<a name="method_write" id="_write"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_write</span> (line <span class="line-number">438</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Session write handler.</p>
+<p class="description"><p>This method should be overridden if <a href="../System.Web/THttpSession.html#methodsetUseCustomStorage">UseCustomStorage</a> is set true.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether session write is successful</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_write
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: session ID</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$data</span><span class="var-description">: session data</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Web/TCacheHttpSession.html#method_write">TCacheHttpSession::_write()</a>
+								: Session write handler.
+							</li>
+				</ul>
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:14:33 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

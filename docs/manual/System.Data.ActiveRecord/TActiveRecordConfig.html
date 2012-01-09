@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TActiveRecordConfig</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TActiveRecordConfig</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TActiveRecordConfig module configuration class.</p>
+<p class="description"><p>Database configuration for the default ActiveRecord manager instance.</p><p>Example: application.xml configuration  <pre><ol><code><pre><li> &lt;<span class="src-id">modules</span>&gt;</li>
+<li>     &lt;<span class="src-id">module </span><span class="src-key">class</span>=<span class="src-str">&quot;System.Data.ActiveRecord.TActiveRecordConfig&quot; </span><span class="src-id">EnableCache</span>=<span class="src-str">&quot;true&quot;</span>&gt;</li>
+<li>         &lt;<span class="src-id">database ConnectionString</span>=<span class="src-str">&quot;mysql:host=localhost;dbname=test&quot;</span></li>
+<li>             <span class="src-id">Username</span>=<span class="src-str">&quot;dbuser&quot; </span><span class="src-id">Password</span>=<span class="src-str">&quot;dbpass&quot; </span>/&gt;</li>
+<li>     &lt;/<span class="src-id">module</span>&gt;</li>
+<li> &lt;/<span class="src-id">modules</span>&gt;</li>
+</pre></code></ol></pre></p><p>MySQL database definition:  <pre><ol><code><pre><li> <span class="src-id">CREATE TABLE </span>`blogs` <span class="src-sym">(</span></li>
+<li>  `blog_id` <span class="src-id">int</span><span class="src-sym">(</span><span class="src-num">10</span><span class="src-sym">) </span><span class="src-id">unsigned NOT NULL auto_increment</span><span class="src-sym">,</span></li>
+<li>  `blog_name` <span class="src-id">varchar</span><span class="src-sym">(</span><span class="src-num">255</span><span class="src-sym">) </span><span class="src-id">NOT NULL</span><span class="src-sym">,</span></li>
+<li>  `blog_author` <span class="src-id">varchar</span><span class="src-sym">(</span><span class="src-num">255</span><span class="src-sym">) </span><span class="src-id">NOT NULL</span><span class="src-sym">,</span></li>
+<li>  <span class="src-id">PRIMARY KEY  </span><span class="src-sym">(</span>`blog_id`<span class="src-sym">)</span></li>
+<li> <span class="src-sym">) </span><span class="src-id">ENGINE</span>=<span class="src-id">InnoDB </span><span class="src-key">DEFAULT </span><span class="src-id">CHARSET</span>=<span class="src-id">utf8</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p><p>Record php class:  <pre><ol><code><pre><li> <span class="src-key">class </span><span class="src-id">Blogs </span><span class="src-key">extends </span><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></li>
+<li> <span class="src-sym">{</span></li>
+<li>     <span class="src-key">public </span><span class="src-var">$blog_id</span><span class="src-sym">;</span></li>
+<li>    <span class="src-key">public </span><span class="src-var">$blog_name</span><span class="src-sym">;</span></li>
+<li>    <span class="src-key">public </span><span class="src-var">$blog_author</span><span class="src-sym">;</span></li>
+<li>&nbsp;</li>
+<li>    <span class="src-key">public </span><span class="src-key">static </span><span class="src-key">function </span><span class="src-id">finder</span><span class="src-sym">(</span><span class="src-var">$className</span>=__CLASS__<span class="src-sym">)</span></li>
+<li>    <span class="src-sym">{</span></li>
+<li>        <span class="src-key">return </span><span class="src-id">parent</span><span class="src-sym">::</span><span class="src-id">finder</span><span class="src-sym">(</span><span class="src-var">$className</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>    <span class="src-sym">}</span></li>
+<li> <span class="src-sym">}</span></li>
+</pre></code></ol></pre></p><p>Usage example:  <pre><ol><code><pre><li> <span class="src-key">class </span><span class="src-id">Home </span><span class="src-key">extends </span><a href="../System.Web.UI/TPage.html">TPage</a></li>
+<li> <span class="src-sym">{</span></li>
+<li>     <span class="src-key">function </span><span class="src-id">onLoad</span><span class="src-sym">(</span><span class="src-var">$param</span><span class="src-sym">)</span></li>
+<li>     <span class="src-sym">{</span></li>
+<li>         <span class="src-var">$blogs </span>= <span class="src-id">Blogs</span><span class="src-sym">::</span><span class="src-id">finder</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">findAll</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>      <a href="http://www.php.net/print_r">print_r</a><span class="src-sym">(</span><span class="src-var">$blogs</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>     <span class="src-sym">}</span></li>
+<li> <span class="src-sym">}</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TActiveRecordConfig.php 2880 2011-01-19 14:56:01Z christophe.boulain $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_ActiveRecord_TActiveRecordConfig_php.html">/Data/ActiveRecord/TActiveRecordConfig.php</a> (line <span class="field">73</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --<a href="../System/TModule.html">TModule</a>
+         |
+         --<a href="../System.Data/TDataSourceConfig.html">TDataSourceConfig</a>
+            |
+            --TActiveRecordConfig</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getEnableCache" title="details" class="method-name">getEnableCache</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>
+										<a href="#getInvalidFinderResult" title="details" class="method-name">getInvalidFinderResult</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlDocument.html">TXmlDocument</a></span>&nbsp;<span class="var-name">$xml</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setEnableCache" title="details" class="method-name">setEnableCache</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setInvalidFinderResult" title="details" class="method-name">setInvalidFinderResult</a>
+											(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetEnableCache" id="getEnableCache"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEnableCache</span> (line <span class="line-number">111</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> true if table meta data should be cached, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getEnableCache
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetInvalidFinderResult" id="getInvalidFinderResult"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getInvalidFinderResult</span> (line <span class="line-number">121</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> Defaults to '<a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html#constNull">Null</a>'.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.5</li>
+				<li><span class="field">see:</span> <a href="../System.Data.ActiveRecord/TActiveRecordConfig.html#methodsetInvalidFinderResult">TActiveRecordConfig::setInvalidFinderResult()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>
+		<span class="method-name">
+			getInvalidFinderResult
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">89</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initialize the active record manager.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlDocument.html">TXmlDocument</a></span>&nbsp;<span class="var-name">$xml</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlDocument.html">TXmlDocument</a></span>
+				<span class="var-name">$xml</span><span class="var-description">: xml configuration.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System.Data/TDataSourceConfig.html#methodinit">TDataSourceConfig::init()</a></dt>
+						<dd>Initalize the database connection properties from attributes in &lt;database&gt; tag.</dd>
+					</dl>
+		
+	</div>
+<a name="methodsetEnableCache" id="setEnableCache"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setEnableCache</span> (line <span class="line-number">103</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set true to cache the table meta data.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEnableCache
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: true to cache sqlmap instance.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetInvalidFinderResult" id="setInvalidFinderResult"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setInvalidFinderResult</span> (line <span class="line-number">133</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Define the way an active record finder react if an invalid magic-finder invoked</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.5</li>
+				<li><span class="field">see:</span> <a href="../System.Data.ActiveRecord/TActiveRecordConfig.html#methodgetInvalidFinderResult">TActiveRecordConfig::getInvalidFinderResult()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setInvalidFinderResult
+		</span>
+					(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System.Data/TDataSourceConfig.html">TDataSourceConfig</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System.Data/TDataSourceConfig.html#methodfindConnectionByID">TDataSourceConfig::findConnectionByID()</a></span><br>
+													<span class="method-name"><a href="../System.Data/TDataSourceConfig.html#methodgetConnectionClass">TDataSourceConfig::getConnectionClass()</a></span><br>
+													<span class="method-name"><a href="../System.Data/TDataSourceConfig.html#methodgetConnectionID">TDataSourceConfig::getConnectionID()</a></span><br>
+													<span class="method-name"><a href="../System.Data/TDataSourceConfig.html#methodgetDatabase">TDataSourceConfig::getDatabase()</a></span><br>
+													<span class="method-name"><a href="../System.Data/TDataSourceConfig.html#methodgetDbConnection">TDataSourceConfig::getDbConnection()</a></span><br>
+													<span class="method-name"><a href="../System.Data/TDataSourceConfig.html#methodinit">TDataSourceConfig::init()</a></span><br>
+													<span class="method-name"><a href="../System.Data/TDataSourceConfig.html#methodsetConnectionClass">TDataSourceConfig::setConnectionClass()</a></span><br>
+													<span class="method-name"><a href="../System.Data/TDataSourceConfig.html#methodsetConnectionID">TDataSourceConfig::setConnectionID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TModule.html">TModule</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TModule.html#methodgetID">TModule::getID()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodinit">TModule::init()</a></span><br>
+													<span class="method-name"><a href="../System/TModule.html#methodsetID">TModule::setID()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:13 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

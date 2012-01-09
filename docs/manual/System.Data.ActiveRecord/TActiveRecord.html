@@ -1,0 +1,2289 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TActiveRecord</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TActiveRecord</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Base class for active records.</p>
+<p class="description"><p>An active record creates an object that wraps a row in a database table  or view, encapsulates the database access, and adds domain logic on that data.</p><p>Active record objects are stateful, this is main difference between the  TActiveRecord implementation and the TTableGateway implementation.</p><p>The essence of an Active Record is an object model of the  domain (e.g. products, items) that incorporates both behavior and  data in which the classes match very closely the record structure of an  underlying database. Each Active Record is responsible for saving and  loading to the database and also for any domain logic that acts on the data.</p><p>The Active Record provides methods that do the following: <ol><li>Construct an instance of the Active Record from a SQL result set row.</li><li>Construct a new instance for later insertion into the table.</li><li>Finder methods to wrap commonly used SQL queries and return Active Record objects.</li><li>Update the database and insert into it the data in the Active Record.</li></ol>  Example:  <pre><ol><code><pre><li> <span class="src-key">class </span><span class="src-id">UserRecord </span><span class="src-key">extends </span><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></li>
+<li> <span class="src-sym">{</span></li>
+<li>     <span class="src-key">const </span><span class="src-id">TABLE</span>=<span class="src-str">'users'</span><span class="src-sym">; </span><span class="src-comm">//optional table name.</span></li>
+<li>&nbsp;</li>
+<li>     </li>
+<li>     <span class="src-key">public </span><span class="src-var">$username</span><span class="src-sym">; </span><span class="src-comm">//corresponds to the fieldname in the table</span></li>
+<li>          <span class="src-key">public </span><span class="src-var">$email</span><span class="src-sym">;</span></li>
+<li>&nbsp;</li>
+<li>     <span class="src-comm">//returns active record finder instance</span></li>
+<li>          <span class="src-key">public </span><span class="src-key">static </span><span class="src-key">function </span><span class="src-id">finder</span><span class="src-sym">(</span><span class="src-var">$className</span>=__CLASS__<span class="src-sym">)</span></li>
+<li>     <span class="src-sym">{</span></li>
+<li>         <span class="src-key">return </span><span class="src-id">parent</span><span class="src-sym">::</span><span class="src-id">finder</span><span class="src-sym">(</span><span class="src-var">$className</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>     <span class="src-sym">}</span></li>
+<li> <span class="src-sym">}</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-comm">//create a connection and give it to the ActiveRecord manager.</span></li>
+<li>  <span class="src-var">$dsn </span>= <span class="src-str">'pgsql:host=localhost;dbname=test'</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$conn </span>= <span class="src-key">new </span><span class="src-id"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span><span class="src-sym">(</span><span class="src-var">$dsn</span><span class="src-sym">, </span><span class="src-str">'dbuser'</span><span class="src-sym">,</span><span class="src-str">'dbpass'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-id"><a href="../System.Data.ActiveRecord/TActiveRecordManager.html">TActiveRecordManager</a></span><span class="src-sym">::</span><a href="../System.Data.ActiveRecord/TActiveRecordManager.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">setDbConnection</span><span class="src-sym">(</span><span class="src-var">$conn</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-comm">//load the user record with username (primary key) 'admin'.</span></li>
+<li>  <span class="src-var">$user </span>= <span class="src-id">UserRecord</span><span class="src-sym">::</span><span class="src-id">finder</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">findByPk</span><span class="src-sym">(</span><span class="src-str">'admin'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$user</span><span class="src-sym">-&gt;</span><span class="src-id">email </span>= <span class="src-str">'admin@example.org'</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$user</span><span class="src-sym">-&gt;</span><span class="src-id">save</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//update the 'admin' record.</span></li>
+</pre></code></ol></pre></p><p>Since v3.1.1, TActiveRecord starts to support column mapping. The physical  column names (defined in database) can be mapped to logical column names  (defined in active classes as public properties.) To use this feature, declare  a static class variable COLUMN_MAPPING like the following:  <pre><ol><code><pre><li> <span class="src-key">class </span><span class="src-id">UserRecord </span><span class="src-key">extends </span><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></li>
+<li> <span class="src-sym">{</span></li>
+<li>     <span class="src-key">const </span><span class="src-id">TABLE</span>=<span class="src-str">'users'</span><span class="src-sym">;</span></li>
+<li>     <span class="src-key">public </span><span class="src-key">static </span><span class="src-var">$COLUMN_MAPPING</span>=<span class="src-key">array</span></li>
+<li>     <span class="src-sym">(</span></li>
+<li>         <span class="src-str">'user_id'</span>=&gt;<span class="src-str">'username'</span><span class="src-sym">,</span></li>
+<li>         <span class="src-str">'email_address'</span>=&gt;<span class="src-str">'email'</span><span class="src-sym">,</span></li>
+<li>     <span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>     <span class="src-key">public </span><span class="src-var">$username</span><span class="src-sym">;</span></li>
+<li>     <span class="src-key">public </span><span class="src-var">$email</span><span class="src-sym">;</span></li>
+<li> <span class="src-sym">}</span></li>
+</pre></code></ol></pre>  In the above, the 'users' table consists of 'user_id' and 'email_address' columns,  while the UserRecord class declares 'username' and 'email' properties.  By using column mapping, we can regularize the naming convention of column names  in active record.</p><p>Since v3.1.2, TActiveRecord enhanced its support to access of foreign objects.  By declaring a public static variable RELATIONS like the following, one can access  the corresponding foreign objects easily:  <pre><ol><code><pre><li> <span class="src-key">class </span><span class="src-id">UserRecord </span><span class="src-key">extends </span><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></li>
+<li> <span class="src-sym">{</span></li>
+<li>     <span class="src-key">const </span><span class="src-id">TABLE</span>=<span class="src-str">'users'</span><span class="src-sym">;</span></li>
+<li>     <span class="src-key">public </span><span class="src-key">static </span><span class="src-var">$RELATIONS</span>=<span class="src-key">array</span></li>
+<li>     <span class="src-sym">(</span></li>
+<li>         <span class="src-str">'department'</span>=&gt;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-id">self</span><span class="src-sym">::</span><span class="src-id">BELONGS_TO</span><span class="src-sym">, </span><span class="src-str">'DepartmentRecord'</span><span class="src-sym">, </span><span class="src-str">'department_id'</span><span class="src-sym">)</span><span class="src-sym">,</span></li>
+<li>         <span class="src-str">'contacts'</span>=&gt;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-id">self</span><span class="src-sym">::</span><span class="src-id">HAS_MANY</span><span class="src-sym">, </span><span class="src-str">'ContactRecord'</span><span class="src-sym">, </span><span class="src-str">'user_id'</span><span class="src-sym">)</span><span class="src-sym">,</span></li>
+<li>     <span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-sym">}</span></li>
+</pre></code></ol></pre>  In the above, the users table is related with departments table (represented by  DepartmentRecord) and contacts table (represented by ContactRecord). Now, given a UserRecord  instance $user, one can access its department and contacts simply by: $user-&gt;department and  $user-&gt;contacts. No explicit data fetching is needed. Internally, the foreign objects are  fetched in a lazy way, which avoids unnecessary overhead if the foreign objects are not accessed  at all.</p><p>Since v3.1.2, new events OnInsert, OnUpdate and OnDelete are available.  The event OnInsert, OnUpdate and OnDelete methods are executed before  inserting, updating, and deleting the current record, respectively. You may override  these methods; a TActiveRecordChangeEventParameter parameter is passed to these methods.  The property TActiveRecordChangeEventParameter::setIsValid of the parameter  can be set to false to prevent the change action to be executed. This can be used,  for example, to validate the record before the action is executed. For example,  in the following the password property is hashed before a new record is inserted.  <pre><ol><code><pre><li> <span class="src-key">class </span><span class="src-id">UserRecord </span><span class="src-key">extends </span><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></li>
+<li> <span class="src-sym">{</span></li>
+<li>      <span class="src-key">function </span><span class="src-id">OnInsert</span><span class="src-sym">(</span><span class="src-var">$param</span><span class="src-sym">)</span></li>
+<li>      <span class="src-sym">{</span></li>
+<li>          <span class="src-comm">//parent method should be called to raise the event</span></li>
+<li>          <span class="src-id">parent</span><span class="src-sym">::</span><span class="src-id">OnInsert</span><span class="src-sym">(</span><span class="src-var">$param</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>          <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">nounce </span>= <a href="http://www.php.net/md5">md5</a><span class="src-sym">(</span><a href="http://www.php.net/time">time</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li>          <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">password </span>= <a href="http://www.php.net/md5">md5</a><span class="src-sym">(</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">password</span>.<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">nounce</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>      <span class="src-sym">}</span></li>
+<li> <span class="src-sym">}</span></li>
+</pre></code></ol></pre></p><p>Since v3.1.3 you can also define a method that returns the table name.  <pre><ol><code><pre><li> <span class="src-key">class </span><span class="src-id">UserRecord </span><span class="src-key">extends </span><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></li>
+<li> <span class="src-sym">{</span></li>
+<li>     <span class="src-key">public </span><span class="src-key">function </span><span class="src-id">table</span><span class="src-sym">(</span><span class="src-sym">)</span></li>
+<li>     <span class="src-sym">{</span></li>
+<li>          <span class="src-key">return </span><span class="src-str">'users'</span><span class="src-sym">;</span></li>
+<li>     <span class="src-sym">}</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-sym">}</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TActiveRecord.php 2920 2011-05-21 19:29:39Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_ActiveRecord_TActiveRecord_php.html">/Data/ActiveRecord/TActiveRecord.php</a> (line <span class="field">149</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TActiveRecord</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#BELONGS_TO" title="details" class="const-name">BELONGS_TO</a> = 					<span class="var-type">'BELONGS_TO'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#HAS_MANY" title="details" class="const-name">HAS_MANY</a> = 					<span class="var-type">'HAS_MANY'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#HAS_ONE" title="details" class="const-name">HAS_ONE</a> = 					<span class="var-type">'HAS_ONE'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#MANY_TO_MANY" title="details" class="const-name">MANY_TO_MANY</a> = 					<span class="var-type">'MANY_TO_MANY'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#STATE_DELETED" title="details" class="const-name">STATE_DELETED</a> = 					<span class="var-type">2</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#STATE_LOADED" title="details" class="const-name">STATE_LOADED</a> = 					<span class="var-type">1</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#STATE_NEW" title="details" class="const-name">STATE_NEW</a> = 					<span class="var-type">0</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$COLUMN_MAPPING" title="details" class="var-name">$COLUMN_MAPPING</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$RELATIONS" title="details" class="var-name">$RELATIONS</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+					<a href="#$_connection" title="details" class="var-name">$_connection</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>
+					<a href="#$_invalidFinderResult" title="details" class="var-name">$_invalidFinderResult</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$_recordState" title="details" class="var-name">$_recordState</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TActiveRecord</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span> = <span class="var-default">array()</span>], [<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#copyFrom" title="details" class="method-name">copyFrom</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#count" title="details" class="method-name">count</a>
+											([<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>
+										<a href="#createRecord" title="details" class="method-name">createRecord</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord.Relations/TActiveRecordRelationContext.html">TActiveRecordRelationContext</a></span>
+										<a href="#createRelationContext" title="details" class="method-name">createRelationContext</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#delete" title="details" class="method-name">delete</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#deleteAll" title="details" class="method-name">deleteAll</a>
+											([<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteAllByPks" title="details" class="method-name">deleteAllByPks</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#deleteByPk" title="details" class="method-name">deleteByPk</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#equals" title="details" class="method-name">equals</a>
+											(<span class="var-type">TActiveRecord</span>&nbsp;<span class="var-name">$record</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$strict</span> = <span class="var-default">false</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#fetchResultsFor" title="details" class="method-name">fetchResultsFor</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>
+										<a href="#find" title="details" class="method-name">find</a>
+											(<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>&nbsp;<span class="var-name">$criteria</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#findAll" title="details" class="method-name">findAll</a>
+											([<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#findAllByIndex" title="details" class="method-name">findAllByIndex</a>
+											(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>&nbsp;<span class="var-name">$criteria</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#findAllByPks" title="details" class="method-name">findAllByPks</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#findAllBySql" title="details" class="method-name">findAllBySql</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">TActiveRecord.</span>
+										<a href="#findByPk" title="details" class="method-name">findByPk</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">TActiveRecord,</span>
+										<a href="#findBySql" title="details" class="method-name">findBySql</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>
+										<a href="#finder" title="details" class="method-name">finder</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$className</span> = <span class="var-default">__CLASS__</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getActiveDbConnection" title="details" class="method-name">getActiveDbConnection</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getColumnValue" title="details" class="method-name">getColumnValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$columnName</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+										<a href="#getDbConnection" title="details" class="method-name">getDbConnection</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>
+										<a href="#getInvalidFinderResult" title="details" class="method-name">getInvalidFinderResult</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>
+										<a href="#getRecordCriteria" title="details" class="method-name">getRecordCriteria</a>
+											(<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>&nbsp;<span class="var-name">$criteria</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$args</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordGateway.html">TActiveRecordGateway</a></span>
+										<a href="#getRecordGateway" title="details" class="method-name">getRecordGateway</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordManager.html">TActiveRecordManager</a></span>
+										<a href="#getRecordManager" title="details" class="method-name">getRecordManager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getRecordRelation" title="details" class="method-name">getRecordRelation</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getRecordRelations" title="details" class="method-name">getRecordRelations</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+										<a href="#getRecordTableInfo" title="details" class="method-name">getRecordTableInfo</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">TActiveRecordRelation,</span>
+										<a href="#getRelationHandler" title="details" class="method-name">getRelationHandler</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$args</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#hasRecordRelation" title="details" class="method-name">hasRecordRelation</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onCreateCommand" title="details" class="method-name">onCreateCommand</a>
+											(<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayEventParameter.html">TDataGatewayEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onDelete" title="details" class="method-name">onDelete</a>
+											(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordChangeEventParameter.html">TActiveRecordChangeEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onExecuteCommand" title="details" class="method-name">onExecuteCommand</a>
+											(<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayResultEventParameter.html">TDataGatewayResultEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onInsert" title="details" class="method-name">onInsert</a>
+											(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordChangeEventParameter.html">TActiveRecordChangeEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onUpdate" title="details" class="method-name">onUpdate</a>
+											(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordChangeEventParameter.html">TActiveRecordChangeEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>
+										<a href="#populateObject" title="details" class="method-name">populateObject</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#populateObjects" title="details" class="method-name">populateObjects</a>
+											(<span class="var-type"><a href="../System.Data/TDbDataReader.html">TDbDataReader</a></span>&nbsp;<span class="var-name">$reader</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#save" title="details" class="method-name">save</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setColumnValue" title="details" class="method-name">setColumnValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$columnName</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDbConnection" title="details" class="method-name">setDbConnection</a>
+											(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setInvalidFinderResult" title="details" class="method-name">setInvalidFinderResult</a>
+											(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a>|null</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__call" title="details" class="method-name">__call</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$args</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__get" title="details" class="method-name">__get</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__set" title="details" class="method-name">__set</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__sleep" title="details" class="method-name">__sleep</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__wakeup" title="details" class="method-name">__wakeup</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$COLUMN_MAPPING" id="$COLUMN_MAPPING"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$COLUMN_MAPPING</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">174</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This static variable defines the column mapping.</p>
+<p class="description"><p>The keys are physical column names as defined in database,  and the values are logical column names as defined as public variable/property names  for the corresponding active record class.</p></p>
+	<ul class="tags">
+				<li><span class="field">var:</span> column mapping. Keys: physical column names, values: logical column names.</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$RELATIONS" id="$RELATIONS"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$RELATIONS</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">184</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This static variable defines the relationships.</p>
+<p class="description"><p>The keys are public variable/property names defined in the AR class.  Each value is an array, e.g. array(self::HAS_MANY, 'PlayerRecord').</p></p>
+	<ul class="tags">
+				<li><span class="field">var:</span> relationship.</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_connection" id="$_connection"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+			<span class="var-name">$_connection</span>
+						(line <span class="line-number">190</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> database connection object.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_invalidFinderResult" id="$_invalidFinderResult"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>
+			<span class="var-name">$_invalidFinderResult</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">199</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Defaults to 'null'</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">since:</span> 3.1.5</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_recordState" id="$_recordState"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$_recordState</span>
+						(line <span class="line-number">164</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> record state: 0 = new, 1 = loaded, 2 = deleted.</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																			<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">226</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a new instance of an active record with given $data. The record  can be saved to the database specified by the $connection object.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TActiveRecord</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span> = <span class="var-default">array()</span>], [<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: optional name value pair record data.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$connection</span><span class="var-description">: optional database connection this object record use.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcopyFrom" id="copyFrom"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">copyFrom</span> (line <span class="line-number">303</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Copies data from an array or another object.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TActiveRecordException if data is not array or not object.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			copyFrom
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcount" id="count"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">count</span> (line <span class="line-number">706</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Find the number of records.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of records.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			count
+		</span>
+					([<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>
+				<span class="var-name">$criteria</span><span class="var-description">: SQL condition or criteria object.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameters</span><span class="var-description">: parameter values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateRecord" id="createRecord"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createRecord</span> (line <span class="line-number">553</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create an AR instance specified by the AR class name and initial data.</p>
+<p class="description"><p>If the initial data is empty, the AR object will not be created and null will be returned.  (You should use the &quot;new&quot; operator to create the AR instance in that case.)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the initialized AR object. Null if the initial data is empty.</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>
+		<span class="method-name">
+			createRecord
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: the AR class name</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: initial data to be populated into the AR object.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcreateRelationContext" id="createRelationContext"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createRelationContext</span> (line <span class="line-number">741</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a static copy of the relationship context for given property (a key  in $RELATIONS), returns null if invalid relationship. Keeps a null  reference to all invalid relations called.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object containing information on  the active record relationships for given property, null if invalid relationship</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord.Relations/TActiveRecordRelationContext.html">TActiveRecordRelationContext</a></span>
+		<span class="method-name">
+			createRelationContext
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: relationship/property name corresponding to keys in $RELATION array.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methoddelete" id="delete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">delete</span> (line <span class="line-number">449</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletes the current record from the database. Once deleted, this object  can not be saved again in the same instance.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the record was deleted successfully, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			delete
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methoddeleteAll" id="deleteAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteAll</span> (line <span class="line-number">513</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete multiple records using a criteria.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of records deleted.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			deleteAll
+		</span>
+					([<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>
+				<span class="var-name">$criteria</span><span class="var-description">: SQL condition or criteria object.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameters</span><span class="var-description">: parameter values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methoddeleteAllByPks" id="deleteAllByPks"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteAllByPks</span> (line <span class="line-number">501</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Alias for deleteByPk()</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteAllByPks
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methoddeleteByPk" id="deleteByPk"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteByPk</span> (line <span class="line-number">491</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete records by primary key. Usage:</p>
+<p class="description"><p><pre><ol><code><pre><li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-var">$primaryKey</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//delete 1 record</span></li>
+<li>  <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">,</span>...<span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//delete multiple records</span></li>
+<li>  <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">,</span>...<span class="src-sym">))</span><span class="src-sym">; </span><span class="src-comm">//delete multiple records</span></li>
+</pre></code></ol></pre></p><p>For composite primary keys (determined from the table definitions):  <pre><ol><code><pre><li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">))</span><span class="src-sym">; </span><span class="src-comm">//delete 1 record</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-comm">//delete multiple records</span></li>
+<li>  <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">)</span><span class="src-sym">, </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key3</span><span class="src-sym">,</span><span class="src-var">$key4</span><span class="src-sym">)</span><span class="src-sym">,</span>...<span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>&nbsp;</li>
+<li> <span class="src-comm">//delete multiple records</span></li>
+<li>  <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methoddeleteByPk">deleteByPk</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">( </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">)</span><span class="src-sym">, </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key3</span><span class="src-sym">,</span><span class="src-var">$key4</span><span class="src-sym">)</span><span class="src-sym">, </span>.. <span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of records deleted.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			deleteByPk
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$keys</span><span class="var-description">: primary key values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodequals" id="equals"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">equals</span> (line <span class="line-number">357</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Compare two records using their primary key values (all column values if  table does not defined primary keys). The default uses simple == for  comparison of their values. Set $strict=true for identity comparison (===).</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if $record equals, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			equals
+		</span>
+					(<span class="var-type">TActiveRecord</span>&nbsp;<span class="var-name">$record</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$strict</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>
+				<span class="var-name">$record</span><span class="var-description">: another record to compare with.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$strict</span><span class="var-description">: true to perform strict identity comparison</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfetchResultsFor" id="fetchResultsFor"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">fetchResultsFor</span> (line <span class="line-number">787</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tries to load the relationship results for the given property. The $property  value should correspond to an entry key in the $RELATION array.</p>
+<p class="description"><p>This method can be used to lazy load relationships.  <pre><ol><code><pre><li> <span class="src-key">class </span><span class="src-id">TeamRecord </span><span class="src-key">extends </span><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></li>
+<li> <span class="src-sym">{</span></li>
+<li>     ...</li>
+<li>&nbsp;</li>
+<li>     <span class="src-key">private </span><span class="src-var">$_players</span><span class="src-sym">;</span></li>
+<li>     <span class="src-key">public </span><span class="src-key">static </span><span class="src-var">$RELATION</span>=<span class="src-key">array</span></li>
+<li>     <span class="src-sym">(</span></li>
+<li>         <span class="src-str">'players' </span>=&gt; <span class="src-key">array</span><span class="src-sym">(</span><span class="src-id">self</span><span class="src-sym">::</span><span class="src-id">HAS_MANY</span><span class="src-sym">, </span><span class="src-str">'PlayerRecord'</span><span class="src-sym">)</span><span class="src-sym">,</span></li>
+<li>     <span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>&nbsp;</li>
+<li>     <span class="src-key">public </span><span class="src-key">function </span><span class="src-id">setPlayers</span><span class="src-sym">(</span><span class="src-var">$array</span><span class="src-sym">)</span></li>
+<li>     <span class="src-sym">{</span></li>
+<li>         <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_players</span>=<span class="src-var">$array</span><span class="src-sym">;</span></li>
+<li>     <span class="src-sym">}</span></li>
+<li>&nbsp;</li>
+<li>     <span class="src-key">public </span><span class="src-key">function </span><span class="src-id">getPlayers</span><span class="src-sym">(</span><span class="src-sym">)</span></li>
+<li>     <span class="src-sym">{</span></li>
+<li>         <span class="src-key">if</span><span class="src-sym">(</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_players</span>===<span class="src-id">null</span><span class="src-sym">)</span></li>
+<li>             <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">fetchResultsFor</span><span class="src-sym">(</span><span class="src-str">'players'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li>         <span class="src-key">return </span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_players</span><span class="src-sym">;</span></li>
+<li>     <span class="src-sym">}</span></li>
+<li> <span class="src-sym">}</span></li>
+<li> <span class="src-id">Usage example</span>:</li>
+<li> <span class="src-var">$team </span>= <span class="src-id">TeamRecord</span><span class="src-sym">::</span><span class="src-id">finder</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">findByPk</span><span class="src-sym">(</span><span class="src-num">1</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <a href="http://www.php.net/var_dump">var_dump</a><span class="src-sym">(</span><span class="src-var">$team</span><span class="src-sym">-&gt;</span><span class="src-id">players</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//uses lazy load to fetch 'players' relation</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if relationship exists, false otherwise.</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			fetchResultsFor
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$property</span><span class="var-description">: relationship/property name corresponding to keys in $RELATION array.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfind" id="find"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">find</span> (line <span class="line-number">579</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Find one single record that matches the criteria.</p>
+<p class="description"><p>Usage:  <pre><ol><code><pre><li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methodfind">find</a><span class="src-sym">(</span><span class="src-str">'username = :name AND password = :pass'</span><span class="src-sym">,</span></li>
+<li>                     <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">':name'</span>=&gt;<span class="src-var">$name</span><span class="src-sym">, </span><span class="src-str">':pass'</span>=&gt;<span class="src-var">$pass</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methodfind">find</a><span class="src-sym">(</span><span class="src-str">'username = ? AND password = ?'</span><span class="src-sym">, </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">, </span><span class="src-var">$pass</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methodfind">find</a><span class="src-sym">(</span><span class="src-str">'username = ? AND password = ?'</span><span class="src-sym">, </span><span class="src-var">$name</span><span class="src-sym">, </span><span class="src-var">$pass</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-comm">//$criteria is of TActiveRecordCriteria</span></li>
+<li>  <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methodfind">find</a><span class="src-sym">(</span><span class="src-var">$criteria</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">//the 2nd parameter for find() is ignored.</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> matching record object. Null if no result is found.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>
+		<span class="method-name">
+			find
+		</span>
+					(<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>&nbsp;<span class="var-name">$criteria</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>
+				<span class="var-name">$criteria</span><span class="var-description">: SQL condition or criteria object.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameters</span><span class="var-description">: parameter values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindAll" id="findAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">findAll</span> (line <span class="line-number">595</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Same as find() but returns an array of objects.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> matching record objects. Empty array if no result is found.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			findAll
+		</span>
+					([<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>&nbsp;<span class="var-name">$criteria</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>
+				<span class="var-name">$criteria</span><span class="var-description">: SQL condition or criteria object.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameters</span><span class="var-description">: parameter values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindAllByIndex" id="findAllByIndex"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">findAllByIndex</span> (line <span class="line-number">694</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fetches records using the sql clause &quot;(fields) IN (values)&quot;, where  fields is an array of column names and values is an array of values that  the columns must have.</p>
+<p class="description"><p>This method is to be used by the relationship handler.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> matching active records. Empty array is returned if no result is found.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			findAllByIndex
+		</span>
+					(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>&nbsp;<span class="var-name">$criteria</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordCriteria.html">TActiveRecordCriteria</a></span>
+				<span class="var-name">$criteria</span><span class="var-description">: additional criteria</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$fields</span><span class="var-description">: field names to match with &quot;(fields) IN (values)&quot; sql clause.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: matching field values.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindAllByPks" id="findAllByPks"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">findAllByPks</span> (line <span class="line-number">641</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Find multiple records matching a list of primary or composite keys.</p>
+<p class="description"><p>For scalar primary keys:  <pre><ol><code><pre><li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><span class="src-id">findAllByPk</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">, </span><span class="src-var">$key2</span><span class="src-sym">, </span>...<span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><span class="src-id">findAllByPk</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">, </span><span class="src-var">$key2</span><span class="src-sym">, </span>...<span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p><p>For composite keys:  <pre><ol><code><pre><li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><span class="src-id">findAllByPk</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">, </span><span class="src-var">$key2</span><span class="src-sym">)</span><span class="src-sym">, </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key3</span><span class="src-sym">, </span><span class="src-var">$key4</span><span class="src-sym">)</span><span class="src-sym">, </span>...<span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><span class="src-id">findAllByPk</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">, </span><span class="src-var">$key2</span><span class="src-sym">)</span><span class="src-sym">, </span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key3</span><span class="src-sym">, </span><span class="src-var">$key4</span><span class="src-sym">)</span><span class="src-sym">, </span>...<span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> matching ActiveRecords. Empty array is returned if no result is found.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			findAllByPks
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$keys</span><span class="var-description">: primary keys</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindAllBySql" id="findAllBySql"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">findAllBySql</span> (line <span class="line-number">674</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Find records using full SQL, returns corresponding record object.</p>
+<p class="description"><p>The names of the column retrieved must be defined in your Active Record  class.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> matching active records. Empty array is returned if no result is found.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			findAllBySql
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parameters</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: select SQL</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindByPk" id="findByPk"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">findByPk</span> (line <span class="line-number">616</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Find one record using only the primary key or composite primary keys. Usage:</p>
+<p class="description"><p><pre><ol><code><pre><li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methodfindByPk">findByPk</a><span class="src-sym">(</span><span class="src-var">$primaryKey</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methodfindByPk">findByPk</a><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">, </span><span class="src-var">$key2</span><span class="src-sym">, </span>...<span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methodfindByPk">findByPk</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-var">$key1</span><span class="src-sym">,</span><span class="src-var">$key2</span><span class="src-sym">,</span>...<span class="src-sym">))</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Null if no result is found.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TActiveRecord.</span>
+		<span class="method-name">
+			findByPk
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$keys</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$keys</span><span class="var-description">: primary keys</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfindBySql" id="findBySql"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">findBySql</span> (line <span class="line-number">657</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Find records using full SQL, returns corresponding record object.</p>
+<p class="description"><p>The names of the column retrieved must be defined in your Active Record  class.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> null if no result is returned.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TActiveRecord,</span>
+		<span class="method-name">
+			findBySql
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parameters</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: select SQL</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfinder" id="finder"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">finder</span> (line <span class="line-number">386</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the instance of a active record finder for a particular class.</p>
+<p class="description"><p>The finder objects are static instances for each ActiveRecord class.  This means that event handlers bound to these finder instances are class wide.  Create a new instance of the ActiveRecord class if you wish to bound the  event handlers to object instance.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> active record finder instance.</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>
+		<span class="method-name">
+			finder
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$className</span> = <span class="var-default">__CLASS__</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$className</span><span class="var-description">: active record class name.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetActiveDbConnection" id="getActiveDbConnection"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getActiveDbConnection</span> (line <span class="line-number">314</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getActiveDbConnection
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetColumnValue" id="getColumnValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getColumnValue</span> (line <span class="line-number">976</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieves the column value according to column name.</p>
+<p class="description"><p>This method is used internally.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the corresponding column value</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getColumnValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$columnName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$columnName</span><span class="var-description">: the column name (as defined in database schema)</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetDbConnection" id="getDbConnection"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDbConnection</span> (line <span class="line-number">326</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the current Db connection, the connection object is obtained from  the TActiveRecordManager if connection is currently null.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> current db connection for this object.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+		<span class="method-name">
+			getDbConnection
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetInvalidFinderResult" id="getInvalidFinderResult"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getInvalidFinderResult</span> (line <span class="line-number">860</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> Defaults to '<a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html#constNull">Null</a>'.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.5</li>
+				<li><span class="field">see:</span> TActiveRecordManager::getInvalidFinderResult</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>
+		<span class="method-name">
+			getInvalidFinderResult
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRecordCriteria" id="getRecordCriteria"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRecordCriteria</span> (line <span class="line-number">892</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a new TSqlCriteria object from a string $criteria. The $args  are additional parameters and are used in place of the $parameters  if $parameters is not an array and $args is an arrary.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> criteria object.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>
+		<span class="method-name">
+			getRecordCriteria
+		</span>
+					(<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>&nbsp;<span class="var-name">$criteria</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$parameters</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$args</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|<a href="../System.Data.DataGateway/TSqlCriteria.html">TSqlCriteria</a></span>
+				<span class="var-name">$criteria</span><span class="var-description">: sql criteria</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$parameters</span><span class="var-description">: parameters passed by the user.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$args</span><span class="var-description">: additional parameters obtained from function_get_args().</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetRecordGateway" id="getRecordGateway"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRecordGateway</span> (line <span class="line-number">410</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> record table gateway.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordGateway.html">TActiveRecordGateway</a></span>
+		<span class="method-name">
+			getRecordGateway
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRecordManager" id="getRecordManager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRecordManager</span> (line <span class="line-number">402</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the record manager for this object, the default is to call  TActiveRecordManager::getInstance().</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> default active record manager.</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordManager.html">TActiveRecordManager</a></span>
+		<span class="method-name">
+			getRecordManager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRecordRelation" id="getRecordRelation"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRecordRelation</span> (line <span class="line-number">1004</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> relation definition for the specified property</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getRecordRelation
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$property</span><span class="var-description">: relation property name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetRecordRelations" id="getRecordRelations"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRecordRelations</span> (line <span class="line-number">1015</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> all relation definitions declared in the AR class</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getRecordRelations
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRecordTableInfo" id="getRecordTableInfo"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRecordTableInfo</span> (line <span class="line-number">344</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the meta information of the table associated with this AR class.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.Common/TDbTableInfo.html">TDbTableInfo</a></span>
+		<span class="method-name">
+			getRecordTableInfo
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRelationHandler" id="getRelationHandler"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRelationHandler</span> (line <span class="line-number">721</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the active record relationship handler for $RELATION with key  value equal to the $property value.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> null if the context or the handler doesn't exist</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TActiveRecordRelation,</span>
+		<span class="method-name">
+			getRelationHandler
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$args</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: relationship/property name corresponding to keys in $RELATION array.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$args</span><span class="var-description">: method call arguments.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodhasRecordRelation" id="hasRecordRelation"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasRecordRelation</span> (line <span class="line-number">1025</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether a relation is declared for the specified AR property</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			hasRecordRelation
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$property</span><span class="var-description">: AR property name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonCreateCommand" id="onCreateCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onCreateCommand</span> (line <span class="line-number">917</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raised when a command is prepared and parameter binding is completed.</p>
+<p class="description"><p>The parameter object is TDataGatewayEventParameter of which the  TDataGatewayEventParameter::getCommand property can be  inspected to obtain the sql query to be executed.</p><p>Note well that the finder objects obtained from ActiveRecord::finder()  method are static objects. This means that the event handlers are  bound to a static finder object and not to each distinct active record object.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onCreateCommand
+		</span>
+					(<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayEventParameter.html">TDataGatewayEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayEventParameter.html">TDataGatewayEventParameter</a></span>
+				<span class="var-name">$param</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonDelete" id="onDelete"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onDelete</span> (line <span class="line-number">954</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raised before the record attempt to delete its data from the database.</p>
+<p class="description"><p>To prevent the delete operation, set the TActiveRecordChangeEventParameter::IsValid parameter to false.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onDelete
+		</span>
+					(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordChangeEventParameter.html">TActiveRecordChangeEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordChangeEventParameter.html">TActiveRecordChangeEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter to be passed to the event handlers</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonExecuteCommand" id="onExecuteCommand"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onExecuteCommand</span> (line <span class="line-number">934</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raised when a command is executed and the result from the database was returned.</p>
+<p class="description"><p>The parameter object is TDataGatewayResultEventParameter of which the  TDataGatewayEventParameter::getResult property contains  the data return from the database. The data returned can be changed  by setting the TDataGatewayEventParameter::setResult property.</p><p>Note well that the finder objects obtained from ActiveRecord::finder()  method are static objects. This means that the event handlers are  bound to a static finder object and not to each distinct active record object.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onExecuteCommand
+		</span>
+					(<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayResultEventParameter.html">TDataGatewayResultEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.DataGateway/TDataGatewayResultEventParameter.html">TDataGatewayResultEventParameter</a></span>
+				<span class="var-name">$param</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonInsert" id="onInsert"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onInsert</span> (line <span class="line-number">944</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raised before the record attempt to insert its data into the database.</p>
+<p class="description"><p>To prevent the insert operation, set the TActiveRecordChangeEventParameter::IsValid parameter to false.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onInsert
+		</span>
+					(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordChangeEventParameter.html">TActiveRecordChangeEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordChangeEventParameter.html">TActiveRecordChangeEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter to be passed to the event handlers</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodonUpdate" id="onUpdate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onUpdate</span> (line <span class="line-number">964</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raised before the record attempt to update its data in the database.</p>
+<p class="description"><p>To prevent the update operation, set the TActiveRecordChangeEventParameter::IsValid parameter to false.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onUpdate
+		</span>
+					(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordChangeEventParameter.html">TActiveRecordChangeEventParameter</a></span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordChangeEventParameter.html">TActiveRecordChangeEventParameter</a></span>
+				<span class="var-name">$param</span><span class="var-description">: event parameter to be passed to the event handlers</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodpopulateObject" id="populateObject"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">populateObject</span> (line <span class="line-number">526</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Populates a new record with the query result.</p>
+<p class="description"><p>This is a wrapper of <a href="../System.Data.ActiveRecord/TActiveRecord.html#methodcreateRecord">createRecord</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object record, null if data is empty.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecord.html">TActiveRecord</a></span>
+		<span class="method-name">
+			populateObject
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: name value pair of record data</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodpopulateObjects" id="populateObjects"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">populateObjects</span> (line <span class="line-number">536</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the AR objects populated by the query result</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			populateObjects
+		</span>
+					(<span class="var-type"><a href="../System.Data/TDbDataReader.html">TDbDataReader</a></span>&nbsp;<span class="var-name">$reader</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbDataReader.html">TDbDataReader</a></span>
+				<span class="var-name">$reader</span><span class="var-description">: data reader</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsave" id="save"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">save</span> (line <span class="line-number">419</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Saves the current record to the database, insert or update is automatically determined.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if record was saved successfully, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			save
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetColumnValue" id="setColumnValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setColumnValue</span> (line <span class="line-number">991</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the column value according to column name.</p>
+<p class="description"><p>This method is used internally.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setColumnValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$columnName</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$columnName</span><span class="var-description">: the column name (as defined in database schema)</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the corresponding column value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetDbConnection" id="setDbConnection"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDbConnection</span> (line <span class="line-number">336</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDbConnection
+		</span>
+					(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$connection</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$connection</span><span class="var-description">: db connection object for this record.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetInvalidFinderResult" id="setInvalidFinderResult"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setInvalidFinderResult</span> (line <span class="line-number">875</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Define the way an active record finder react if an invalid magic-finder invoked</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.5</li>
+				<li><span class="field">see:</span> TActiveRecordManager::setInvalidFinderResult</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setInvalidFinderResult
+		</span>
+					(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a>|null</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a>|null</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method__call" id="__call"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__call</span> (line <span class="line-number">824</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Dynamic find method using parts of method name as search criteria.</p>
+<p class="description"><p>Method name starting with &quot;findBy&quot; only returns 1 record.  Method name starting with &quot;findAllBy&quot; returns 0 or more records.  Method name starting with &quot;deleteBy&quot; deletes records by the trail criteria.  The condition is taken as part of the method name after &quot;findBy&quot;, &quot;findAllBy&quot;  or &quot;deleteBy&quot;.</p><p>The following are equivalent:  <pre><ol><code><pre><li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><span class="src-id">findByName</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">)</span></li>
+<li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methodfind">find</a><span class="src-sym">(</span><span class="src-str">'Name = ?'</span><span class="src-sym">, </span><span class="src-var">$name</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  <pre><ol><code><pre><li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><span class="src-id">findByUsernameAndPassword</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">,</span><span class="src-var">$pass</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">// OR may be used</span></li>
+<li>  <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><span class="src-id">findBy_Username_And_Password</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">,</span><span class="src-var">$pass</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">// _OR_ may be used</span></li>
+<li>  <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methodfind">find</a><span class="src-sym">(</span><span class="src-str">'Username = ? AND Password = ?'</span><span class="src-sym">, </span><span class="src-var">$name</span><span class="src-sym">, </span><span class="src-var">$pass</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  <pre><ol><code><pre><li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><span class="src-id">findAllByAge</span><span class="src-sym">(</span><span class="src-var">$age</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methodfindAll">findAll</a><span class="src-sym">(</span><span class="src-str">'Age = ?'</span><span class="src-sym">, </span><span class="src-var">$age</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  <pre><ol><code><pre><li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecord.html#methoddeleteAll">deleteAll</a><span class="src-sym">(</span><span class="src-str">'Name = ?'</span><span class="src-sym">, </span><span class="src-var">$name</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li> <span class="src-var">$finder</span><span class="src-sym">-&gt;</span><span class="src-id">deleteByName</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> single record if method name starts with &quot;findBy&quot;, 0 or more records  if method name starts with &quot;findAllBy&quot;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__call
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$args</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method__get" id="__get"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__get</span> (line <span class="line-number">244</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Magic method for reading properties.</p>
+<p class="description"><p>This method is overriden to provide read access to the foreign objects via  the key names declared in the RELATIONS array.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> property value.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__get
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: property name</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TComponent.html#method__get">TComponent::__get()</a></dt>
+						<dd>Returns a property value or an event handler list by property or event name.</dd>
+					</dl>
+		
+	</div>
+<a name="method__set" id="__set"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__set</span> (line <span class="line-number">262</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Magic method for writing properties.</p>
+<p class="description"><p>This method is overriden to provide write access to the foreign objects via  the key names declared in the RELATIONS array.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.2</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__set
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: property name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: property value.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../System/TComponent.html#method__set">TComponent::__set()</a></dt>
+						<dd>Sets value of a component property.</dd>
+					</dl>
+		
+	</div>
+<a name="method__sleep" id="__sleep"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__sleep</span> (line <span class="line-number">204</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Prevent __call() method creating __sleep() when serializing.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__sleep
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="method__wakeup" id="__wakeup"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__wakeup</span> (line <span class="line-number">213</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Prevent __call() method creating __wakeup() when unserializing.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__wakeup
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constBELONGS_TO" id="BELONGS_TO"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">BELONGS_TO</span>
+			 = <span class="const-default">'BELONGS_TO'</span>
+			(line <span class="line-number">151</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constHAS_MANY" id="HAS_MANY"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">HAS_MANY</span>
+			 = <span class="const-default">'HAS_MANY'</span>
+			(line <span class="line-number">153</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constHAS_ONE" id="HAS_ONE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">HAS_ONE</span>
+			 = <span class="const-default">'HAS_ONE'</span>
+			(line <span class="line-number">152</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constMANY_TO_MANY" id="MANY_TO_MANY"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">MANY_TO_MANY</span>
+			 = <span class="const-default">'MANY_TO_MANY'</span>
+			(line <span class="line-number">154</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constSTATE_DELETED" id="STATE_DELETED"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STATE_DELETED</span>
+			 = <span class="const-default">2</span>
+			(line <span class="line-number">158</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constSTATE_LOADED" id="STATE_LOADED"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STATE_LOADED</span>
+			 = <span class="const-default">1</span>
+			(line <span class="line-number">157</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constSTATE_NEW" id="STATE_NEW"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STATE_NEW</span>
+			 = <span class="const-default">0</span>
+			(line <span class="line-number">156</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:09 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

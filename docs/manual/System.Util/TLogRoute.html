@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TLogRoute</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TLogRoute</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|											<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TLogRoute class.</p>
+<p class="description"><p>TLogRoute is the base class for all log route classes.  A log route object retrieves log messages from a logger and sends it  somewhere, such as files, emails.  The messages being retrieved may be filtered first before being sent  to the destination. The filters include log level filter and log category filter.</p><p>To specify level filter, set <a href="../System.Util/TLogRoute.html#methodsetLevels">Levels</a> property,  which takes a string of comma-separated desired level names (e.g. 'Error, Debug').  To specify category filter, set <a href="../System.Util/TLogRoute.html#methodsetCategories">Categories</a> property,  which takes a string of comma-separated desired category names (e.g. 'System.Web, System.IO').</p><p>Level filter and category filter are combinational, i.e., only messages  satisfying both filter conditions will they be returned.</p></p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">since:</span> 3.0</li>
+				<li><span class="field">version:</span> $Id: TLogRouter.php 2938 2011-06-01 07:46:44Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Qiang Xue &lt;<a href="mailto:qiang.xue@gmail.com">qiang.xue@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Util_TLogRouter_php.html">/Util/TLogRouter.php</a> (line <span class="field">166</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --<a href="../System/TApplicationComponent.html">TApplicationComponent</a>
+      |
+      --TLogRoute</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+								|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Util/TFileLogRoute.html">TFileLogRoute</a></td>
+					<td>
+											TFileLogRoute class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Util/TEmailLogRoute.html">TEmailLogRoute</a></td>
+					<td>
+											TEmailLogRoute class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Util/TBrowserLogRoute.html">TBrowserLogRoute</a></td>
+					<td>
+											TBrowserLogRoute class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Util/TDbLogRoute.html">TDbLogRoute</a></td>
+					<td>
+											TDbLogRoute class
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../System.Util/TFirePhpLogRoute.html">TFirePhpLogRoute</a></td>
+					<td>
+											TFirePhpLogRoute class.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$_levelNames" title="details" class="var-name">$_levelNames</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$_levelValues" title="details" class="var-name">$_levelValues</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#collectLogs" title="details" class="method-name">collectLogs</a>
+											(<span class="var-type">TLogger</span>&nbsp;<span class="var-name">$logger</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#formatLogMessage" title="details" class="method-name">formatLogMessage</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$category</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getCategories" title="details" class="method-name">getCategories</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getLevelName" title="details" class="method-name">getLevelName</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$level</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getLevels" title="details" class="method-name">getLevels</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getLevelValue" title="details" class="method-name">getLevelValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$level</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#processLogs" title="details" class="method-name">processLogs</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$logs</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCategories" title="details" class="method-name">setCategories</a>
+											(<span class="var-type">array|string</span>&nbsp;<span class="var-name">$categories</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setLevels" title="details" class="method-name">setLevels</a>
+											(<span class="var-type">integer|string</span>&nbsp;<span class="var-name">$levels</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$_levelNames" id="$_levelNames"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$_levelNames</span>
+			 = <span class="var-default">array(<br />		TLogger::DEBUG=&gt;'Debug',<br />		TLogger::INFO=&gt;'Info',<br />		TLogger::NOTICE=&gt;'Notice',<br />		TLogger::WARNING=&gt;'Warning',<br />		TLogger::ERROR=&gt;'Error',<br />		TLogger::ALERT=&gt;'Alert',<br />		TLogger::FATAL=&gt;'Fatal'<br />	)</span>			(line <span class="line-number">171</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> lookup table for level names</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_levelValues" id="$_levelValues"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$_levelValues</span>
+			 = <span class="var-default">array(<br />		'debug'=&gt;TLogger::DEBUG,<br />		'info'=&gt;TLogger::INFO,<br />		'notice'=&gt;TLogger::NOTICE,<br />		'warning'=&gt;TLogger::WARNING,<br />		'error'=&gt;TLogger::ERROR,<br />		'alert'=&gt;TLogger::ALERT,<br />		'fatal'=&gt;TLogger::FATAL<br />	)</span>			(line <span class="line-number">183</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> lookup table for level values</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodcollectLogs" id="collectLogs"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">collectLogs</span> (line <span class="line-number">301</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieves log messages from logger to log route specific destination.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			collectLogs
+		</span>
+					(<span class="var-type">TLogger</span>&nbsp;<span class="var-name">$logger</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Util/TLogger.html">TLogger</a></span>
+				<span class="var-name">$logger</span><span class="var-description">: logger instance</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodformatLogMessage" id="formatLogMessage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">formatLogMessage</span> (line <span class="line-number">292</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats a log message given different fields.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> formatted message</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			formatLogMessage
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$category</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$message</span><span class="var-description">: message content</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$level</span><span class="var-description">: message level</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$category</span><span class="var-description">: message category</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$time</span><span class="var-description">: timestamp</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetCategories" id="getCategories"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCategories</span> (line <span class="line-number">242</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> list of categories to be looked for</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getCategories
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetLevelName" id="getLevelName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLevelName</span> (line <span class="line-number">270</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> level name</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getLevelName
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$level</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$level</span><span class="var-description">: level value</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetLevels" id="getLevels"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLevels</span> (line <span class="line-number">212</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> log level filter</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getLevels
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetLevelValue" id="getLevelValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLevelValue</span> (line <span class="line-number">279</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> level value</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getLevelValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$level</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$level</span><span class="var-description">: level name</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">205</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the route.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: configurations specified in <a href="../System.Util/TLogRouter.html">TLogRouter</a>.</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Util/TEmailLogRoute.html#methodinit">TEmailLogRoute::init()</a>
+								: Initializes the route.
+							</li>
+					<li>
+				<a href="../System.Util/TDbLogRoute.html#methodinit">TDbLogRoute::init()</a>
+								: Initializes this module.
+							</li>
+				</ul>
+	</div>
+<a name="methodprocessLogs" id="processLogs"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">processLogs</span> (line <span class="line-number">319</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Processes log messages and sends them to specific destination.</p>
+<p class="description"><p>Derived child classes must implement this method.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">abstract:</span> </li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			processLogs
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$logs</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$logs</span><span class="var-description">: list of messages.  Each array elements represents one message  with the following structure:  array(    [0] =&gt; message    [1] =&gt; level    [2] =&gt; category    [3] =&gt; timestamp);</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../System.Util/TFileLogRoute.html#methodprocessLogs">TFileLogRoute::processLogs()</a>
+								: Saves log messages in files.
+							</li>
+					<li>
+				<a href="../System.Util/TEmailLogRoute.html#methodprocessLogs">TEmailLogRoute::processLogs()</a>
+								: Sends log messages to specified email addresses.
+							</li>
+					<li>
+				<a href="../System.Util/TBrowserLogRoute.html#methodprocessLogs">TBrowserLogRoute::processLogs()</a>
+							</li>
+					<li>
+				<a href="../System.Util/TDbLogRoute.html#methodprocessLogs">TDbLogRoute::processLogs()</a>
+								: Stores log messages into database.
+							</li>
+					<li>
+				<a href="../System.Util/TFirePhpLogRoute.html#methodprocessLogs">TFirePhpLogRoute::processLogs()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodsetCategories" id="setCategories"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCategories</span> (line <span class="line-number">251</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCategories
+		</span>
+					(<span class="var-type">array|string</span>&nbsp;<span class="var-name">$categories</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array|string</span>
+				<span class="var-name">$categories</span><span class="var-description">: list of categories to be looked for. If the value is a string,  it is assumed to be comma-separated category names.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetLevels" id="setLevels"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setLevels</span> (line <span class="line-number">222</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setLevels
+		</span>
+					(<span class="var-type">integer|string</span>&nbsp;<span class="var-name">$levels</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer|string</span>
+				<span class="var-name">$levels</span><span class="var-description">: integer log level filter (in bits). If the value is  a string, it is assumed to be comma-separated level names. Valid level names  include 'Debug', 'Info', 'Notice', 'Warning', 'Error', 'Alert' and 'Fatal'.</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TApplicationComponent.html">TApplicationComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetApplication">TApplicationComponent::getApplication()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetRequest">TApplicationComponent::getRequest()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetResponse">TApplicationComponent::getResponse()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetService">TApplicationComponent::getService()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetSession">TApplicationComponent::getSession()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodgetUser">TApplicationComponent::getUser()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishAsset">TApplicationComponent::publishAsset()</a></span><br>
+													<span class="method-name"><a href="../System/TApplicationComponent.html#methodpublishFilePath">TApplicationComponent::publishFilePath()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:15:08 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

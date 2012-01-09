@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TActiveRecordManager</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TActiveRecordManager</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TActiveRecordManager provides the default DB connection,  default active record gateway, and table meta data inspector.</p>
+<p class="description"><p>The default connection can be set as follows:  <pre><ol><code><pre><li> <span class="src-id"><a href="../System.Data.ActiveRecord/TActiveRecordManager.html">TActiveRecordManager</a></span><span class="src-sym">::</span><a href="../System.Data.ActiveRecord/TActiveRecordManager.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../System.Data.ActiveRecord/TActiveRecordManager.html#methodsetDbConnection">setDbConnection</a><span class="src-sym">(</span><span class="src-var">$conn</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+</pre></code></ol></pre>  All new active record created after setting the  DbConnection will use that connection unless  the custom ActiveRecord class overrides the ActiveRecord::getDbConnection().</p><p>Set the <a href="../System.Data.ActiveRecord/TActiveRecordManager.html#methodsetCache">Cache</a> property to an ICache object to allow  the active record gateway to cache the table meta data information.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.1</li>
+				<li><span class="field">version:</span> $Id: TActiveRecordManager.php 2648 2009-05-10 10:51:52Z godzilla80@gmx.net $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizho[at]gmail[dot]com">weizho[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Data_ActiveRecord_TActiveRecordManager_php.html">/Data/ActiveRecord/TActiveRecordManager.php</a> (line <span class="field">38</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TActiveRecordManager</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordGateway.html">TActiveRecordGateway</a></span>
+										<a href="#createRecordGateway" title="details" class="method-name">createRecordGateway</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System/ICache.html">ICache</a></span>
+										<a href="#getCache" title="details" class="method-name">getCache</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+										<a href="#getDbConnection" title="details" class="method-name">getDbConnection</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordManager.html">TActiveRecordManager</a></span>
+										<a href="#getInstance" title="details" class="method-name">getInstance</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$self</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>
+										<a href="#getInvalidFinderResult" title="details" class="method-name">getInvalidFinderResult</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordGateway.html">TActiveRecordGateway</a></span>
+										<a href="#getRecordGateway" title="details" class="method-name">getRecordGateway</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCache" title="details" class="method-name">setCache</a>
+											(<span class="var-type"><a href="../System/ICache.html">ICache</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDbConnection" title="details" class="method-name">setDbConnection</a>
+											(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$conn</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setInvalidFinderResult" title="details" class="method-name">setInvalidFinderResult</a>
+											(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodcreateRecordGateway" id="createRecordGateway"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createRecordGateway</span> (line <span class="line-number">113</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> default record gateway.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordGateway.html">TActiveRecordGateway</a></span>
+		<span class="method-name">
+			createRecordGateway
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCache" id="getCache"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCache</span> (line <span class="line-number">57</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> application cache.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System/ICache.html">ICache</a></span>
+		<span class="method-name">
+			getCache
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDbConnection" id="getDbConnection"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDbConnection</span> (line <span class="line-number">81</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> default database connection</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+		<span class="method-name">
+			getDbConnection
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getInstance</span> (line <span class="line-number">89</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> static instance of record manager.</li>
+				<li><span class="field">static:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordManager.html">TActiveRecordManager</a></span>
+		<span class="method-name">
+			getInstance
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$self</span> = <span class="var-default">null</span>])
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetInvalidFinderResult" id="getInvalidFinderResult"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getInvalidFinderResult</span> (line <span class="line-number">123</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> Defaults to '<a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html#constNull">Null</a>'.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Data.ActiveRecord/TActiveRecordManager.html#methodsetInvalidFinderResult">TActiveRecordManager::setInvalidFinderResult()</a></li>
+				<li><span class="field">since:</span> 3.1.5</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>
+		<span class="method-name">
+			getInvalidFinderResult
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetRecordGateway" id="getRecordGateway"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRecordGateway</span> (line <span class="line-number">102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> record gateway.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Data.ActiveRecord/TActiveRecordGateway.html">TActiveRecordGateway</a></span>
+		<span class="method-name">
+			getRecordGateway
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetCache" id="setCache"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCache</span> (line <span class="line-number">65</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCache
+		</span>
+					(<span class="var-type"><a href="../System/ICache.html">ICache</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System/ICache.html">ICache</a></span>
+				<span class="var-name">$value</span><span class="var-description">: application cache</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetDbConnection" id="setDbConnection"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDbConnection</span> (line <span class="line-number">73</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDbConnection
+		</span>
+					(<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>&nbsp;<span class="var-name">$conn</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data/TDbConnection.html">TDbConnection</a></span>
+				<span class="var-name">$conn</span><span class="var-description">: default database connection</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetInvalidFinderResult" id="setInvalidFinderResult"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setInvalidFinderResult</span> (line <span class="line-number">134</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Define the way an active record finder react if an invalid magic-finder invoked</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../System.Data.ActiveRecord/TActiveRecordManager.html#methodgetInvalidFinderResult">TActiveRecordManager::getInvalidFinderResult()</a></li>
+				<li><span class="field">since:</span> 3.1.5</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setInvalidFinderResult
+		</span>
+					(<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Data.ActiveRecord/TActiveRecordInvalidFinderResult.html">TActiveRecordInvalidFinderResult</a></span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:12:17 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>

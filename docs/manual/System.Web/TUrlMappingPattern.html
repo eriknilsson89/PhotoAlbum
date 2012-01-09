@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class TUrlMappingPattern</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class TUrlMappingPattern</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">TUrlMappingPattern class.</p>
+<p class="description"><p>TUrlMappingPattern represents a pattern used to parse and construct URLs.  If the currently requested URL matches the pattern, it will alter  the THttpRequest parameters. If a constructUrl() call matches the pattern  parameters, the pattern will generate a valid URL. In both case, only the PATH_INFO  part of a URL is parsed/constructed using the pattern.</p><p>To specify the pattern, set the <a href="../System.Web/TUrlMappingPattern.html#methodsetPattern">Pattern</a> property.  <a href="../System.Web/TUrlMappingPattern.html#methodsetPattern">Pattern</a> takes a string expression with  parameter names enclosed between a left brace '{' and a right brace '}'.  The patterns for each parameter can be set using <a href="../System.Web/TUrlMappingPattern.html#methodgetParameters">Parameters</a>  attribute collection. For example  <pre><ol><code><pre><li> &lt;<span class="src-id">url </span>... <span class="src-id">pattern</span>=<span class="src-str">&quot;articles/{year}/{month}/{day}&quot;</span></li>
+<li>          <span class="src-id">parameters</span>.<span class="src-id">year</span>=<span class="src-str">&quot;\d{4}&quot; </span><span class="src-id">parameters</span>.<span class="src-id">month</span>=<span class="src-str">&quot;\d{2}&quot; </span><span class="src-id">parameters</span>.<span class="src-id">day</span>=<span class="src-str">&quot;\d+&quot; </span>/&gt;</li>
+</pre></code></ol></pre></p><p>In the above example, the pattern contains 3 parameters named &quot;year&quot;,  &quot;month&quot; and &quot;day&quot;. The pattern for these parameters are, respectively,  &quot;\d{4}&quot; (4 digits), &quot;\d{2}&quot; (2 digits) and &quot;\d+&quot; (1 or more digits).  Essentially, the &lt;tt&gt;Parameters&lt;/tt&gt; attribute name and values are used  as substrings in replacing the placeholders in the &lt;tt&gt;Pattern&lt;/tt&gt; string  to form a complete regular expression string.</p><p>For more complicated patterns, one may specify the pattern using a regular expression  by <a href="../System.Web/TUrlMappingPattern.html#methodsetRegularExpression">RegularExpression</a>. For example, the above pattern  is equivalent to the following regular expression-based pattern:  <pre><ol><code><pre><li> /^<span class="src-id">articles</span>\/<span class="src-sym">(</span>?<span class="src-id">P</span>&lt;<span class="src-id">year</span>&gt;\<span class="src-id">d</span><span class="src-sym">{</span><span class="src-num">4</span><span class="src-sym">}</span><span class="src-sym">)</span>\/<span class="src-sym">(</span>?<span class="src-id">P</span>&lt;<span class="src-id">month</span>&gt;\<span class="src-id">d</span><span class="src-sym">{</span><span class="src-num">2</span><span class="src-sym">}</span><span class="src-sym">)</span>\/<span class="src-sym">(</span>?<span class="src-id">P</span>&lt;<span class="src-id">day</span>&gt;\<span class="src-id">d</span>+<span class="src-sym">)</span>$/<span class="src-id">u</span></li>
+</pre></code></ol></pre>  The above regular expression used the &quot;named group&quot; feature available in PHP.  Notice that you need to escape the slash in regular expressions.</p><p>Thus, only an url that matches the pattern will be valid. For example,  a URL &lt;tt&gt;http://example.com/index.php/articles/2006/07/21&lt;/tt&gt; will match the above pattern,  while &lt;tt&gt;http://example.com/index.php/articles/2006/07/hello&lt;/tt&gt; will not  since the &quot;day&quot; parameter pattern is not satisfied.</p><p>The parameter values are available through the &lt;tt&gt;THttpRequest&lt;/tt&gt; instance (e.g.  &lt;tt&gt;$this-&gt;Request['year']&lt;/tt&gt;).</p><p>The <a href="../System.Web/TUrlMappingPattern.html#methodsetServiceParameter">ServiceParameter</a> and <a href="../System.Web/TUrlMappingPattern.html#methodsetServiceID">ServiceID</a>  (the default ID is 'page') set the service parameter and service id respectively.</p><p>Since 3.1.4 you can also use simplyfied wildcard patterns to match multiple  ServiceParameters with a single rule. The pattern must contain the placeholder  {*} for the ServiceParameter. For example</p><p>&lt;url ServiceParameter=&quot;adminpages.*&quot; pattern=&quot;admin/{*}&quot; /&gt;</p><p>This rule will match an URL like &lt;tt&gt;http://example.com/index.php/admin/edituser&lt;/tt&gt;  and resolve it to the page Application.pages.admin.edituser. The wildcard matching  is non-recursive. That means you have to add a rule for every subdirectory you  want to access pages in:</p><p>&lt;url ServiceParameter=&quot;adminpages.users.*&quot; pattern=&quot;useradmin/{*}&quot; /&gt;</p><p>It is still possible to define an explicit rule for a page in the wildcard path.  This rule has to preceed the wildcard rule.</p><p>You can also use parameters with wildcard patterns. The parameters are then  available with every matching page:</p><p>&lt;url ServiceParameter=&quot;adminpages.*&quot; pattern=&quot;admin/{*}/{id}&quot; parameters.id=&quot;\d+&quot; /&gt;</p><p>To enable automatic parameter encoding in a path format fro wildcard patterns you can set  {@setUrlFormat UrlFormat} to 'Path':</p><p>&lt;url ServiceParameter=&quot;adminpages.*&quot; pattern=&quot;admin/{*}&quot; UrlFormat=&quot;Path&quot; /&gt;</p><p>This will create and parse URLs of the form  &lt;tt&gt;.../index.php/admin/listuser/param1/value1/param2/value2&lt;/tt&gt;.</p><p>Use {@setUrlParamSeparator} to define another separator character between parameter  name and value. Parameter/value pairs are always separated by a '/'.</p><p>&lt;url ServiceParameter=&quot;adminpages.*&quot; pattern=&quot;admin/{*}&quot; UrlFormat=&quot;Path&quot; UrlParamSeparator=&quot;-&quot; /&gt;</p><p>&lt;tt&gt;.../index.php/admin/listuser/param1-value1/param2-value2&lt;/tt&gt;.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 3.0.5</li>
+				<li><span class="field">version:</span> $Id: TUrlMapping.php 2918 2011-05-21 17:10:29Z ctrlaltca@gmail.com $</li>
+				<li><span class="field">author:</span> Wei Zhuo &lt;<a href="mailto:weizhuo[at]gmail[dot]com">weizhuo[at]gmail[dot]com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Web_TUrlMapping_php.html">/Web/TUrlMapping.php</a> (line <span class="field">424</span>)
+		</p>
+		
+				
+		<pre><a href="../System/TComponent.html">TComponent</a>
+   |
+   --TUrlMappingPattern</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">TUrlMappingPattern</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">TUrlManager</span>&nbsp;<span class="var-name">$manager</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#constructUrl" title="details" class="method-name">constructUrl</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$getItems</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getCaseSensitive" title="details" class="method-name">getCaseSensitive</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getEnableCustomUrl" title="details" class="method-name">getEnableCustomUrl</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIsWildCardPattern" title="details" class="method-name">getIsWildCardPattern</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/TUrlManager.html">TUrlManager</a></span>
+										<a href="#getManager" title="details" class="method-name">getManager</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getParameterizedPattern" title="details" class="method-name">getParameterizedPattern</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Collections/TAttributeCollection.html">TAttributeCollection</a></span>
+										<a href="#getParameters" title="details" class="method-name">getParameters</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPattern" title="details" class="method-name">getPattern</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getPatternMatches" title="details" class="method-name">getPatternMatches</a>
+											(<span class="var-type"><a href="../System.Web/THttpRequest.html">THttpRequest</a></span>&nbsp;<span class="var-name">$request</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getRegularExpression" title="details" class="method-name">getRegularExpression</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getServiceID" title="details" class="method-name">getServiceID</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getServiceParameter" title="details" class="method-name">getServiceParameter</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result"><a href="../System.Web/THttpRequestUrlFormat.html">THttpRequestUrlFormat</a></span>
+										<a href="#getUrlFormat" title="details" class="method-name">getUrlFormat</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUrlParamSeparator" title="details" class="method-name">getUrlParamSeparator</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCaseSensitive" title="details" class="method-name">setCaseSensitive</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setEnableCustomUrl" title="details" class="method-name">setEnableCustomUrl</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setParameters" title="details" class="method-name">setParameters</a>
+											(<span class="var-type"><a href="../System.Collections/TAttributeCollection.html">TAttributeCollection</a></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPattern" title="details" class="method-name">setPattern</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setRegularExpression" title="details" class="method-name">setRegularExpression</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setServiceID" title="details" class="method-name">setServiceID</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setServiceParameter" title="details" class="method-name">setServiceParameter</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUrlFormat" title="details" class="method-name">setUrlFormat</a>
+											(<span class="var-type"><a href="../System.Web/THttpRequestUrlFormat.html">THttpRequestUrlFormat</a></span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">since</span>&nbsp;<span class="var-name">1</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUrlParamSeparator" title="details" class="method-name">setUrlParamSeparator</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#supportCustomUrl" title="details" class="method-name">supportCustomUrl</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$getItems</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">463</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TUrlMappingPattern</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">TUrlManager</span>&nbsp;<span class="var-name">$manager</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/TUrlManager.html">TUrlManager</a></span>
+				<span class="var-name">$manager</span><span class="var-description">: the URL manager instance</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodconstructUrl" id="constructUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">constructUrl</span> (line <span class="line-number">755</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructs a URL using this pattern.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the constructed URL</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			constructUrl
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$getItems</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeAmpersand</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$encodeGetItems</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$getItems</span><span class="var-description">: list of GET variables</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeAmpersand</span><span class="var-description">: whether the ampersand should be encoded in the constructed URL</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encodeGetItems</span><span class="var-description">: whether the GET variables should be encoded in the constructed URL</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetCaseSensitive" id="getCaseSensitive"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCaseSensitive</span> (line <span class="line-number">542</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the <a href="../System.Web/TUrlMappingPattern.html#methodgetPattern">Pattern</a> should be treated as case sensititve. Defaults to true.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getCaseSensitive
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetEnableCustomUrl" id="getEnableCustomUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEnableCustomUrl</span> (line <span class="line-number">664</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a value indicating whether to use this pattern to construct URL.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether to enable custom constructUrl. Defaults to true.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getEnableCustomUrl
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetIsWildCardPattern" id="getIsWildCardPattern"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIsWildCardPattern</span> (line <span class="line-number">682</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether this pattern is a wildcard pattern</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.4</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsWildCardPattern
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetManager" id="getManager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getManager</span> (line <span class="line-number">473</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the URL manager instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/TUrlManager.html">TUrlManager</a></span>
+		<span class="method-name">
+			getManager
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetParameterizedPattern" id="getParameterizedPattern"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getParameterizedPattern</span> (line <span class="line-number">496</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Substitute the parameter key value pairs as named groupings  in the regular expression matching pattern.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> regular expression pattern with parameter subsitution</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getParameterizedPattern
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetParameters" id="getParameters"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getParameters</span> (line <span class="line-number">606</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> parameter key value pairs.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Collections/TAttributeCollection.html">TAttributeCollection</a></span>
+		<span class="method-name">
+			getParameters
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPattern" id="getPattern"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPattern</span> (line <span class="line-number">590</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> url pattern to match. Defaults to ''.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPattern
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetPatternMatches" id="getPatternMatches"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPatternMatches</span> (line <span class="line-number">625</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Uses URL pattern (or full regular expression if available) to  match the given url path.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> matched parameters, empty if no matches.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getPatternMatches
+		</span>
+					(<span class="var-type"><a href="../System.Web/THttpRequest.html">THttpRequest</a></span>&nbsp;<span class="var-name">$request</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpRequest.html">THttpRequest</a></span>
+				<span class="var-name">$request</span><span class="var-description">: the request module</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetRegularExpression" id="getRegularExpression"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRegularExpression</span> (line <span class="line-number">526</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> full regular expression mapping pattern</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getRegularExpression
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetServiceID" id="getServiceID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServiceID</span> (line <span class="line-number">582</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> service id.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getServiceID
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetServiceParameter" id="getServiceParameter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServiceParameter</span> (line <span class="line-number">566</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> service parameter, such as page class name.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getServiceParameter
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUrlFormat" id="getUrlFormat"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrlFormat</span> (line <span class="line-number">689</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the format of URLs. Defaults to THttpRequestUrlFormat::Get.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../System.Web/THttpRequestUrlFormat.html">THttpRequestUrlFormat</a></span>
+		<span class="method-name">
+			getUrlFormat
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetUrlParamSeparator" id="getUrlParamSeparator"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrlParamSeparator</span> (line <span class="line-number">713</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> separator used to separate GET variable name and value when URL format is Path. Defaults to slash '/'.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUrlParamSeparator
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">483</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the pattern.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TConfigurationException if service parameter is not specified</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>&nbsp;<span class="var-name">$config</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Xml/TXmlElement.html">TXmlElement</a></span>
+				<span class="var-name">$config</span><span class="var-description">: configuration for this module.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetCaseSensitive" id="setCaseSensitive"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCaseSensitive</span> (line <span class="line-number">550</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCaseSensitive
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether the <a href="../System.Web/TUrlMappingPattern.html#methodgetPattern">Pattern</a> should be treated as case sensititve.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetEnableCustomUrl" id="setEnableCustomUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setEnableCustomUrl</span> (line <span class="line-number">673</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a value indicating whether to enable custom constructUrl using this pattern</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEnableCustomUrl
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether to enable custom constructUrl.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetParameters" id="setParameters"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setParameters</span> (line <span class="line-number">614</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setParameters
+		</span>
+					(<span class="var-type"><a href="../System.Collections/TAttributeCollection.html">TAttributeCollection</a></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../System.Collections/TAttributeCollection.html">TAttributeCollection</a></span>
+				<span class="var-name">$value</span><span class="var-description">: new parameter key value pairs.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetPattern" id="setPattern"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPattern</span> (line <span class="line-number">598</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPattern
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: url pattern to match.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetRegularExpression" id="setRegularExpression"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setRegularExpression</span> (line <span class="line-number">534</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setRegularExpression
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: full regular expression mapping pattern.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetServiceID" id="setServiceID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setServiceID</span> (line <span class="line-number">574</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setServiceID
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: service id to handle.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetServiceParameter" id="setServiceParameter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setServiceParameter</span> (line <span class="line-number">558</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setServiceParameter
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: service parameter, such as page class name.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUrlFormat" id="setUrlFormat"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUrlFormat</span> (line <span class="line-number">705</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the format of URLs constructed and interpreted by this pattern.</p>
+<p class="description"><p>A Get URL format is like index.php?name1=value1&amp;name2=value2  while a Path URL format is like index.php/name1/value1/name2/value.  The separating character between name and value can be configured with  <a href="../System.Web/TUrlMappingPattern.html#methodsetUrlParamSeparator">setUrlParamSeparator</a> and defaults to '/'.  Changing the UrlFormat will affect <a href="../System.Web/TUrlMappingPattern.html#methodconstructUrl">constructUrl</a> and how GET variables  are parsed.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUrlFormat
+		</span>
+					(<span class="var-type"><a href="../System.Web/THttpRequestUrlFormat.html">THttpRequestUrlFormat</a></span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">since</span>&nbsp;<span class="var-name">1</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">since</span>
+				<span class="var-name">1</span><span class="var-description">: 3.1.4</span>			</li>
+					<li>
+				<span class="var-type"><a href="../System.Web/THttpRequestUrlFormat.html">THttpRequestUrlFormat</a></span>
+				<span class="var-name">$value</span><span class="var-description">: the format of URLs.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetUrlParamSeparator" id="setUrlParamSeparator"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUrlParamSeparator</span> (line <span class="line-number">722</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">throws:</span> TInvalidDataValueException if the separator is not a single character</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUrlParamSeparator
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: separator used to separate GET variable name and value when URL format is Path.</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsupportCustomUrl" id="supportCustomUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">supportCustomUrl</span> (line <span class="line-number">735</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether this pattern IS the one for constructing the URL with the specified GET items.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">since:</span> 3.1.1</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			supportCustomUrl
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$getItems</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$getItems</span><span class="var-description">: list of GET items to be put in the constructed URL</span>			</li>
+				</ul>
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../System/TComponent.html">TComponent</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../System/TComponent.html#methodaddParsedObject">TComponent::addParsedObject()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodattachEventHandler">TComponent::attachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanGetProperty">TComponent::canGetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcanSetProperty">TComponent::canSetProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodcreatedOnTemplate">TComponent::createdOnTemplate()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methoddetachEventHandler">TComponent::detachEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateExpression">TComponent::evaluateExpression()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodevaluateStatements">TComponent::evaluateStatements()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetEventHandlers">TComponent::getEventHandlers()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodgetSubProperty">TComponent::getSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEvent">TComponent::hasEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasEventHandler">TComponent::hasEventHandler()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodhasProperty">TComponent::hasProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodraiseEvent">TComponent::raiseEvent()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#methodsetSubProperty">TComponent::setSubProperty()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__get">TComponent::__get()</a></span><br>
+													<span class="method-name"><a href="../System/TComponent.html#method__set">TComponent::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 24 Jul 2011 21:16:52 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</html>
