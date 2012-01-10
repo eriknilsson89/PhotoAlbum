@@ -21,8 +21,15 @@
 
 <div id="nav">
 	<ul>
+<com:TConditional Condition="$this->User->IsGuest">
+	<prop:TrueTemplate>
+		<li><a href="index.php">Home</a></li>
+	</prop:TrueTemplate>
+	<prop:FalseTemplate>
 		<li><a href="index.php">Home</a></li>
 		<li><a href="?page=createAlbum">Create Album</a></li>
+	</prop:FalseTemplate>
+</com:TConditional>
 	</ul>
 </div>
 <div id="container">

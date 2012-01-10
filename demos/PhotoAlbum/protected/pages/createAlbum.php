@@ -2,6 +2,13 @@
  
 class CreateAlbum extends TPage
 {
+	public function onInit($param)
+	{
+		if($this->User->IsGuest)
+		{
+			$this->Response->redirect('?page=home');
+		}
+	}
     public function createAlbumClicked($sender, $param)
 	{
 		if($this->IsValid)
